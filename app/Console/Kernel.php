@@ -31,10 +31,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('cron:get_event_data')->everyMinute();
+        $schedule->command('cron:get_event_data')->everyFiveMinutes();
         $schedule->command('cron:get_bullion_data')->everyMinute();
         $schedule->command('cron:get_forex_data')->everyMinute();
-        $schedule->command('cron:get_news_data')->everyMinute();
+        $schedule->command('cron:get_news_data')->everyFiveMinutes();
         $schedule->command('cron:get_strong_weak_data')->everyMinute();
     }
 }
