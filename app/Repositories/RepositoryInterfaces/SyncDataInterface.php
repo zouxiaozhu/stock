@@ -13,5 +13,5 @@ namespace App\Repositories\RepositoryInterfaces;
 
 interface SyncDataInterface
 {
-    public function demo($data);
+    public function demos($data);
 }

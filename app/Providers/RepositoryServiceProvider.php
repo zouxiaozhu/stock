@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+
+use App\Repositories\ImplementResp\SyncData;
+use App\Repositories\ImplementResp\TestImp;
+use App\Repositories\RepositoryInterfaces\SyncDataInterface;
+use App\Repositories\RepositoryInterfaces\TestInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -23,7 +28,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-        $this->app->bind('App\Repositories\RepositoryInterfaces\SyncDataInterface', 'App\Repositories\Implements\SyncData');
+        app()->bind(TestInterface::class,TestImp::class);
+        app()->bind(SyncDataInterface::class,SyncData::class);
     }
 }
