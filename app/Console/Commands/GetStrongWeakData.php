@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use DB;
 
 class GetStrongWeakData extends Command
 {
@@ -18,7 +19,7 @@ class GetStrongWeakData extends Command
      *
      * @var string
      */
-    protected $description = 'Get strong_weak data everyMinute';
+    protected $description = 'Get strong_weak data everyFiveMinutes';
 
     /**
      * Create a new command instance.
@@ -39,6 +40,23 @@ class GetStrongWeakData extends Command
     {
         $url = config('xmlurl.strong-weak');
         $remote_data = xml2arr($url);
-//        var_export($remote_data);die;
+        $relative_data = $remote_data['relative'];
+        if (empty($relative_data)) return;
+
+        $update_data = [
+            $relative_data['id'],
+            strtotime($relative_data['date']),
+            $relative_data['xau'],
+            $relative_data['xag'],
+            $relative_data['eur'],
+            $relative_data['jpy'],
+            $relative_data['gbp'],
+            $relative_data['chf'],
+            $relative_data['aud'],
+            $relative_data['nzd'],
+            $relative_data['cad'],
+        ];
+        $res = DB::insert('replace into stock_relative values(?,?,?,?,?,?,?,?,?,?,?)', $update_data);
+        return;
     }
 }

@@ -24,5 +24,6 @@ return [
     'news'          =>     $host . 'news/news.xml',                 //财经新闻
     'strong-weak'   =>     $host . 'strong-weak/strong-weak.xml',   //强弱指数
     'ref-bullion'   =>     $host . 'ref/ref-bullion.xml',           //贵金属价位参考
-    'ref-forex'     =>     $host . 'ref-forex.xml',                 //外汇价位参考
+    'ref-forex'     =>     $host . 'ref/ref-forex.xml',             //外汇价位参考
+    'notice'        =>     $host . 'news/notice.xml'                //英皇公告
 ];
