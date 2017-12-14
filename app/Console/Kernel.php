@@ -19,7 +19,9 @@ class Kernel extends ConsoleKernel
         Commands\GetBullionData::class,         //贵金属价位参考书
         Commands\GetForexData::class,           //外汇价位参考数据
         Commands\GetStrongWeakData::class,      //强弱指数
-        Commands\GetNoticeData::class           //英皇公告
+        Commands\GetNoticeData::class,          //英皇公告
+        Commands\GetEconData::class,            //经济数据
+        Commands\GetAnalyseEnData::class,       //每日分析(英文版)
     ];
 
     /**
@@ -38,5 +40,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('cron:get_news_data')->everyFiveMinutes();
         $schedule->command('cron:get_strong_weak_data')->everyFiveMinutes();
         $schedule->command('cron:get_notice_data')->everyFiveMinutes();
+        $schedule->command('cron:get_econ_data')->everyFiveMinutes();
+        $schedule->command('cron:get_analyse_en_data')->everyFiveMinutes();
     }
 }

@@ -24,4 +24,4 @@
 //    });
 //});
 
-Route::get('/demo', 'Api\SyncData\SyncData@demo');
+Route::get('/event_list', 'Api\SyncData\SyncData@eventData');

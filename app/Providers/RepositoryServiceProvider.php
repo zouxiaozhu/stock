@@ -28,7 +28,6 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        app()->bind(TestInterface::class,TestImp::class);
         app()->bind(SyncDataInterface::class,SyncData::class);
     }
 }

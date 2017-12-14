@@ -2,20 +2,21 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Response;
 
-class ResponseServiceProvider extends ServiceProvider
+class ResponseMacroServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      *
-     * @internal param ResponseFactory $factory
+     * @return void
      */
     public function boot()
     {
-        Response::macro('success', function ($data,$status=200) {
-            return Response::json(['error_code' => 0, 'data' => $data,'status'=>200]);
+        //
+        Response::macro('success', function ($data) {
+            return Response::json(['error_code' => 0, 'data' => $data]);
         });
 
         Response::macro('error', function ($error_code, $error_message = null, $status = 200, $sprintf = null) {
@@ -29,6 +30,8 @@ class ResponseServiceProvider extends ServiceProvider
 
     /**
      * Register the application services.
+     *
+     * @return void
      */
     public function register()
     {
