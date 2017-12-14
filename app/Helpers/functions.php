@@ -25,3 +25,10 @@ if (!function_exists('xml2arr')) {
         return $data;
     }
 }
+
+if (!function_exists('obj2Arr')) {
+    function obj2Arr($obj) {
+        if (!isset($obj) || empty($obj)) return [];
+        return json_decode(json_encode($obj), true);
+    }
+}

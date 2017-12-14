@@ -64,9 +64,10 @@ class GetNoticeData extends Command
                 serialize($v['image_link']),
                 serialize($v['headline']),
                 time(),
-                2
+                2,
+                ''
             ];
-            $res = DB::insert('replace into stock_news values(?,?,?,?,?,?,?)',$notice_update_data);
+            $res = DB::insert('replace into stock_news values(?,?,?,?,?,?,?,?)',$notice_update_data);
             if (!$res) continue;
             //替换更新content表
             $content_update_data = [$v['news_id'], 3, $v['content']];

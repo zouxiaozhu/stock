@@ -54,7 +54,16 @@ class GetNewsData extends Command
         });
         //没有要更新的数据则return
         if (empty($news_data)) return;
+
         foreach ($news_data as $k => $v) {
+            //不要问我为什么有这个反人类的判断,数据源本身就反人类
+            if (is_string($v['headline']) && !empty($v['headline'])) {
+                $title = $v['headline'];
+            } else {
+                $length = mb_strlen(strip_tags($v['content']));
+                $length = ($length > 15) ? 15 : $length;
+                $title = mb_substr($v['content'], 0, $length - 1);
+            }
             $news_update_data = [
                 $v['news_id'],
                 strtotime($v['publish_date_time']),
@@ -62,9 +71,10 @@ class GetNewsData extends Command
                 serialize($v['image_link']),
                 serialize($v['headline']),
                 time(),
-                1
+                1,
+                $title
             ];
-            $res = DB::insert('replace into stock_news values(?,?,?,?,?,?,?)',$news_update_data);
+            $res = DB::insert('replace into stock_news values(?,?,?,?,?,?,?,?)',$news_update_data);
             if (!$res) continue;
             //替换更新content表
             $content_update_data = [$v['news_id'], 2, $v['content']];
