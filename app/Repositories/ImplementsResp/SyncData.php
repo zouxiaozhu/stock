@@ -6,7 +6,7 @@
  * Date: 2017/12/13
  * Time: 下午7:44
  */
-namespace App\Repositories\ImplementResp;
+namespace App\Repositories\ImplementsResp;
 
 use DB;
 use App\Repositories\RepositoryInterfaces\SyncDataInterface;

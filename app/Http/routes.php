@@ -44,3 +44,16 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('econ_list', 'SyncData@econList');                               //经济数据列表
     });
 });
+
+
+/**
+ * 后台简单功能curd,后期路由加上登录验证权限
+ */
+Route::group(['namespace' => 'Backend'], function(){
+    Route::group(['prefix' => 'backend'], function() {
+        Route::post('about_our/insert', 'AboutOur@insert');                         //关于我们
+        Route::put('about_our/update/{id}', 'AboutOur@update');                          //关于我们
+        Route::delete('about_our/delete/{id}', 'AboutOur@delete');                       //关于我们
+        Route::get('about_our/show', 'AboutOur@show');
+    });
+});

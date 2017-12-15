@@ -3,11 +3,12 @@
 namespace App\Providers;
 
 
-use App\Repositories\ImplementResp\SyncData;
-use App\Repositories\ImplementResp\TestImp;
+use App\Repositories\ImplementsResp\SyncData;
 use App\Repositories\RepositoryInterfaces\SyncDataInterface;
-use App\Repositories\RepositoryInterfaces\TestInterface;
+use App\Repositories\ImplementsResp\AboutOur;
+use App\Repositories\RepositoryInterfaces\AboutOurInterface;
 use Illuminate\Support\ServiceProvider;
+
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -29,5 +30,6 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         app()->bind(SyncDataInterface::class,SyncData::class);
+        app()->bind(AboutOurInterface::class,AboutOur::class);
     }
 }

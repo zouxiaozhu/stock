@@ -4,7 +4,8 @@ namespace App\Http\Models\Backend;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Users extends Model{
+class Users extends Model
+{
     protected $table = 'users';
 
     public function role()
@@ -15,14 +16,15 @@ class Users extends Model{
     public function hasRole($role)
     {
         if (is_string($role)) {
-            return $this->role->contains('prms',$role);
+            return $this->role->contains('prms', $role);
         }
 
         return $role->intersect($this->role)->count();
     }
 
-    public function scopeIsAdmin(){
-        return $user_id =auth()->user()->id ==1 ? 1 : 0 ;
+    public function scopeIsAdmin()
+    {
+        return $user_id = auth()->user()->id == 1 ? 1 : 0;
     }
 
     public function getNameAttribute($value)
