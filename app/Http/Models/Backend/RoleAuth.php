@@ -5,5 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 class RoleAuth extends Model{
 
     protected $table = 'role_auth';
+    public $timestamps = true;
 
 }

@@ -24,17 +24,20 @@ class CreateAdminRoleTable extends Migration
             $table->increments('id')->comment('主键');
             $table->char('name', 10)->commemt('名字');
             $table->string('prm')->comment('标识');
+            $table->timestamps();
         });
 
         Schema::create('role_auth', function (Blueprint $table) {
             $table->increments('id')->comment('主键');
             $table->integer('role_id')->commemt('名字');
             $table->integer('auth_id')->comment('');
+            $table->timestamps();
         });
 
         Schema::create('user_role', function (Blueprint $table) {
             $table->integer('user_id');
             $table->integer('role_id');
+            $table->timestamps();
 //            $table->primary(['role_id', 'user_id']);
         });
     }

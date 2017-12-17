@@ -11,18 +11,18 @@
 |
 */
 
-//
-//
-//Route::group(['middleware' => 'api.auth'], function () {
-//    Route::get('/', function ()    {
-//        // 使用 Auth 中间件
-//        echo 1111;
-//    });
-//
-//    Route::get('user/profile', function () {
-//        // 使用 Auth 中间件
-//    });
-//});
+
+
+Route::group(['middleware' => 'api.auth'], function () {
+    Route::get('/', function ()    {
+        // 使用 Auth 中间件
+        echo 1111;
+    });
+
+    Route::get('user/profile', function () {
+        // 使用 Auth 中间件
+    });
+});
 
 Route::get('/event_list', 'Api\SyncData\SyncData@eventData');
 
@@ -42,8 +42,6 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('ref_bullion', 'SyncData@refBullion');                           //贵金属价位参考表(阻力支持)
         Route::get('ref_forex', 'SyncData@refForex');                               //外汇价位参考表(阻力支持)
         Route::get('econ_list', 'SyncData@econList');                               //经济数据列表
-        Route::get('analy_list', 'SyncData@analyList');                             //每日分析最近7天标题
-        Route::get('analy_detail/{id}', 'SyncData@analyDetail');                    //每日分析详情
     });
 });
 
@@ -59,3 +57,14 @@ Route::group(['namespace' => 'Backend'], function(){
         Route::get('about_our/show', 'AboutOur@show');
     });
 });
+
+
+Route::post('api/login', 'ApiAuth\AuthTokenController@login');
+Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
+
+Route::post('admin/login', 'Backend\Admin@login');
+Route::get('admin/update-role', 'Backend\Admin@updateRole');
+Route::get('admin/lock-user', 'Backend\Admin@lockUser');
+
+
+
