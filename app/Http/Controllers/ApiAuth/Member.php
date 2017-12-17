@@ -14,4 +14,7 @@ class Member extends Controller{
     {
         $this->request = $request;
     }
+
+
+
 }
