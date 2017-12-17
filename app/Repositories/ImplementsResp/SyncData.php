@@ -206,4 +206,44 @@ class SyncData implements SyncDataInterface
         $data['data'] = $econ_data;
         return response()->success($data);
     }
+
+    /**
+     * 每日分析标题列表
+     * @param $data
+     * @return mixed
+     */
+    public function analyList($data)
+    {
+        $res = DB::table('analy')
+            ->select('id', 'title', 'date')
+            ->where('type', $data['type'])
+            ->where('lang', $data['lang'])
+            ->orderBy('date', 'desc')
+            ->take(7)
+            ->get();
+        $result = obj2Arr($res);
+        if (!empty($result)) {
+            foreach ($result as $k => &$v) {
+                $v['title'] = unserialize($v['title']);
+            }
+        }
+        return response()->success($result);
+    }
+
+    /**
+     * 每日分析详情
+     * @param $data
+     * @return mixed
+     */
+    public function analyDetail($data)
+    {
+        $res = DB::table('analy')
+            ->select('title', 'date', 'content')
+            ->where('id', $data['id'])
+            ->where('type', $data['type'])
+            ->where('lang', $data['lang'])
+            ->take(1)
+            ->get();
+        return response()->success($res);
+    }
 }

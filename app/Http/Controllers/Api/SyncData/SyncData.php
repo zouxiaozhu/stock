@@ -139,4 +139,48 @@ class SyncData extends Controller
     }
 
 
+    /**
+     * 每日分析聊天列表
+     * @param Request $request
+     * @return mixed
+     */
+    public function analyList(Request $request)
+    {
+//     1.倫敦黃金,2.倫敦白銀,3.歐元,4.日元,5.英鎊6.端郎,7.澳元,
+//     8.紐元,9.加元,10.港股分析,11.昨日市场总结,12.市场焦距
+        $type = $request->has('type') ? intval($request->get('type')) : 1;
+        //1=>中文,2=>英文
+        $lang = $request->has('lang') ? intval($request->get('lang')) : 1;
+        $data = [
+            'type'  => $type,
+            'lang'  => $lang,
+        ];
+        $result = $this->syncData->analyList($data);
+        return $result;
+    }
+
+
+    /**
+     * 每日分析详情
+     * @param Request $request
+     * @param $id
+     * @return mixed
+     */
+    public function analyDetail(Request $request, $id)
+    {
+//     1.倫敦黃金,2.倫敦白銀,3.歐元,4.日元,5.英鎊6.端郎,7.澳元,
+//     8.紐元,9.加元,10.港股分析,11.昨日市场总结,12.市场焦距
+        $type = $request->has('type') ? intval($request->get('type')) : 1;
+        //1=>中文,2=>英文
+        $lang = $request->has('lang') ? intval($request->get('lang')) : 1;
+        $data = [
+            'type'  => $type,
+            'lang'  => $lang,
+            'id'    => $id,
+        ];
+        $result = $this->syncData->analyDetail($data);
+        return $result;
+    }
+
+
 }

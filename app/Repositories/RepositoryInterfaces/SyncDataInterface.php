@@ -81,4 +81,19 @@ interface SyncDataInterface
      * @return mixed
      */
     public function econList($data);
+
+    /**
+     * 每日分析标题列表
+     * @param $data
+     * @return mixed
+     */
+    public function analyList($data);
+
+
+    /**
+     * 每日分析详情
+     * @param $data
+     * @return mixed
+     */
+    public function analyDetail($data);
 }

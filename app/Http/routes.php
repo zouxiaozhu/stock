@@ -42,6 +42,8 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('ref_bullion', 'SyncData@refBullion');                           //贵金属价位参考表(阻力支持)
         Route::get('ref_forex', 'SyncData@refForex');                               //外汇价位参考表(阻力支持)
         Route::get('econ_list', 'SyncData@econList');                               //经济数据列表
+        Route::get('analy_list', 'SyncData@analyList');                             //每日分析最近7天标题
+        Route::get('analy_detail/{id}', 'SyncData@analyDetail');                    //每日分析详情
     });
 });
 

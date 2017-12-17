@@ -67,7 +67,9 @@ class AboutOur extends Controller
         if ($request->has('introduce')) {
             $data['introduce'] = trim($request->get('introduce'));
         }
-
+        if (!$data['corporate_name'] && !$data['introduce']) {
+            return response()->error(1314, 'No Info');
+        }
         $result = $this->about->update($data);
         return $result;
     }
