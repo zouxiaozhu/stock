@@ -64,6 +64,8 @@ Route::post('api/login', 'ApiAuth\AuthTokenController@login');
 Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
 
 Route::post('admin/login', 'Backend\Admin@login');
+Route::get('admin/login', 'Backend\Admin@login');
+Route::get('admin/home','Backend\Admin@home');
 Route::get('admin/update-role', 'Backend\Admin@updateRole');
 Route::get('admin/lock-user', 'Backend\Admin@lockUser');
 

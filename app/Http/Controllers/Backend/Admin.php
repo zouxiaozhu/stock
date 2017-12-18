@@ -24,6 +24,9 @@ class Admin extends Controller
 
     public function login()
     {
+        if($this->request->method() == 'GET'){
+            return view('admin.auth.login');
+        }
 
         $fill_able = [
             'name' => 'required|max:10|min:2',
@@ -39,17 +42,17 @@ class Admin extends Controller
         $validator = Validator::make($this->request->all(), $fill_able, $message);
 
         if ($validator->fails()) {
-            return $validator->errors()->first();
+            return Response::error(1015,);
         }
 
         $data = $this->request->all();
         if (!Users::where('name', $data['name'])->count()) {
-            return Response::error(200, 'Locked OR Must Reset');
+            return Response::error(1011, 'Locked OR Must Reset');
         }
         $login = OAuth::attempt(['name' => trim($data['name']), 'password' => $data['password']], $remember);
 
         if (!$login) {
-            return Response::error(1010, 'Login Failed,Please Try Again');
+            return Response::error(1012, 'Login Failed,Please Try Again');
         }
 
         $user_id = auth()->user()->id;
@@ -127,6 +130,11 @@ class Admin extends Controller
             return Response::error('2302','修改锁定状态失败');
         }
         return Response::success('修改锁定状态成功');
+    }
+
+    public function home()
+    {
+        var_export(auth()->user()->id);die;
     }
 
 }
