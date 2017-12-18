@@ -96,4 +96,11 @@ interface SyncDataInterface
      * @return mixed
      */
     public function analyDetail($data);
+
+    /**
+     * 开户登记
+     * @param $data
+     * @return mixed
+     */
+    public function accountRegist($data);
 }

@@ -246,4 +246,39 @@ class SyncData implements SyncDataInterface
             ->get();
         return response()->success($res);
     }
+
+    /**
+     * 开户登记
+     * @param $data
+     * @return mixed
+     */
+    public function accountRegist($data)
+    {
+        $verify_params = [
+            'email' =>  $data['email'],
+            'phone' =>  $data['phone'],
+        ];
+        $verify_res = $this->_verifyExist($verify_params);
+        if (!$verify_res) {
+            return response()->error(9527, 'Account Exist');
+        }
+        $res = DB::table('account_regist')->insert($data);
+        return response()->success('success');
+    }
+
+    /**
+     * 验证注册账户是否已经存在
+     * @param $params
+     * @return bool
+     */
+    private function _verifyExist($params)
+    {
+        $res = DB::table('account_regist')
+            ->select('id')
+            ->where('phone', $params['phone'])
+            ->orWhere('email', $params['email'])
+            ->take(1)
+            ->get();
+        return $res ? false : true;
+    }
 }
