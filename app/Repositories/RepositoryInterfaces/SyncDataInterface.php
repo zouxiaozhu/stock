@@ -103,4 +103,11 @@ interface SyncDataInterface
      * @return mixed
      */
     public function accountRegist($data);
+
+    /**
+     * 文件上传
+     * @param $data
+     * @return mixed
+     */
+    public function fileUpload($data);
 }

@@ -281,4 +281,11 @@ class SyncData implements SyncDataInterface
             ->get();
         return $res ? false : true;
     }
+
+    public function fileUpload($data)
+    {
+//        var_export($data);die;
+        $res = DB::table('file_upload')->insert($data);
+        return response()->success($res);
+    }
 }

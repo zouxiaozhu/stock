@@ -37,11 +37,11 @@ class PriceNotice extends Command
      */
     public function handle()
     {
-        echo microtime(true);die;
         $url = 'http://www3.mw801.com/gen_quote/flat.txt';
         $remote_data = file_get_contents($url);
-        $price_data = str_replace('--/-- --/-- --/-- --/--', '', $remote_data);
-        var_export($price_data);die;
+//        var_export($remote_data);die;
+        $data_arr = explode(' ', $remote_data);
+//        var_export($data_arr);die;
     }
 
 }

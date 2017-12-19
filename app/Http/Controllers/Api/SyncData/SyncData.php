@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\SyncData;
 
-
+use Storage;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -12,6 +12,8 @@ use App\Repositories\RepositoryInterfaces\SyncDataInterface;
 class SyncData extends Controller
 {
     protected $syncData;
+
+    protected $file_type = ['jpg', 'jpeg', 'png', 'bmp'];
 
     public function __construct(Request $request, SyncDataInterface $sync)
     {
@@ -222,5 +224,68 @@ class SyncData extends Controller
         $result = $this->syncData->accountRegist($data);
         return $result;
     }
+
+    /**
+     * 文件上传类
+     * @param Request $request
+     * @return mixed
+     */
+    public function upload(Request $request)
+    {
+        if($request->isMethod('POST')){
+//            var_dump($_FILES);
+            $file = $request->file('file');
+
+            //判断文件是否上传成功
+            if($file->isValid()){
+                //获取原文件名
+                $originalName = $file->getClientOriginalName();
+                //扩展名
+                $ext = $file->getClientOriginalExtension();
+                //文件类型
+                $type = $file->getClientMimeType();
+                //临时绝对路径
+                $realPath = $file->getRealPath();
+                $filename = date('Y-m-d-H-i-S').'-'.uniqid().'-'.$ext;
+                $bool = Storage::disk('local')->put($filename, file_get_contents($realPath));
+                $filePath = storage_path('app').'/'.$filename;
+                if (!$bool) {
+                    return response()->error(1314, 'Upload Failed');
+                }
+                $return = [
+                    'path'      =>      $filePath,
+                    'mimeType'  =>      $type,
+                ];
+                return response()->success($return);
+            } else {
+                return response()->error(1314, 'Upload Failed');
+            }
+        }
+        return response()->error(1413, 'Must Post');
+    }
+
+
+    public function fileUpload(Request $request)
+    {
+        $data = [
+            'nick_name'     =>  trim($request->get('nick_name')),
+            'phone'         =>  trim($request->get('phone')),
+            'email'         =>  trim($request->get('email')),
+            'description'   =>  trim($request->get('description', '无')),
+            'file_url'      =>  trim($request->get('file_url'))
+        ];
+        //号码验证懒得写
+        if ($email = $data['email']) {
+            $check_result =  strlen($email) > 6 && strlen($email) <= 128 && preg_match("/^([A-Za-z0-9\-_.+]+)@([A-Za-z0-9\-]+[.][A-Za-z0-9\-.]+)$/", $email);
+            if (!$check_result) {
+                return response()->error(4433, 'Email Format Error');
+            }
+        }
+        $res = $this->syncData->fileUpload($data);
+        return $res;
+
+    }
+
+
 
 }

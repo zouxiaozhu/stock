@@ -43,6 +43,8 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('ref_forex', 'SyncData@refForex');                               //外汇价位参考表(阻力支持)
         Route::get('econ_list', 'SyncData@econList');                               //经济数据列表
         Route::post('account_regist', 'SyncData@accountRegist');                    //app端开户注册
+        Route::post('upload', 'SyncData@upload');                          //app端开户注册
+        Route::post('file_upload', 'SyncData@fileUpload');                          //app端开户注册
     });
 });
 

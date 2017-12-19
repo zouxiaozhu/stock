@@ -10,5 +10,10 @@ return [
     'Email Format Error'                            =>          '邮箱格式不正确',
     'Email Required'                                =>          '邮箱必填',
     'Account Exist'                                 =>          '账号已存在',
+    'File Required'                                 =>          '文件必传',
+    'File Type Invalid'                             =>          '文件类型不合法',
+    'Upload Failed'                                 =>          '上传失败',
+    'Must Post'                                     =>          '上传方式必须为post',
+
 
 ];
