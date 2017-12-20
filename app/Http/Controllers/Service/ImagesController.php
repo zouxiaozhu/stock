@@ -8,8 +8,6 @@
 namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
-use App\Models\MediaManage;
-use App\Models\WaterSetting;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
@@ -45,12 +43,13 @@ class ImagesController extends Controller
         }
         $data['type'] = IMAGE;
         $data['storage_path'] = $upload_image_path;
-        $row = MediaManage::create($data);
-
-        if(!$row){
-            return response()->error(1204, 'UPLOAD IMAGE FAILED');
-        }
-        return response()->success(['path' => $upload_image_path]);
+        echo $upload_image_path;die;
+//        $row = MediaManage::create($data);
+//
+//        if(!$row){
+//            return response()->error(1204, 'UPLOAD IMAGE FAILED');
+//        }
+//        return response()->success(['path' => $upload_image_path]);
     }
 
     public function addWater($image_path)
@@ -72,7 +71,7 @@ class ImagesController extends Controller
 
     public function uploadWaterPic(Request $request)
     {
-        return $this->image($request,'waterspic');
+        return $this->image($request,'stock');
     }
 
     public function manageWaterPic()

@@ -20,10 +20,14 @@ class ResponseMacroServiceProvider extends ServiceProvider
         });
 
         Response::macro('error', function ($error_code, $error_message = null, $status = 200, $sprintf = null) {
-            $error_message = $error_message ? trans('errors.'.$error_message) : trans('errors.Undefined Error');
-            if ($sprintf) {
-                $error_message = sprintf($error_message, $sprintf);
-            }
+//            $error_message = $error_message ? trans('errors.'.$error_message) : trans('errors.Undefined Error');
+//            if ($sprintf) {
+//                $error_message = sprintf($error_message, $sprintf);
+//            }
+            return Response::json(['error_code' => $error_code, 'error_message' => $error_message], $status);
+        });
+
+        Response::macro('false', function ($error_code, $error_message = null, $status = 200) {
             return Response::json(['error_code' => $error_code, 'error_message' => $error_message], $status);
         });
     }

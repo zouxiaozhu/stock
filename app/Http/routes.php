@@ -70,11 +70,21 @@ Route::group(['namespace' => 'Backend'], function(){
 Route::post('api/login', 'ApiAuth\AuthTokenController@login');
 Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
 
+
+
+
 Route::post('admin/login', 'Backend\Admin@login');
 Route::get('admin/login', 'Backend\Admin@login');
 Route::get('admin/home','Backend\Admin@home');
+Route::get('admin/logout','Backend\Admin@logout');
 Route::get('admin/update-role', 'Backend\Admin@updateRole');
 Route::get('admin/lock-user', 'Backend\Admin@lockUser');
+Route::get('admin/user', 'Backend\UserController@user');
 
+Route::post('service/upload', 'Service\ImagesController@image');
 
-
+Route::post('admin/add-column', 'Backend\Column@addColumn');
+Route::get('admin/update-column', 'Backend\Column@updateColumn');
+Route::get('admin/delete-column', 'Backend\Column@deleteColumn');
+Route::get('admin/get-column', 'Backend\Column@getColumn');
+Route::get('admin/', 'Backend\Column@getColumn');

@@ -106,14 +106,17 @@ class AdminAuthRoleSeeder extends Seeder
     protected function authSeeder(){
         $auths = [
             [
-            'id'=>1,
-            'prm'=>'all',
-            'name'=>'所有权限'], [
-                'id'=>2,
+                'id'=>1,
                 'prm'=>'column',
                 'name'=>'栏目'
-            ],[
+            ],
+            [
                 'id'=>3,
+                'prm'=>'admin',
+                'name'=>'管理员'
+            ],
+            [
+                'id'=>2,
                 'prm'=>'role',
                 'name'=>'角色'
             ],[
