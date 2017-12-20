@@ -4,5 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Auths extends Model{
     protected $table = 'auths';
+
     public $timestamps = true;
+
 }

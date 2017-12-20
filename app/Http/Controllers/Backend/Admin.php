@@ -8,6 +8,7 @@ use App\Http\Models\Backend\Roles;
 use App\Http\Models\Backend\UserRole;
 use App\Http\Models\Backend\Users;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth as OAuth;
@@ -29,7 +30,7 @@ class Admin extends Controller
         }
 
         $fill_able = [
-            'name' => 'required|max:10|min:2',
+            'name' => 'required|max:50|min:2',
             'password' => 'required|max:12|min:6',
         ];
 
@@ -42,7 +43,7 @@ class Admin extends Controller
         $validator = Validator::make($this->request->all(), $fill_able, $message);
 
         if ($validator->fails()) {
-            return Response::error(1015,);
+            return Response::error(1015,$validator->errors()->first());
         }
 
         $data = $this->request->all();
@@ -58,6 +59,7 @@ class Admin extends Controller
         $user_id = auth()->user()->id;
 
         auth()->user()->update(['last_login_time' =>date('Y-m-d H:i:s',time())]);
+        session()->put('user_info', auth()->user()->select('id','name','avatar')->find($user_id)->toArray());
 
         $nav = $this->initPrms($user_id);
         $user = Users::select('name', 'email', 'id', 'last_login_time')->find($user_id);
@@ -84,7 +86,8 @@ class Admin extends Controller
 
         $auth_info = Roles::getPrms($role_ids)->get()->toArray();
         $auth_info = array_column($auth_info,null,'id');
-        session(['prms_info' =>json_encode($auth_info)]);
+        session()->put('prms_info',json_encode($auth_info));
+        session()->put('roles_info',json_encode($role));
         return ['role'=>$role , 'prms' =>$auth_info];
     }
 
@@ -132,9 +135,41 @@ class Admin extends Controller
         return Response::success('修改锁定状态成功');
     }
 
+    /**
+     * 首页信息
+     * @return mixed
+     */
     public function home()
     {
-        var_export(auth()->user()->id);die;
+        $user_id =auth()->user()->id;
+        if(!$user_id){
+            return Response::error('2303','未知用户');
+        }
+        $prms = json_decode(session()->get('prms_info'),true);
+        $role = json_decode(session()->get('roles_info'),true);
+        return  view('admin.auth.home')
+                ->with(['prms'=>$prms,
+                'roles_info'=>$role
+                ]);
+    }
+
+    /**
+     * 管理员退出
+     * @return mixed
+     */
+    public function logout(){
+
+        $user_id =auth()->user()->id;
+        if(!$user_id){
+            return Response::suceess('已经退出');
+        }
+        Auth::logout();
+
+        if (Auth::check()) {
+            return response()->error(1027, 'Logout Failed');
+        }
+
+       return view('admin.auth.login');
     }
 
 }
