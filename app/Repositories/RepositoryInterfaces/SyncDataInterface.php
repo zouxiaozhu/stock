@@ -110,4 +110,39 @@ interface SyncDataInterface
      * @return mixed
      */
     public function fileUpload($data);
+
+    /**
+     * 发布谁是高手信息
+     * @param $data
+     * @return mixed
+     */
+    public function aceCreate($data);
+
+    /**
+     * 谁是高手展示列表
+     * @param $per_num
+     * @return mixed
+     */
+    public function aceList($per_num);
+
+    /**
+     * 谁是高手详情
+     * @param $id
+     * @return mixed
+     */
+    public function aceDetail($id);
+
+    /**
+     * 谁是高手相关阅读
+     * @param $id
+     * @return mixed
+     */
+    public function relatedAce($id);
+
+    /**
+     * 谁是高手更新评论数
+     * @param $id
+     * @return mixed
+     */
+    public function updateAceCommentNum($id);
 }

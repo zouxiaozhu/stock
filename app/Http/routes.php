@@ -43,8 +43,13 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('ref_forex', 'SyncData@refForex');                               //外汇价位参考表(阻力支持)
         Route::get('econ_list', 'SyncData@econList');                               //经济数据列表
         Route::post('account_regist', 'SyncData@accountRegist');                    //app端开户注册
-        Route::post('upload', 'SyncData@upload');                          //app端开户注册
-        Route::post('file_upload', 'SyncData@fileUpload');                          //app端开户注册
+        Route::post('upload', 'SyncData@upload');                                    //app端上传接口
+        Route::post('file_upload', 'SyncData@fileUpload');                          //app上传文件
+        Route::post('create_ace', 'SyncData@aceCreate');                            //谁是高手创建接口
+        Route::get('ace_list', 'SyncData@aceList');                                 //谁是高手列表
+        Route::get('ace_detail/{id}', 'SyncData@aceDetail');                        //谁是高手详情展示
+        Route::get('relate_ace/{id}', 'SyncData@relatedAce');                        //谁是高手相关阅读
+        Route::get('update_comment_num/{id}', 'SyncData@updateAceCommentNum');       //谁是高手更新评论数
     });
 });
 

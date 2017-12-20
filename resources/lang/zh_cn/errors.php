@@ -14,6 +14,7 @@ return [
     'File Type Invalid'                             =>          '文件类型不合法',
     'Upload Failed'                                 =>          '上传失败',
     'Must Post'                                     =>          '上传方式必须为post',
+    'Create Failed'                                 =>          '创建失败',
 
 
 ];

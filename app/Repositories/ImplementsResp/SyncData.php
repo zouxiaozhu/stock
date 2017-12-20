@@ -282,10 +282,91 @@ class SyncData implements SyncDataInterface
         return $res ? false : true;
     }
 
+    /**
+     * @param $data
+     * @return mixed
+     */
     public function fileUpload($data)
     {
 //        var_export($data);die;
         $res = DB::table('file_upload')->insert($data);
         return response()->success($res);
+    }
+
+    /**
+     * 发布谁是高手信息
+     * @param $data
+     * @return mixed
+     */
+    public function aceCreate($data)
+    {
+        //测试数据,暂时写死,后期读取客户信息
+        $data['create_user_name'] = 'syl';
+        $data['create_user_id'] = '469';
+        $data['time'] = time();
+        $data['avatar'] = 'http://img.team.cloud.hoge.cn/material/tuji/img/2017/12/201712201640464Ls0.jpg';
+        $res = DB::table('ace')->insert($data);
+        if ($res) {
+            return response()->success('success');
+        } else {
+            return response()->error(9527, 'Create Failed');
+        }
+    }
+
+    /**
+     * 谁是高手列表展示
+     * @param $per_num
+     * @return mixed
+     */
+    public function aceList($per_num)
+    {
+        $list = DB::table('ace')
+            ->select('id', 'product_type', 'to_price', 'action', 'stop_loss')
+            ->orderBy('create_time', 'DESC')
+            ->paginate($per_num);
+        return response()->success($list);
+    }
+
+
+    /**
+     * 谁是高手详情
+     * @param $id
+     * @return mixed
+     */
+    public function aceDetail($id)
+    {
+        $data = DB::table('ace')
+            ->select('*')
+            ->where('id', $id)
+            ->get();
+        return response()->success($data);
+    }
+
+    /**
+     * 谁是高手相关阅读
+     * @param $id
+     * @return mixed
+     */
+    public function relatedAce($id)
+    {
+        $list = DB::table('ace')
+            ->select('id', 'product_type', 'to_price', 'action', 'stop_loss')
+            ->where('id', '>', $id)
+            ->take(2)
+            ->get();
+        return response()->success($list);
+    }
+
+    /**
+     * 谁是高手更新评论数
+     * @param $id
+     * @return mixed
+     */
+    public function updateAceCommentNum($id)
+    {
+        $res = DB::table('ace')
+            ->where('id', $id)
+            ->increment('comment_num', 1);
+        return response()->success('success');
     }
 }

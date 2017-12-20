@@ -131,7 +131,7 @@ class SyncData extends Controller
     public function econList(Request $request)
     {
         $data = [
-            'per_num'   =>  $request->has('per_num') ? intval($request->get('per_num')) : 10
+            'per_num' => $request->has('per_num') ? intval($request->get('per_num')) : 10
         ];
         if ($request->has('date')) {
             $data['date'] = $request->get('date');
@@ -154,8 +154,8 @@ class SyncData extends Controller
         //1=>中文,2=>英文
         $lang = $request->has('lang') ? intval($request->get('lang')) : 1;
         $data = [
-            'type'  => $type,
-            'lang'  => $lang,
+            'type' => $type,
+            'lang' => $lang,
         ];
         $result = $this->syncData->analyList($data);
         return $result;
@@ -176,9 +176,9 @@ class SyncData extends Controller
         //1=>中文,2=>英文
         $lang = $request->has('lang') ? intval($request->get('lang')) : 1;
         $data = [
-            'type'  => $type,
-            'lang'  => $lang,
-            'id'    => $id,
+            'type' => $type,
+            'lang' => $lang,
+            'id' => $id,
         ];
         $result = $this->syncData->analyDetail($data);
         return $result;
@@ -194,14 +194,14 @@ class SyncData extends Controller
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
 //        货币类型1=>港币,2=>美元
         $data = [
-            'type'          =>  $request->get('type', 2),
-            'currency_type' =>  $request->get('currency_type', 2),
-            'name_cn'       =>  trim($request->get('name_cn')),
-            'name_en'       =>  trim($request->get('name_en')),
-            'phone'         =>  trim($request->get('phone')),
-            'email'         =>  trim($request->get('email')),
-            'qq'            =>  intval($request->get('qq'), 0),
-            'message'       =>  $request->get('message', '无'),
+            'type' => $request->get('type', 2),
+            'currency_type' => $request->get('currency_type', 2),
+            'name_cn' => trim($request->get('name_cn')),
+            'name_en' => trim($request->get('name_en')),
+            'phone' => trim($request->get('phone')),
+            'email' => trim($request->get('email')),
+            'qq' => intval($request->get('qq'), 0),
+            'message' => $request->get('message', '无'),
         ];
         if (!$data['phone']) {
             return response()->error(1314, 'Phone Required');
@@ -216,7 +216,7 @@ class SyncData extends Controller
             return response()->error(4131, 'Email Required');
         }
         if ($email = $data['email']) {
-            $check_result =  strlen($email) > 6 && strlen($email) <= 128 && preg_match("/^([A-Za-z0-9\-_.+]+)@([A-Za-z0-9\-]+[.][A-Za-z0-9\-.]+)$/", $email);
+            $check_result = strlen($email) > 6 && strlen($email) <= 128 && preg_match("/^([A-Za-z0-9\-_.+]+)@([A-Za-z0-9\-]+[.][A-Za-z0-9\-.]+)$/", $email);
             if (!$check_result) {
                 return response()->error(4433, 'Email Format Error');
             }
@@ -232,12 +232,12 @@ class SyncData extends Controller
      */
     public function upload(Request $request)
     {
-        if($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
 //            var_dump($_FILES);
             $file = $request->file('file');
 
             //判断文件是否上传成功
-            if($file->isValid()){
+            if ($file->isValid()) {
                 //获取原文件名
                 $originalName = $file->getClientOriginalName();
                 //扩展名
@@ -246,15 +246,15 @@ class SyncData extends Controller
                 $type = $file->getClientMimeType();
                 //临时绝对路径
                 $realPath = $file->getRealPath();
-                $filename = date('Y-m-d-H-i-S').'-'.uniqid().'-'.$ext;
+                $filename = date('Y-m-d-H-i-S') . '-' . uniqid() . '-' . $ext;
                 $bool = Storage::disk('local')->put($filename, file_get_contents($realPath));
-                $filePath = storage_path('app').'/'.$filename;
+                $filePath = storage_path('app') . '/' . $filename;
                 if (!$bool) {
                     return response()->error(1314, 'Upload Failed');
                 }
                 $return = [
-                    'path'      =>      $filePath,
-                    'mimeType'  =>      $type,
+                    'path' => $filePath,
+                    'mimeType' => $type,
                 ];
                 return response()->success($return);
             } else {
@@ -268,15 +268,15 @@ class SyncData extends Controller
     public function fileUpload(Request $request)
     {
         $data = [
-            'nick_name'     =>  trim($request->get('nick_name')),
-            'phone'         =>  trim($request->get('phone')),
-            'email'         =>  trim($request->get('email')),
-            'description'   =>  trim($request->get('description', '无')),
-            'file_url'      =>  trim($request->get('file_url'))
+            'nick_name' => trim($request->get('nick_name')),
+            'phone' => trim($request->get('phone')),
+            'email' => trim($request->get('email')),
+            'description' => trim($request->get('description', '无')),
+            'file_url' => trim($request->get('file_url'))
         ];
         //号码验证懒得写
         if ($email = $data['email']) {
-            $check_result =  strlen($email) > 6 && strlen($email) <= 128 && preg_match("/^([A-Za-z0-9\-_.+]+)@([A-Za-z0-9\-]+[.][A-Za-z0-9\-.]+)$/", $email);
+            $check_result = strlen($email) > 6 && strlen($email) <= 128 && preg_match("/^([A-Za-z0-9\-_.+]+)@([A-Za-z0-9\-]+[.][A-Za-z0-9\-.]+)$/", $email);
             if (!$check_result) {
                 return response()->error(4433, 'Email Format Error');
             }
@@ -284,6 +284,80 @@ class SyncData extends Controller
         $res = $this->syncData->fileUpload($data);
         return $res;
 
+    }
+
+    /**
+     * 谁是高手发布
+     * @param Request $request
+     * @return mixed
+     */
+    public function aceCreate(Request $request)
+    {
+        //走中间介判断是否有发布的权限
+        $data = [
+            'product_type' => intval($request->get('product_type', 1)),
+            'action' => intval($request->get('action', 1)),
+            'from_price' => intval($request->get('from_price', 0)),
+            'to_price' => intval($request->get('to_price', 99)),
+            'date' => intval($request->get('date')),
+            'time' => trim($request->get('time', '12:00')),
+            'stop_loss' => intval($request->get('stop_loss', 99)),
+            'target' => intval($request->get('target', 99)),
+            'comment' => trim($request->get('comment')),
+        ];
+        if (!$data['date']) {
+            return response()->error(1314, 'Date Required');
+        }
+        if (!$data['comment']) {
+            return response()->error(1413, 'Comment Required');
+        }
+        $res = $this->syncData->aceCreate($data);
+        return $res;
+    }
+
+    /**
+     * 谁是高手列表展示
+     * @param Request $request
+     * @return mixed
+     */
+    public function aceList(Request $request)
+    {
+        $per_num = $request->has('per_num') ? intval($request->get('per_num')) : 10;
+        $result = $this->syncData->aceList($per_num);
+        return $result;
+    }
+
+    /**
+     * 谁是高手详情
+     * @param $id
+     * @return mixed
+     */
+    public function aceDetail($id)
+    {
+        $detail = $this->syncData->aceDetail($id);
+        return $detail;
+    }
+
+    /**
+     * 谁是高手相关阅读
+     * @param $id
+     * @return mixed
+     */
+    public function relatedAce($id)
+    {
+        $list = $this->syncData->relatedAce($id);
+        return $list;
+    }
+
+    /**
+     * 谁是高手更新评论数
+     * @param $id
+     * @return mixed
+     */
+    public function updateAceCommentNum($id)
+    {
+        $res = $this->syncData->updateAceCommentNum($id);
+        return $res;
     }
 
 
