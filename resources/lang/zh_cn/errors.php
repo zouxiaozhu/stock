@@ -15,6 +15,11 @@ return [
     'Upload Failed'                                 =>          '上传失败',
     'Must Post'                                     =>          '上传方式必须为post',
     'Create Failed'                                 =>          '创建失败',
-
+    'En Tiele Required'                             =>          '英文标题必填',
+    'Cn Tiele Required'                             =>          '中文标题必填',
+    'PDF Url Required'                              =>          'PDF下载地址必填',
+    'JPG Url Required'                              =>          'JPG下载地址必填',
+    'Update Failed'                                 =>          '更新失败',
+    'NO Update Info'                                =>          '缺少更新信息',
 
 ];

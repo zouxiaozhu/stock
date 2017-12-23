@@ -63,6 +63,10 @@ Route::group(['namespace' => 'Backend'], function(){
         Route::put('about_our/update/{id}', 'AboutOur@update');                          //关于我们
         Route::delete('about_our/delete/{id}', 'AboutOur@delete');                       //关于我们
         Route::get('about_our/show', 'AboutOur@show');
+        Route::post('open_create', 'openForm@create');                                  //创建下载链接
+        Route::put('open_update/{id}', 'openForm@update');                                  //更新下载链接
+        Route::get('open_list', 'openForm@openList');                                  //更新下载链接
+        Route::delete('open_delete/{id}', 'openForm@openDelete');                                  //更新下载链接
     });
 });
 
