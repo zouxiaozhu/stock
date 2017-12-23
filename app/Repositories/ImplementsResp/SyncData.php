@@ -196,13 +196,13 @@ class SyncData implements SyncDataInterface
         $data = $data->paginate($params['per_num']);
         $data = obj2Arr($data);
         $econ_data = $data['data'];
-        if (!empty($econ_data)) {
-            foreach ($econ_data as $k => &$v) {
-                $v['quarter']  = unserialize($v['quarter']);
-                $v['forecast'] = unserialize($v['forecast']);
-                $v['lasttime'] = unserialize($v['lasttime']);
-            }
-        }
+//        if (!empty($econ_data)) {
+//            foreach ($econ_data as $k => &$v) {
+//                $v['quarter']  = unserialize($v['quarter']);
+//                $v['forecast'] = unserialize($v['forecast']);
+//                $v['lasttime'] = unserialize($v['lasttime']);
+//            }
+//        }
         $data['data'] = $econ_data;
         return response()->success($data);
     }

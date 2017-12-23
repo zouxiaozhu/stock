@@ -47,14 +47,14 @@ class GetEconData extends Command
             $econ_update_data = [
                 $v['id'],
                 strtotime($v['date']),
-                trim($v['hktime']),
-                trim($v['country']),
-                trim($v['fname']),
-                serialize($v['quarter']),
+                empty($v['hktime']) ? '' : trim($v['hktime']),
+                empty($v['country']) ? '' : trim($v['country']),
+                empty($v['fname']) ? '' : trim($v['fname']),
+                empty($v['quarter']) ? '' : trim($v['quarter']),
                 intval($v['month']),
-                serialize($v['forecast']),
-                serialize($v['lasttime']),
-                serialize($v['value']),
+                empty($v['forecast']) ? '' : trim($v['forecast']),
+                empty($v['lasttime']) ? '' : trim($v['lasttime']),
+                empty($v['value']) ? '' : trim($v['value']),
                 time(),
             ];
             DB::insert('replace into stock_econ values(?,?,?,?,?,?,?,?,?,?,?)', $econ_update_data);
