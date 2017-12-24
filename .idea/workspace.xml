@@ -23,11 +23,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommentController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CommentController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+            <state relative-caret-position="325">
+              <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
                 <element signature="e#141#187#0#PHP" expanded="true" />
@@ -36,11 +36,53 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CommentModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Models/Api/CommentModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/Users.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/Admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="838">
+              <caret line="54" column="0" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="54" selection-end-column="0" />
+              <folding>
+                <element signature="e#48#84#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2017_12_17_170509_create_comment_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_comment_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="676">
+              <caret line="67" column="89" lean-forward="true" selection-start-line="61" selection-start-column="8" selection-end-line="67" selection-end-column="89" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ApiAuthTrait.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/ApiAuthTrait.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="20" selection-end-column="13" />
+            <state relative-caret-position="297">
+              <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
                 <element signature="e#136#189#0#PHP" expanded="true" />
@@ -49,31 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <file leaf-file-name="2017_12_17_151953_create_member_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_17_151953_create_member_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="100" column="63" lean-forward="true" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthTokenController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="784">
+              <caret line="54" column="143" lean-forward="false" selection-start-line="54" selection-start-column="143" selection-end-line="54" selection-end-column="143" />
               <folding />
             </state>
           </provider>
@@ -82,18 +104,8 @@
       <file leaf-file-name=".env" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="295">
+              <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -102,8 +114,8 @@
       <file leaf-file-name="TerminalSettingSeeder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/seeds/TerminalSettingSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="541">
+              <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
               <folding>
                 <element signature="e#7#38#0#PHP" expanded="true" />
               </folding>
@@ -116,16 +128,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="595">
               <caret line="251" column="17" lean-forward="false" selection-start-line="251" selection-start-column="17" selection-end-line="251" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -177,7 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/ColumnManage.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/Comment.php" />
         <option value="$PROJECT_DIR$/public/css/AdminLTE.css" />
         <option value="$PROJECT_DIR$/config/app.php" />
@@ -217,17 +218,18 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/AdminTrait.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
         <option value="$PROJECT_DIR$/database/seeds/AdminAuthRoleSeeder.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_comment_table.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php" />
-        <option value="$PROJECT_DIR$/database/seeds/TerminalSettingSeeder.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/comment/CommentController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiAuth/ApiAuthTrait.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_comment_table.php" />
+        <option value="$PROJECT_DIR$/database/seeds/TerminalSettingSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Http/Models/Api/CommentModel.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php" />
       </list>
     </option>
   </component>
@@ -290,56 +292,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stock" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stock" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seeds" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stock" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stock" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stock" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stock" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -359,6 +311,58 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Api" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -495,7 +499,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;termin&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;Member&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;routes&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;index-m&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;route&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;create&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;Admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;Admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_13_150647_create_admin_role_table.php&#10;home&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;.env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;d-r&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/add-role.blade.php&#10;index-ro&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/index-role.blade.php&#10;Mem&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;cp&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Column.php&#10;add-user&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;seed&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;UserCont&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/UserController.php&#10;User&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/Users.php&#10;rol&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/RoleController.php&#10;column&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Column.php&#10;add&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/column/add-column.blade.php&#10;morris&#9;FILE&#9;file://E:/wamp64/www/stock/public/Js/plugins/morris/morris.js&#10;Use&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_13_150352_create_admin_user_table.php&#10;see&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;log&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/login.blade.php&#10;index&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/index-user.blade.php&#10;ho&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;Users.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/Users.php&#10;hash&#9;null&#9;null&#10;admin&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;index-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/index-user.blade.php&#10;auth&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/Auths.php&#10;AdminLTE&#9;FILE&#9;file://E:/wamp64/www/stock/public/css/AdminLTE.css&#10;laravel.&#9;FILE&#9;file://E:/wamp64/www/stock/storage/logs/laravel.log&#10; App\Repositories\ImplementResp\SyncData&#9;null&#9;null&#10;SyncData&#9;null&#9;null&#10;app.php&#9;FILE&#9;file://E:/wamp64/www/stock/config/app.php" />
+    <property name="SearchEverywhereHistoryKey" value="s&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;create&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;member&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;termin&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;Member&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;routes&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;index-m&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;route&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;Admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;Admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_13_150647_create_admin_role_table.php&#10;home&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;.env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;d-r&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/add-role.blade.php&#10;index-ro&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/index-role.blade.php&#10;Mem&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;cp&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Column.php&#10;add-user&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;seed&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;UserCont&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/UserController.php&#10;User&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/Users.php&#10;rol&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/RoleController.php&#10;column&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Column.php&#10;add&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/column/add-column.blade.php&#10;morris&#9;FILE&#9;file://E:/wamp64/www/stock/public/Js/plugins/morris/morris.js&#10;Use&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_13_150352_create_admin_user_table.php&#10;see&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;log&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/login.blade.php&#10;index&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/index-user.blade.php&#10;ho&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;Users.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/Users.php&#10;hash&#9;null&#9;null&#10;index-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/index-user.blade.php&#10;auth&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/Auths.php&#10;AdminLTE&#9;FILE&#9;file://E:/wamp64/www/stock/public/css/AdminLTE.css&#10;laravel.&#9;FILE&#9;file://E:/wamp64/www/stock/storage/logs/laravel.log&#10; App\Repositories\ImplementResp\SyncData&#9;null&#9;null&#10;SyncData&#9;null&#9;null&#10;app.php&#9;FILE&#9;file://E:/wamp64/www/stock/config/app.php" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -591,12 +595,12 @@
       <workItem from="1513692814167" duration="5068000" />
       <workItem from="1513779489879" duration="5544000" />
       <workItem from="1514001535322" duration="36131000" />
-      <workItem from="1514082454883" duration="11998000" />
+      <workItem from="1514082454883" duration="14001000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94776000" />
+    <option name="totallyTimeSpent" value="96779000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="94" y="1" width="1864" height="1098" extended-state="0" />
@@ -634,13 +638,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3726">
-          <caret line="144" column="20" lean-forward="false" selection-start-line="144" selection-start-column="20" selection-end-line="144" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/RepositoryInterfaces/SyncDataInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1647">
@@ -874,32 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="165" column="7" lean-forward="true" selection-start-line="165" selection-start-column="7" selection-end-line="165" selection-end-column="7" />
-          <folding>
-            <element signature="e#48#84#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_17_151953_create_member_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="54" column="143" lean-forward="false" selection-start-line="54" selection-start-column="143" selection-end-line="54" selection-end-column="143" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_24_034059_create_terminal_setting.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
@@ -930,14 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_comment_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="54" column="35" lean-forward="true" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -974,40 +937,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding>
-            <element signature="e#6#95#0#PHP" expanded="true" />
-            <element signature="e#141#187#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/AdminAuthRoleSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="251" column="17" lean-forward="false" selection-start-line="251" selection-start-column="17" selection-end-line="251" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/TerminalSettingSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1019,18 +953,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_17_151953_create_member_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="784">
+          <caret line="54" column="143" lean-forward="false" selection-start-line="54" selection-start-column="143" selection-end-line="54" selection-end-column="143" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="295">
+          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/AdminAuthRoleSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="251" column="17" lean-forward="false" selection-start-line="251" selection-start-column="17" selection-end-line="251" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/ApiAuthTrait.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="297">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="e#6#95#0#PHP" expanded="true" />
             <element signature="e#136#189#0#PHP" expanded="true" />
@@ -1038,11 +996,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="838">
+          <caret line="54" column="0" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="e#48#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_comment_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="67" column="89" lean-forward="true" selection-start-line="61" selection-start-column="8" selection-end-line="67" selection-end-column="89" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/TerminalSettingSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Api/CommentModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+            <element signature="e#141#187#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

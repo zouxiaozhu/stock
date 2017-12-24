@@ -18,7 +18,6 @@ class TerminalSettingSeeder extends Seeder
     public function createTerminalSettings()
     {
         $terminal = [
-
             [
                 'id'    => 1,
                 'name'  => '帖子是否要审核',
@@ -30,7 +29,7 @@ class TerminalSettingSeeder extends Seeder
             ],
 
             [
-                'id'    => 1,
+                'id'    => 2,
                 'name'  => '评论是否要审核',
                 'key'   => 'comment',
                 'value' => '1',

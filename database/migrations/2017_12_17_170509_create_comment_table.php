@@ -65,7 +65,7 @@ class CreateCommentTable extends Migration
             $table->integer('member_id')->comment('会员id')->default(0);
             $table->integer('like_num')->comment('点赞数')->default(0);
             $table->integer('dislike_num')->comment('反对数')->default(0);
-            $table->enum('status',[0,1,2])->comment('0被删除 1正常 2已恢复')->nullable();
+            $table->enum('status',[0,1,2,3])->comment('0被删除 1正常 3 待审核 2已恢复')->nullable();
             $table->timestamps();
         });
     }
