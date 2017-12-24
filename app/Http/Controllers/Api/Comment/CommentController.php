@@ -65,6 +65,9 @@ class CommentController extends Controller{
                 $msg = '';
                 break;
         }
+
+
+
         $insert = [
             'ace_id' => intval($request->get('ace_id')),
             'ace_comment_fid'=>$request->get('ace_comment_fid',0),
@@ -75,5 +78,4 @@ class CommentController extends Controller{
         CommentModel::insert($insert);
         return Response::success('评论成功'.$msg);
     }
-
 }
