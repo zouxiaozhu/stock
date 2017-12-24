@@ -16,6 +16,7 @@ use App\Repositories\RepositoryInterfaces\SyncDataInterface;
 
 class SyncData extends Controller
 {
+    use ApiAuthTrait;
     protected $syncData;
 
     protected $file_type = ['jpg', 'jpeg', 'png', 'bmp'];
@@ -196,6 +197,15 @@ class SyncData extends Controller
      */
     public function accountRegist(Request $request)
     {
+        $access_token = $request->get('access_token');
+        if (!$access_token) {
+            return response()->false(1567, 'token不存在');
+        }
+        $token_info = $this->decode_access_token($access_token);
+        if (!$token_info) {
+            return response()->false(8789, 'token失效');
+        }
+        $user_info = $token_info[0];
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
 //        货币类型1=>港币,2=>美元
         $data = [
@@ -207,6 +217,8 @@ class SyncData extends Controller
             'email' => trim($request->get('email')),
             'qq' => intval($request->get('qq'), 0),
             'message' => $request->get('message', '无'),
+            'user_id' => $user_info['id'],
+            'user_name' =>  $user_info['name'],
         ];
         if (!$data['phone']) {
             return response()->error(1314, 'Phone Required');
