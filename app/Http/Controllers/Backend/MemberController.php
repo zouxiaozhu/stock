@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Models\Backend\MembersModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class MemberController extends \App\Http\Controllers\Controller{
     public function __construct()
@@ -27,6 +28,12 @@ class MemberController extends \App\Http\Controllers\Controller{
                 $user_db = $user_db->where('status',$request->get('status'));
             }
             if($source =$request->get('source')){
+                if(strtolower($source) == 'facebook'){
+                    $source = 2;
+                }
+                if(strtolower($source) == '微信' or strtolower($source) == 'wechat'){
+                    $source = 1;
+                }
                 $user_db = $user_db->where('source',$source);
             }
 
@@ -41,5 +48,16 @@ class MemberController extends \App\Http\Controllers\Controller{
 //            $user = $user_db->get()->toArray();
         return view('admin.member.index-member', ['member_list' => $member_list])
             ->with(['prms' => $prms, 'roles_info' => $role]);
+    }
+
+
+    public function delMember(Request $request)
+    {
+        $memeber_id = $request->get('member_id', 0);
+        if($memeber_id){
+            MembersModel::find(intval($memeber_id))->delete();
+        }
+
+        return Redirect::to('admin/index-member');
     }
 }

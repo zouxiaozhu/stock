@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\ApiAuth;
 use \App\Http\Controllers\Controller;
 
+use App\Http\Models\Backend\MembersModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
@@ -44,13 +45,13 @@ class AuthTokenController extends Controller{
             return response()->error('0001','不合法的应用关联');
         }
 
-        if($open_type == '1'){
+        if($open_type == '2'){
             $facebook_id = $this->request->get('facebook_open_id',0);
             if(!$facebook_id){
                 return response()->error(0004,'没有facebook信息');
             }
             $user_info = $this->facebook_userinfo($facebook_id);
-        }elseif($open_type=='2'){
+        }elseif($open_type=='1'){
             $wechat_open_id = $this->request->get('wechat_open_id',0);
             if(!$wechat_open_id){
                 return response()->error(0005,'没有wechat信息');
@@ -60,7 +61,7 @@ class AuthTokenController extends Controller{
         }else{
             $user_name = $this->request->get('user_name');
             $password = $this->request->get('password');
-            $user_info = ['name'=>'zhanglong','user_id'=>1] ;
+
         }
         if(!$user_info){
             return response()->error(0006,'未知的用户信息');
@@ -71,7 +72,7 @@ class AuthTokenController extends Controller{
 
         $redis_bool = $this->_predis->setex(
             $this->get_token_key($access_token),
-            env('REDIS_EXPIRE_TIME'),
+            env('REDIS_EXPIRE_TIME',3600),
             json_encode($user_info)
         );
         if(!$redis_bool){
@@ -129,7 +130,12 @@ class AuthTokenController extends Controller{
             return [];
         }
 
+        $memeber_info = MembersModel::where('open_id',$wechat_id)->where('source',1)->get()->toArray();
         // 获取用户信息 并放入到用户信息表
+        if(!$memeber_info){
+
+        }
+        return $memeber_info;
 
     }
 

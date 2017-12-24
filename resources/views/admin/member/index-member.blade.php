@@ -366,13 +366,15 @@
                             <div class="box-tools">
                                 <div class="input-group">
 
+            <form method="get" action="index-member">
+                                    <input type="text" name="name" class="form-control input-sm pull-right" style="width: 150px;" placeholder=" 名称模糊搜索"/>
 
-                                    <input type="text" name="search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-
-                                    <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                                    <input type="text" name="source" class="form-control input-sm pull-right" style="width: 150px;" placeholder="来源 wechat facebook"/>
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                        <button type="submit" class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+
                                     </div>
+            </form>
                                 </div>
                             </div>
                         </div><!-- /.box-header -->
@@ -381,12 +383,12 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>昵称</th>
-                                    <th>密码</th>
+                                    {{--<th>密码</th>--}}
                                     <th>来源</th>
                                     <th>启/禁用</th>
                                     <th>是否评论</th>
                                     <th>创建时间</th>
-                                    <th>编辑</th>
+
                                     <th>删除</th>
                                 </tr>
 
@@ -395,10 +397,10 @@
                                         <td>{{$member['id']}}</td>
                                         <td><span class="label label-success">{{$member['name']}}</span>
                                         </td>
-                                        <td>{{$member['password']}}</td>
+                                        {{--<td>{{$member['password']}}</td>--}}
                                         @if($member['source'] == 1)
                                         <td><span class="label label-success">微信</span></td>
-                                        @elseif($memeber['source'] ==2)
+                                        @elseif($member['source'] ==2)
                                             <td><span class="label label-warning">Facebook</span></td>
                                         @endif
                                         @if($member['status'] == 1)

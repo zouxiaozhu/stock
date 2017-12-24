@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers\Api\SyncData;
 
+use App\Http\Controllers\ApiAuth\ApiAuthTrait;
+use App\Http\Controllers\Backend\AdminTrait;
+use App\Http\Models\Backend\TerminalSettings;
+use App\Http\Models\Backend\Users;
+use App\User;
 use Storage;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -285,7 +290,7 @@ class SyncData extends Controller
         return $res;
 
     }
-
+    use ApiAuthTrait;
     /**
      * 谁是高手发布
      * @param Request $request
@@ -293,6 +298,11 @@ class SyncData extends Controller
      */
     public function aceCreate(Request $request)
     {
+        $access_token = $request->get('access_token','');
+        $user_info = $this->decode_access_token($access_token);
+        if(!$user_info || !$user_info['is_post']){
+            return response()->false(1314, '没有登录或者没有发帖权限');
+        }
         //走中间介判断是否有发布的权限
         $data = [
             'product_type' => intval($request->get('product_type', 1)),
@@ -304,7 +314,10 @@ class SyncData extends Controller
             'stop_loss' => intval($request->get('stop_loss', 99)),
             'target' => intval($request->get('target', 99)),
             'comment' => trim($request->get('comment')),
+            'create_user_id'=>$user_info['user_id'],
+            'create_user_name'=>$user_info['name']
         ];
+
         if (!$data['date']) {
             return response()->error(1314, 'Date Required');
         }

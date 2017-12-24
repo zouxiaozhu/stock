@@ -36,4 +36,16 @@ trait AdminTrait{
     {
         return Roles::where('id','>',1)->orderBy('id','ASC')->get()->toArray();
     }
+
+    public function decode_access_token($access_token=''){
+
+        if(!$access_token){
+            return false;
+        }
+        $signature = Crypt::decrypt($access_token);
+        $signature = substr($signature,4,-4);
+        $user_info = json_decode($signature,true);
+
+        return $user_info;
+    }
 }

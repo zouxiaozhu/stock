@@ -108,4 +108,9 @@ Route::get('admin/edit-member', 'Backend\MemberController@addMember');
 Route::get('admin/del-member', 'Backend\MemberController@delMember');
 Route::get('admin/index-member', 'Backend\MemberController@member');
 
+Route::post('api/add-comment', 'Api\Comment\CommentController@addComment');
+Route::get('api/-member', 'Api\CommentController@addMember');
+Route::get('api/del-member', 'Api\CommentController@delMember');
+Route::get('api/index-member', 'Api\CommentController@member');
+
 Route::post('service/upload', 'Service\ImagesController@image');

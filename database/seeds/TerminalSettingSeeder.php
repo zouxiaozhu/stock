@@ -18,6 +18,17 @@ class TerminalSettingSeeder extends Seeder
     public function createTerminalSettings()
     {
         $terminal = [
+
+            [
+                'id'    => 1,
+                'name'  => '帖子是否要审核',
+                'key'   => 'post',
+                'value' => '1',
+                'type'  => '1',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+
             [
                 'id'    => 1,
                 'name'  => '评论是否要审核',

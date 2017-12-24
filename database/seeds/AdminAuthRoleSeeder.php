@@ -172,6 +172,12 @@ class AdminAuthRoleSeeder extends Seeder
                 'name'       => '帖子',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date('Y-m-d H:i:s'),
+            ],[
+                'id'         => 6,
+                'prm'        => 'setting',
+                'name'       => '系统配置',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
         ];
         if (!\App\Http\Models\Backend\Auths::count()) {
@@ -244,6 +250,13 @@ class AdminAuthRoleSeeder extends Seeder
                     'created_at' => date("Y-m-d H:i:s"),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
+                [
+                    'id'         => 10,
+                    'role_id'    => 1,
+                    'auth_id'    => 6,
+                    'created_at' => date("Y-m-d H:i:s"),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ]
 
             ];
         DB::table('role_auth')->truncate();
