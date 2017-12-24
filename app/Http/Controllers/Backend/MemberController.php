@@ -6,36 +6,40 @@
  * Time: 23:34
  */
 namespace App\Http\Controllers\Backend;
-use Illuminate\Support\Facades\Request;
+
+use App\Http\Models\Backend\MembersModel;
+use Illuminate\Http\Request;
+
 class MemberController extends \App\Http\Controllers\Controller{
     public function __construct()
     {
     }
-    public function user(Request $request){
+    public function member(Request $request){
 
-        $user_id = $request->get('user_id',0);
-        if($user_id){
-            $user = User::find($user_id)->toArray();
-        }else{
-            $page = $request->get('page',1);
+            $prms = json_decode(session()->get('prms_info'), true);
+            $role = json_decode(session()->get('roles_info'), true);
+            $page = max(1,$request->get('page')) ;
             $page_num = $request->get('page_num',20);
             $offset = ($page - 1) * $page_num;
-            $user_db = User::where('id','>',0);
-            if($status =$request->get('status')){
-                $user_db = $user_db->where('status',$status);
+            $user_db = MembersModel::where('id','>',0);
+
+            if($request->has('status') && in_array($request->get('status'),[0,1])){
+                $user_db = $user_db->where('status',$request->get('status'));
             }
-            if($source   =$request->get('source')){
+            if($source =$request->get('source')){
                 $user_db = $user_db->where('source',$source);
             }
 
-            if($name   =$request->get('name')){
+            if($name =$request->get('name')){
                 $user_db = $user_db->where('name','like',$name."%");
             }
 
-            $user_db = $user_db->skip($offset)->take($page_num);
-            $user = $user_db->get()->toArray();
-        }
+        $member_list = $user_db->paginate(5);
+//             $member_list= $user_db->get()->toArray();
 
-        return response()->success($user);
+//            $user_db = $user_db->skip($offset)->take($page_num);
+//            $user = $user_db->get()->toArray();
+        return view('admin.member.index-member', ['member_list' => $member_list])
+            ->with(['prms' => $prms, 'roles_info' => $role]);
     }
 }

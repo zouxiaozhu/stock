@@ -21,7 +21,8 @@ class Users extends Model implements AuthenticatableContract,
 
     protected $table = 'users';
     public $timestamps = true;
-    public $fillable = ['last_login_time'];
+    protected $guarded = [];
+
 
     public function role()
     {

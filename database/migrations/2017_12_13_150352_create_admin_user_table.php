@@ -31,11 +31,11 @@ class CreateAdminUserTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('password');
             $table->string('email')->default('');
             $table->integer('phone')->default(0);
-            $table->integer('create_user_id')->nullable();
+            $table->integer('create_user_id')->default(0);
             $table->enum('locked',[0,1])->default(0);
             $table->tinyInteger('reset_pwd')->default(0);
             $table->string('access_id')->default('')->comment("");

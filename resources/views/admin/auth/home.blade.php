@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE | Dashboard</title>
+    <title>{{env('COMPANY')}}| {{ env('COMPANY_LANG') }}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -283,7 +283,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{session()->get('user_info')['avatar']}}" class="img-circle" alt="User Image" />
+                    <img src="{{session()->get('user_info')['avatar'] ?:public_path('img/default_avatar.png')}}" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
                     <p>Hello,{{session()->get('user_info')['name']}}</p>
@@ -307,6 +307,11 @@
                         {{--<i class="fa fa-dashboard"></i> <span>权限管理</span>--}}
                     {{--</a>--}}
                 {{--</li>--}}
+
+                <?php if (!$prms) {
+                    $prms = [];
+                }?>
+
                 @foreach($prms as $k=>$prm)
                     @if($prm['name'])
                 <li class="treeview">
@@ -315,12 +320,13 @@
                         <span>{{$prm['name']}}</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> 删除{{$prm['name']}}</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> 编辑{{$prm['name']}}</a></li>
 
+                    <ul class="treeview-menu">
+                        <li><a href="{{env('APP_URL')}}/admin/index-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> {{$prm['name']}}列表</a>
+                        <li><a href="{{env('APP_URL')}}/admin/add-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
+                        </li>
+                            {{--<li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 编辑{{$prm['name']}}</a></li>--}}
+                            {{--<li><a href="{{env('APP_URL')}}/admin/del-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 删除{{$prm['name']}}</a></li>--}}
                     </ul>
                 </li>
                     @endif

@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\Backend\RoleAuth;
 use App\Http\Models\Backend\Roles;
-use App\Http\Models\Backend\UserRole;
 use App\Http\Models\Backend\Users;
-use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth as OAuth;
@@ -26,8 +24,17 @@ class Admin extends Controller
     public function login()
     {
         if($this->request->method() == 'GET'){
+
+
+            if(session()->get('user_info')){
+                return  Redirect::to('admin/home');
+                die();
+            }
             return view('admin.auth.login');
         }
+//            if(session()->get('user_info')){
+//                return redirect()->to('admin/home');die;
+//            }
 
         $fill_able = [
             'name' => 'required|max:50|min:2',
@@ -47,13 +54,13 @@ class Admin extends Controller
         }
 
         $data = $this->request->all();
-        if (!Users::where('name', $data['name'])->count()) {
-            return Response::error(1011, 'Locked OR Must Reset');
+        if (Users::where('name', trim($data['name']))->where('locked',1)->count()) {
+            return Response::false(1011, '用户被禁用');
         }
         $login = OAuth::attempt(['name' => trim($data['name']), 'password' => $data['password']], $remember);
 
         if (!$login) {
-            return Response::error(1012, 'Login Failed,Please Try Again');
+            return Response::false(1012, '用户名或者密码错误请重试或者联系管理员');
         }
 
         $user_id = auth()->user()->id;
@@ -63,7 +70,7 @@ class Admin extends Controller
 
         $nav = $this->initPrms($user_id);
         $user = Users::select('name', 'email', 'id', 'last_login_time')->find($user_id);
-        $user['nav'] =array_values($nav['prms']);
+        $user['nav'] = array_values($nav['prms']);
         return Response::success($user);
     }
 
@@ -158,10 +165,10 @@ class Admin extends Controller
      * @return mixed
      */
     public function logout(){
-
-        $user_id =auth()->user()->id;
-        if(!$user_id){
-            return Response::suceess('已经退出');
+        session()->flush();
+        $user =auth()->user();
+        if(!$user){
+            return  Redirect::to('admin/login');
         }
         Auth::logout();
 
@@ -169,7 +176,9 @@ class Admin extends Controller
             return response()->error(1027, 'Logout Failed');
         }
 
-       return view('admin.auth.login');
+        return  Redirect::to('admin/login');
     }
+
+
 
 }

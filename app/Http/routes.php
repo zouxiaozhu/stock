@@ -74,21 +74,38 @@ Route::group(['namespace' => 'Backend'], function(){
 Route::post('api/login', 'ApiAuth\AuthTokenController@login');
 Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
 
-
-
-
 Route::post('admin/login', 'Backend\Admin@login');
 Route::get('admin/login', 'Backend\Admin@login');
+Route::post('/login', 'Backend\Admin@login');
+Route::get('/', 'Backend\Admin@login');
+
 Route::get('admin/home','Backend\Admin@home');
 Route::get('admin/logout','Backend\Admin@logout');
 Route::get('admin/update-role', 'Backend\Admin@updateRole');
 Route::get('admin/lock-user', 'Backend\Admin@lockUser');
-Route::get('admin/user', 'Backend\UserController@user');
+Route::get('admin/index-user', 'Backend\UserController@user');
+Route::get('admin/add-user', 'Backend\UserController@addUser');
+Route::get('admin/edit-user', 'Backend\UserController@addUser');
+Route::post('admin/add-user', 'Backend\UserController@updateUser');
+Route::get('admin/del-user', 'Backend\UserController@delUser');
+
+Route::post('admin/add-column', 'Backend\Column@updateColumn');
+Route::get('admin/add-column', 'Backend\Column@addColumn');
+Route::get('admin/edit-column', 'Backend\Column@addColumn');
+Route::get('admin/del-column', 'Backend\Column@delColumn');
+Route::get('admin/index-column', 'Backend\Column@column');
+
+Route::post('admin/add-role', 'Backend\RoleController@updateRole');
+Route::get('admin/add-role', 'Backend\RoleController@addRole');
+Route::get('admin/edit-role', 'Backend\RoleController@addRole');
+Route::get('admin/del-role', 'Backend\RoleController@delRole');
+Route::get('admin/index-role', 'Backend\RoleController@role');
+
+
+Route::post('admin/add-member', 'Backend\MemberController@updateMember');
+Route::get('admin/add-member', 'Backend\MemberController@addMember');
+Route::get('admin/edit-member', 'Backend\MemberController@addMember');
+Route::get('admin/del-member', 'Backend\MemberController@delMember');
+Route::get('admin/index-member', 'Backend\MemberController@member');
 
 Route::post('service/upload', 'Service\ImagesController@image');
-
-Route::post('admin/add-column', 'Backend\Column@addColumn');
-Route::get('admin/update-column', 'Backend\Column@updateColumn');
-Route::get('admin/delete-column', 'Backend\Column@deleteColumn');
-Route::get('admin/get-column', 'Backend\Column@getColumn');
-Route::get('admin/', 'Backend\Column@getColumn');

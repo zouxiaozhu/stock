@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html class="bg-black">
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE | Log in</title>
+    <title>{{env('COMPANY')}}| {{ env('COMPANY_LANG') }}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -37,7 +39,7 @@
         <div class="footer">
             <button type="button" class="btn bg-olive btn-block" id="submit">登录</button>
 
-            <p><a href="#">{{env('APP_URL')}}</a></p>
+            <p><a href="{{env('CUSTOMER_CONTRACT')}}">登录失败？ 联系管理员</a></p>
 
             <a href="register.html" class="text-center">Register a new membership</a>
         </div>
@@ -91,6 +93,7 @@
                     layer.msg(data.error_message)
                     return false;
                 }
+
                 window.location.href = '{{env("APP_URL")}}'+'/admin/home'
             },
             error:function(){

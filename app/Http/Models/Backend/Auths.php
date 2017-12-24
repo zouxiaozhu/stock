@@ -6,5 +6,7 @@ class Auths extends Model{
     protected $table = 'auths';
 
     public $timestamps = true;
+    protected $guarded = [];
+
 
 }

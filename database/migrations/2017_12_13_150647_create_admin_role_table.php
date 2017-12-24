@@ -22,15 +22,15 @@ class CreateAdminRoleTable extends Migration
 
         Schema::create('auths', function (Blueprint $table) {
             $table->increments('id')->comment('主键');
-            $table->char('name', 10)->commemt('名字');
+            $table->char('name', 10)->commemt('名字')->default('');
             $table->string('prm')->comment('标识');
             $table->timestamps();
         });
 
         Schema::create('role_auth', function (Blueprint $table) {
             $table->increments('id')->comment('主键');
-            $table->integer('role_id')->commemt('名字');
-            $table->integer('auth_id')->comment('');
+            $table->integer('role_id')->commemt('名字')->default(0);
+            $table->integer('auth_id')->comment('')->default(0);
             $table->timestamps();
         });
 

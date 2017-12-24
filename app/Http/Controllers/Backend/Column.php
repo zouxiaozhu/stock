@@ -8,97 +8,78 @@
 namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Models\Backend\ColumnModel;
 class Column extends Controller{
     public function __construct()
     {
-
+//        $this->middleware();
     }
 
     public function addColumn(Request $request)
     {
-        $fill_able = [
-            'name' => 'required|max:50|min:2',
-        ];
-
-        $message = [
-            'name.required' => 'column name Required',
-        ];
-
-        $validator = Validator::make($request->all(), $fill_able, $message);
-        if ($validator->fails()) {
-            return Response::false(1115,$validator->errors()->first());
+        $prms = json_decode(session()->get('prms_info'), true);
+        $role = json_decode(session()->get('roles_info'), true);
+        $column_id = $request->get('column_id', 0);
+        if (!$column_id) {
+            $column_info = [];
+        } else {
+            $column_info = ColumnModel::find($column_id)->toArray();
         }
-
-        $data['name'] = $request->get('name');
-        $check_count = ColumnModel::where('name',trim($data['name']))->count();
-        if($check_count){
-            return Response::false(1116,'存在相同的栏目名称');
-        }
-        $insert = ColumnModel::create($data);
-
-        return Response::success($insert);
+        return view('admin.column.add-column',['column_info'=>$column_info])->with(['prms' => $prms, 'roles_info' => $role]);
     }
 
     public function updateColumn(Request $request)
     {
-        $id = $request->get('id',0);
-        if(!$id){
-            return Response::error(1116,'缺少 Column ID');
-        }
-        $update = [];
-        if($request->get('name')){
-            $update['name'] = $request->get('name');
-        }
-        $check_count = ColumnModel::where('name',trim($update['name']))->where('id','<>',$id)->count();
-        if($check_count){
-            return Response::error(1116,'存在相同的栏目名称');
+        $column_id = $request->get('column_id',0);
+        $name = $request->get('name');
+        $is_show = $request->get('is_show',0);
+        $key = $request->get('key','');
+        $sort = $request->get('sort',1);
+
+        if($column_id){
+            $update_data = [
+                'name'=>$name,'is_show'=>$is_show,'key'=>$key
+            ];
+
+            ColumnModel::where('id',$column_id)->update($update_data);
+        }else{
+            $insert_data = [
+                'name'=>$name,'is_show'=>$is_show,'key'=>$key
+            ];
+
+            $column = ColumnModel::create($insert_data);
         }
 
-        if($request->get('key')){
-            $update['key'] = $request->get('key');
-        }
-
-        if($request->get('sort')){
-            $update['sort'] = $request->get('sort');
-        }
-
-        if($request->get('is_show')){
-            $update['is_show'] = $request->get('is_show');
-        }
-        $update_res = ColumnModel::where('id',$id)->update($update);
-        if(!$update_res){
-            return Response::error(1117,'更新失败');
-        }
-        return Response::success($update_res);
+        return  Redirect::to('admin/index-column');
 
     }
 
-    public function deleteColumn(Request $request){
+    public function delColumn(Request $request){
 
-        $id = $request->get('id',0);
-        if(!$id){
-            return Response::error(1118,'缺少 Column ID');
-        }
+        $id = $request->get('column_id',0);
         $res = ColumnModel::where('id',$id)->delete();
-        if(!$res){
-            return Response::error(1119,'删除失败');
-        }
-        return Response::success($res);
+        return  Redirect::to('admin/index-column');
     }
 
-    public function getColumn(Request $request)
+    public function column(Request $request)
     {
-        $id = $request->get('id',0);
-        if($id){
-            $column_info = ColumnModel::find(intval($id))->toArray();
-            return Response::success($column_info);
-        }
+        $prms = json_decode(session()->get('prms_info'), true);
+        $role = json_decode(session()->get('roles_info'), true);
+        $column_list = ColumnModel::where('id', '>', '0')->
+        orderBy('sort', 'asc')->get()->toArray();
+        return view('admin.column.index-column', ['column_list' => $column_list])
+            ->with(['prms' => $prms, 'roles_info' => $role]);
 
-        $column_list =ColumnModel::where('id','>',0)->orderBy('updated_at','desc')->get()->toArray();
-        return Response::success($column_list);
+//        if($id){
+//            $column_info = ColumnModel::find(intval($id))->toArray();
+//            return Response::success($column_info);
+//        }
+//
+//        $column_list =ColumnModel::where('id','>',0)->orderBy('updated_at','desc')->get()->toArray();
+//        return Response::success($column_list);
     }
 
 }
