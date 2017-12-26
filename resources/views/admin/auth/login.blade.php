@@ -57,10 +57,10 @@
 
 
 <!-- jQuery 2.0.2 -->
-<script src="../../js/jquery.min.js"></script>
-<script src="../../js/layer/layer.js"></script>
+<script src="Js/jquery.min.js"></script>
+<script src="Js/layer/layer.js"></script>
 <!-- Bootstrap -->
-<script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+<script src="Js/js/bootstrap.min.js" type="text/javascript"></script>
 <script>
 
 
