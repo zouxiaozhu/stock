@@ -14,8 +14,8 @@ use Illuminate\Http\Response;
 
 class Rcloud extends Controller
 {
-    protected $appKey = '6tnym1br65287';
-    protected $appSecret = 'IRcupZlSLMvOIz';
+    protected $appKey = 'lmxuhwagl0bwd';
+    protected $appSecret = 'I6rR2XjU9R7Nu';
 //	protected $jsonPath = "jsonsource/";
     const   SERVERAPIURL = 'http://api.cn.ronghub.com';    //IM服务地址
     const   SMSURL = 'http://api.sms.ronghub.com';          //短信服务地址
