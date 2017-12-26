@@ -70,6 +70,10 @@ Route::group(['namespace' => 'Backend'], function(){
     });
 });
 
+//获取融云token
+Route::group(['namespace'=> 'Api\Rongyun'], function(){
+   Route::post('get_rctoken', 'Rcloud@getToken');
+});
 
 Route::post('api/login', 'ApiAuth\AuthTokenController@login');
 Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
