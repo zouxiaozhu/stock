@@ -407,36 +407,36 @@
 More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
 
 <!-- jQuery 2.0.2 -->
-<script src="../../Js/jquery.min.js"></script>
-<script src="Js/layer/layer.js"></script>
+<script src="/Js/jquery.min.js"></script>
+<script src="/Js/layer/layer.js"></script>
 <!-- jQuery UI 1.10.3 -->
-<script src="Js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+<script src="/Js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 <!-- Bootstrap -->
-<script src="Js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/Js/bootstrap.min.js" type="text/javascript"></script>
 <!-- Morris.js charts -->
-<script src="Js/raphael-min.js"></script>
-<script src="Js/plugins/morris/morris.min.js" type="text/javascript"></script>
+<script src="/Js/raphael-min.js"></script>
+<script src="/Js/plugins/morris/morris.min.js" type="text/javascript"></script>
 <!-- Sparkline -->
-<script src="Js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+<script src="/Js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
 <!-- jvectormap -->
-<script src="Js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-<script src="Js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+<script src="/Js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+<script src="/Js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
 <!-- fullCalendar -->
-<script src="Js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="/Js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
 <!-- jQuery Knob Chart -->
-<script src="Js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
+<script src="/Js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
 <!-- daterangepicker -->
-<script src="Js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<script src="/Js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="Js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+<script src="/Js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
 <!-- iCheck -->
-<script src="Js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+<script src="/Js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
 <!-- AdminLTE App -->
-<script src="Js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="/Js/AdminLTE/app.js" type="text/javascript"></script>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="Js/AdminLTE/dashboard.js" type="text/javascript"></script>
+<script src="/Js/AdminLTE/dashboard.js" type="text/javascript"></script>
 <script >
 
     $('.del-role').click(function(){
