@@ -39,7 +39,7 @@ class SyncData implements SyncDataInterface
     {
         $data = DB::table('event')
             ->leftJoin('content', 'event.event_id', '=', 'content.content_id')
-            ->select('content.content')
+            ->select('content.content', 'event.event_date', 'event.title')
             ->where('event.event_id', $id)
             ->where('content.type', 1)
             ->take(1)
@@ -72,7 +72,7 @@ class SyncData implements SyncDataInterface
     {
         $data = DB::table('news')
             ->leftJoin('content', 'news.news_id', '=', 'content.content_id')
-            ->select('content.content')
+            ->select('content.content', 'news.title', 'news.publish_date_time')
             ->where('news.news_id', $id)
             ->where('content.type', 2)
             ->take(1)
