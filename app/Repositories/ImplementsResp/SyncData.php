@@ -115,7 +115,7 @@ class SyncData implements SyncDataInterface
     {
         $data = DB::table('news')
             ->leftJoin('content', 'news.news_id', '=', 'content.content_id')
-            ->select('content.content')
+            ->select('content.content', 'news.headline', 'news.publish_date_time')
             ->where('news.news_id', $id)
             ->where('content.type', 3)
             ->take(1)
