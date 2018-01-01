@@ -46,12 +46,14 @@ class GetBullionData extends Command
         $monthly_data = $bullion_data['monthly'];
         $weekly_data  = $bullion_data['weekly'];
         $daily_data   = $bullion_data['daily'];
+        $update_date = strtotime($bullion_data['update_date']['date']);
         //替换更新stock_ref_bullion表数据
         $insert_data = [
             'monthly'       =>  serialize($monthly_data),
             'weekly'        =>  serialize($weekly_data),
             'daily'         =>  serialize($daily_data),
             'create_time'   =>  time(),
+            'update_date'   =>  $update_date,
         ];
         $res = DB::table('ref_bullion')->insert($insert_data);
         return;

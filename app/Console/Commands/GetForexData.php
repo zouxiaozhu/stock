@@ -41,7 +41,9 @@ class GetForexData extends Command
         $url = config('xmlurl.ref-forex');
         $remote_data = xml2arr($url);
         $forex_data  = $remote_data['details'];
+//        var_export($forex_data);die;
         if (empty($forex_data)) return;
+        $update_date = $forex_data['update_date']['date'];
         $insert_data = [
             'res1'          =>  serialize($forex_data['res1']),
             'res2'          =>  serialize($forex_data['res2']),
@@ -52,6 +54,7 @@ class GetForexData extends Command
             'sup3'          =>  serialize($forex_data['sup3']),
             'sup4'          =>  serialize($forex_data['sup4']),
             'create_time'   =>  time(),
+            'update_date'   =>  strtotime($update_date),
         ];
         $res = DB::table('ref_forex')->insert($insert_data);
         return;

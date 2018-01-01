@@ -145,7 +145,7 @@ class SyncData implements SyncDataInterface
     public function refBullion()
     {
         $data = DB::table('ref_bullion')
-            ->select('monthly', 'weekly', 'daily')
+            ->select('monthly', 'weekly', 'daily', 'update_date')
             ->orderBy('id', 'desc')
             ->take(1)
             ->get();
@@ -155,6 +155,7 @@ class SyncData implements SyncDataInterface
             $data['monthly'] = unserialize($data['monthly']);
             $data['weekly']  = unserialize($data['weekly']);
             $data['daily']   = unserialize($data['daily']);
+            $data['update_date'] = $data['update_date'];
         }
         return response()->success($data);
     }
@@ -166,7 +167,7 @@ class SyncData implements SyncDataInterface
     public function refForex()
     {
         $data = DB::table('ref_forex')
-            ->select('res1', 'res2', 'res3', 'res4', 'sup1', 'sup2', 'sup3', 'sup4')
+            ->select('res1', 'res2', 'res3', 'res4', 'sup1', 'sup2', 'sup3', 'sup4', 'update_date')
             ->orderBy('id', 'desc')
             ->take(1)
             ->get();
