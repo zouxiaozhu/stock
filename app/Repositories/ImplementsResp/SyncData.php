@@ -194,8 +194,16 @@ class SyncData implements SyncDataInterface
         $data = DB::table('econ')
             ->select('date', 'hktime', 'country', 'fname', 'quarter', 'forecast', 'lasttime')
             ->orderBy('date', 'desc');
-        if (isset($params['date'])) {
-            $data->where('date', $params['date']);
+        if (isset($params['start_time'])) {
+            $data->where('date', '>', $params['start_time']);
+        }
+
+        if (isset($params['end_time'])) {
+            $data->where('date', '<', $params['end_time']);
+        }
+
+        if (isset($params['country'])) {
+            $data->where('country', '=', $params['country']);
         }
         $data = $data->paginate($params['per_num']);
         $data = obj2Arr($data);
