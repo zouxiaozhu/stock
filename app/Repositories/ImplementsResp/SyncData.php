@@ -176,7 +176,9 @@ class SyncData implements SyncDataInterface
         $data = isset($data[0]) ? $data[0] : [];
         if (!empty($data)) {
             foreach ($data as $k => &$v) {
-                $v = unserialize($v);
+                if ($k != 'update_date') {
+                    $v = unserialize($v);
+                }
             }
         }
         return response()->success($data);
