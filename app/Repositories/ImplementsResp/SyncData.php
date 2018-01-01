@@ -55,7 +55,7 @@ class SyncData implements SyncDataInterface
     public function newsList($per_num)
     {
         $data = DB::table('news')
-            ->select('news_id', 'title')
+            ->select('news_id', 'title', 'publish_date_time')
             ->where('type', 1)
             ->orderBy('publish_date_time', 'desc')
             ->paginate($per_num);
