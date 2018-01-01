@@ -20,13 +20,13 @@ class AuthTokenController extends Controller
     public function __construct(Request $request)
     {
         $this->request = $request;
-        $this->_predis = new \Predis\Client([
-            $config = array_merge(self::$_default_config, [
-                'host' => env('REDIS_HOST'),
-                'port' => env('REDIS_PORT'),
-                'database' => env('REDIS_DATABASE', 0)
-            ])
-        ]);
+//        $this->_predis = new \Predis\Client([
+//            $config = array_merge(self::$_default_config, [
+//                'host' => env('REDIS_HOST'),
+//                'port' => env('REDIS_PORT'),
+//                'database' => env('REDIS_DATABASE', 0)
+//            ])
+//        ]);
     }
 
     public function checkToken()
@@ -116,19 +116,17 @@ class AuthTokenController extends Controller
         }
 
         $access_token = $this->encode_access_token($user_info);
-//        $access_token = str_pad($access_token, 16);
-//        echo $access_token;die;
-        if ($this->_predis->get($access_token)) {
-            $this->_predis->del($access_token);
-        }
-        $redis_bool = $this->_predis->setex(
-            $this->get_token_key($access_token),
-            env('REDIS_EXPIRE_TIME', 3600),
-            json_encode($user_info)
-        );
-        if (!$redis_bool) {
-            return response()->error(0007, '存储信息失效');
-        }
+//        if ($this->_predis->get($access_token)) {
+//            $this->_predis->del($access_token);
+//        }
+//        $redis_bool = $this->_predis->setex(
+//            $this->get_token_key($access_token),
+//            env('REDIS_EXPIRE_TIME', 3600),
+//            json_encode($user_info)
+//        );
+//        if (!$redis_bool) {
+//            return response()->error(0007, '存储信息失效');
+//        }
         return response()->success([
             'access_token' => $access_token,
             'expire_time' => env('REDIS_EXPIRE_TIME'),
