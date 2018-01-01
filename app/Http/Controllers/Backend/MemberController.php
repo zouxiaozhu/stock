@@ -20,13 +20,14 @@ class MemberController extends \App\Http\Controllers\Controller{
             $prms = json_decode(session()->get('prms_info'), true);
             $role = json_decode(session()->get('roles_info'), true);
             $page = max(1,$request->get('page')) ;
-            $page_num = $request->get('page_num',20);
-            $offset = ($page - 1) * $page_num;
+//            $page_num = $request->get('page_num',20);
+//            $offset = ($page - 1) * $page_num;
             $user_db = MembersModel::where('id','>',0);
 
             if($request->has('status') && in_array($request->get('status'),[0,1])){
                 $user_db = $user_db->where('status',$request->get('status'));
             }
+
             if($source =$request->get('source')){
                 if(strtolower($source) == 'facebook'){
                     $source = 2;

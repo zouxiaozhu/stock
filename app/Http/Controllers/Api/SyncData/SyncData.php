@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\SyncData;
 
 use App\Http\Controllers\ApiAuth\ApiAuthTrait;
 use App\Http\Controllers\Backend\AdminTrait;
+use App\Http\Models\Backend\MembersModel;
 use App\Http\Models\Backend\TerminalSettings;
 use App\Http\Models\Backend\Users;
 use App\User;
@@ -311,8 +312,10 @@ class SyncData extends Controller
     public function aceCreate(Request $request)
     {
         $access_token = $request->get('access_token','');
-        $user_info = $this->decode_access_token($access_token);
-        if(!$user_info || !$user_info['is_post']){
+        $member_info = $this->decode_access_token($access_token);
+
+        $member_info['is_post'] = MembersModel::find($member_info['member_id'])->is_post;
+        if(!$member_info || !$member_info['is_post']){
             return response()->false(1314, '没有登录或者没有发帖权限');
         }
         //走中间介判断是否有发布的权限
@@ -326,8 +329,8 @@ class SyncData extends Controller
             'stop_loss' => intval($request->get('stop_loss', 99)),
             'target' => intval($request->get('target', 99)),
             'comment' => trim($request->get('comment')),
-            'create_user_id'=>$user_info['user_id'],
-            'create_user_name'=>$user_info['name']
+            'create_user_id'=>$member_info['member_id'],
+            'create_user_name'=>$member_info['member_name']
         ];
 
         if (!$data['date']) {

@@ -61,8 +61,10 @@ class CreateCommentTable extends Migration
             $table->increments('id')->comment('评论id');
             $table->integer('ace_id')->comment('帖子id');
             $table->integer('ace_comment_fid')->comment('主回复')->default(0);
-            $table->string('reply_member_id')->comment('父级评论回复的会员名称')->nullable();
+            $table->integer('reply_member_id')->comment('父级评论回复的会员ID')->nullable();
+            $table->string('reply_member_name')->comment('父级评论回复的会员名称')->nullable();
             $table->integer('member_id')->comment('会员id')->default(0);
+            $table->string('content')->comment('内容')->default(0);
             $table->integer('like_num')->comment('点赞数')->default(0);
             $table->integer('dislike_num')->comment('反对数')->default(0);
             $table->enum('status',[0,1,2,3])->comment('0被删除 1正常 3 待审核 2已恢复')->nullable();

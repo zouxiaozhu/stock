@@ -58,10 +58,16 @@ class AuthTokenController extends Controller{
             }
             // 插入数据
             $user_info = $this->wechat_userinfo($wechat_open_id);
+
+            $user_info = [
+                'member_id'=>1,
+                'member_name'=>'zhanglong',
+                'member_open_id'=>'sdasdasd',
+                'source'=>1
+            ];
         }else{
             $user_name = $this->request->get('user_name');
             $password = $this->request->get('password');
-
         }
         if(!$user_info){
             return response()->error(0006,'未知的用户信息');

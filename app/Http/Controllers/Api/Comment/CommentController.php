@@ -26,14 +26,16 @@ class CommentController extends Controller{
         if(!$member_info = $this->decode_access_token($this->access_token)){
             return response()->false(1111,'token不合法 或者 失效');
         }
-        $this->member_info = $member_info[0];
+        $this->member_info = $member_info;
     }
+
     public function addComment(Request $request){
         $member_info =  $this->member_info;
-        $member_id = $member_info['id'];
+        $member_id = $member_info['member_id'];
 
         $fill_able = [
             'ace_id' => 'required',
+            'content'=>'required'
         ];
 
         $message = [
@@ -45,15 +47,7 @@ class CommentController extends Controller{
         if ($validator->fails()) {
             return Response::false(1015,$validator->errors()->first());
         }
-        /**
-        $table->integer('ace_id')->comment('帖子id');
-        $table->integer('ace_comment_fid')->comment('主回复')->default(0);
-        $table->string('reply_member_id')->comment('父级评论回复的会员名称')->nullable();
-        $table->integer('member_id')->comment('会员id')->default(0);
-        $table->integer('like_num')->comment('点赞数')->default(0);
-        $table->integer('dislike_num')->comment('反对数')->default(0);
-        $table->enum('status',[0,1,2,3])->comment('0被删除 1正常 3 待审核 2已恢复')->nullable();
-         */
+
         $is_audit = TerminalSettings::where('key','comment')->get()->toArray()[0]['value'];//1需要审核  0 不用审核
         switch ($is_audit){
             case 1:
@@ -66,16 +60,23 @@ class CommentController extends Controller{
                 break;
         }
 
-
-
         $insert = [
             'ace_id' => intval($request->get('ace_id')),
             'ace_comment_fid'=>$request->get('ace_comment_fid',0),
             'reply_member_id'=>$request->get('reply_member_id',0),
+            'reply_member_name'=>$request->get('reply_member_name',''),
             'member_id'=>$member_id,
-            'status'=>$status
+            'status'=>intval($status),
+            'content'=>trim($request->get('content'))
         ];
-        CommentModel::insert($insert);
-        return Response::success('评论成功'.$msg);
+        $ret = CommentModel::insert($insert);
+        $auction = $request->get('reply_member_id',0) ? '回复':'评论';
+
+        if(!$ret){
+            $msg = '失败';
+            return Response::false($auction.$msg);
+        }
+
+        return Response::success($auction.$msg);
     }
 }
