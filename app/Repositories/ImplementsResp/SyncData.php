@@ -101,7 +101,8 @@ class SyncData implements SyncDataInterface
         foreach ($data as $k => &$v) {
             $v['headline'] = unserialize($v['headline']);
         }
-        return response()->success($data);
+        $data_arr['data'] = $data;
+        return response()->success($data_arr);
     }
 
 
