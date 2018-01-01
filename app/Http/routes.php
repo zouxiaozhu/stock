@@ -78,17 +78,7 @@ Route::group(['namespace'=> 'Api\Rongyun'], function(){
 Route::post('api/login', 'ApiAuth\AuthTokenController@login');
 Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
 Route::post('api/add-comment', 'Api\Comment\CommentController@addComment');
-
-
-
-
-
-
-
-
-
-
-
+Route::get('api/get-comment', 'Api\Comment\CommentController@getComment');
 
 Route::post('admin/login', 'Backend\Admin@login');
 Route::get('admin/login', 'Backend\Admin@login');
@@ -126,6 +116,9 @@ Route::get('admin/index-member', 'Backend\MemberController@member');
 
 
 Route::get('admin/index-post', 'Backend\Comment@ace');
+Route::get('admin/detail-post', 'Backend\Comment@detailAce');
+Route::get('admin/audit-ace', 'Backend\Comment@auditAce');
+Route::get('admin/audit-comment', 'Backend\Comment@auditComment');
 
 
 Route::post('service/upload', 'Service\ImagesController@image');

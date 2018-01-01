@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Api\Comment;
 use App\Http\Controllers\ApiAuth\ApiAuthTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Api\CommentModel;
+use App\Http\Models\Backend\AceModel;
 use App\Http\Models\Backend\ColumnModel;
 use App\Http\Models\Backend\TerminalSettings;
 use Illuminate\Http\Request;
@@ -52,11 +53,11 @@ class CommentController extends Controller{
         switch ($is_audit){
             case 1:
                 $status = 3;
-                $msg = ',待审核';
+                $msg = '成功,待审核';
                 break;
             case 0:
                 $status = 1;
-                $msg = '';
+                $msg = '成功';
                 break;
         }
 
@@ -65,7 +66,7 @@ class CommentController extends Controller{
             'ace_comment_fid'=>$request->get('ace_comment_fid',0),
             'reply_member_id'=>$request->get('reply_member_id',0),
             'reply_member_name'=>$request->get('reply_member_name',''),
-            'member_id'=>$member_id,
+            'member_id'=>$member_id?:0,
             'status'=>intval($status),
             'content'=>trim($request->get('content'))
         ];
@@ -78,5 +79,52 @@ class CommentController extends Controller{
         }
 
         return Response::success($auction.$msg);
+    }
+
+
+    /**
+     * 获取帖子下面的评论
+     * @param Request $request
+     * @return mixed
+     */
+    public function getComment(Request $request)
+    {
+        $ace_id = $request->get('ace_id');
+        if(!$ace_id){
+            return Response::false('没有ace_id');
+        }
+
+        $page = $request->get('page');
+        $page_size = $request->get('page_size',10);
+        $offset = (max($page,1)-1) *max($page_size,0);
+        $comment_f = CommentModel::where('ace_id',intval($ace_id))
+            ->where('ace_comment_fid',0)
+            ->where('status',1)
+            ->take($page_size)
+            ->skip($offset)
+            ->get()->toArray();
+        if(!$comment_f){
+            return response()->success([]);
+        }
+        $fids = array_column($comment_f,'id');
+
+        $comment_c = CommentModel::where('ace_id',intval($ace_id))
+            ->whereIn('ace_comment_fid',$fids)
+            ->where('status',1)
+            ->get()->toArray();
+
+        $c_com = [];
+        foreach ($comment_c as $com){
+            $c_com[$com['ace_comment_fid']][]= $com;
+        }
+
+        $new_list = [];
+        foreach ($comment_f as $f_com){
+            $new_list[$f_com['id']]['comment'] = $f_com;
+            $new_list[$f_com['id']]['comment']['child_comment'] = $c_com[$f_com['id']]?:[];
+        }
+
+        return response()->success(array_values($new_list));
+
     }
 }

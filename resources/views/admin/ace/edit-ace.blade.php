@@ -353,92 +353,73 @@
     <aside class="right-side">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-           <span>
-
-
-
-
-           </span>
+            <h1>
+                谁是高手
+                <small>preview of ace manage</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i>HOME</a></li>
+                <li><a href="#">帖子</a></li>
+                <li class="active">详情</li>
+            </ol>
         </section>
-        <section class="content-header">
+        <section class="content">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Index Member Table</h3>
-                            <div class="box-tools">
-
-                            </div>
-                        </div><!-- /.box-header -->
-                        <div class="box-body table-responsive no-padding">
-                            <table class="table table-hover">
-                                <tr>
-                                    <th>编号</th>
-                                    <th>
-                                        产品类型
-                                    </th>
-                                    <th>操作类型</th>
-                                    <th>起始价格</th>
-                                    <th>结束价格</th>
-                                    <th>止损</th>
-                                    <th>创建人</th>
-                                    <th>创建时间</th>
-                                    <th>评论</th>
-                                    <th>状态</th>
-                                    <th>
-                                        详情
-                                    </th>
-                                </tr>
-
-                                @foreach($ace_list as $key=>$ace)
-                                    <tr>
-                                        <td>{{$ace['id']}}</td>
-                                        <td>
-                                        <span class="label label-success">
-                                            {{$ace['product_type']}}
-                                        </span>
-                                        </td>
-                                        @if($ace['action'] == 1)
-                                            <td><span class="label label-success">买入</span></td>
-                                        @else
-                                            <td><span class="label label-warning">卖出</span></td>
-                                        @endif
-                                        <td>{{$ace['from_price']}}</td>
-                                        <td>{{$ace['to_price']}}</td>
-                                        <td>{{$ace['stop_loss']}}</td>
-                                        <td>{{($ace['create_user_name'])}}</td>
-                                        <td>{{$ace['create_time']}}</td>
-                                        <td>
-                                                {{mb_substr($ace['comment'],0,20)}}...
-                                           </td>
-
-                                        <td>
-                                            <select name="status" class="audit" ace_id="{{$ace['id']}}">
-
-                                                <option value="1"
-                                                @if($ace['rule_result'] ==1)
-                                                    selected
-                                                        @endif
-                                                >通过</option>
-                                                <option value="2"
-                                                        @if($ace['rule_result'] ==2)
-                                                        selected
-                                                        @endif
-                                                >打回</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <a href="{{env('APP_URL')}}/admin/detail-post?id={{$ace['id']}}" >查看详情</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-
-                            </table>
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
+                        <div class="col-xs-12 bg-black-gradient">
+                        {{$ace_detail['comment']}}
+                        </div>
+                        <!-- /.box-header -->
+                {{--!-- /.box-body -->--}}
+                    </div>
                 </div>
+             </div>
+{{--            {{$ace_list->appends(request()->all())->render()}}--}}
+        </section>
+
+        <section>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+
+                  @foreach($comment_page as $comment)
+                    <ul class="menu">
+                        <li ><!-- start message -->
+                            <a href="#">
+                                <h4>
+                                  {{$comment['content']}}
+                                    <small><i class="fa fa-clock-o"></i>
+                                        时间 : {{$comment['create_at']}} {{$comment['id']}}
+                                    </small>
+
+                                </h4>
+
+                            </a>
+                        </li>
+                          @if(isset($new_child_list[$comment['id']]))
+                        <ul>
+                            @foreach($new_child_list[$comment['id']] as $child_c)
+                                @if($child_c)
+                            <li ><!-- start message -->
+                                <a href="#">
+                                    <h4>
+                                        {{$child_c['member_name']}} <small>回复</small> &nbsp;{{$child_c['reply_member_name']}}{{"   ：   "}} <span>{{$child_c['content']}}</span>
+                                        <small><i class="fa fa-clock-o"></i>
+                                            时间 :  {{$child_c['created_at'] or ''}}{{$child_c['id']}}
+                                        </small>
+                                    </h4>
+                                </a>
+                            </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                         @endif
+                    </ul>
+                  @endforeach
+                </table>
+
             </div>
-            {{$ace_list->appends(request()->all())->render()}}
+            {{$comment_page->appends(request()->all())->render()}}
         </section>
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
@@ -476,27 +457,15 @@
 <script src="/Js/AdminLTE/dashboard.js" type="text/javascript"></script>
 <script>
 
-    $('.audit').change(function () {
-        var ace_id = $(this).attr('ace_id');
-        var status = $(this).val();
-        $.ajax({
-
-            type: "GET",
-
-            url: "{{env('APP_URL')}}"+'/admin/audit-ace',
-
-            data: {ace_id:ace_id, status:status},
-
-            dataType: "json",
-
-            success: function(data){
-                console.log(data)
-            },
-            error:function(){
-
-            }
+    $('.del-column').click(function () {
+        var column_id = $(this).attr('column_id');
+        layer.confirm('你确定要删除栏目吗？', {
+            btn: ['取消删除', '确定'] //按钮
+        }, function () {
+            layer.msg('取消删除', {icon: 1});
+        }, function () {
+            window.location.href = "{{env('APP_URL')}}" + '/admin/del-column?column_id=' + column_id;
         });
-
 
 
     });

@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call(AdminAuthRoleSeeder::class);
         $this->call(TerminalSettingSeeder::class);
+        $this->call(ChartSeeder::class);
     }
 }

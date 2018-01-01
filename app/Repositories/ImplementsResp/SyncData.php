@@ -301,8 +301,6 @@ class SyncData implements SyncDataInterface
     public function aceCreate($data)
     {
         //测试数据,暂时写死,后期读取客户信息
-        $data['create_user_name'] = 'syl';
-        $data['create_user_id'] = '469';
         $data['time'] = time();
         $data['avatar'] = 'http://img.team.cloud.hoge.cn/material/tuji/img/2017/12/201712201640464Ls0.jpg';
         $res = DB::table('ace')->insert($data);

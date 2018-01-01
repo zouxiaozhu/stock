@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\ApiAuth;
+use App\Http\Controllers\Api\Rongyun\Rcloud;
 use \App\Http\Controllers\Controller;
 
 use App\Http\Models\Backend\MembersModel;
@@ -23,7 +24,9 @@ class AuthTokenController extends Controller{
                 'database'=>env('REDIS_DATABASE',0)
             ])
         ]);
+
     }
+
 
     public function checkToken(){
 
@@ -46,13 +49,13 @@ class AuthTokenController extends Controller{
         }
 
         if($open_type == '2'){
-            $facebook_id = $this->request->get('facebook_open_id',0);
+            $facebook_id = $this->request->get('open_id',0);
             if(!$facebook_id){
                 return response()->error(0004,'没有facebook信息');
             }
             $user_info = $this->facebook_userinfo($facebook_id);
         }elseif($open_type=='1'){
-            $wechat_open_id = $this->request->get('wechat_open_id',0);
+            $wechat_open_id = $this->request->get('open_id',0);
             if(!$wechat_open_id){
                 return response()->error(0005,'没有wechat信息');
             }
@@ -88,7 +91,10 @@ class AuthTokenController extends Controller{
         }
         return response()->success([
             'access_token'=>$access_token,
-            'expire_time'=>env('REDIS_EXPIRE_TIME')
+            'expire_time'=>env('REDIS_EXPIRE_TIME'),
+            'member_id'=>$user_info['member_id'],
+            'memeber_name'=>$user_info['member_name'],
+            'avatar'=>$user_info['avatar']
         ]);
     }
 

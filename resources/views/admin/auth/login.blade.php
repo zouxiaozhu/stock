@@ -86,7 +86,7 @@
             dataType: "json",
 
             success: function(data){
-                console.log(data)
+
                 if(data.error_code){
                     $('#password').val("")
                     $('#name').val("");
