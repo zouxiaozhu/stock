@@ -105,7 +105,7 @@ class Rcloud extends Controller
         curl_setopt($ch, CURLOPT_POST, $httpMethod == 'POST');
         curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); //处理http证书问题
-        curl_setopt($ch, CURLOPT_HEADER, false);
+//        curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

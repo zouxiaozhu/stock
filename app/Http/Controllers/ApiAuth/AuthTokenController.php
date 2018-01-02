@@ -43,7 +43,15 @@ class AuthTokenController extends Controller{
     }
 
     public function login(Request $request){
-        $this->checkParams($request);
+        if(!$request->get('member_name')){
+            return response()->false('会员名必传');
+        }
+        if(!$request->get('open_id')){
+            return response()->false('open标识必传');
+        }
+        if(!$request->get('open_type')){
+            return response()->false('开放类型必须传');
+        }
         //$password = $this->request->get('user_name');
         $open_type = $request->get('open_type') ? : 0;
 
@@ -108,13 +116,16 @@ class AuthTokenController extends Controller{
         if(!$redis_bool){
             return response()->error(0007,'存储信息失效');
         }
+        $rc_token = $user_info['rc_token'];
+
+
         return response()->success([
             'access_token'=>$access_token,
             'expire_time'=>env('REDIS_EXPIRE_TIME'),
             'member_id'=>$user_info['id'],
-            'memeber_name'=>$user_info['name'],
+            'member_name'=>$user_info['name'],
             'avatar'=>$user_info['avatar'],
-            'rc_token'=>$user_info['rc_token'],
+            'rc_token'=>($user_info['$rc_token']),
             'is_post'=>$user_info['is_post'],
         ]);
     }
@@ -184,16 +195,4 @@ class AuthTokenController extends Controller{
         return md5('user_'.$access_token);
     }
 
-    public function checkParams($request)
-    {
-        if(!$request->get('member_name')){
-            return response()->false('会员名必传');
-        }
-        if(!$request->get('open_id')){
-            return response()->false('open标识必传');
-        }
-        if(!$request->get('open_type')){
-            return response()->false('开放类型必须传');
-        }
-    }
 }

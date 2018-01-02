@@ -36,18 +36,18 @@
       <file leaf-file-name="Rcloud.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Rongyun/Rcloud.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="116" column="20" lean-forward="true" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
+            <state relative-caret-position="502">
+              <caret line="107" column="50" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthTokenController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AuthTokenController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="195" column="45" lean-forward="false" selection-start-line="195" selection-start-column="45" selection-end-line="195" selection-end-column="45" />
+            <state relative-caret-position="347">
+              <caret line="127" column="48" lean-forward="false" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
               <folding>
                 <element signature="e#46#90#0#PHP" expanded="true" />
               </folding>
@@ -95,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index-member.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index-member.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="400" column="67" lean-forward="true" selection-start-line="400" selection-start-column="67" selection-end-line="400" selection-end-column="67" />
+            <state relative-caret-position="648">
+              <caret line="417" column="46" lean-forward="true" selection-start-line="417" selection-start-column="46" selection-end-line="417" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -129,7 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Manage</find>
       <find>with</find>
       <find>login</find>
       <find>栏目角色</find>
@@ -159,6 +158,7 @@
       <find>audit_ace</find>
       <find>CURLOPT_DNS_USE_GLOBAL_CACH</find>
       <find>CURLOPT_DNS_USE_GLOBAL_CACHE</find>
+      <find>checkP</find>
     </findStrings>
     <replaceStrings>
       <replace>../../js/</replace>
@@ -217,13 +217,13 @@
         <option value="$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_chart_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_comment_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Rongyun/Rcloud.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_12_17_151953_create_member_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Rongyun/Rcloud.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
       </list>
     </option>
   </component>
@@ -571,12 +571,12 @@
       <workItem from="1514386511671" duration="4434000" />
       <workItem from="1514790451034" duration="22646000" />
       <workItem from="1514818706470" duration="445000" />
-      <workItem from="1514894603319" duration="7388000" />
+      <workItem from="1514894603319" duration="8302000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142273000" />
+    <option name="totallyTimeSpent" value="143187000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-9" width="1864" height="1098" extended-state="6" />
@@ -974,26 +974,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="400" column="67" lean-forward="true" selection-start-line="400" selection-start-column="67" selection-end-line="400" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="68" column="107" lean-forward="true" selection-start-line="68" selection-start-column="107" selection-end-line="68" selection-end-column="107" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Rongyun/Rcloud.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="116" column="20" lean-forward="true" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1022,13 +1006,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Rongyun/Rcloud.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="107" column="50" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="195" column="45" lean-forward="false" selection-start-line="195" selection-start-column="45" selection-end-line="195" selection-end-column="45" />
+        <state relative-caret-position="347">
+          <caret line="127" column="48" lean-forward="false" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
           <folding>
             <element signature="e#46#90#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="417" column="46" lean-forward="true" selection-start-line="417" selection-start-column="46" selection-end-line="417" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>

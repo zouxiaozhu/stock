@@ -413,7 +413,7 @@
 
                                         @if($member['is_post'] == 1)
                                             <td><span class="label label-success">启用</span></td>
-                                        @elseif($memeber['is_post'] ==0)
+                                        @elseif($member['is_post'] ==0)
                                             <td><span class="label label-warning">禁用</span></td>
                                         @endif
 
