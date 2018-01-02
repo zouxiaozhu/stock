@@ -127,4 +127,31 @@ class CommentController extends Controller{
         return response()->success(array_values($new_list));
 
     }
+
+    /**
+     * 获取自己的评论信息
+     * @param Request $request
+     */
+    public function getMyComment(Request $request)
+    {
+        $member_info = $this->member_info;
+        $member_id = $member_info['member_id'];
+        $page = $request->get('page');
+        $page_size = $request->get('page_size');
+        $offset = ($page - 1 ) * $page_size;
+        $comment = CommentModel::where('memeber_id',$member_id)->skip($offset)->take($page_size)->get()->toArray();
+        $new_comment = [];
+        foreach ($comment as $com){
+            if($comment['ace_comment_fid']){
+                $new_comment['comment']= $com;
+                $new_comment['comment']['father']=ColumnModel::find($comment['ace_comment_fid'])->toArray();
+            }else{
+                $new_comment['comment']= $com;
+                $new_comment['comment']['ace_id']=AceModel::find($comment['ace_id'])->toArray();
+            }
+        }
+        return response()->success($new_comment?:[]);
+
+
+    }
 }

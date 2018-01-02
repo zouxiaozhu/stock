@@ -58,7 +58,7 @@ class CreateCommentTable extends Migration
     public function createComment(){
         Schema::create('comments', function (Blueprint $table) {
             $table->engine = 'Innodb';
-            $table->increments('id')->comment('评论id')->default(0);
+            $table->increments('id')->comment('评论id');
             $table->integer('ace_id')->comment('帖子id')->default(0);
             $table->integer('ace_comment_fid')->comment('主回复')->default(0);
             $table->integer('reply_member_id')->comment('父级评论回复的会员ID')->default(0);

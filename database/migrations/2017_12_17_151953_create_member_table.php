@@ -46,6 +46,7 @@ class CreateMemberTable extends Migration
             $table->string('last_login_time')->default(date("Y-m-d,H:i:s",time()));
             $table->string('avatar')->default('');
             $table->string('last_login_device_type')->comment('登录设备ios,web,android')->index()->default('');
+            $table->string('rc_token')->comment('融云')->index()->default('');
             $table->timestamps();
         });
     }

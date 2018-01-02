@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\Rongyun\Rcloud;
 use \App\Http\Controllers\Controller;
 
 use App\Http\Models\Backend\MembersModel;
+use App\Http\Models\Backend\TerminalSettings;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
@@ -50,28 +52,41 @@ class AuthTokenController extends Controller{
 
         if($open_type == '2'){
             $facebook_id = $this->request->get('open_id',0);
-            if(!$facebook_id){
-                return response()->error(0004,'没有facebook信息');
+            $member_info = MembersModel::where('open_id',$facebook_id)->where('source',$open_type)->first();
+            if(!$member_info){
+                $this->facebook_userinfo();
+
+
+
+
+
+
             }
-            $user_info = $this->facebook_userinfo($facebook_id);
+
         }elseif($open_type=='1'){
             $wechat_open_id = $this->request->get('open_id',0);
-            if(!$wechat_open_id){
-                return response()->error(0005,'没有wechat信息');
+            $member_info = MembersModel::where('open_id',$wechat_open_id)->where('source',$open_type)->first();
+            if(!$member_info){
+                $insert_data = [
+                    'name'=>'',
+                    'source'=>$open_type,
+                    'phone'=>'',
+                    'is_post'=>0,
+                    'last_login_time'=>date("Y-m-d H:i:s"),
+                    'rc_token'=>'',
+                    'avatar'=>'',
+                ];
+
+                $user_info = $this->wechat_userinfo($member_info);
             }
             // 插入数据
-            $user_info = $this->wechat_userinfo($wechat_open_id);
 
-            $user_info = [
-                'member_id'=>1,
-                'member_name'=>'zhanglong',
-                'member_open_id'=>'sdasdasd',
-                'source'=>1
-            ];
-        }else{
-            $user_name = $this->request->get('user_name');
-            $password = $this->request->get('password');
+
         }
+//        else{
+//            $user_name = $this->request->get('user_name');
+//            $password = $this->request->get('password');
+//        }
         if(!$user_info){
             return response()->error(0006,'未知的用户信息');
         }
@@ -139,18 +154,9 @@ class AuthTokenController extends Controller{
      * @param int $wechat_id
      * @return array
      */
-    protected function wechat_userinfo($wechat_id = 0){
-        if(!$wechat_id){
-            return [];
-        }
-
-        $memeber_info = MembersModel::where('open_id',$wechat_id)->where('source',1)->get()->toArray();
-        // 获取用户信息 并放入到用户信息表
-        if(!$memeber_info){
-
-        }
-        return $memeber_info;
-
+    protected function wechat_userinfo($member_info){
+        $member = MembersModel::create($member_info);
+        return $member;
     }
 
     /**
@@ -158,10 +164,9 @@ class AuthTokenController extends Controller{
      * @param int $facebook_id
      * @return array
      */
-    protected function facebook_userinfo($facebook_id = 0 ){
-        if(!$facebook_id){
-            return [];
-        }
+    protected function facebook_userinfo($member_info){
+        $member = MembersModel::create($member_info);
+        return $member;
 
         // 获取用户信息 并放入到用户信息表
     }
