@@ -111,12 +111,12 @@ class AuthTokenController extends Controller
         }
         // 查询对应的用户是否需要存库 更新相应字段 是否允许登录
         $access_token = $this->encode_access_token($user_info);
-
-        if($this->_predis->get($access_token)){
-            $this->_predis->del($access_token);
+        $key = $this->get_token_key($access_token);
+        if($this->_predis->get($key)){
+            $this->_predis->del($key);
         }
         $redis_bool = $this->_predis->setex(
-            $this->get_token_key($access_token),
+            $key,
             env('REDIS_EXPIRE_TIME',3600),
             json_encode($user_info)
         );
@@ -125,9 +125,8 @@ class AuthTokenController extends Controller
         }
         $rc_token = $user_info['rc_token'];
 
-
         return response()->success([
-            'access_token'=>$access_token,
+            'access_token'=>$key,
             'expire_time'=>env('REDIS_EXPIRE_TIME'),
             'member_id'=>$user_info['id'],
             'member_name'=>$user_info['name'],

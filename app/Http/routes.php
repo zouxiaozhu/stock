@@ -114,6 +114,7 @@ Route::get('admin/add-member', 'Backend\MemberController@addMember');
 Route::get('admin/edit-member', 'Backend\MemberController@addMember');
 Route::get('admin/del-member', 'Backend\MemberController@delMember');
 Route::get('admin/index-member', 'Backend\MemberController@member');
+Route::get('admin/update-member', 'Backend\MemberController@updateMember');
 
 
 Route::get('admin/index-post', 'Backend\Comment@ace');

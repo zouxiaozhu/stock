@@ -404,7 +404,7 @@
                                             <td><span class="label label-warning">Facebook</span></td>
                                         @endif
                                             <td>
-                                                <select name="is_post" class="post_audit">
+                                                <select name="is_post" member-id="{{$member['id']}}"  class="post_audit">
                                                     <option value="0">禁发帖</option>
                                                     <option value="1">申请中</option>
                                                     <option value="2">可发帖</option>
@@ -472,7 +472,7 @@ More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板�
 
 
     $('.del-member').click(function(){
-        var member_id = $(this).attr('member_id');
+        var member_id = $(this).attr('member-id');
         layer.confirm('你确定要删除栏目吗？', {
             btn: ['取消删除','确定'] //按钮
         }, function(){
@@ -480,10 +480,36 @@ More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板�
         }, function(){
             window.location.href="{{env('APP_URL')}}"+'/admin/del-member?member_id='+member_id;
         });
-
-
-
     });
+
+    $('.post_audit').change(function(){
+        var member_id  = $(this).attr('member_id');
+        var is_post = $(this).val();
+
+        $.ajax({
+
+            type: "GET",
+
+            url: "update-member",
+
+            data: {member_id:member_id,is_post:is_post},
+
+            dataType: "json",
+
+            success: function(data){
+                if(!data.code == 2000){
+                    layer.alert('更新失败')
+                }
+
+            },
+            error:function(){
+
+            }
+        });
+    })
+
+
+
 </script>
 </body>
 </html>

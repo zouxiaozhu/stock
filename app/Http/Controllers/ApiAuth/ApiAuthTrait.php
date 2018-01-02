@@ -10,22 +10,29 @@ use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 trait ApiAuthTrait{
     public function decode_access_token($access_token=''){
+        $this->_predis = new \Predis\Client([
+            $config = array_merge(array(
+                'host' => '127.0.0.1',
+                'port' => 6379,
+                'database' => 0
+            ), [
+                'host'=>env('REDIS_HOST'),
+                'port'=>env('REDIS_PORT'),
+                'database'=>env('REDIS_DATABASE',0)
+            ])
+        ]);
+        $key = $access_token;
 
-        if(!$access_token){
+        $user_info = $this->_predis->get($key);
+        if(!$user_info){
             return false;
         }
-        try {
-            $signature = Crypt::decrypt($access_token);
-            if(!$signature){
-                throw  new DecryptException('异常');
-            }
-        } catch (DecryptException $e) {
-            return false;
-        }
-        $signature = substr($signature,4,-4);
-        $user_info = json_decode($signature,true);
-
+        $user_info = json_decode($user_info,true);
         return $user_info;
     }
 
+    public function get_token_key($access_token)
+    {
+        return md5('user_'.$access_token);
+    }
 }

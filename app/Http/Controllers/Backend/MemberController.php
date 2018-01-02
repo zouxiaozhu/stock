@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Models\Backend\MembersModel;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
 
 class MemberController extends \App\Http\Controllers\Controller{
@@ -54,11 +55,23 @@ class MemberController extends \App\Http\Controllers\Controller{
 
     public function delMember(Request $request)
     {
-        $memeber_id = $request->get('member_id', 0);
-        if($memeber_id){
-            MembersModel::find(intval($memeber_id))->delete();
+        $member_id = $request->get('member_id', 0);
+        if($member_id){
+            MembersModel::find(intval($member_id))->delete();
         }
 
         return Redirect::to('admin/index-member');
+    }
+
+    public function updateMember(Request $request)
+    {
+        $member_id = $request->get('member_id');
+        $update_data = [];
+        if(isset($_GET['is_post'])){
+            $update_data['is_post'] = $_GET['is_post'];
+        }
+
+        $ret =MembersModel::where('id',$member_id)->update($update_data);
+        return response()->success(2000,'更新成功');
     }
 }

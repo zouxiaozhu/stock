@@ -31,7 +31,6 @@ class CommentController extends Controller{
     }
 
 
-
     public function addComment(Request $request){
         $member_info =  $this->member_info;
         $member_id = $member_info['member_id'];
