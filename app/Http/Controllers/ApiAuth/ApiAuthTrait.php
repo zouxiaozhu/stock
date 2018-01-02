@@ -24,7 +24,8 @@ trait ApiAuthTrait{
         $key = $access_token;
 
         $user_info = $this->_predis->get($key);
-        if(!$user_info){
+
+        if(is_null($user_info)){
             return false;
         }
         $user_info = json_decode($user_info,true);

@@ -320,6 +320,11 @@ class SyncData extends Controller
         $access_token = $request->get('access_token','');
         $member_info = $this->decode_access_token($access_token);
 
+        if(!$member_info){
+            echo json_encode(['error_code'=>4004,'data'=>'登录过期，重新登录']);die;
+        }
+
+        $this->member_info = $member_info;
         $member_info['is_post'] = MembersModel::find($member_info['member_id'])->is_post;
         if(!$member_info || $member_info['is_post'] ==0){
             return response()->false(1314, '没有登录或者没有发帖权限');

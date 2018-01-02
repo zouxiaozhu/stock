@@ -405,9 +405,20 @@
                                         @endif
                                             <td>
                                                 <select name="is_post" member-id="{{$member['id']}}"  class="post_audit">
-                                                    <option value="0">禁发帖</option>
-                                                    <option value="1">申请中</option>
-                                                    <option value="2">可发帖</option>
+                                                    <option value="0"
+                                                    @if($member['is_post'] == 0)
+                                                    selected
+                                                            @endif>禁发帖</option>
+                                                    <option value="1"
+                                                    @if($member['is_post'] == 1)
+                                                        selected
+                                                    @endif
+                                                    >申请中</option>
+                                                    <option value="2"
+                                                    @if($member['is_post'] == 2)
+                                                        selected
+                                                    @endif
+                                                    >可发帖</option>
                                                 </select>
                                             </td>
 

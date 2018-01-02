@@ -24,10 +24,14 @@ class CommentController extends Controller{
     public function __construct(Request $request)
     {
         $this->access_token = trim($request->get('access_token'));
-        if(!$member_info = $this->decode_access_token($this->access_token)){
-            return response()->false(1111,'token不合法 或者 失效');
+        $member_info= $this->decode_access_token($this->access_token);
+
+        if(!$member_info){
+          echo json_encode(['error_code'=>4004,'data'=>'登录过期，重新登录']);die;
         }
+
         $this->member_info = $member_info;
+
     }
 
 
