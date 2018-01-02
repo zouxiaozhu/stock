@@ -33,16 +33,16 @@ class CreateMemberTable extends Migration
             $table->string('name');
             $table->enum('source',[1,2])->comment('来源 1 微信 2 facebook');
             $table->string('email')->default('');
-            $table->string('signature')->comment('个性签名')->default('');
             $table->integer('phone')->default(0);
             $table->enum('status', [0, 1])->comment('状态，0禁用，1活跃')->default(1);
-            $table->enum('is_post', [0, 1])->comment('状态，0不能发，1能发贴')->default(1);
+            $table->enum('is_post', [0, 1])->comment('状态，0不能发，1 申请中 2能发贴')->default(1);
             $table->string('open_id')->default('')->comment("")->index();
             $table->string('last_login_time')->default(date("Y-m-d,H:i:s",time()));
             $table->string('avatar')->default('');
             $table->string('rc_token')->comment('融云')->index()->default('');
             $table->timestamps();
         });
+
     }
 
     /***

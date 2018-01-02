@@ -30,6 +30,8 @@ class CommentController extends Controller{
         $this->member_info = $member_info;
     }
 
+
+
     public function addComment(Request $request){
         $member_info =  $this->member_info;
         $member_id = $member_info['member_id'];
@@ -135,17 +137,20 @@ class CommentController extends Controller{
     public function getMyComment(Request $request)
     {
         $member_info = $this->member_info;
-        $member_id = $member_info['member_id'];
-        $page = $request->get('page');
-        $page_size = $request->get('page_size');
+        $member_id = $member_info['id'];
+        $page = $request->get('page')?:1;
+        $page_size = $request->get('page_size')?:10;
         $offset = ($page - 1 ) * $page_size;
-        $comment = CommentModel::where('memeber_id',$member_id)->skip($offset)->take($page_size)->get()->toArray();
+        $comment = CommentModel::where('member_id',$member_id)->skip($offset)->take($page_size)->orderBy('created_at','desc')->get()->toArray();
         $new_comment = [];
+
         foreach ($comment as $com){
             if($comment['ace_comment_fid']){
+                // 查找上级回复 如果没有找到帖子
                 $new_comment['comment']= $com;
                 $new_comment['comment']['father']=ColumnModel::find($comment['ace_comment_fid'])->toArray();
             }else{
+                // 查找上级回复 如果没有找到帖子
                 $new_comment['comment']= $com;
                 $new_comment['comment']['ace_id']=AceModel::find($comment['ace_id'])->toArray();
             }

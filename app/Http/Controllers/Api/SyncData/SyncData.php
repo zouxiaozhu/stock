@@ -321,8 +321,11 @@ class SyncData extends Controller
         $member_info = $this->decode_access_token($access_token);
 
         $member_info['is_post'] = MembersModel::find($member_info['member_id'])->is_post;
-        if(!$member_info || !$member_info['is_post']){
+        if(!$member_info || $member_info['is_post'] ==0){
             return response()->false(1314, '没有登录或者没有发帖权限');
+        }
+        if(!$member_info || $member_info['is_post'] ==1){
+            return response()->false(1314, '发帖权限正在申请中');
         }
         //走中间介判断是否有发布的权限
         $data = [

@@ -43,7 +43,7 @@ class AuthTokenController extends Controller{
     }
 
     public function login(Request $request){
-
+        $this->checkParams($request);
         //$password = $this->request->get('user_name');
         $open_type = $request->get('open_type') ? : 0;
 
@@ -55,6 +55,7 @@ class AuthTokenController extends Controller{
             $facebook_id = $this->request->get('open_id',0);
             $user_info = MembersModel::where('open_id',$facebook_id)->where('source',$open_type)->first();
             if(!$user_info){
+
                 $insert_data = [
                     'name'=>$request->get('member_name'),
                     'source'=>$open_type,
@@ -63,6 +64,7 @@ class AuthTokenController extends Controller{
                     'last_login_time'=>date("Y-m-d H:i:s"),
                     'rc_token'=>'',
                     'avatar'=>$request->get('avatar')?:"",
+                    'open_id'=>$request->get('open_id')
                 ];
                 $user_info = $this->facebook_userinfo($insert_data);
             }
@@ -81,6 +83,7 @@ class AuthTokenController extends Controller{
                     'last_login_time'=>date("Y-m-d H:i:s"),
                     'rc_token'=>'',
                     'avatar'=>$request->get('avatar')?:"",
+                    'open_id'=>$request->get('open_id')
                 ];
 
                 $user_info = $this->wechat_userinfo($insert_data);
@@ -111,7 +114,8 @@ class AuthTokenController extends Controller{
             'member_id'=>$user_info['id'],
             'memeber_name'=>$user_info['name'],
             'avatar'=>$user_info['avatar'],
-            'rc_token'=>$user_info['rc_token']
+            'rc_token'=>$user_info['rc_token'],
+            'is_post'=>$user_info['is_post'],
         ]);
     }
 
@@ -178,5 +182,18 @@ class AuthTokenController extends Controller{
 
     protected function get_token_key($access_token){
         return md5('user_'.$access_token);
+    }
+
+    public function checkParams($request)
+    {
+        if(!$request->get('member_name')){
+            return response()->false('会员名必传');
+        }
+        if(!$request->get('open_id')){
+            return response()->false('open标识必传');
+        }
+        if(!$request->get('open_type')){
+            return response()->false('开放类型必须传');
+        }
     }
 }

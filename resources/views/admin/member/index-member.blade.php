@@ -403,11 +403,14 @@
                                         @elseif($member['source'] ==2)
                                             <td><span class="label label-warning">Facebook</span></td>
                                         @endif
-                                        @if($member['status'] == 1)
-                                            <td><span class="label label-success">启用</span></td>
-                                        @elseif($memeber['status'] ==0)
-                                            <td><span class="label label-warning">禁用</span></td>
-                                        @endif
+                                            <td>
+                                                <select name="is_post" class="post_audit">
+                                                    <option value="0">禁发帖</option>
+                                                    <option value="1">申请中</option>
+                                                    <option value="2">可发帖</option>
+                                                </select>
+                                            </td>
+
                                         @if($member['is_post'] == 1)
                                             <td><span class="label label-success">启用</span></td>
                                         @elseif($memeber['is_post'] ==0)

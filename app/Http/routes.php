@@ -79,6 +79,7 @@ Route::post('api/login', 'ApiAuth\AuthTokenController@login');
 Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
 Route::post('api/add-comment', 'Api\Comment\CommentController@addComment');
 Route::get('api/get-comment', 'Api\Comment\CommentController@getComment');
+Route::get('api/get-my-comment', 'Api\Comment\CommentController@getMyComment');
 
 Route::post('admin/login', 'Backend\Admin@login');
 Route::get('admin/login', 'Backend\Admin@login');
