@@ -21,10 +21,6 @@ class Rcloud extends Controller
     const   SMSURL = 'http://api.sms.ronghub.com';          //短信服务地址
 
 
-    public function __construct(Request $request)
-    {
-
-    }
     /**
      * 获取 Token 方法
      *
@@ -34,8 +30,9 @@ class Rcloud extends Controller
      *
      * @return $json
      **/
-    public function getToken($user_id,$user_name,$avatar)
+    public function getToken($user_id,$user_name,$avatar = '')
     {
+
         $userId = $user_id;
         $name   = $user_name;
         $portraitUri = $avatar;
@@ -55,7 +52,6 @@ class Rcloud extends Controller
                 'name' => $name,
                 'portraitUri' => $portraitUri
             );
-
             $ret = $this->curl('/user/getToken.json', $params, 'urlencoded', 'im', 'POST');
             if (empty($ret))
                 throw new Exception('bad request');
