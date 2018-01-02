@@ -140,8 +140,14 @@ class SyncData extends Controller
         $data = [
             'per_num' => $request->has('per_num') ? intval($request->get('per_num')) : 10
         ];
-        if ($request->has('date')) {
-            $data['date'] = $request->get('date');
+        if ($request->has('start_time')) {
+            $data['start_time'] = $request->get('start_time');
+        }
+        if ($request->has('end_time')) {
+            $data['end_time'] = $request->get('end_time');
+        }
+        if ($request->has('country')) {
+            $data['country'] = trim($request->get('country'));
         }
         $result = $this->syncData->econList($data);
         return $result;

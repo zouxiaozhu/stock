@@ -149,7 +149,7 @@ class GetAnalyseEnData extends Command
                 time(),
                 $v['lang']
             ];
-            DB::insert('replace into stock_analy_en values(?,?,?,?,?,?,?)', $update_data);
+            DB::insert('replace into stock_analy values(?,?,?,?,?,?,?)', $update_data);
         }
         return true;
     }

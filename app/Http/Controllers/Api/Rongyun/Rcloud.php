@@ -34,11 +34,11 @@ class Rcloud extends Controller
      *
      * @return $json
      **/
-    public function getToken(Request $request)
+    public function getToken($user_id,$user_name,$avatar)
     {
-        $userId = $request->get('user_id');
-        $name   = $request->get('user_name');
-        $portraitUri = $request->get('avatar','');
+        $userId = $user_id;
+        $name   = $user_name;
+        $portraitUri = $avatar;
         try {
             if (empty($userId))
                 throw new Exception('用户id必传');
@@ -107,7 +107,7 @@ class Rcloud extends Controller
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); //处理http证书问题
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
+//        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
         if (false === $ret) {

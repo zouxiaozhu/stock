@@ -39,7 +39,7 @@ class SyncData implements SyncDataInterface
     {
         $data = DB::table('event')
             ->leftJoin('content', 'event.event_id', '=', 'content.content_id')
-            ->select('content.content')
+            ->select('content.content', 'event.event_date', 'event.title')
             ->where('event.event_id', $id)
             ->where('content.type', 1)
             ->take(1)
@@ -55,7 +55,7 @@ class SyncData implements SyncDataInterface
     public function newsList($per_num)
     {
         $data = DB::table('news')
-            ->select('news_id', 'title')
+            ->select('news_id', 'title', 'publish_date_time')
             ->where('type', 1)
             ->orderBy('publish_date_time', 'desc')
             ->paginate($per_num);
@@ -72,7 +72,7 @@ class SyncData implements SyncDataInterface
     {
         $data = DB::table('news')
             ->leftJoin('content', 'news.news_id', '=', 'content.content_id')
-            ->select('content.content')
+            ->select('content.content', 'news.title', 'news.publish_date_time')
             ->where('news.news_id', $id)
             ->where('content.type', 2)
             ->take(1)
@@ -101,7 +101,8 @@ class SyncData implements SyncDataInterface
         foreach ($data as $k => &$v) {
             $v['headline'] = unserialize($v['headline']);
         }
-        return response()->success($data);
+        $data_arr['data'] = $data;
+        return response()->success($data_arr);
     }
 
 
@@ -114,7 +115,7 @@ class SyncData implements SyncDataInterface
     {
         $data = DB::table('news')
             ->leftJoin('content', 'news.news_id', '=', 'content.content_id')
-            ->select('content.content')
+            ->select('content.content', 'news.headline', 'news.publish_date_time')
             ->where('news.news_id', $id)
             ->where('content.type', 3)
             ->take(1)
@@ -145,7 +146,7 @@ class SyncData implements SyncDataInterface
     public function refBullion()
     {
         $data = DB::table('ref_bullion')
-            ->select('monthly', 'weekly', 'daily')
+            ->select('monthly', 'weekly', 'daily', 'update_date')
             ->orderBy('id', 'desc')
             ->take(1)
             ->get();
@@ -155,6 +156,7 @@ class SyncData implements SyncDataInterface
             $data['monthly'] = unserialize($data['monthly']);
             $data['weekly']  = unserialize($data['weekly']);
             $data['daily']   = unserialize($data['daily']);
+            $data['update_date'] = $data['update_date'];
         }
         return response()->success($data);
     }
@@ -166,7 +168,7 @@ class SyncData implements SyncDataInterface
     public function refForex()
     {
         $data = DB::table('ref_forex')
-            ->select('res1', 'res2', 'res3', 'res4', 'sup1', 'sup2', 'sup3', 'sup4')
+            ->select('res1', 'res2', 'res3', 'res4', 'sup1', 'sup2', 'sup3', 'sup4', 'update_date')
             ->orderBy('id', 'desc')
             ->take(1)
             ->get();
@@ -174,7 +176,9 @@ class SyncData implements SyncDataInterface
         $data = isset($data[0]) ? $data[0] : [];
         if (!empty($data)) {
             foreach ($data as $k => &$v) {
-                $v = unserialize($v);
+                if ($k != 'update_date') {
+                    $v = unserialize($v);
+                }
             }
         }
         return response()->success($data);
@@ -190,8 +194,16 @@ class SyncData implements SyncDataInterface
         $data = DB::table('econ')
             ->select('date', 'hktime', 'country', 'fname', 'quarter', 'forecast', 'lasttime')
             ->orderBy('date', 'desc');
-        if (isset($params['date'])) {
-            $data->where('date', $params['date']);
+        if (isset($params['start_time'])) {
+            $data->where('date', '>', $params['start_time']);
+        }
+
+        if (isset($params['end_time'])) {
+            $data->where('date', '<', $params['end_time']);
+        }
+
+        if (isset($params['country'])) {
+            $data->where('country', '=', $params['country']);
         }
         $data = $data->paginate($params['per_num']);
         $data = obj2Arr($data);
