@@ -95,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CommentController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="32" column="42" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="32" selection-end-column="42" />
+            <state relative-caret-position="702">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="e#141#187#0#PHP" expanded="true" />
               </folding>
@@ -110,18 +110,18 @@
       <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
+            <state relative-caret-position="432">
               <caret line="329" column="36" lean-forward="false" selection-start-line="329" selection-start-column="31" selection-end-line="329" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResponseMacroServiceProvider.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResponseMacroServiceProvider.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Providers/ResponseMacroServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="621">
-              <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+              <caret line="30" column="33" lean-forward="false" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -222,10 +222,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/Admin.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
-        <option value="$PROJECT_DIR$/app/Providers/ResponseMacroServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiAuth/ApiAuthTrait.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
+        <option value="$PROJECT_DIR$/app/Providers/ResponseMacroServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php" />
       </list>
     </option>
   </component>
@@ -536,12 +536,12 @@
       <workItem from="1514790451034" duration="22646000" />
       <workItem from="1514818706470" duration="445000" />
       <workItem from="1514894603319" duration="11606000" />
-      <workItem from="1514906498116" duration="2110000" />
+      <workItem from="1514906498116" duration="2371000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148601000" />
+    <option name="totallyTimeSpent" value="148862000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-9" width="1864" height="1098" extended-state="6" />
@@ -941,24 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="32" column="42" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="32" selection-end-column="42" />
-          <folding>
-            <element signature="e#141#187#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="329" column="36" lean-forward="false" selection-start-line="329" selection-start-column="31" selection-end-line="329" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/ApiAuthTrait.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -967,11 +949,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="329" column="36" lean-forward="false" selection-start-line="329" selection-start-column="31" selection-end-line="329" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/ResponseMacroServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
-          <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+          <caret line="30" column="33" lean-forward="false" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#141#187#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
