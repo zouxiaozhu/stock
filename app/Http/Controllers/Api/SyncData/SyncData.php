@@ -13,13 +13,14 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Repositories\RepositoryInterfaces\SyncDataInterface;
+use DB;
 
 
 class SyncData extends Controller
 {
     use ApiAuthTrait;
     protected $syncData;
-
+    protected $access_token;
     protected $file_type = ['jpg', 'jpeg', 'png', 'bmp'];
 
     public function __construct(Request $request, SyncDataInterface $sync)
@@ -356,6 +357,42 @@ class SyncData extends Controller
         $res = $this->syncData->aceCreate($data);
         return $res;
     }
+
+    public function applyCreateAce(Request $request)
+    {
+        //登录后才能申请资格
+        if (!$request->has('access_token')) {
+            return response()->false(4004, '用户未登录');
+        }
+        $access_token = trim($request->get('access_token'));
+        $member_info  = $this->decode_access_token($access_token);
+//        var_export($member_info);die;
+        $nick_name = $member_info['name'];
+        if ($request->has('nick_name')) {
+            $nick_name = trim($request->get('nick_name'));
+        }
+        if (!$request->has('apply_reason')) {
+            return response()->false(1314, '请填写申请理由');
+        }
+        //查找是否已经申请过
+        $exist = DB::table('apply_ace')->select('id')->where('member_id', $member_info['id'])->first();
+        if ($exist) {
+            return response()->success('已经提交过申请');
+        }
+        $data = [
+            'member_id'     =>  $member_info['id'],
+            'member_name'   =>  $member_info['name'],
+            'apply_reason'  =>  trim($request->get('apply_reason')),
+            'create_time'   =>  time()
+        ];
+        $res = DB::table('apply_ace')->insert($data);
+        if ($res) {
+            return response()->success('提交申请成功');
+        } else {
+            return response()->false(9638, '提交申请失败');
+        }
+    }
+
 
     /**
      * 谁是高手列表展示

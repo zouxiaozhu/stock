@@ -45,6 +45,7 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::post('account_regist', 'SyncData@accountRegist');                    //app端开户注册
         Route::post('upload', 'SyncData@upload');                                    //app端上传接口
         Route::post('file_upload', 'SyncData@fileUpload');                          //app上传文件
+        Route::post('apply_ace', 'SyncData@applyCreateAce');                        //申请ace发帖
         Route::post('create_ace', 'SyncData@aceCreate');                            //谁是高手创建接口
         Route::get('ace_list', 'SyncData@aceList');                                 //谁是高手列表
         Route::get('ace_detail/{id}', 'SyncData@aceDetail');                        //谁是高手详情展示
