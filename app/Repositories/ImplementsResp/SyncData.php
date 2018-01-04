@@ -249,13 +249,20 @@ class SyncData implements SyncDataInterface
      */
     public function analyDetail($data)
     {
-        $res = DB::table('analy')
-            ->select('title', 'date', 'content')
-            ->where('id', $data['id'])
-            ->where('type', $data['type'])
-            ->where('lang', $data['lang'])
-            ->take(1)
-            ->get();
+        if ($data['id'] == 0) {
+            $res = DB::table('analy')
+                ->select('title', 'date', 'content')
+                ->orderBy('date', 'desc')
+                ->first();
+        } else {
+            $res = DB::table('analy')
+                ->select('title', 'date', 'content')
+                ->where('id', $data['id'])
+                ->where('type', $data['type'])
+                ->where('lang', $data['lang'])
+                ->take(1)
+                ->get();
+        }
         return response()->success($res);
     }
 

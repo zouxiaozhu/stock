@@ -51,6 +51,8 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('ace_detail/{id}', 'SyncData@aceDetail');                        //谁是高手详情展示
         Route::get('relate_ace/{id}', 'SyncData@relatedAce');                        //谁是高手相关阅读
         Route::get('update_comment_num/{id}', 'SyncData@updateAceCommentNum');       //谁是高手更新评论数
+        Route::get('analy_list', 'SyncData@analyList');                              //每日分析列表
+        Route::get('analy_detail/{id}', 'SyncData@analyDetail');                     //每日分析详情
     });
 });
 
