@@ -263,6 +263,9 @@ class SyncData implements SyncDataInterface
                 ->take(1)
                 ->get();
         }
+        $res = obj2Arr($res);
+        $res = $res[0];
+        $res['title'] = unserialize($res['title']);
         return response()->success($res);
     }
 

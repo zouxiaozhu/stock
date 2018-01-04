@@ -195,6 +195,7 @@ class SyncData extends Controller
             'id' => $id,
         ];
         $result = $this->syncData->analyDetail($data);
+//        $result = obj2Arr($result);
         return $result;
     }
 
