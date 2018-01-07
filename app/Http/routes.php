@@ -83,52 +83,53 @@ Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
 Route::post('api/add-comment', 'Api\Comment\CommentController@addComment');
 Route::get('api/get-comment', 'Api\Comment\CommentController@getComment');
 Route::get('api/get-my-comment', 'Api\Comment\CommentController@getMyComment');
-
+Route::get('/', 'Backend\Admin@login');
 Route::post('admin/login', 'Backend\Admin@login');
 Route::get('admin/login', 'Backend\Admin@login');
 Route::post('/login', 'Backend\Admin@login');
-Route::get('/', 'Backend\Admin@login');
+
 
 Route::get('admin/home','Backend\Admin@home');
-Route::get('admin/logout','Backend\Admin@logout');
-Route::get('admin/update-role', 'Backend\Admin@updateRole');
-Route::get('admin/lock-user', 'Backend\Admin@lockUser');
-Route::get('admin/index-user', 'Backend\UserController@user');
-Route::get('admin/add-user', 'Backend\UserController@addUser');
-Route::get('admin/edit-user', 'Backend\UserController@addUser');
-Route::post('admin/add-user', 'Backend\UserController@updateUser');
-Route::get('admin/del-user', 'Backend\UserController@delUser');
 
-Route::post('admin/add-column', 'Backend\Column@updateColumn');
-Route::get('admin/add-column', 'Backend\Column@addColumn');
-Route::get('admin/edit-column', 'Backend\Column@addColumn');
-Route::get('admin/del-column', 'Backend\Column@delColumn');
-Route::get('admin/index-column', 'Backend\Column@column');
+Route::group(['middleware' => 'admin.auth'], function () {
+    Route::any('admin/edit-jinshu-chart', 'Backend\Chart@editJinshuChart');
+    Route::any('admin/edit-waihui-chart', 'Backend\Chart@editWaihuiChart');
+    Route::any('admin/edit-jiaochapan-chart', 'Backend\Chart@editJiaoChaPanChart');
+    Route::any('admin/edit-qihuo-chart', 'Backend\Chart@editQiHuoChart');
 
-Route::post('admin/add-role', 'Backend\RoleController@updateRole');
-Route::get('admin/add-role', 'Backend\RoleController@addRole');
-Route::get('admin/edit-role', 'Backend\RoleController@addRole');
-Route::get('admin/del-role', 'Backend\RoleController@delRole');
-Route::get('admin/index-role', 'Backend\RoleController@role');
+    Route::post('admin/add-member', 'Backend\MemberController@updateMember');
+    Route::get('admin/add-member', 'Backend\MemberController@addMember');
+    Route::get('admin/edit-member', 'Backend\MemberController@addMember');
+    Route::get('admin/del-member', 'Backend\MemberController@delMember');
+    Route::get('admin/index-member', 'Backend\MemberController@member');
+    Route::get('admin/update-member', 'Backend\MemberController@updateMember');
 
 
-Route::post('admin/add-member', 'Backend\MemberController@updateMember');
-Route::get('admin/add-member', 'Backend\MemberController@addMember');
-Route::get('admin/edit-member', 'Backend\MemberController@addMember');
-Route::get('admin/del-member', 'Backend\MemberController@delMember');
-Route::get('admin/index-member', 'Backend\MemberController@member');
-Route::get('admin/update-member', 'Backend\MemberController@updateMember');
+    Route::get('admin/index-post', 'Backend\Comment@ace');
+    Route::get('admin/detail-post', 'Backend\Comment@detailAce');
+    Route::get('admin/audit-ace', 'Backend\Comment@auditAce');
+    Route::get('admin/audit-comment', 'Backend\Comment@auditComment');
 
+    Route::get('admin/logout','Backend\Admin@logout');
+    Route::get('admin/update-role', 'Backend\Admin@updateRole');
+    Route::get('admin/lock-user', 'Backend\Admin@lockUser');
+    Route::get('admin/index-user', 'Backend\UserController@user');
+    Route::get('admin/add-user', 'Backend\UserController@addUser');
+    Route::get('admin/edit-user', 'Backend\UserController@addUser');
+    Route::post('admin/add-user', 'Backend\UserController@updateUser');
+    Route::get('admin/del-user', 'Backend\UserController@delUser');
 
-Route::get('admin/index-post', 'Backend\Comment@ace');
-Route::get('admin/detail-post', 'Backend\Comment@detailAce');
-Route::get('admin/audit-ace', 'Backend\Comment@auditAce');
-Route::get('admin/audit-comment', 'Backend\Comment@auditComment');
+    Route::post('admin/add-column', 'Backend\Column@updateColumn');
+    Route::get('admin/add-column', 'Backend\Column@addColumn');
+    Route::get('admin/edit-column', 'Backend\Column@addColumn');
+    Route::get('admin/del-column', 'Backend\Column@delColumn');
+    Route::get('admin/index-column', 'Backend\Column@column');
 
-
-Route::any('admin/edit-jinshu-chart', 'Backend\Chart@editJinshuChart');
-Route::any('admin/edit-waihui-chart', 'Backend\Chart@editWaihuiChart');
-Route::any('admin/edit-jiaochapan-chart', 'Backend\Chart@editJiaoChaPanChart');
-Route::any('admin/edit-qihuo-chart', 'Backend\Chart@editQiHuoChart');
+    Route::post('admin/add-role', 'Backend\RoleController@updateRole');
+    Route::get('admin/add-role', 'Backend\RoleController@addRole');
+    Route::get('admin/edit-role', 'Backend\RoleController@addRole');
+    Route::get('admin/del-role', 'Backend\RoleController@delRole');
+    Route::get('admin/index-role', 'Backend\RoleController@role');
+});
 
 Route::post('service/upload', 'Service\ImagesController@image');

@@ -125,6 +125,13 @@ class AdminAuthRoleSeeder extends Seeder
                 'created_at'  => date("Y-m-d H:i:s"),
                 'updated_at'  => date('Y-m-d H:i:s'),
             ],
+            [
+                'id'          => 6,
+                'name'        => '图表管理员',
+                'super_admin' => '0',
+                'created_at'  => date("Y-m-d H:i:s"),
+                'updated_at'  => date('Y-m-d H:i:s'),
+            ],
         ];
 
         if (\App\Http\Models\Backend\UserRole::count() == 0) {
