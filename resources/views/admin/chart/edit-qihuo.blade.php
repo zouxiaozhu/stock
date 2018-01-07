@@ -199,21 +199,21 @@
                                 </div>
                                 <div class="form-inline">
                                     <label>
-                                        日（阳图阴图 , 隔开）
+                                        日（阳图 线图 , 隔开）
                                     </label>
-                                    <input type="text" class="form-control" name="{{$item}}_day" placeholder="Enter ... 阳图阴图 , 隔开 "
+                                    <input type="text" class="form-control" name="{{$item}}_day" placeholder="Enter ... 阳图 线图 , 隔开 "
                                            value="{{$qihuo[$item]['day'] }}" />
                                 </div>
                                 <div class="form-inline">
-                                    <label>周（阳图阴图 , 隔开）</label>
-                                    <input type="text" class="form-control" name="{{$item}}_week" placeholder="Enter ... 阳图阴图 , 隔开 "
+                                    <label>周（阳图 线图 , 隔开）</label>
+                                    <input type="text" class="form-control" name="{{$item}}_week" placeholder="Enter ... 阳图 线图, 隔开 "
                                            value="{{$qihuo[$item]['week']}} "   />
                                 </div>
                                 <!-- textarea -->
 
                                 <div class="form-inline">
-                                    <label>月<span>阳图阴图 - <隔开></隔开>）</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter ...阳图阴图 , 隔开" name="{{$item}}_month" value="{{$qihuo[$item]['month']}} " >
+                                    <label>月<span>阳图 线图 - <隔开></隔开>）</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter ...阳图 线图 , 隔开" name="{{$item}}_month" value="{{$qihuo[$item]['month']}} " >
                                 </div>
                                 <div class="form-inline">
                                     <label>高位</label>

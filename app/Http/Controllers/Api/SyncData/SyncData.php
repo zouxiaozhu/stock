@@ -323,17 +323,18 @@ class SyncData extends Controller
         $member_info = $this->decode_access_token($access_token);
 
         if(!$member_info){
-            echo json_encode(['error_code'=>4004,'data'=>'登录过期，重新登录']);die;
+            return $this->res_error('登录过期，重新登录',4003);
         }
 
         $this->member_info = $member_info;
         $member_info['is_post'] = MembersModel::find($member_info['member_id'])->is_post;
-        if(!$member_info || $member_info['is_post'] ==0){
-            return response()->false(1314, '没有登录或者没有发帖权限');
+        if($member_info['is_post'] ==0){
+            return $this->res_error('没有登录或者没有发帖权限',4004);
         }
-        if(!$member_info || $member_info['is_post'] ==1){
-            return response()->false(1314, '发帖权限正在申请中');
+        if($member_info['is_post'] ==1){
+            return $this->res_error('发帖权限正在申请中',4004);
         }
+        
         //走中间介判断是否有发布的权限
         $data = [
             'product_type' => intval($request->get('product_type', 1)),
@@ -388,6 +389,7 @@ class SyncData extends Controller
         ];
         $res = DB::table('apply_ace')->insert($data);
         if ($res) {
+            MembersModel::where('id',$member_info['id'])->update(['is_post'=>1]);
             return response()->success('提交申请成功');
         } else {
             return response()->false(9638, '提交申请失败');
@@ -441,5 +443,17 @@ class SyncData extends Controller
     }
 
 
+    public function res_true($data = '')
+    {
+        echo json_encode(['error_code'=>0,'data'=>$data]);die;
+    }
+
+    public function res_error($msg='',$code=400,$status=false)
+    {
+        echo json_encode(['error_code'=>$code,
+                          'status'=>$status,
+                          'error_message'=>$msg,
+        ]);die;
+    }
 
 }

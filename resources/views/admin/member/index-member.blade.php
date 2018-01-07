@@ -97,23 +97,7 @@
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
-            <!-- search form -->
-        {{--<form action="#" method="get" class="sidebar-form">--}}
-        {{--<div class="input-group">--}}
-        {{--<input type="text" name="q" class="form-control" placeholder="Search..."/>--}}
-        {{--<span class="input-group-btn">--}}
-        {{--<button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>--}}
-        {{--</span>--}}
-        {{--</div>--}}
-        {{--</form>--}}
-        <!-- /.search form -->
-            <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                {{--<li class="active">--}}
-                {{--<a href="index.html">--}}
-                {{--<i class="fa fa-dashboard"></i> <span>权限管理</span>--}}
-                {{--</a>--}}
-                {{--</li>--}}
                 <?php if (!$prms) {
                     $prms = [];
                 }
@@ -221,30 +205,30 @@
                                         @elseif($member['source'] ==2)
                                             <td><span class="label label-warning">Facebook</span></td>
                                         @endif
-                                            {{--<td>--}}
-                                                {{--<select name="is_post" member-id="{{$member['id']}}"  class="post_audit">--}}
-                                                    {{--<option value="0"--}}
-                                                    {{--@if($member['is_post'] == 0)--}}
-                                                    {{--selected--}}
-                                                            {{--@endif>禁发帖</option>--}}
-                                                    {{--<option value="1"--}}
-                                                    {{--@if($member['is_post'] == 1)--}}
-                                                        {{--selected--}}
-                                                    {{--@endif--}}
-                                                    {{-->申请中</option>--}}
-                                                    {{--<option value="2"--}}
-                                                    {{--@if($member['is_post'] == 2)--}}
-                                                        {{--selected--}}
-                                                    {{--@endif--}}
-                                                    {{-->可发帖</option>--}}
-                                                {{--</select>--}}
-                                            {{--</td>--}}
+                                            <td>
+                                                <select name="is_post" member-id="{{$member['id']}}"  class="post_audit">
+                                                    <option value="0"
+                                                    @if($member['is_post'] == 0)
+                                                    selected
+                                                            @endif>禁发帖</option>
+                                                    <option value="1"
+                                                    @if($member['is_post'] == 1)
+                                                        selected
+                                                    @endif
+                                                    >申请中</option>
+                                                    <option value="2"
+                                                    @if($member['is_post'] == 2)
+                                                        selected
+                                                    @endif
+                                                    >可发帖</option>
+                                                </select>
+                                            </td>
 
-                                        @if($member['is_post'] == 1)
-                                            <td><span class="label label-success">启用</span></td>
-                                        @elseif($member['is_post'] ==0)
-                                            <td><span class="label label-warning">禁用</span></td>
-                                        @endif
+                                        {{--@if($member['is_post'] == 1)--}}
+                                            {{--<td><span class="label label-success">能发帖</span></td>--}}
+                                        {{--@elseif($member['is_post'] ==0)--}}
+                                            {{--<td><span class="label label-warning">禁发帖</span></td>--}}
+                                        {{--@endif--}}
 
                                         <td>{{$member['created_at']}}</td>
                                         <td><a class='del-member' member_id="{{$member['id']}}" href="#">删除</a></td>
