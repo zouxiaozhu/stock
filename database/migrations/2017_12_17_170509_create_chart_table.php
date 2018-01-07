@@ -33,9 +33,10 @@ class CreateChartTable extends Migration
             $table->engine = 'Innodb';
             $table->increments('id')->comment('chart_id');
             $table->string('name')->comment('')->default(0);
+            $table->string('key')->comment('')->default(0);
             $table->string('day')->comment('')->default(0);
             $table->string('month')->comment('')->default(0);
-            $table->string('year')->comment('')->default(0);
+            $table->string('week')->comment('')->default(0);
             $table->string('now_top')->comment('')->default(0);
             $table->string('now_bottom')->comment('')->default(0);
             $table->string('top')->comment('')->default(0);
@@ -47,9 +48,10 @@ class CreateChartTable extends Migration
             $table->engine = 'Innodb';
             $table->increments('id')->comment('chart_id');
             $table->string('name')->comment('')->default(0);
+            $table->string('key')->comment('')->default(0);
             $table->string('day')->comment('')->default(0);
             $table->string('month')->comment('')->default(0);
-            $table->string('year')->comment('')->default(0);
+            $table->string('week')->comment('')->default(0);
             $table->string('now_top')->comment('')->default(0);
             $table->string('now_bottom')->comment('')->default(0);
             $table->string('top')->comment('')->default(0);
@@ -62,8 +64,9 @@ class CreateChartTable extends Migration
             $table->increments('id')->comment('chart_id');
             $table->string('name')->comment('')->default(0);
             $table->string('day')->comment('')->default(0);
+            $table->string('key')->comment('')->default(0);
+            $table->string('week')->comment('')->default(0);
             $table->string('month')->comment('')->default(0);
-            $table->string('year')->comment('')->default(0);
             $table->string('now_top')->comment('')->default(0);
             $table->string('now_bottom')->comment('')->default(0);
             $table->string('top')->comment('')->default(0);
@@ -74,10 +77,11 @@ class CreateChartTable extends Migration
         Schema::create('jiaochapan_chart', function (Blueprint $table) {
             $table->engine = 'Innodb';
             $table->increments('id')->comment('chart_id');
+            $table->string('key')->comment('')->default(0);
             $table->string('name')->comment('')->default(0);
             $table->string('day')->comment('')->default(0);
             $table->string('month')->comment('')->default(0);
-            $table->string('year')->comment('')->default(0);
+            $table->string('week')->comment('')->default(0);
             $table->string('now_top')->comment('')->default(0);
             $table->string('now_bottom')->comment('')->default(0);
             $table->string('top')->comment('')->default(0);

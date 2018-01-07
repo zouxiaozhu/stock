@@ -178,7 +178,13 @@ class AdminAuthRoleSeeder extends Seeder
                 'name'       => '系统配置',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date('Y-m-d H:i:s'),
-            ],
+            ],[
+                'id'         => 7,
+                'prm'        => 'chart',
+                'name'       => '图表',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]
         ];
         if (!\App\Http\Models\Backend\Auths::count()) {
             DB::table('auths')->truncate();
@@ -256,8 +262,14 @@ class AdminAuthRoleSeeder extends Seeder
                     'auth_id'    => 6,
                     'created_at' => date("Y-m-d H:i:s"),
                     'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'id'         => 11,
+                    'role_id'    => 1,
+                    'auth_id'    => 7,
+                    'created_at' => date("Y-m-d H:i:s"),
+                    'updated_at' => date('Y-m-d H:i:s'),
                 ]
-
             ];
         DB::table('role_auth')->truncate();
         DB::table('role_auth')->insert($role_auth);

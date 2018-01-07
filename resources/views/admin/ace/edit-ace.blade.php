@@ -34,9 +34,9 @@
 <body class="skin-blue">
 <!-- header logo: style can be found in header.less -->
 <header class="header">
-    <a href="index.html" class="logo">
+    <a href="/admin/home" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
-        AdminLTE
+        {{env('HOME')}}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -250,25 +250,18 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
-                        <span>Jane Doe <i class="caret"></i></span>
+                        <span>  {{session()->get('user_info')['name']}} <i class="caret"></i></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="../../img/avatar2.png" class="img-circle" alt="User Image"/>
+                            <img src="{{session()->get('user_info')['avatar']  OR ''}}" class="img-circle" alt="User Image"/>
                             <p>
-                                Jane Doe - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                {{session()->get('user_info')['name']}}
+                                <small>{{date("Y年m月d日 H:i:s")}}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
-
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
-                            </div>
-
-                        </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
@@ -336,9 +329,23 @@
                             </a>
 
                             <ul class="treeview-menu">
-                                <li><a href="{{env('APP_URL')}}/admin/index-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> {{$prm['name']}}列表</a>
-                                <li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
-                                </li>
+                                @if($prm['prm']=='chart')
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增金属</a>
+                                    </li>
+
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
+                                    </li>
+
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增交叉盘{{$prm['name']}}</a>
+                                    </li>
+
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-qihuo-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增期货{{$prm['name']}}</a>
+                                    </li>
+                                @else
+                                    <li><a href="{{env('APP_URL')}}/admin/index-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> {{$prm['name']}}列表</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
+                                    </li>
+                                @endif
                             </ul>
                         </li>
                     @endif
@@ -347,8 +354,6 @@
         </section>
         <!-- /.sidebar -->
     </aside>
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
-
     <!-- Right side column. Contains the navbar and content of the page -->
     <aside class="right-side">
         <!-- Content Header (Page header) -->

@@ -34,9 +34,9 @@
 <body class="skin-blue">
 <!-- header logo: style can be found in header.less -->
 <header class="header">
-    <a href="/admin/home" class="logo">
+    <a href="index.html" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
-        {{env('HOME')}}
+        AdminLTE
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -49,6 +49,8 @@
         </a>
         <div class="navbar-right">
             <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
@@ -63,7 +65,8 @@
                                 <small>{{date("Y年m月d日 H:i:s")}}</small>
                             </p>
                         </li>
-
+                        <!-- Menu Body -->
+                        <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
@@ -116,11 +119,11 @@
                 @foreach($prms as $k=>$prm)
                     @if($prm['name'])
 
-                        <li class="treeview {{$prm['prm']=='role'?'active':''}}">
+                        <li class="treeview {{$prm['prm']=='chart'?'active':''}}">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
                                 <span>{{$prm['name']}}</span>
-                                @if($prm['prm'] != 'role  ')
+                                @if($prm['prm'] != 'chart')
                                     <i class="fa fa-angle-left pull-right"></i>
                                 @else
                                     <i class="fa fa-angle-right pull-down"></i>
@@ -128,11 +131,12 @@
                             </a>
 
                             <ul class="treeview-menu">
+
                                 @if($prm['prm']=='chart')
                                     <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增金属</a>
                                     </li>
 
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-waihui-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
                                     </li>
 
                                     <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增交叉盘{{$prm['name']}}</a>
@@ -145,6 +149,9 @@
                                     <li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
                                     </li>
                                 @endif
+
+                                {{--<li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 编辑{{$prm['name']}}</a></li>--}}
+                                {{--<li ><a href="{{env('APP_URL')}}/admin/del-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 删除{{$prm['name']}}</a></li>--}}
                             </ul>
                         </li>
                     @endif
@@ -153,89 +160,95 @@
         </section>
         <!-- /.sidebar -->
     </aside>
-
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
 
     <!-- Right side column. Contains the navbar and content of the page -->
     <aside class="right-side">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-             Manage Role
-                <small>add or edit Role</small>
+                Dashboard
+                <small>Control panel</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">角色管理</li>
-                <li >更新</li>
+                <li class="active">期货</li>
             </ol>
         </section>
+
+        <?php
+        $insert_key =['oil','copper','crb','hsi','sseci','dow','spx','ndx'];
+        $chinese_key = ['原油(OIL)','銅(COPPER)','商品期貨指數(CRB)','恒生指數(HSI)'
+            ,'上海綜合指數SSECI)','道瓊斯指數(DOW)','標準普爾(SPX)','納斯達克(NDX)'];
+        ?>
         <section>
             <div class="col-md-12">
                 <!-- general form elements disabled -->
                 <div class="box box-warning">
                     <div class="box-header">
                         <h3 class="box-title">
-                            @if(empty($role_info))
-                                新增角色
-                            @else
-                                编辑角色
-                            @endif
+                           期货
                         </h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <form role="form" action="add-role" method="post">
+                        <form role="form" action="edit-qihuo-chart" method="post">
                             <!-- text input -->
-                            <input type="hidden" name="role_id" value="{{$role_info['id'] or 0}}">
-                            <div class="form-group">
-                                <label>名称</label>
-                                <input type="text" class="form-control" name="name" placeholder="Enter ..."
-                                       value="{{$role_info['name'] or ''}}" required/>
-                            </div>
-                            <div class="form-group">
-                                <label>描述</label>
-                                <input type="text" class="form-control" name="description" placeholder="Enter ..."
-                                       value="{{$role_info['description'] or ''}}"  minlength="2" maxlength="200"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label>权限选择</label>
-                                <div class="checkbox">
-                                    <?php
-                                    $ur_id = [];
-                                    if(isset($role_info['auth'])){
-                                        $ur_id = array_column($role_info['auth'], 'id');
-                                    }
-                                    ?>
-                                    @foreach ($auth_list as $auth)
-                                        <label>
-                                            @if(!in_array($auth['id'],$ur_id))
-                                                {{$auth['name'] }} : <input type="checkbox" name="auth[]"
-                                                                            value="{{$auth['id']}}"/>
-                                            @else
-                                                {{$auth['name'] }} : <input type="checkbox" name="auth[]"
-                                                                            value="{{$auth['id']}}" checked/>
-                                            @endif
-
-
-                                        </label>
-
-                                    @endforeach
+                            @foreach($insert_key as $j_k =>$item)
+                                <div class="box-footer text-center">
+                                    <button type="" class="btn btn-info">{{$chinese_key[$j_k]}}</button>
                                 </div>
+                                <div class="form-inline">
+                                    <label>
+                                        日（阳图阴图 , 隔开）
+                                    </label>
+                                    <input type="text" class="form-control" name="{{$item}}_day" placeholder="Enter ... 阳图阴图 , 隔开 "
+                                           value="{{$qihuo[$item]['day'] }}" />
+                                </div>
+                                <div class="form-inline">
+                                    <label>周（阳图阴图 , 隔开）</label>
+                                    <input type="text" class="form-control" name="{{$item}}_week" placeholder="Enter ... 阳图阴图 , 隔开 "
+                                           value="{{$qihuo[$item]['week']}} "   />
+                                </div>
+                                <!-- textarea -->
+
+                                <div class="form-inline">
+                                    <label>月<span>阳图阴图 - <隔开></隔开>）</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter ...阳图阴图 , 隔开" name="{{$item}}_month" value="{{$qihuo[$item]['month']}} " >
+                                </div>
+                                <div class="form-inline">
+                                    <label>高位</label>
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_top" value="{{$qihuo[$item]['now_top'] }}" >
+                                </div>
+
+                                <div class="form-inline">
+                                    <label>低位</label>
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_bottom"  value="{{$qihuo[$item]['now_bottom']}}">
+                                </div>
+
+                                <div class="form-inline">
+                                    <label>历年高位</label>
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_top"  value="{{$qihuo[$item]['top'] }}">
+                                </div>
+
+                                <div class="form-inline">
+                                    <label>历年低位</label>
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_bottom" value="{{$qihuo[        $item]['bottom']}}">
+                                </div>
+                            @endforeach
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-info">提交</button>
                             </div>
 
-                            <div class="box-footer text-center">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
                         </form>
                     </div><!-- /.box-body -->
-                </div><!-- /.box -->
+                </div>
+
             </div><!--/.col (right) -->
             <!-- /.row -->
 
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
-
 
 <!-- jQuery 2.0.2 -->
 <script src="/Js/jquery.min.js"></script>

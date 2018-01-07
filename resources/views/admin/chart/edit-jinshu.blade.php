@@ -49,6 +49,8 @@
         </a>
         <div class="navbar-right">
             <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
@@ -63,7 +65,8 @@
                                 <small>{{date("Y年m月d日 H:i:s")}}</small>
                             </p>
                         </li>
-
+                        <!-- Menu Body -->
+                        <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
@@ -116,11 +119,11 @@
                 @foreach($prms as $k=>$prm)
                     @if($prm['name'])
 
-                        <li class="treeview {{$prm['prm']=='role'?'active':''}}">
+                        <li class="treeview {{$prm['prm']=='chart'?'active':''}}">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
                                 <span>{{$prm['name']}}</span>
-                                @if($prm['prm'] != 'role  ')
+                                @if($prm['prm'] != 'chart')
                                     <i class="fa fa-angle-left pull-right"></i>
                                 @else
                                     <i class="fa fa-angle-right pull-down"></i>
@@ -128,23 +131,27 @@
                             </a>
 
                             <ul class="treeview-menu">
+
                                 @if($prm['prm']=='chart')
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增金属</a>
-                                    </li>
+                                <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增金属</a>
+                                </li>
 
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
-                                    </li>
+                                <li><a href="{{env('APP_URL')}}/admin/edit-waihui-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
+                                </li>
 
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增交叉盘{{$prm['name']}}</a>
-                                    </li>
+                                <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增交叉盘{{$prm['name']}}</a>
+                                </li>
 
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-qihuo-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增期货{{$prm['name']}}</a>
-                                    </li>
+                                <li><a href="{{env('APP_URL')}}/admin/edit-qihuo-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增期货{{$prm['name']}}</a>
+                                </li>
                                 @else
                                     <li><a href="{{env('APP_URL')}}/admin/index-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> {{$prm['name']}}列表</a>
                                     <li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
                                     </li>
                                 @endif
+
+                                {{--<li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 编辑{{$prm['name']}}</a></li>--}}
+                                {{--<li ><a href="{{env('APP_URL')}}/admin/del-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 删除{{$prm['name']}}</a></li>--}}
                             </ul>
                         </li>
                     @endif
@@ -153,89 +160,100 @@
         </section>
         <!-- /.sidebar -->
     </aside>
-
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
 
     <!-- Right side column. Contains the navbar and content of the page -->
     <aside class="right-side">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-             Manage Role
-                <small>add or edit Role</small>
+                Dashboard
+                <small>Control panel</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">角色管理</li>
-                <li >更新</li>
+                <li class="active">贵金属</li>
             </ol>
         </section>
-        <section>
+
+        <?php
+        $jinshu_key =['llg','lls','hkg','plat','lgls','lenu','lgjp','lggp','lgau'];
+        $jinshu_chinese_key = ['伦敦金(LLG)','伦敦银(LLS)','港金(HKG)','白金(PLAT)',
+            '黄金白银(LGLS)','黄金欧元(LGEU)','黄金日圆(LGJP)','黄金英镑(LGGP)','黄金澳元(LGAU)'];
+        ?>
+            <section>
             <div class="col-md-12">
                 <!-- general form elements disabled -->
                 <div class="box box-warning">
                     <div class="box-header">
                         <h3 class="box-title">
-                            @if(empty($role_info))
-                                新增角色
-                            @else
-                                编辑角色
-                            @endif
+                           贵金属
                         </h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <form role="form" action="add-role" method="post">
+                        <form role="form" action="edit-jiaochapan-chart" method="post">
                             <!-- text input -->
-                            <input type="hidden" name="role_id" value="{{$role_info['id'] or 0}}">
-                            <div class="form-group">
-                                <label>名称</label>
-                                <input type="text" class="form-control" name="name" placeholder="Enter ..."
-                                       value="{{$role_info['name'] or ''}}" required/>
-                            </div>
-                            <div class="form-group">
-                                <label>描述</label>
-                                <input type="text" class="form-control" name="description" placeholder="Enter ..."
-                                       value="{{$role_info['description'] or ''}}"  minlength="2" maxlength="200"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label>权限选择</label>
-                                <div class="checkbox">
-                                    <?php
-                                    $ur_id = [];
-                                    if(isset($role_info['auth'])){
-                                        $ur_id = array_column($role_info['auth'], 'id');
-                                    }
-                                    ?>
-                                    @foreach ($auth_list as $auth)
-                                        <label>
-                                            @if(!in_array($auth['id'],$ur_id))
-                                                {{$auth['name'] }} : <input type="checkbox" name="auth[]"
-                                                                            value="{{$auth['id']}}"/>
-                                            @else
-                                                {{$auth['name'] }} : <input type="checkbox" name="auth[]"
-                                                                            value="{{$auth['id']}}" checked/>
-                                            @endif
-
-
-                                        </label>
-
-                                    @endforeach
+                           @foreach($jinshu_key as $j_k =>$jishu)
+                                {{--{{var_export($jinshu[$jishu])}}--}}
+                                <div class="box-footer text-center">
+                                    <button type="" class="btn btn-info">{{$jinshu_chinese_key[$j_k]}}</button>
                                 </div>
+                            <div class="form-inline">
+                                <label>
+                                   日（阳图阴图 , 隔开）
+                                </label>
+                                  <input type="text" class="form-control" name="{{$jishu}}_day" placeholder="Enter ... 阳图阴图 , 隔开 "
+                                       value="{{$jinshu[$jishu]['day'] }}" />
+                            </div>
+                            <div class="form-inline">
+                                <label>周（阳图阴图 , 隔开）</label>
+                                <input type="text" class="form-control" name="{{$jishu}}_week" placeholder="Enter ... 阳图阴图 , 隔开 "
+
+                                       value="{{$jinshu[$jishu]['week']}}"   />
+
+
+
+                           </div>
+                           <!-- textarea -->
+
+                           <div class="form-inline">
+                               <label>月（阳图阴图 - <隔开></隔开>）</label>
+                               <input type="text" class="form-control" placeholder="Enter ...阳图阴图 , 隔开" name="{{$jishu}}_month"  value="{{$jinshu[$jishu]['month']}} " >
+                            </div>
+                            <div class="form-inline">
+                                <label>高位</label>
+                                <input type="text" class="form-control" placeholder="Enter ..." name="{{$jishu}}_now_top" value="{{$jinshu[$jishu]['now_top']}}" >
                             </div>
 
+                                <div class="form-inline">
+                                    <label>低位</label>
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$jishu}}_now_bottom"  value="{{$jinshu[$jishu]['now_bottom']}}">
+                                </div>
+
+                                <div class="form-inline">
+                                    <label>历年高位</label>
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$jishu}}_top"  value="{{$jinshu[$jishu]['top']}}">
+                                </div>
+
+                                <div class="form-inline">
+                                    <label>历年低位</label>
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$jishu}}_bottom" value="{{$jinshu[$jishu]['bottom']}}">
+                                </div>
+                               @endforeach
                             <div class="box-footer text-center">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-info">提交</button>
                             </div>
+
                         </form>
                     </div><!-- /.box-body -->
-                </div><!-- /.box -->
+                </div>
+
             </div><!--/.col (right) -->
             <!-- /.row -->
 
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
-
 
 <!-- jQuery 2.0.2 -->
 <script src="/Js/jquery.min.js"></script>

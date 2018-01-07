@@ -23,24 +23,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="22" />
+            <state relative-caret-position="676">
+              <caret line="127" column="0" lean-forward="true" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rcloud.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Rongyun/Rcloud.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-              <folding>
-                <element signature="e#151#179#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -48,80 +36,88 @@
       <file leaf-file-name="index-member.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="417" column="79" lean-forward="false" selection-start-line="417" selection-start-column="79" selection-end-line="417" selection-end-column="79" />
+            <state relative-caret-position="367">
+              <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Helpers/functions.php">
+      <file leaf-file-name="add-role.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/role/add-role.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="29" />
+            <state relative-caret-position="405">
+              <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MemberController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php">
+      <file leaf-file-name="index-role.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/role/index-role.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1539">
-              <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="32" />
+            <state relative-caret-position="405">
+              <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiAuthTrait.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/ApiAuthTrait.php">
+      <file leaf-file-name="add-user.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/user/add-user.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+            <state relative-caret-position="405">
+              <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/Admin.php">
+      <file leaf-file-name="index-user.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/user/index-user.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1918">
-              <caret line="113" column="0" lean-forward="true" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <state relative-caret-position="313">
+              <caret line="103" column="38" lean-forward="false" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php">
+      <file leaf-file-name="edit-qihuo.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/chart/edit-qihuo.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding>
-                <element signature="e#141#187#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="329" column="36" lean-forward="false" selection-start-line="329" selection-start-column="31" selection-end-line="329" selection-end-column="36" />
+            <state relative-caret-position="313">
+              <caret line="214" column="49" lean-forward="false" selection-start-line="214" selection-start-column="49" selection-end-line="214" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResponseMacroServiceProvider.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Providers/ResponseMacroServiceProvider.php">
+      <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/auth/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="30" column="33" lean-forward="false" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+            <state relative-caret-position="324">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add-column.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/column/add-column.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-column.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/column/index-column.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="377">
+              <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -131,42 +127,47 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>栏目角色</find>
-      <find>l</find>
-      <find>sort</find>
-      <find>栏目</find>
-      <find>删除</find>
-      <find>try</find>
-      <find>js</find>
-      <find>../js</find>
-      <find>app.js</find>
-      <find>../../js</find>
-      <find>.</find>
-      <find>Js</find>
-      <find>box-body table-responsive no-padding</find>
-      <find>comment</find>
-      <find>guard</find>
-      <find>栏目列表</find>
       <find>新增</find>
-      <find>列表</find>
-      <find>ace</find>
-      <find>rener</find>
-      <find>打回</find>
-      <find>Graph</find>
-      <find>search</find>
-      <find>ul</find>
-      <find>audit_ace</find>
-      <find>CURLOPT_DNS_USE_GLOBAL_CACH</find>
-      <find>CURLOPT_DNS_USE_GLOBAL_CACHE</find>
-      <find>audit</find>
-      <find>checkP</find>
-      <find>home</find>
+      <find>req</find>
+      <find>用户</find>
+      <find>min</find>
+      <find>jinshu</find>
+      <find>var</find>
+      <find>insert</find>
+      <find>DB</find>
+      <find>DB::</find>
+      <find>waihui</find>
+      <find>jiaochapan</find>
+      <find>$waihui</find>
+      <find>阳图阴图 - 隔开</find>
+      <find>&lt;li class=&quot;dropdown messages-menu&quot;&gt;                     &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;                         &lt;i class=&quot;fa fa-envelope&quot;&gt;&lt;/i&gt;                         &lt;span class=&quot;label label-success&quot;&gt;4&lt;/span&gt;                     &lt;/a&gt;                     &lt;ul class=&quot;dropdown-menu&quot;&gt;                         &lt;li class=&quot;header&quot;&gt;You have 4 messages&lt;/li&gt;                         &lt;li&gt;                             &lt;!-- inner menu: contains the actual data --&gt;                             &lt;ul class=&quot;menu&quot;&gt;                                 &lt;li&gt;&lt;!-- start message --&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;div class=&quot;pull-left&quot;&gt;                                             &lt;img src=&quot;&quot; class=&quot;img-circle&quot; alt=&quot;User Image&quot;/&gt;                                         &lt;/div&gt;                                         &lt;h4&gt;                                             Support Team                                             &lt;small&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&lt;/i&gt; 5 mins&lt;/small&gt;                                         &lt;/h4&gt;                                         &lt;p&gt;Why not buy a new awesome theme?&lt;/p&gt;                                     &lt;/a&gt;                                 &lt;/li&gt;&lt;!-- end message --&gt;                                 &lt;li&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;div class=&quot;pull-left&quot;&gt;                                             &lt;img src=&quot;../../img/avatar2.png&quot; class=&quot;img-circle&quot; alt=&quot;user image&quot;/&gt;                                         &lt;/div&gt;                                         &lt;h4&gt;                                             AdminLTE Design Team                                             &lt;small&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&lt;/i&gt; 2 hours&lt;/small&gt;                                         &lt;/h4&gt;                                         &lt;p&gt;Why not buy a new awesome theme?&lt;/p&gt;                                     &lt;/a&gt;                                 &lt;/li&gt;                                 &lt;li&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;div class=&quot;pull-left&quot;&gt;                                             &lt;img src=&quot;../../img/avatar.png&quot; class=&quot;img-circle&quot; alt=&quot;user image&quot;/&gt;                                         &lt;/div&gt;                                         &lt;h4&gt;                                             Developers                                             &lt;small&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&lt;/i&gt; Today&lt;/small&gt;                                         &lt;/h4&gt;                                         &lt;p&gt;Why not buy a new awesome theme?&lt;/p&gt;                                     &lt;/a&gt;                                 &lt;/li&gt;                                 &lt;li&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;div class=&quot;pull-left&quot;&gt;                                             &lt;img src=&quot;../../img/avatar2.png&quot; class=&quot;img-circle&quot; alt=&quot;user image&quot;/&gt;                                         &lt;/div&gt;                                         &lt;h4&gt;                                             Sales Department                                             &lt;small&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&lt;/i&gt; Yesterday&lt;/small&gt;                                         &lt;/h4&gt;                                         &lt;p&gt;Why not buy a new awesome theme?&lt;/p&gt;                                     &lt;/a&gt;                                 &lt;/li&gt;                                 &lt;li&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;div class=&quot;pull-left&quot;&gt;                                             &lt;img src=&quot;../../img/avatar.png&quot; class=&quot;img-circle&quot; alt=&quot;user image&quot;/&gt;                                         &lt;/div&gt;                                         &lt;h4&gt;                                             Reviewers                                             &lt;small&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&lt;/i&gt; 2 days&lt;/small&gt;                                         &lt;/h4&gt;                                         &lt;p&gt;Why not buy a new awesome theme?&lt;/p&gt;                                     &lt;/a&gt;                                 &lt;/li&gt;                             &lt;/ul&gt;                         &lt;/li&gt;                         &lt;li class=&quot;footer&quot;&gt;&lt;a href=&quot;#&quot;&gt;See All Messages&lt;/a&gt;&lt;/li&gt;                     &lt;/ul&gt;                 &lt;/li&gt;                 &lt;!-- Notifications: style can be found in dropdown.less --&gt;                 &lt;li class=&quot;dropdown notifications-menu&quot;&gt;                     &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;                         &lt;i class=&quot;fa fa-warning&quot;&gt;&lt;/i&gt;                         &lt;span class=&quot;label label-warning&quot;&gt;10&lt;/span&gt;                     &lt;/a&gt;                     &lt;ul class=&quot;dropdown-menu&quot;&gt;                         &lt;li class=&quot;header&quot;&gt;You have 10 notifications&lt;/li&gt;                         &lt;li&gt;                             &lt;!-- inner menu: contains the actual data --&gt;                             &lt;ul class=&quot;menu&quot;&gt;                                 &lt;li&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;i class=&quot;ion ion-ios7-people info&quot;&gt;&lt;/i&gt; 5 new members joined today                                     &lt;/a&gt;                                 &lt;/li&gt;                                 &lt;li&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;i class=&quot;fa fa-warning danger&quot;&gt;&lt;/i&gt; Very long description here that may not fit                                         into the page and may cause design problems                                     &lt;/a&gt;                                 &lt;/li&gt;                                 &lt;li&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;i class=&quot;fa fa-users warning&quot;&gt;&lt;/i&gt; 5 new members joined                                     &lt;/a&gt;                                 &lt;/li&gt;                                  &lt;li&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;i class=&quot;ion ion-ios7-cart success&quot;&gt;&lt;/i&gt; 25 sales made                                     &lt;/a&gt;                                 &lt;/li&gt;                                 &lt;li&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;i class=&quot;ion ion-ios7-person danger&quot;&gt;&lt;/i&gt; You changed your username                                     &lt;/a&gt;                                 &lt;/li&gt;                             &lt;/ul&gt;                         &lt;/li&gt;                         &lt;li class=&quot;footer&quot;&gt;&lt;a href=&quot;#&quot;&gt;View all&lt;/a&gt;&lt;/li&gt;                     &lt;/ul&gt;                 &lt;/li&gt;                 &lt;!-- Tasks: style can be found in dropdown.less --&gt;                 &lt;li class=&quot;dropdown tasks-menu&quot;&gt;                     &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;                         &lt;i class=&quot;fa fa-tasks&quot;&gt;&lt;/i&gt;                         &lt;span class=&quot;label label-danger&quot;&gt;9&lt;/span&gt;                     &lt;/a&gt;                     &lt;ul class=&quot;dropdown-menu&quot;&gt;                         &lt;li class=&quot;header&quot;&gt;You have 9 tasks&lt;/li&gt;                         &lt;li&gt;                             &lt;!-- inner menu: contains the actual data --&gt;                             &lt;ul class=&quot;menu&quot;&gt;                                 &lt;li&gt;&lt;!-- Task item --&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;h3&gt;                                             Design some buttons                                             &lt;small class=&quot;pull-right&quot;&gt;20%&lt;/small&gt;                                         &lt;/h3&gt;                                         &lt;div class=&quot;progress xs&quot;&gt;                                             &lt;div class=&quot;progress-bar progress-bar-aqua&quot; style=&quot;width: 20%&quot;                                                  role=&quot;progressbar&quot; aria-valuenow=&quot;20&quot; aria-valuemin=&quot;0&quot;                                                  aria-valuemax=&quot;100&quot;&gt;                                                 &lt;span class=&quot;sr-only&quot;&gt;20% Complete&lt;/span&gt;                                             &lt;/div&gt;                                         &lt;/div&gt;                                     &lt;/a&gt;                                 &lt;/li&gt;&lt;!-- end task item --&gt;                                 &lt;li&gt;&lt;!-- Task item --&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;h3&gt;                                             Create a nice theme                                             &lt;small class=&quot;pull-right&quot;&gt;40%&lt;/small&gt;                                         &lt;/h3&gt;                                         &lt;div class=&quot;progress xs&quot;&gt;                                             &lt;div class=&quot;progress-bar progress-bar-green&quot; style=&quot;width: 40%&quot;                                                  role=&quot;progressbar&quot; aria-valuenow=&quot;20&quot; aria-valuemin=&quot;0&quot;                                                  aria-valuemax=&quot;100&quot;&gt;                                                 &lt;span class=&quot;sr-only&quot;&gt;40% Complete&lt;/span&gt;                                             &lt;/div&gt;                                         &lt;/div&gt;                                     &lt;/a&gt;                                 &lt;/li&gt;&lt;!-- end task item --&gt;                                 &lt;li&gt;&lt;!-- Task item --&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;h3&gt;                                             Some task I need to do                                             &lt;small class=&quot;pull-right&quot;&gt;60%&lt;/small&gt;                                         &lt;/h3&gt;                                         &lt;div class=&quot;progress xs&quot;&gt;                                             &lt;div class=&quot;progress-bar progress-bar-red&quot; style=&quot;width: 60%&quot;                                                  role=&quot;progressbar&quot; aria-valuenow=&quot;20&quot; aria-valuemin=&quot;0&quot;                                                  aria-valuemax=&quot;100&quot;&gt;                                                 &lt;span class=&quot;sr-only&quot;&gt;60% Complete&lt;/span&gt;                                             &lt;/div&gt;                                         &lt;/div&gt;                                     &lt;/a&gt;                                 &lt;/li&gt;&lt;!-- end task item --&gt;                                 &lt;li&gt;&lt;!-- Task item --&gt;                                     &lt;a href=&quot;#&quot;&gt;                                         &lt;h3&gt;                                             Make beautiful transitions                                             &lt;small class=&quot;pull-right&quot;&gt;80%&lt;/small&gt;                                         &lt;/h3&gt;                                         &lt;div class=&quot;progress xs&quot;&gt;                                             &lt;div class=&quot;progress-bar progress-bar-yellow&quot; style=&quot;width: 80%&quot;                                                  role=&quot;progressbar&quot; aria-valuenow=&quot;20&quot; aria-valuemin=&quot;0&quot;                                                  aria-valuemax=&quot;100&quot;&gt;                                                 &lt;span class=&quot;sr-only&quot;&gt;80% Complete&lt;/span&gt;                                             &lt;/div&gt;                                         &lt;/div&gt;                                     &lt;/a&gt;                                 &lt;/li&gt;&lt;!-- end task item --&gt;                             &lt;/ul&gt;                         &lt;/li&gt;                         &lt;li class=&quot;footer&quot;&gt;                             &lt;a href=&quot;#&quot;&gt;View all tasks&lt;/a&gt;                         &lt;/li&gt;                     &lt;/ul&gt;                 &lt;/li&gt;</find>
+      <find>10</find>
+      <find>right</find>
+      <find>模版</find>
+      <find>chart</find>
+      <find>moban</find>
+      <find>jinshu_key</find>
+      <find>key</find>
+      <find>9</find>
+      <find>外汇</find>
+      <find>AdminL</find>
+      <find>AdminLT</find>
+      <find>AdminLTE</find>
+      <find>ADMINLTE</find>
+      <find>env</find>
+      <find>q</find>
+      <find>red</find>
     </findStrings>
     <replaceStrings>
       <replace>../../js/</replace>
       <replace>../../img/</replace>
       <replace>Js</replace>
       <replace>/Js</replace>
+      <replace>explode(',',</replace>
+      <replace>jiaochapan</replace>
+      <replace>qihuo</replace>
+      <replace>$qihuo</replace>
+      <replace>阳图阴图 , 隔开</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -175,17 +176,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/Column.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/RoleController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Models/Backend/MembersModel.php" />
-        <option value="$PROJECT_DIR$/app/Http/Models/Backend/Roles.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/UserController.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_12_13_150352_create_admin_user_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_12_13_150647_create_admin_role_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Models/Backend/TerminalSettings.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_12_24_034059_create_terminal_setting.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/AdminTrait.php" />
-        <option value="$PROJECT_DIR$/database/seeds/AdminAuthRoleSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/comment/CommentController.php" />
         <option value="$PROJECT_DIR$/database/seeds/TerminalSettingSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/Api/CommentModel.php" />
@@ -193,39 +185,48 @@
         <option value="$PROJECT_DIR$/../ci/application/controllers/Zip.php" />
         <option value="$PROJECT_DIR$/../ci/application/controllers/Weixin.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/resources/views/admin/auth/home.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/column/add-column.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/column/index-column.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/role/add-role.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/role/index-role.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/user/add-user.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/user/index-user.blade.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/AceModel.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/ColumnModel.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/Ace/index-ace.blade.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/Comment.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/ace/index-ace.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/ace/edit-ace.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/Chart.php" />
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php" />
         <option value="$PROJECT_DIR$/database/seeds/ChartSeeder.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_chart_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_comment_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_12_17_151953_create_member_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Rongyun/Rcloud.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/Admin.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiAuth/ApiAuthTrait.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
         <option value="$PROJECT_DIR$/app/Providers/ResponseMacroServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php" />
+        <option value="$PROJECT_DIR$/database/seeds/AdminAuthRoleSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Http/Models/Backend/WaihuiModel.php" />
+        <option value="$PROJECT_DIR$/app/Http/Models/Backend/JinShuModel.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/chart/edit-chart.blade.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php" />
+        <option value="$PROJECT_DIR$/database/seeds/ChartsSeeder.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_chart_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/Chart.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/admin/chart/edit-jinshu.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/chart/edit-waihui.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/chart/edit-jiaochapan.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/ace/edit-ace.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/ace/index-ace.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/auth/home.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/column/add-column.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/column/index-column.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/role/add-role.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/role/index-role.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/user/add-user.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/user/index-user.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/chart/edit-qihuo.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -244,8 +245,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="-9" />
+    <option name="x" value="96" />
+    <option name="y" value="15" />
     <option name="width" value="1864" />
     <option name="height" value="1098" />
   </component>
@@ -266,7 +267,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -289,7 +289,261 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="role" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="member" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="column" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chart" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auth" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ace" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="seeds" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -304,10 +558,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Providers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -326,6 +576,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -348,6 +620,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -376,6 +674,10 @@
               <option name="myItemId" value="Api" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SyncData" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -400,55 +702,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Api" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Rongyun" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stock" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stock" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Console" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="sync&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/SyncData/SyncData.php&#10;routes&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;login&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/login.blade.php&#10;index-m&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;member&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;mem&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;create&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;.env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;index&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;CommentController&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Comment/CommentController.php&#10;Member&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;ROLEA&#9;null&#9;null&#10;cre&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;see&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;seed&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;ter&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/TerminalSettings.php&#10;index-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;User&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/UserController.php&#10;home&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;routes.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;new.zi&#9;FILE&#9;file://E:/wamp64/www/ci/new.zip&#10;new.zip&#9;null&#9;null&#10;index.php&#9;FILE&#9;file://E:/wamp64/www/stock/public/index.php&#10;s&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;termin&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;route&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;Admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;Admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_13_150647_create_admin_role_table.php&#10;d-r&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/add-role.blade.php&#10;index-ro&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/index-role.blade.php&#10;Mem&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;cp&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Column.php&#10;add-user&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;UserCont&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/UserController.php&#10;rol&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/RoleController.php&#10;column&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Column.php&#10;add&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/column/add-column.blade.php&#10;morris&#9;FILE&#9;file://E:/wamp64/www/stock/public/Js/plugins/morris/morris.js&#10;Use&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_13_150352_create_admin_user_table.php&#10;log&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/login.blade.php&#10;ho&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;Users.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/Users.php&#10;hash&#9;null&#9;null&#10;auth&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/Auths.php&#10;AdminLTE&#9;FILE&#9;file://E:/wamp64/www/stock/public/css/AdminLTE.css&#10;laravel.&#9;FILE&#9;file://E:/wamp64/www/stock/storage/logs/laravel.log&#10; App\Repositories\ImplementResp\SyncData&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="routes&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;qihuo&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/chart/edit-qihuo.blade.php&#10;.en&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;chart.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Chart.php&#10;jinshu&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/chart/edit-jinshu.blade.php&#10;index-ace&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;index-user&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/index-user.blade.php&#10;add-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;index-c&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/column/index-column.blade.php&#10;Charts&#9;null&#9;null&#10;seeder&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;add&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;create&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_chart_table.php&#10;sync&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/SyncData/SyncData.php&#10;admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;login&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/login.blade.php&#10;index-m&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;member&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;mem&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;.env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;index&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;CommentController&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Comment/CommentController.php&#10;Member&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;ROLEA&#9;null&#9;null&#10;cre&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;see&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;seed&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;ter&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/TerminalSettings.php&#10;index-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;User&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/UserController.php&#10;home&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;routes.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;new.zi&#9;FILE&#9;file://E:/wamp64/www/ci/new.zip&#10;new.zip&#9;null&#9;null&#10;index.php&#9;FILE&#9;file://E:/wamp64/www/stock/public/index.php&#10;s&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;termin&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;route&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;Admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;Admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_13_150647_create_admin_role_table.php&#10;d-r&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/add-role.blade.php&#10;index-ro&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/index-role.blade.php&#10;Mem&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;cp&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Column.php&#10;add-user&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;UserCont&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/UserController.php&#10;rol&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/RoleController.php&#10;column&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Column.php" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ci" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\wamp64\www\stock\public" />
-      <recent name="E:\wamp64\www\stock\public\Js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\wamp64\www\stock\resources\views\admin\chart" />
+      <recent name="E:\wamp64\www\stock\app\Http\Models\Backend" />
       <recent name="E:\wamp64\www\stock\database\migrations" />
       <recent name="E:\wamp64\www\stock\resources\views\admin\Ace" />
       <recent name="E:\wamp64\www\stock\resources\views\admin\member" />
-      <recent name="E:\wamp64\www\stock\resources\views\admin\role" />
-      <recent name="E:\wamp64\www\stock\resources\views\admin\column" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\wamp64\www\stock\public" />
+      <recent name="E:\wamp64\www\stock\public\Js" />
     </key>
   </component>
   <component name="RunManager">
@@ -537,36 +818,38 @@
       <workItem from="1514818706470" duration="445000" />
       <workItem from="1514894603319" duration="11606000" />
       <workItem from="1514906498116" duration="2371000" />
+      <workItem from="1514985313772" duration="5170000" />
+      <workItem from="1515298068410" duration="14297000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148862000" />
+    <option name="totallyTimeSpent" value="168329000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-9" width="1864" height="1098" extended-state="6" />
+    <frame x="96" y="15" width="1864" height="1098" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17741935" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18186875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298109" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972191" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22609562" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32968128" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972191" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -604,126 +887,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../ci/application/controllers/Weixin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2052">
-          <caret line="76" column="64" lean-forward="false" selection-start-line="76" selection-start-column="64" selection-end-line="76" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/Member.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/RoleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1161">
-          <caret line="47" column="38" lean-forward="false" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/auth/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-399">
-          <caret line="810" column="16" lean-forward="false" selection-start-line="810" selection-start-column="16" selection-end-line="810" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/column/add-column.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="456" column="14" lean-forward="false" selection-start-line="456" selection-start-column="14" selection-end-line="456" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/column/index-column.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-459">
-          <caret line="415" column="14" lean-forward="false" selection-start-line="415" selection-start-column="14" selection-end-line="415" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/role/add-role.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="465" column="14" lean-forward="false" selection-start-line="465" selection-start-column="14" selection-end-line="465" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/role/index-role.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-161">
-          <caret line="438" column="14" lean-forward="false" selection-start-line="438" selection-start-column="14" selection-end-line="438" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/user/add-user.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-134">
-          <caret line="494" column="14" lean-forward="false" selection-start-line="494" selection-start-column="14" selection-end-line="494" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/user/index-user.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="417" column="13" lean-forward="false" selection-start-line="417" selection-start-column="13" selection-end-line="417" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1593">
-          <caret line="70" column="13" lean-forward="false" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/AceModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/ColumnModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/TerminalSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/RepositoryInterfaces/SyncDataInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="118" column="20" lean-forward="false" selection-start-line="118" selection-start-column="20" selection-end-line="118" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="302" column="28" lean-forward="false" selection-start-line="302" selection-start-column="28" selection-end-line="302" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
@@ -752,34 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/ace/index-ace.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="429" column="44" lean-forward="false" selection-start-line="429" selection-start-column="44" selection-end-line="429" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/ace/edit-ace.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="417" column="29" lean-forward="false" selection-start-line="417" selection-start-column="29" selection-end-line="417" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/Chart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="56" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/openForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -791,14 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="507" column="22" lean-forward="false" selection-start-line="507" selection-start-column="22" selection-end-line="507" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/TerminalSettingSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -826,30 +953,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/AdminAuthRoleSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" column="5" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/ChartSeeder.php" />
     <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_chart_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="75" column="57" lean-forward="false" selection-start-line="75" selection-start-column="57" selection-end-line="75" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -861,25 +969,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1782">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="102" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -912,31 +1005,15 @@
         <state relative-caret-position="54">
           <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
           <folding>
-            <element signature="e#151#179#0#PHP" expanded="true" />
+            <element signature="e#151#179#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1918">
-          <caret line="113" column="0" lean-forward="true" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="417" column="79" lean-forward="false" selection-start-line="417" selection-start-column="79" selection-end-line="417" selection-end-column="79" />
+        <state relative-caret-position="2835">
+          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -949,17 +1026,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="329" column="36" lean-forward="false" selection-start-line="329" selection-start-column="31" selection-end-line="329" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/ResponseMacroServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
+        <state relative-caret-position="783">
           <caret line="30" column="33" lean-forward="false" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
           <folding />
         </state>
@@ -967,11 +1036,255 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="189">
+          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/WaihuiModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="51" column="61" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="51" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/Roles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/TerminalSettingSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/AdminAuthRoleSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="131" column="9" lean-forward="true" selection-start-line="129" selection-start-column="7" selection-end-line="131" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/JinShuModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ChartsSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
-            <element signature="e#141#187#0#PHP" expanded="true" />
+            <element signature="e#7#38#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="355" column="36" lean-forward="false" selection-start-line="355" selection-start-column="36" selection-end-line="355" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="95" column="35" lean-forward="true" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/RepositoryInterfaces/SyncDataInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="118" column="20" lean-forward="false" selection-start-line="118" selection-start-column="20" selection-end-line="118" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_chart_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="68" column="33" lean-forward="false" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/Chart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="41" column="79" lean-forward="true" selection-start-line="39" selection-start-column="6" selection-end-line="41" selection-end-column="79" />
+          <folding>
+            <element signature="e#46#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/chart/edit-waihui.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="64" column="29" lean-forward="false" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/chart/edit-jinshu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="51" column="69" lean-forward="false" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
+          <folding>
+            <marker date="1515312107848" expanded="true" signature="9223:9225" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/chart/edit-jiaochapan.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="39" column="8" lean-forward="true" selection-start-line="36" selection-start-column="3" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/ace/edit-ace.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/ace/index-ace.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/auth/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/column/add-column.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/column/index-column.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/role/add-role.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/role/index-role.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/user/add-user.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/user/index-user.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="103" column="38" lean-forward="false" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/chart/edit-qihuo.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="214" column="49" lean-forward="false" selection-start-line="214" selection-start-column="49" selection-end-line="214" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="127" column="0" lean-forward="true" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

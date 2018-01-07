@@ -126,4 +126,9 @@ Route::get('admin/audit-ace', 'Backend\Comment@auditAce');
 Route::get('admin/audit-comment', 'Backend\Comment@auditComment');
 
 
+Route::any('admin/edit-jinshu-chart', 'Backend\Chart@editJinshuChart');
+Route::any('admin/edit-waihui-chart', 'Backend\Chart@editWaihuiChart');
+Route::any('admin/edit-jiaochapan-chart', 'Backend\Chart@editJiaoChaPanChart');
+Route::any('admin/edit-qihuo-chart', 'Backend\Chart@editQiHuoChart');
+
 Route::post('service/upload', 'Service\ImagesController@image');
