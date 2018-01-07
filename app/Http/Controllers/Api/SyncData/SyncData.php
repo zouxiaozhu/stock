@@ -334,7 +334,7 @@ class SyncData extends Controller
         if($member_info['is_post'] ==1){
             return $this->res_error('发帖权限正在申请中',4004);
         }
-        
+
         //走中间介判断是否有发布的权限
         $data = [
             'product_type' => intval($request->get('product_type', 1)),

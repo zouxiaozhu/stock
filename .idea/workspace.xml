@@ -33,12 +33,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index-member.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index-member.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="865">
-              <caret line="231" column="0" lean-forward="true" selection-start-line="226" selection-start-column="44" selection-end-line="231" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="595">
+              <caret line="178" column="18" lean-forward="false" selection-start-line="178" selection-start-column="18" selection-end-line="178" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="336" column="8" lean-forward="false" selection-start-line="336" selection-start-column="8" selection-end-line="336" selection-end-column="8" />
+            <state relative-caret-position="918">
+              <caret line="358" column="36" lean-forward="false" selection-start-line="358" selection-start-column="36" selection-end-line="358" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -96,8 +98,8 @@
       <file leaf-file-name="MemberController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="80" column="4" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
+            <state relative-caret-position="676">
+              <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
               </folding>
@@ -218,7 +220,6 @@
         <option value="$PROJECT_DIR$/database/seeds/AdminAuthRoleSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/Comment.php" />
         <option value="$PROJECT_DIR$/resources/views/errors/503.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/user/add-user.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/setting/index-setting.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/setting/index-setting.blade.php" />
@@ -228,9 +229,10 @@
         <option value="$PROJECT_DIR$/resources/views/admin/chart/edit-jiaochapan.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/chart/edit-qihuo.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/chart/edit-waihui.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_12_17_151953_create_member_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
       </list>
     </option>
   </component>
@@ -510,7 +512,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/SyncData/SyncData.php&#10;index-me&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;sync&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/SyncData/SyncData.php&#10;commen&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Comment/CommentController.php&#10;com&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Comment.php&#10;routes&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;login&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/login.blade.php&#10;About&#9;null&#9;null&#10;seeder&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;seed&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/ChartsSeeder.php&#10;create&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_chart_table.php&#10;veri&#9;null&#9;null&#10;qihuo&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/chart/edit-qihuo.blade.php&#10;.en&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;chart.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Chart.php&#10;jinshu&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/chart/edit-jinshu.blade.php&#10;index-ace&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;index-user&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/index-user.blade.php&#10;add-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;index-c&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/column/index-column.blade.php&#10;Charts&#9;null&#9;null&#10;add&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;index-m&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;member&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;mem&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;.env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;index&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;CommentController&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Comment/CommentController.php&#10;Member&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;ROLEA&#9;null&#9;null&#10;cre&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;see&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;ter&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/TerminalSettings.php&#10;index-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;User&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/UserController.php&#10;home&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;routes.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;new.zi&#9;FILE&#9;file://E:/wamp64/www/ci/new.zip&#10;new.zip&#9;null&#9;null&#10;index.php&#9;FILE&#9;file://E:/wamp64/www/stock/public/index.php&#10;s&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;termin&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;route&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;Admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;Admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_13_150647_create_admin_role_table.php&#10;d-r&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/add-role.blade.php&#10;index-ro&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/index-role.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="memberCo&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;index-me&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;sync&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/SyncData/SyncData.php&#10;commen&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Comment/CommentController.php&#10;com&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Comment.php&#10;routes&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;login&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/login.blade.php&#10;About&#9;null&#9;null&#10;seeder&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;seed&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/ChartsSeeder.php&#10;create&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_chart_table.php&#10;veri&#9;null&#9;null&#10;qihuo&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/chart/edit-qihuo.blade.php&#10;.en&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;chart.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Chart.php&#10;jinshu&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/chart/edit-jinshu.blade.php&#10;index-ace&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;index-user&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/index-user.blade.php&#10;add-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;index-c&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/column/index-column.blade.php&#10;Charts&#9;null&#9;null&#10;add&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;index-m&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;member&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;mem&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;.env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;index&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;CommentController&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Comment/CommentController.php&#10;Member&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;ROLEA&#9;null&#9;null&#10;cre&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;see&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;ter&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/TerminalSettings.php&#10;index-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;User&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/UserController.php&#10;home&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;routes.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;new.zi&#9;FILE&#9;file://E:/wamp64/www/ci/new.zip&#10;new.zip&#9;null&#9;null&#10;index.php&#9;FILE&#9;file://E:/wamp64/www/stock/public/index.php&#10;s&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;termin&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/TerminalSettingSeeder.php&#10;route&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;Admin&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;Admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_13_150647_create_admin_role_table.php&#10;d-r&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/add-role.blade.php&#10;index-ro&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/role/index-role.blade.php" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -616,12 +618,12 @@
       <workItem from="1514894603319" duration="11606000" />
       <workItem from="1514906498116" duration="2371000" />
       <workItem from="1514985313772" duration="5170000" />
-      <workItem from="1515298068410" duration="23589000" />
+      <workItem from="1515298068410" duration="24197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177621000" />
+    <option name="totallyTimeSpent" value="178229000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="0" width="1864" height="1098" extended-state="0" />
@@ -1077,24 +1079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="80" column="4" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
-          <folding>
-            <element signature="e#6#95#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="865">
-          <caret line="231" column="0" lean-forward="true" selection-start-line="226" selection-start-column="44" selection-end-line="231" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_17_151953_create_member_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1113,9 +1097,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="336" column="8" lean-forward="false" selection-start-line="336" selection-start-column="8" selection-end-line="336" selection-end-column="8" />
+        <state relative-caret-position="918">
+          <caret line="358" column="36" lean-forward="false" selection-start-line="358" selection-start-column="36" selection-end-line="358" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="178" column="18" lean-forward="false" selection-start-line="178" selection-start-column="18" selection-end-line="178" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

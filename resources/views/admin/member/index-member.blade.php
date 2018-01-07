@@ -168,10 +168,21 @@
                             <div class="box-tools">
                                 <div class="input-group">
 
-            <form method="get" action="index-member">
-                                    <input type="text" name="name" class="form-control input-sm pull-right" style="width: 150px;" placeholder=" 名称模糊搜索"/>
+              <form method="get" action="index-member">
+                                    <input type="text" name="name" class="
+                                     input-sm pull-left" style="width: 150px;" placeholder=" 名称模糊搜索"/>
+                                      <select  class="pull-left input-sm" name="source">
+                                          <option >---请选择来源---</option>
+                                          <option value="1">wechat</option>
+                                          <option value="2">facebook</option>
+                                      </select>
+                  
+                                        <select  class="pull-left input-sm" name="is_post">                                                     <option>---请选择发帖状态---</option>
+                                          <option value="0">禁发帖</option>
+                                          <option value="1">申请中</option>
+                                          <option value="2">可发帖</option>
+                                      </select>
 
-                                    <input type="text" name="source" class="form-control input-sm pull-right" style="width: 150px;" placeholder="来源 wechat facebook"/>
                                     <div class="input-group-btn">
                                         <button type="submit" class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
 
@@ -223,13 +234,6 @@
                                                     >可发帖</option>
                                                 </select>
                                             </td>
-
-                                        {{--@if($member['is_post'] == 1)--}}
-                                            {{--<td><span class="label label-success">能发帖</span></td>--}}
-                                        {{--@elseif($member['is_post'] ==0)--}}
-                                            {{--<td><span class="label label-warning">禁发帖</span></td>--}}
-                                        {{--@endif--}}
-
                                         <td>{{$member['created_at']}}</td>
                                         <td><a class='del-member' member_id="{{$member['id']}}" href="#">删除</a></td>
                                     </tr>
