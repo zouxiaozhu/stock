@@ -10,6 +10,8 @@ use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 trait ApiAuthTrait{
     public function decode_access_token($access_token=''){
+
+        if(!$access_token) return false;
         $this->_predis = new \Predis\Client([
             $config = array_merge(array(
                 'host' => '127.0.0.1',
@@ -23,17 +25,17 @@ trait ApiAuthTrait{
         ]);
         $key = $access_token;
 
-        $user_info = $this->_predis->get($key);
-
+        $user_info = $this->_predis->get(trim($key));
         if(is_null($user_info)){
             return false;
         }
+
         $user_info = json_decode($user_info,true);
         return $user_info;
     }
 
     public function get_token_key($access_token)
     {
-        return md5('user_'.$access_token);
+        return md5(''.$access_token);
     }
 }

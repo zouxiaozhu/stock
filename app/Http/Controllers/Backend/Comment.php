@@ -77,7 +77,23 @@ class Comment extends Controller
         
     }
 
+    public function editComment()
+    {
+        return view('errors.503',['msg'=>'暂无开放']);
+    }
 
+    public function res_true($data = '')
+    {
+        echo json_encode(['error_code'=>0,'data'=>$data]);die;
+    }
+
+    public function res_error($msg='',$code=400,$status=false)
+    {
+        echo json_encode(['error_code'=>$code,
+                          'status'=>$status,
+                          'error_message'=>$msg,
+        ]);die;
+    }
 
 }
 

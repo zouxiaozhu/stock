@@ -83,20 +83,24 @@ Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
 Route::post('api/add-comment', 'Api\Comment\CommentController@addComment');
 Route::get('api/get-comment', 'Api\Comment\CommentController@getComment');
 Route::get('api/get-my-comment', 'Api\Comment\CommentController@getMyComment');
+
+Route::get('api/chart','Api\Chart\ChartController@getChart');
+
+// ADMIN
 Route::get('/', 'Backend\Admin@login');
 Route::post('admin/login', 'Backend\Admin@login');
 Route::get('admin/login', 'Backend\Admin@login');
 Route::post('/login', 'Backend\Admin@login');
-
-
 Route::get('admin/home','Backend\Admin@home');
 
 Route::group(['middleware' => 'admin.auth'], function () {
+
+    // 技术图表
     Route::any('admin/edit-jinshu-chart', 'Backend\Chart@editJinshuChart');
     Route::any('admin/edit-waihui-chart', 'Backend\Chart@editWaihuiChart');
     Route::any('admin/edit-jiaochapan-chart', 'Backend\Chart@editJiaoChaPanChart');
     Route::any('admin/edit-qihuo-chart', 'Backend\Chart@editQiHuoChart');
-
+    // 会员管理
     Route::post('admin/add-member', 'Backend\MemberController@updateMember');
     Route::get('admin/add-member', 'Backend\MemberController@addMember');
     Route::get('admin/edit-member', 'Backend\MemberController@addMember');
@@ -104,11 +108,12 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('admin/index-member', 'Backend\MemberController@member');
     Route::get('admin/update-member', 'Backend\MemberController@updateMember');
 
-
+    //
     Route::get('admin/index-post', 'Backend\Comment@ace');
     Route::get('admin/detail-post', 'Backend\Comment@detailAce');
     Route::get('admin/audit-ace', 'Backend\Comment@auditAce');
     Route::get('admin/audit-comment', 'Backend\Comment@auditComment');
+    Route::get('admin/edit-post', 'Backend\Comment@editComment');
 
     Route::get('admin/logout','Backend\Admin@logout');
     Route::get('admin/update-role', 'Backend\Admin@updateRole');
@@ -130,6 +135,10 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('admin/edit-role', 'Backend\RoleController@addRole');
     Route::get('admin/del-role', 'Backend\RoleController@delRole');
     Route::get('admin/index-role', 'Backend\RoleController@role');
+
+    Route::get('admin/index-setting', 'Backend\Setting@index');
+    Route::get('admin/edit-setting', 'Backend\Setting@update');
+    Route::get('admin/del-setting', 'Backend\Setting@delete');
 });
 
 Route::post('service/upload', 'Service\ImagesController@image');

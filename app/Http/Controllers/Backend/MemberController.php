@@ -16,6 +16,11 @@ class MemberController extends \App\Http\Controllers\Controller{
     public function __construct()
     {
     }
+
+    public function addMember()
+    {
+        return view('errors.503',['msg'=>'暂未开放']);
+    }
     public function member(Request $request){
 
             $prms = json_decode(session()->get('prms_info'), true);
