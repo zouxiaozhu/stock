@@ -38,15 +38,16 @@ class AuthTokenController extends Controller
     }
 
 
+    /**
+     * token 中间件校验
+     */
     public function checkToken(){
 
         $access_token = $this->request->get('access_token');
-
+        if(!$access_token)return false;
         $user_info  = $this->decode_access_token($access_token);
-        if(!$user_info){
-            return [];
-        }
-        return $user_info;
+        if(!$user_info)return false;
+        return true;
     }
 
     public function login(Request $request){
@@ -70,7 +71,6 @@ class AuthTokenController extends Controller
             $facebook_id = $this->request->get('open_id',0);
             $user_info = MembersModel::where('open_id',$facebook_id)->where('source',$open_type)->first();
             if(!$user_info){
-
                 $insert_data = [
                     'name'=>$request->get('member_name'),
                     'source'=>$open_type,
@@ -208,7 +208,6 @@ class AuthTokenController extends Controller
     }
 
 
-
     /**
      * 获取 Token 方法
      *
@@ -246,7 +245,7 @@ class AuthTokenController extends Controller
 
         } catch (Exception $e) {
 //            print_r($e->getMessage());
-            return response()->false(1000, $e->getMessage());
+            return response()->false($e->getMessage(),1001);
         }
     }
 

@@ -281,7 +281,7 @@ More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板�
 
             type: "GET",
 
-            url: "/admin/edit-setting",
+            url: "/admin/update-setting",
 
             data: {id:id, value:value},
 

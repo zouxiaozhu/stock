@@ -68,7 +68,7 @@ class CreateCommentTable extends Migration
             $table->string('content')->comment('内容')->default('');
             $table->integer('like_num')->comment('点赞数')->default(0);
             $table->integer('dislike_num')->comment('反对数')->default(0);
-            $table->enum('status',[0,1,2])->comment('0被删除 1正常 2 待审核')->default(2);
+            $table->enum('status',[0,1,2])->comment('0被删除 1正常 2 待审核 ')->default(2);
             $table->timestamps();
         });
     }

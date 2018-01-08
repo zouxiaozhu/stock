@@ -31,7 +31,6 @@ class CommentController extends Controller{
         }
 
         $this->member_info = $member_info;
-
     }
 
 
@@ -57,7 +56,7 @@ class CommentController extends Controller{
         $is_audit = TerminalSettings::where('key','comment')->get()->toArray()[0]['value'];//1需要审核  0 不用审核
         switch ($is_audit){
             case 1:
-                $status = 3;
+                $status = 2;
                 $msg = '成功,待审核';
                 break;
             case 0:
@@ -80,10 +79,10 @@ class CommentController extends Controller{
 
         if(!$ret){
             $msg = '失败';
-            return Response::false($auction.$msg);
+            return $this->res_error($auction.$msg);
         }
 
-        return Response::success($auction.$msg);
+        return $this->res_true($auction.$msg);
     }
 
 
@@ -96,12 +95,12 @@ class CommentController extends Controller{
     {
         $ace_id = $request->get('ace_id');
         if(!$ace_id){
-            return Response::false('没有ace_id');
+            return $this->res_error('没有帖子信息');
         }
 
         $page = $request->get('page');
         $page_size = $request->get('page_size',10);
-        $offset = (max($page,1)-1) *max($page_size,0);
+        $offset = (max($page,1)-1) * max($page_size,0);
         $comment_f = CommentModel::where('ace_id',intval($ace_id))
             ->where('ace_comment_fid',0)
             ->where('status',1)
@@ -109,7 +108,7 @@ class CommentController extends Controller{
             ->skip($offset)
             ->get()->toArray();
         if(!$comment_f){
-            return response()->success([]);
+            return $this->res_true([]);
         }
         $fids = array_column($comment_f,'id');
 
@@ -144,7 +143,14 @@ class CommentController extends Controller{
         $page = $request->get('page')?:1;
         $page_size = $request->get('page_size')?:10;
         $offset = ($page - 1 ) * $page_size;
-        $comment = CommentModel::where('member_id',$member_id)->skip($offset)->take($page_size)->orderBy('created_at','desc')->get()->toArray();
+        $status = $request->has('status') ? explode(',',$request->get('status')) : [1,2,3];
+        $comment = CommentModel::where('member_id',$member_id)
+                    ->whereIn('status',$status)
+                    ->skip($offset)
+                    ->take($page_size)
+                    ->orderBy('created_at','desc')
+                    ->get()
+                    ->toArray();
         $new_comment = [];
 
         foreach ($comment as $com){
@@ -159,7 +165,19 @@ class CommentController extends Controller{
             }
         }
         return response()->success($new_comment?:[]);
+    }
 
 
+    public function res_true($data = '')
+    {
+        echo json_encode(['error_code'=>0,'data'=>$data]);die;
+    }
+
+    public function res_error($msg='',$code=400,$status=false)
+    {
+        echo json_encode(['error_code'=>$code,
+                          'status'=>$status,
+                          'error_message'=>$msg,
+        ]);die;
     }
 }

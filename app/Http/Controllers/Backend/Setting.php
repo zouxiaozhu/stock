@@ -36,7 +36,6 @@ class Setting extends Controller{
         if($ret){
             return $this->res_true('更新成功');
         }
-
         return $this->res_error('更新失败');
     }
 

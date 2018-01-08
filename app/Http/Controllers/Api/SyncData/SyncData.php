@@ -208,11 +208,11 @@ class SyncData extends Controller
     {
         $access_token = $request->get('access_token');
         if (!$access_token) {
-            return response()->false(1567, 'token不存在');
+            return $this->res_error('token不存在',1567);
         }
         $token_info = $this->decode_access_token($access_token);
         if (!$token_info) {
-            return response()->false(8789, 'token失效');
+            return $this->res_error('token失效',8789);
         }
         $user_info = $token_info[0];
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
@@ -364,7 +364,7 @@ class SyncData extends Controller
     {
         //登录后才能申请资格
         if (!$request->has('access_token')) {
-            return response()->false(4004, '用户未登录');
+            return $this->res_error('用户未登录',4004);
         }
         $access_token = trim($request->get('access_token'));
         $member_info  = $this->decode_access_token($access_token);
@@ -374,7 +374,7 @@ class SyncData extends Controller
             $nick_name = trim($request->get('nick_name'));
         }
         if (!$request->has('apply_reason')) {
-            return response()->false(1314, '请填写申请理由');
+            return $this->res_error( '请填写申请理由',1314);
         }
         //查找是否已经申请过
         $exist = DB::table('apply_ace')->select('id')->where('member_id', $member_info['id'])->first();
@@ -392,7 +392,7 @@ class SyncData extends Controller
             MembersModel::where('id',$member_info['id'])->update(['is_post'=>1]);
             return response()->success('提交申请成功');
         } else {
-            return response()->false(9638, '提交申请失败');
+            return response()->false('提交申请失败',9638);
         }
     }
 

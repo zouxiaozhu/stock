@@ -56,21 +56,10 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
     });
 });
 
+// api校验token
+Route::group(['middleware' => 'api.auth'], function () {
 
-/**
- * 后台简单功能curd,后期路由加上登录验证权限
- */
-Route::group(['namespace' => 'Backend'], function(){
-    Route::group(['prefix' => 'backend'], function() {
-        Route::post('about_our/insert', 'AboutOur@insert');                         //关于我们
-        Route::put('about_our/update/{id}', 'AboutOur@update');                          //关于我们
-        Route::delete('about_our/delete/{id}', 'AboutOur@delete');                       //关于我们
-        Route::get('about_our/show', 'AboutOur@show');
-        Route::post('open_create', 'openForm@create');                                  //创建下载链接
-        Route::put('open_update/{id}', 'openForm@update');                                  //更新下载链接
-        Route::get('open_list', 'openForm@openList');                                  //更新下载链接
-        Route::delete('open_delete/{id}', 'openForm@openDelete');                                  //更新下载链接
-    });
+
 });
 
 //获取融云token
@@ -108,7 +97,6 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('admin/index-member', 'Backend\MemberController@member');
     Route::get('admin/update-member', 'Backend\MemberController@updateMember');
 
-    //
     Route::get('admin/index-post', 'Backend\Comment@ace');
     Route::get('admin/detail-post', 'Backend\Comment@detailAce');
     Route::get('admin/audit-ace', 'Backend\Comment@auditAce');
@@ -137,8 +125,33 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('admin/index-role', 'Backend\RoleController@role');
 
     Route::get('admin/index-setting', 'Backend\Setting@index');
-    Route::get('admin/edit-setting', 'Backend\Setting@update');
+    Route::get('admin/update-setting', 'Backend\Setting@update');
     Route::get('admin/del-setting', 'Backend\Setting@delete');
+
+
+    Route::get('admin/index-about', 'Backend\About@about');
+    Route::get('admin/del-setting', 'Backend\Setting@delete');
+    Route::get('admin/del-setting', 'Backend\Setting@delete');
+
+
+
+    /**
+     * 后台简单功能curd,后期路由加上登录验证权限
+     */
+    Route::group(['namespace' => 'Backend'], function(){
+        Route::group(['prefix' => 'backend'], function() {
+            Route::post('about_our/insert', 'AboutOur@insert');                         //关于我们
+            Route::put('about_our/update/{id}', 'AboutOur@update');                          //关于我们
+            Route::delete('about_our/delete/{id}', 'AboutOur@delete');                       //关于我们
+            Route::get('about_our/show', 'AboutOur@show');
+            Route::post('open_create', 'openForm@create');                                  //创建下载链接
+            Route::put('open_update/{id}', 'openForm@update');                                  //更新下载链接
+            Route::get('open_list', 'openForm@openList');                                  //更新下载链接
+            Route::delete('open_delete/{id}', 'openForm@openDelete');                                  //更新下载链接
+        });
+    });
+
+
 });
 
 Route::post('service/upload', 'Service\ImagesController@image');

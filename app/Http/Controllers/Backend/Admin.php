@@ -176,7 +176,7 @@ class Admin extends Controller
             return response()->error(1027, 'Logout Failed');
         }
 
-        return  Redirect::to('admin/login');
+        return  Redirect::to('/');
     }
 
 

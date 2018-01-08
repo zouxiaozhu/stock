@@ -176,7 +176,7 @@
                                           <option value="1">wechat</option>
                                           <option value="2">facebook</option>
                                       </select>
-                  
+
                                         <select  class="pull-left input-sm" name="is_post">                                                     <option>---请选择发帖状态---</option>
                                           <option value="0">禁发帖</option>
                                           <option value="1">申请中</option>
