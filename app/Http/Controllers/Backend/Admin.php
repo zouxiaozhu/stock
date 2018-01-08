@@ -50,17 +50,17 @@ class Admin extends Controller
         $validator = Validator::make($this->request->all(), $fill_able, $message);
 
         if ($validator->fails()) {
-            return Response::error(1015,$validator->errors()->first());
+            return Response::error($validator->errors()->first(),1015);
         }
 
         $data = $this->request->all();
         if (Users::where('name', trim($data['name']))->where('locked',1)->count()) {
-            return Response::false(1011, '用户被禁用');
+            return Response::false( '用户被禁用',1011);
         }
         $login = OAuth::attempt(['name' => trim($data['name']), 'password' => $data['password']], $remember);
 
         if (!$login) {
-            return Response::false(1012, '用户名或者密码错误请重试或者联系管理员');
+            return Response::false('用户名或者密码错误请重试或者联系管理员',1012);
         }
 
         $user_id = auth()->user()->id;
