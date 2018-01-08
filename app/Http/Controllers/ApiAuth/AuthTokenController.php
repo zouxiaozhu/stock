@@ -128,7 +128,7 @@ class AuthTokenController extends Controller
         return response()->success([
             'access_token'=>$key,
             'expire_time'=>env('REDIS_EXPIRE_TIME'),
-            'member_id'=>$user_info['id'],
+            'member_id'=>(string)$user_info['id'],
             'member_name'=>$user_info['name'],
             'avatar'=>$user_info['avatar'],
             'rc_token'=>($user_info['rc_token']),
