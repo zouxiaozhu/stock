@@ -53,6 +53,7 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('update_comment_num/{id}', 'SyncData@updateAceCommentNum');       //谁是高手更新评论数
         Route::get('analy_list', 'SyncData@analyList');                              //每日分析列表
         Route::get('analy_detail/{id}', 'SyncData@analyDetail');                     //每日分析详情
+        Route::post('analog_create','SyncData@analogCreate');                        //模拟账号创建
     });
 });
 

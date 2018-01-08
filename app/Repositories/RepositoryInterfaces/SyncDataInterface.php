@@ -145,4 +145,12 @@ interface SyncDataInterface
      * @return mixed
      */
     public function updateAceCommentNum($id);
+
+    /**
+     * 模拟账号创建
+     * @param $data
+     * @return mixed
+     */
+    public function analogCreate($data);
+
 }

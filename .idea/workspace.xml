@@ -27,8 +27,23 @@
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3321">
-              <caret line="132" column="55" lean-forward="false" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="55" />
-              <folding />
+              <caret line="134" column="55" lean-forward="false" selection-start-line="134" selection-start-column="55" selection-end-line="134" selection-end-column="55" />
+              <folding>
+                <marker date="1515424335653" expanded="true" signature="728:2920" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="772:2919" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="790:2916" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="823:2915" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="2951:2998" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="3027:3121" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="3069:3120" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="3813:7513" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="3858:7512" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="6562:6599" ph=" 后台简单功能curd,后期路由加上登录验证权限 ..." />
+                <marker date="1515424335653" expanded="true" signature="6619:7507" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="6658:7506" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="6680:7499" ph="..." />
+                <marker date="1515424335653" expanded="true" signature="6717:7498" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,8 +81,8 @@
       <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="214" column="50" lean-forward="false" selection-start-line="214" selection-start-column="50" selection-end-line="214" selection-end-column="50" />
+            <state relative-caret-position="811">
+              <caret line="459" column="0" lean-forward="true" selection-start-line="459" selection-start-column="0" selection-end-line="459" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -643,7 +658,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182156000" />
+    <option name="totallyTimeSpent" value="182164000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="77" y="3" width="1864" height="1098" extended-state="0" />
@@ -654,7 +669,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298109" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32968128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32968128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972191" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -837,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="51" column="3" lean-forward="false" selection-start-line="51" selection-start-column="3" selection-end-line="51" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -978,7 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2079">
           <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="101" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1004,8 +1017,23 @@
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3321">
-          <caret line="132" column="55" lean-forward="false" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="55" />
-          <folding />
+          <caret line="134" column="55" lean-forward="false" selection-start-line="134" selection-start-column="55" selection-end-line="134" selection-end-column="55" />
+          <folding>
+            <marker date="1515424335653" expanded="true" signature="728:2920" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="772:2919" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="790:2916" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="823:2915" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="2951:2998" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="3027:3121" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="3069:3120" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="3813:7513" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="3858:7512" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="6562:6599" ph=" 后台简单功能curd,后期路由加上登录验证权限 ..." />
+            <marker date="1515424335653" expanded="true" signature="6619:7507" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="6658:7506" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="6680:7499" ph="..." />
+            <marker date="1515424335653" expanded="true" signature="6717:7498" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1080,8 +1108,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="214" column="50" lean-forward="false" selection-start-line="214" selection-start-column="50" selection-end-line="214" selection-end-column="50" />
+        <state relative-caret-position="811">
+          <caret line="459" column="0" lean-forward="true" selection-start-line="459" selection-start-column="0" selection-end-line="459" selection-end-column="0" />
           <folding />
         </state>
       </provider>
