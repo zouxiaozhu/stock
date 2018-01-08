@@ -389,4 +389,23 @@ class SyncData implements SyncDataInterface
             ->increment('comment_num', 1);
         return response()->success('success');
     }
+
+    /**
+     * 模拟账户创建
+     * @param $data
+     * @return mixed
+     */
+    public function analogCreate($data)
+    {
+        $exist_result = DB::table('analog')->select('id')->where('member_id', $data['member_id'])->first();
+        if (!empty($exist_result)) {
+            return response()->error(9527, 'Account Exist');
+        }
+        $res = DB::table('analog')->insert($data);
+        if ($res) {
+            return response()->success('success');
+        } else {
+            return response()->error(9527, 'Create Failed');
+        }
+    }
 }

@@ -441,5 +441,47 @@ class SyncData extends Controller
     }
 
 
+    /**
+     * 模拟账户创建表单
+     * @param Request $request
+     * @return mixed
+     */
+    public function analogCreate(Request $request)
+    {
+        //登录后才能申请资格
+        if (!$request->has('access_token')) {
+            return response()->false(4004, '用户未登录');
+        }
+        $access_token = trim($request->get('access_token'));
+        $member_info  = $this->decode_access_token($access_token);
+        //1=>英皇金业,2=>英皇证券,3=>英皇期货
+        $type = intval($request->get('type', 1));
+        if (!$request->has('phone')) {
+            return response()->false(1235, '电话必填');
+        }
+        if (!$request->has('email')) {
+            return response()->false(1236, '邮箱必填');
+        }
+        if ($email = trim($request->get('email'))) {
+            $check_result = strlen($email) > 6 && strlen($email) <= 128 && preg_match("/^([A-Za-z0-9\-_.+]+)@([A-Za-z0-9\-]+[.][A-Za-z0-9\-.]+)$/", $email);
+            if (!$check_result) {
+                return response()->error(4433, 'Email Format Error');
+            }
+        }
+        $data = [
+            'type'       =>  $type,
+            'member_name'=>  trim($member_info['name']),
+            'phone'      =>  trim($request->get('phone')),
+            'email'      =>  trim($request->get('email')),
+            'address'    =>  trim($request->get('address', '无')),
+            'country'    =>  trim($request->get('country', '无')),
+            'message'    =>  trim($request->get('message', '无')),
+            'member_id'  =>  intval($member_info['id']),
+            'create_time'=>  time(),
+        ];
+        $res = $this->syncData->analogCreate($data);
+        return $res;
+    }
+
 
 }
