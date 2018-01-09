@@ -14,6 +14,7 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Repositories\RepositoryInterfaces\SyncDataInterface;
 use DB;
+use App\Http\Controllers\Api\SyncData\Smtp;
 
 
 class SyncData extends Controller
@@ -456,4 +457,25 @@ class SyncData extends Controller
         ]);die;
     }
 
+    public function sendMail(Request $request)
+    {
+        $smtpserver     = "smtp.163.com";//SMTP服务器
+        $smtpserverport = 25;//SMTP服务器端口
+        $smtpusermail   = "syl19920831@163.com";//SMTP服务器的用户邮箱
+        $smtpemailto = $request->get('toemail');//发送给谁
+        $smtpuser = "syl19920831@163.com";//SMTP服务器的用户帐号，注：部分邮箱只需@前面的用户名
+        $smtppass = "shengyulong071X";//SMTP服务器的用户密码
+        $mailtitle = $request->get('title');//邮件主题
+        $mailcontent = "<h1>".$request->get('content')."</h1>";//邮件内容
+        $mailtype = "HTML";//邮件格式（HTML/TXT）,TXT为文本邮件
+        //************************ 配置信息 ****************************
+        $smtp = new Smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);//这里面的一个true是表示使用身份验证,否则不使用身份验证.
+//        var_export($smtp);die;
+        $smtp->debug = true;//是否显示发送的调试信息
+//        var_export($smtp);die;
+        $state = $smtp->sendmail($smtpemailto, $smtpusermail, $mailtitle, $mailcontent, $mailtype);
+
+        var_export($state);die;
+
+    }
 }
