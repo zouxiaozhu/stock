@@ -478,4 +478,15 @@ class SyncData extends Controller
         var_export($state);die;
 
     }
+
+    /**
+     * 全屏报价
+     * @param Request $request
+     * @return mixed
+     */
+    public function screenPrice(Request $request)
+    {
+        $res = $this->syncData->screenPrice();
+        return $res;
+    }
 }

@@ -54,7 +54,8 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('analy_list', 'SyncData@analyList');                              //每日分析列表
         Route::get('analy_detail/{id}', 'SyncData@analyDetail');                     //每日分析详情
         Route::post('analog_create','SyncData@analogCreate');                        //模拟账号创建
-        Route::post('send_mail','SyncData@sendMail');                        //模拟账号创建
+        Route::post('send_mail','SyncData@sendMail');                                //模拟账号创建
+        Route::get('screen_price','SyncData@screenPrice');                           //全屏报价
     });
 });
 

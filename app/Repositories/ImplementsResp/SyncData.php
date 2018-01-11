@@ -408,4 +408,16 @@ class SyncData implements SyncDataInterface
             return response()->error(9527, 'Create Failed');
         }
     }
+
+    /**
+     * 全屏报价
+     * @return mixed
+     */
+    public function screenPrice()
+    {
+        $res = DB::table('screen_price')
+            ->select('*')
+            ->get();
+        return response()->success($res);
+    }
 }

@@ -153,4 +153,10 @@ interface SyncDataInterface
      */
     public function analogCreate($data);
 
+    /**
+     * 全屏报价
+     * @return mixed
+     */
+    public function screenPrice();
+
 }

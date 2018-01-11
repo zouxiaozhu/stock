@@ -23,7 +23,7 @@ class Kernel extends ConsoleKernel
         Commands\GetEconData::class,            //经济数据
         Commands\GetAnalyseEnData::class,       //每日分析(英文版)
         Commands\GetAnalyseCnData::class,       //每日分析(中文版)
-        Commands\PriceNotice::class,            //到价提示
+        Commands\PriceNotice::class,            //全屏报价,到价提示
     ];
 
     /**
