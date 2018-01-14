@@ -23,11 +23,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="99" column="35" lean-forward="false" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="35" />
+            <state relative-caret-position="448">
+              <caret line="126" column="59" lean-forward="false" selection-start-line="126" selection-start-column="59" selection-end-line="126" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -95,7 +95,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
@@ -222,7 +222,6 @@
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/AceModel.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/EventModel.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/ace/index-ace.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/NewsModel.php" />
@@ -230,6 +229,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/Comment.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -729,12 +729,12 @@
       <workItem from="1515421956729" duration="716000" />
       <workItem from="1515423220316" duration="374000" />
       <workItem from="1515832742670" duration="2667000" />
-      <workItem from="1515908463023" duration="24558000" />
+      <workItem from="1515908463023" duration="24907000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210468000" />
+    <option name="totallyTimeSpent" value="210817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="0" width="1866" height="1098" extended-state="0" />
@@ -1134,14 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="99" column="35" lean-forward="false" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/ace/edit-ace.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="698">
@@ -1204,6 +1196,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="339" column="74" lean-forward="false" selection-start-line="339" selection-start-column="74" selection-end-line="339" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="126" column="59" lean-forward="false" selection-start-line="126" selection-start-column="59" selection-end-line="126" selection-end-column="59" />
           <folding />
         </state>
       </provider>

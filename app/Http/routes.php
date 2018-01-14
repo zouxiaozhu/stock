@@ -124,6 +124,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('admin/index-setting', 'Backend\Setting@index');
     Route::get('admin/update-setting', 'Backend\Setting@update');
     Route::get('admin/del-setting', 'Backend\Setting@delete');
+    Route::get('admin/edit-setting', 'Backend\Setting@index');
 
 
     Route::get('admin/index-about', 'Backend\About@about');
