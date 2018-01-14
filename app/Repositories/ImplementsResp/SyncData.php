@@ -10,6 +10,7 @@ namespace App\Repositories\ImplementsResp;
 
 use DB;
 use App\Repositories\RepositoryInterfaces\SyncDataInterface;
+use Illuminate\Pagination\Paginator;
 
 class SyncData implements SyncDataInterface
 {
@@ -413,11 +414,196 @@ class SyncData implements SyncDataInterface
      * 全屏报价
      * @return mixed
      */
-    public function screenPrice()
+    public function screenPrice($data)
     {
         $res = DB::table('screen_price')
-            ->select('*')
-            ->get();
+            ->select('*');
+        if (isset($data['type'])) {
+            $res = $res->where('type', $data['type']);
+        }
+        $res = $res->get();
+        $res = json_decode(json_encode($res), true);
+        if ($data['show_type'] == 1) {
+            foreach ($res as $k => $v) {
+                if ($v['now'] != 'TT') {
+                    $now = explode('/', $v['now']);
+                    $res[$k]['sale'] = $now[0];
+                    $res[$k]['buy']  = $now[1];
+                }
+            }
+        }
         return response()->success($res);
+    }
+
+    /**
+     * 设置到价提示
+     * @param $data
+     * @return mixed
+     */
+    public function setPriceNotice($data)
+    {
+        $result = DB::table('set_price_notice')
+            ->insert($data);
+        return response()->success('success');
+    }
+
+    /**
+     *
+     * @param $data
+     * @param $id
+     * @return mixed
+     */
+    public function updatePriceNotice($data, $id)
+    {
+        $result = DB::table('set_price_notice')
+            ->where('id', $id)
+            ->update($data);
+        if (!$result) {
+            return response()->false(9527, '更新失败');
+        }
+        return response()->success('更新成功');
+    }
+
+    /**
+     * 我得到价提示
+     * @param $member_id
+     * @return mixed
+     */
+    public function myPriceNotice($member_id)
+    {
+        $result = DB::table('set_price_notice')
+            ->select('id', 'product', 'forewarn', 'cvm')
+            ->where('create_user_id', $member_id)
+            ->orderBy('update_time', 'DESC')
+            ->get();
+        return response()->success($result);
+    }
+
+    /**
+     * 删除到价提示
+     * @param $id
+     * @return mixed
+     */
+    public function delPriceNotice($id)
+    {
+        $result = DB::table('set_price_notice')
+            ->where('id', $id)
+            ->delete();
+//        var_export($result);die;
+        if (!$result) {
+            return response()->false(9527, '删除失败');
+        }
+        return response()->success('删除成功');
+    }
+
+    /**
+     * app端巡通知价格提示
+     * @param $member_id
+     * @return mixed
+     */
+    public function appPriceNotice($member_id)
+    {
+        //1.查询用户的到价提示
+        $member_set = DB::table('set_price_notice')
+            ->select('cvm', 'product')
+            ->where('create_user_id', $member_id)
+            ->get();
+        if (empty($member_set)) {
+            return response()->false(9876, '没有通知');
+        }
+        $member_set = json_decode(json_encode($member_set), true);
+//        var_export($member_set);die;
+        $type = array_column($member_set, 'product');
+//        var_export($type);die;
+        //2.获取报价
+        $screen_price = DB::table('screen_price')
+            ->select('now', 'type')
+            ->whereIn('type', $type)
+            ->get();
+        $screen_price = json_decode(json_encode($screen_price), true);
+        $tmp = [];
+        foreach ($screen_price as $k => $v) {
+            $price = explode('/', $v['now']);
+//            $screen_price[$k]['price'] = $price[0];
+            $tmp[$v['type']] = $price[0];
+        }
+//        var_export($tmp);die;
+        $notice_array = [];  //通知的数据
+        $del_array = [];   //通知后删除到价提示设置
+        foreach ($member_set as $k => $v) {
+            if ((float)$v['cvm'] <= (float)$tmp[$v['product']] && $tmp[$v['product']] != '--') {
+//                echo (float)$v['cvm'].'<br>';
+//                echo (float)$tmp[$v['product']];die;
+                $product_name = $this->_getProductName($v['product']);
+                $notice_array[] = $product_name . '已达到您设置的监控值 '. $v['cvm'] . ' 请及时查看';
+                $del_array[] = $v['product'];
+            }
+        }
+        DB::table('set_price_notice')
+            ->whereIn('product', $del_array)
+            ->where('create_user_id', $member_id)
+            ->delete();
+        return response()->success($notice_array);
+    }
+
+    /**
+     * 获取类型名
+     * @param $type
+     * @return string
+     */
+    private function _getProductName($type)
+    {
+        switch ($type) {
+            case 1 :
+                $name = '欧元';
+                break;
+            case 2 :
+                $name = '日元';
+                break;
+            case 3 :
+                $name = '英镑';
+                break;
+            case 4 :
+                $name = '瑞郎';
+                break;
+            case 5 :
+                $name = '澳元';
+                break;
+            case 6 :
+                $name = '纽元';
+                break;
+            case 7 :
+                $name = '加元';
+                break;
+            case 8 :
+                $name = '欧日';
+                break;
+            case 9 :
+                $name = '欧瑞';
+                break;
+            case 10 :
+                $name = '欧英';
+                break;
+            case 11 :
+                $name = '瑞日';
+                break;
+            case 12 :
+                $name = '澳日';
+                break;
+            case 13 :
+                $name = '港金';
+                break;
+            case 14 :
+                $name = '黄金';
+                break;
+            case 15 :
+                $name = '白银';
+                break;
+            default :
+                $name = '港敦';
+                break;
+
+        }
+        return $name;
     }
 }

@@ -157,6 +157,41 @@ interface SyncDataInterface
      * 全屏报价
      * @return mixed
      */
-    public function screenPrice();
+    public function screenPrice($data);
 
+    /**
+     * 设置报价提示
+     * @param $data
+     * @return mixed
+     */
+    public function setPriceNotice($data);
+
+    /**
+     * 更新到价提示
+     * @param $data
+     * @param $id
+     * @return mixed
+     */
+    public function updatePriceNotice($data, $id);
+
+
+    /**
+     * 我得到价提示
+     * @param $member_id
+     * @return mixed
+     */
+    public function myPriceNotice($member_id);
+
+    /**
+     * 删除到价提示
+     * @param $id
+     * @return mixed
+     */
+    public function delPriceNotice($id);
+
+    /**
+     * app端巡通知价格提示
+     * @return mixed
+     */
+    public function appPriceNotice($member_id);
 }

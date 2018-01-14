@@ -459,12 +459,12 @@ class SyncData extends Controller
 
     public function sendMail(Request $request)
     {
-        $smtpserver     = "smtp.163.com";//SMTP服务器
+        $smtpserver     = "smtp.126.com";//SMTP服务器
         $smtpserverport = 25;//SMTP服务器端口
-        $smtpusermail   = "syl19920831@163.com";//SMTP服务器的用户邮箱
+        $smtpusermail   = "zouxiaozhu520@126.com";//SMTP服务器的用户邮箱
         $smtpemailto = $request->get('toemail');//发送给谁
-        $smtpuser = "syl19920831@163.com";//SMTP服务器的用户帐号，注：部分邮箱只需@前面的用户名
-        $smtppass = "shengyulong071X";//SMTP服务器的用户密码
+        $smtpuser = "zouxiaozhu520@126.com";//SMTP服务器的用户帐号，注：部分邮箱只需@前面的用户名
+        $smtppass = "zl520025";//SMTP服务器的用户密码
         $mailtitle = $request->get('title');//邮件主题
         $mailcontent = "<h1>".$request->get('content')."</h1>";//邮件内容
         $mailtype = "HTML";//邮件格式（HTML/TXT）,TXT为文本邮件
@@ -486,7 +486,103 @@ class SyncData extends Controller
      */
     public function screenPrice(Request $request)
     {
-        $res = $this->syncData->screenPrice();
+        //type: 1竖屏,2横屏
+        $data['show_type'] = intval($request->get('show_type', 1));
+        if ($request->has('type')) {
+            $data['type'] = intval($request->get('type'));
+        }
+        $res = $this->syncData->screenPrice($data);
         return $res;
+    }
+
+    /**
+     * 报价提示设置
+     * @param Request $request
+     * @return mixed
+     */
+    public function setPriceNotice(Request $request)
+    {
+        $access_token = $request->get('access_token');
+        $member_info = $this->decode_access_token($access_token);
+        if (!$member_info) {
+            return $this->res_error('token失效',8789);
+        }
+        $data = [
+            'product'           =>  intval($request->get('product_type', 1)), //产品类型
+            'forewarn'          =>  intval($request->get('forewarn', 1)),   //预警条件,1上穿,2下穿
+            'cvm'               =>  $request->get('cvm'),   //监控值
+            'create_user_name'  =>  $member_info['name'],
+            'create_user_id'    =>  $member_info['id'],
+            'create_time'       =>  time(),
+            'update_time'       =>  time(),
+        ];
+        //校验监控值是否在规定范围内,客户端校验
+//        $verify = $this->_verify_price($data);
+        $res = $this->syncData->setPriceNotice($data);
+        return $res;
+    }
+
+
+    /**
+     * 更新到价提示
+     * @param Request $request
+     * @param $id
+     */
+    public function updatePriceNotice(Request $request, $id)
+    {
+        $data = [
+            'product'           =>  intval($request->get('product_type', 1)), //产品类型
+            'forewarn'          =>  intval($request->get('forewarn', 1)),   //预警条件,1上穿,2下穿
+            'cvm'               =>  $request->get('cvm'),   //监控值
+            'update_time'       =>  time(),
+        ];
+        $result = $this->syncData->updatePriceNotice($data, $id);
+        return $result;
+    }
+
+    /**
+     * 我的到价提示
+     * @param Request $request
+     * @return mixed
+     */
+    public function myPriceNotice(Request $request)
+    {
+        $access_token = $request->get('access_token');
+        $member_info  = $this->decode_access_token($access_token);
+        if (!$member_info) {
+            return $this->res_error('token失效',8789);
+        }
+        $member_id    = $member_info['id'];
+        $result       = $this->syncData->myPriceNotice($member_id);
+        return $result;
+    }
+
+    /**
+     * 删除到价提示
+     * @param Request $request
+     * @param $id
+     * @return mixed
+     */
+    public function delPriceNotice(Request $request, $id)
+    {
+        $result = $this->syncData->delPriceNotice($id);
+        return $result;
+    }
+
+    /**
+     * app端巡通知价格提示
+     * @param Request $request
+     * @return mixed
+     */
+    public function appPriceNotice(Request $request)
+    {
+        $access_token = $request->get('access_token');
+        $member_info  = $this->decode_access_token($access_token);
+        if (!$member_info) {
+            return $this->res_error('token失效',8789);
+        }
+        $member_id    = $member_info['id'];
+        $result = $this->syncData->appPriceNotice($member_id);
+        return $result;
     }
 }
