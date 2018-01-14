@@ -343,6 +343,7 @@ class SyncData implements SyncDataInterface
     {
         $list = DB::table('ace')
             ->select('id', 'product_type', 'to_price', 'action', 'stop_loss')
+            ->where('rule_result',1)
             ->orderBy('create_time', 'DESC')
             ->paginate($per_num);
         return response()->success($list);

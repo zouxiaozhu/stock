@@ -278,11 +278,8 @@
     </nav>
 </header>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-    <!-- Left side column. contains the logo and sidebar -->
     <aside class="left-side sidebar-offcanvas">
 
-
-        <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
             <div class="user-panel">
@@ -295,22 +292,9 @@
                 </div>
             </div>
             <!-- search form -->
-        {{--<form action="#" method="get" class="sidebar-form">--}}
-        {{--<div class="input-group">--}}
-        {{--<input type="text" name="q" class="form-control" placeholder="Search..."/>--}}
-        {{--<span class="input-group-btn">--}}
-        {{--<button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>--}}
-        {{--</span>--}}
-        {{--</div>--}}
-        {{--</form>--}}
-        <!-- /.search form -->
-            <!-- sidebar menu: : style can be found in sidebar.less -->
+
             <ul class="sidebar-menu">
-                {{--<li class="active">--}}
-                {{--<a href="index.html">--}}
-                {{--<i class="fa fa-dashboard"></i> <span>权限管理</span>--}}
-                {{--</a>--}}
-                {{--</li>--}}
+
                 <?php if (!$prms) {
                     $prms = [];
                 }?>
@@ -333,7 +317,7 @@
                                     <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增金属</a>
                                     </li>
 
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-waihui-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
                                     </li>
 
                                     <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增交叉盘{{$prm['name']}}</a>
@@ -373,10 +357,62 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="col-xs-12 bg-black-gradient">
-                        {{$ace_detail['comment']}}
+                            @if($type == 0)
+                                <ul>
+                                    <li>{{$detail['comment']}}</li>
+                                </ul>
+
+                            @endif
+
+                            @if($type == 1)
+                                <i class=""> 帖子内容 </i>
+                                <ul>
+                                    <li>标题：{{$detail['title']}}</li>
+                                    <li>活动日期：{{$detail['event_date']}}</li>
+                                    <li>活动开始时间：{{$detail['display_start_time']}}</li>
+                                    <li>活动结束时间：{{$detail['display_end_time']}}</li>
+                                </ul>
+
+                                @endif
+                            @if($type == 2)
+                                    <ul>
+                                        <li>标题：{{$detail['title']}}</li>
+                                        <li>发布时间：{{date('Y-m-d H:i:s',$detail['publish_date_time'])}}</li>
+                                        <li>分类：{{$detail['category']}}</li>
+                                        <li>图片地址：<?php
+                                            $image_link = unserialize($detail['image_link']);
+                                            echo  is_array($image_link) and $image_link ? $image_link[0] : '';
+
+                                            ?></li>
+
+                                       <li>标题：<?php
+                                            $head = unserialize($detail['headline']);
+                                            echo  is_string($head) ? $head : $head[0]; ?></li>
+                                        <li>来源：{{$detail['type']}}</li>
+                                        <li>财经新闻标题：{{$detail['title']}}</li>
+                                    </ul>
+                                @endif
+                            @if($type == 3)
+                                    <ul>
+                                        <li>标题：{{$detail['title']}}</li>
+                                        <li>发布时间：{{date('Y-m-d H:i:s',$detail['publish_date_time'])}}</li>
+                                        <li>分类：{{$detail['category']}}</li>
+                                        <li>图片地址：<?php
+                                            $image_link = unserialize($detail['image_link']);
+                                            echo  is_array($image_link) and $image_link ? $image_link[0] : '';
+
+                                            ?></li>
+
+                                        <li>标题：<?php
+                                            $head = unserialize($detail['headline']);
+                                            echo  is_string($head) ? $head : $head[0]; ?></li>
+                                        <li>来源：{{$detail['type']}}</li>
+                                        <li>财经新闻标题：{{$detail['title']}}</li>
+                                    </ul>
+                                @endif
+
                         </div>
-                        <!-- /.box-header -->
-                {{--!-- /.box-body -->--}}
+
                     </div>
                 </div>
              </div>
@@ -396,7 +432,17 @@
                                     <small><i class="fa fa-clock-o"></i>
                                         时间 : {{$comment['create_at']}} {{$comment['id']}}
                                     </small>
-
+                                    <select class="small"  name="fa" com_id="{{$comment['id']}}">
+                                        <option value="1"
+                                        @if($comment['status'] == 1) selected @endif
+                                        >通过</option>
+                                        <option value="2"
+                                                @if($comment['status'] == 2) selected @endif
+                                        >待审核</option>
+                                        <option value="0"
+                                                @if($comment['status'] == 0) selected @endif
+                                        >删除</option>
+                                    </select>
                                 </h4>
 
                             </a>
@@ -412,6 +458,17 @@
                                         <small><i class="fa fa-clock-o"></i>
                                             时间 :  {{$child_c['created_at'] or ''}}{{$child_c['id']}}
                                         </small>
+                                        <select class="small"  name="fa" com_id="{{$child_c['id']}}">
+                                            <option value="1"
+                                                    @if($child_c['status'] == 1) selected @endif
+                                            >通过</option>
+                                            <option value="2"
+                                                    @if($child_c['status'] == 2) selected @endif
+                                            >待审核</option>
+                                            <option value="0"
+                                                    @if($child_c['status'] == 0) selected @endif
+                                            >删除</option>
+                                        </select>
                                     </h4>
                                 </a>
                             </li>
@@ -462,16 +519,33 @@
 <script src="/Js/AdminLTE/dashboard.js" type="text/javascript"></script>
 <script>
 
-    $('.del-column').click(function () {
-        var column_id = $(this).attr('column_id');
-        layer.confirm('你确定要删除栏目吗？', {
-            btn: ['取消删除', '确定'] //按钮
-        }, function () {
-            layer.msg('取消删除', {icon: 1});
-        }, function () {
-            window.location.href = "{{env('APP_URL')}}" + '/admin/del-column?column_id=' + column_id;
-        });
+    $('.small').change(function () {
+        var com_id = $(this).attr('com_id');
+        var status = $(this).val();
+      // layer.msg('取消删除', {icon: 1});
+        $.ajax({
 
+            type: "get",
+
+            url: "audit-comment",
+
+            data: {com_id:com_id, status:status},
+
+            dataType: "json",
+
+            success: function(data){
+//console.log(data)
+                if(data.error_code){
+                    layer.msg('更改失败')
+                    return false;
+                }
+                layer.msg(data.data)
+{{--                window.location.href = '{{env("APP_URL")}}'+'/admin/home'--}}
+            },
+            error:function(){
+
+            }
+        });
 
     });
 </script>

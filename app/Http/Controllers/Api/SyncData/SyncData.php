@@ -37,7 +37,7 @@ class SyncData extends Controller
     public function eventList(Request $request)
     {
         $per_num = $request->has('per_num') ? intval($request->get('per_num')) : 10;
-        $result = $this->syncData->eventList($per_num);
+        $result = $this->syncData->eventLaceist($per_num);
         return $result;
     }
 

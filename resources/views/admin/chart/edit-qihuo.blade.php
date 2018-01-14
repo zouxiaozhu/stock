@@ -192,7 +192,22 @@
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <form role="form" action="edit-qihuo-chart" method="post">
-                            <!-- text input -->
+                            <div class="form-inline">
+                                <label>年份</label>
+                                <select name="year" id="year">
+                                    <option value="0" @if($year==0)
+                                    selected
+                                            @endif
+                                    >--请选择年份--</option>
+                                    @for($i=1990;$i<=2030;$i++)
+                                        <option value="{{$i}}"
+                                                @if($year==$i)
+                                                selected
+                                                @endif
+                                        >{{$i}}</option>
+                                    @endfor
+                                </select>
+                            </div>
                             @foreach($insert_key as $j_k =>$item)
                                 <div class="box-footer text-center">
                                     <button type="" class="btn btn-info">{{$chinese_key[$j_k]}}</button>
@@ -202,27 +217,27 @@
                                         日（阳图 线图 , 隔开）
                                     </label>
                                     <input type="text" class="form-control" name="{{$item}}_day" placeholder="Enter ... 阳图 线图 , 隔开 "
-                                           value="{{$qihuo[$item]['day'] }}" />
+                                           value="{{isset($qihuo[$item]['day'])? $qihuo[$item]['day']  :'' }}" />
                                 </div>
                                 <div class="form-inline">
                                     <label>周（阳图 线图 , 隔开）</label>
                                     <input type="text" class="form-control" name="{{$item}}_week" placeholder="Enter ... 阳图 线图, 隔开 "
-                                           value="{{$qihuo[$item]['week']}} "   />
+                                           value="{{isset($qihuo[$item]['week']) ? $qihuo[$item]['week'] : '' }} "   />
                                 </div>
                                 <!-- textarea -->
 
                                 <div class="form-inline">
                                     <label>月<span>阳图 线图 - <隔开></隔开>）</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter ...阳图 线图 , 隔开" name="{{$item}}_month" value="{{$qihuo[$item]['month']}} " >
+                                    <input type="text" class="form-control" placeholder="Enter ...阳图 线图 , 隔开" name="{{$item}}_month" value="{{isset($qihuo[$item]['month']) ? $qihuo[$item]['month'] : ''}} " >
                                 </div>
                                 <div class="form-inline">
                                     <label>高位</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_top" value="{{$qihuo[$item]['now_top'] }}" >
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_top" value="{{ isset($qihuo[$item]['now_top']) ? $qihuo[$item]['now_top'] : 0 }}" >
                                 </div>
 
                                 <div class="form-inline">
                                     <label>低位</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_bottom"  value="{{$qihuo[$item]['now_bottom']}}">
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_bottom"  value="{{ isset($qihuo[$item]['now_bottom']) ? $qihuo[$item]['now_bottom'] : 0 }}">
                                 </div>
 
                                 <div class="form-inline">
@@ -232,7 +247,7 @@
 
                                 <div class="form-inline">
                                     <label>历年低位</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_bottom" value="{{$qihuo[        $item]['bottom']}}">
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_bottom" value="{{ isset($qihuo[$item]['bottom']) ? : 0 }}">
                                 </div>
                             @endforeach
                             <div class="box-footer text-center">
@@ -285,4 +300,9 @@
 </html>
 
 <script>
+    $('#year').change(function(){
+        var year = $(this).val();
+        window.location.href = '{{env("APP_URL")}}'+'/admin/edit-waihui-chart?year='+year
+
+    })
 </script>

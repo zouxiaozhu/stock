@@ -37,6 +37,25 @@ class TerminalSettingSeeder extends Seeder
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
+            [
+                'id'    => 3,
+                'name'  => '英皇金融JPG',
+                'key'   => 'jpg',
+                'value' => '0',
+                'type'  => '2',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'    => 4,
+                'name'  => '英皇金融PDF',
+                'key'   => 'pdf',
+                'value' => '0',
+                'type'  => '2',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+
         ];
         if (!\App\Http\Models\Backend\TerminalSettings::count()) {
             DB::table('terminal_settings')->truncate();

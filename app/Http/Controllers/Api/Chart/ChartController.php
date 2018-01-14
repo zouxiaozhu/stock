@@ -27,6 +27,7 @@ class ChartController extends  Controller{
      */
     public function getChart(Request $request)
     {
+        $year = $this->get('year',0);
         $pro_type = ['qihuo','guijinshu','jiaochapan','waihui'];
         $type = $request->get('type');
         if(!in_array($type,$pro_type)){
@@ -47,9 +48,11 @@ class ChartController extends  Controller{
                 break;
         }
 
-        $res = DB::table($table)->get();
+        $res = DB::table($table)->where('year',$year)->get();
         $res = obj2Arr($res);
-
+        if(!$res){
+            return $this->res_true([$type=>[]]);
+        }
         $res = array_map(function($value){
             $value['day'] = explode(',',$value['day']);
             $value['week'] = explode(',',$value['week']);

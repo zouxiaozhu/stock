@@ -37,7 +37,7 @@ class AuthTokenController extends Controller
 
     }
 
-
+    use ApiAuthTrait;
     /**
      * token 中间件校验
      */
@@ -155,22 +155,7 @@ class AuthTokenController extends Controller
         return $signature;
     }
 
-    /**
-     * 解密用户信息
-     * @param string $access_token
-     * @return bool
-     */
-    protected function decode_access_token($access_token=''){
 
-        if(!$access_token){
-            return false;
-        }
-        $signature = Crypt::decrypt($access_token);
-        $signature = substr($signature,4,-4);
-        $user_info = json_decode($signature,true);
-
-        return $user_info;
-    }
 
     /**
      * 微信获取用户信息

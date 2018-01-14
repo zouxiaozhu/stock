@@ -137,7 +137,7 @@
                         <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增金属</a>
                         </li>
 
-                        <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
+                        <li><a href="{{env('APP_URL')}}/admin/edit-waihui-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
                         </li>
 
                         <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增交叉盘{{$prm['name']}}</a>
@@ -160,7 +160,6 @@
         </section>
         <!-- /.sidebar -->
     </aside>
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
 
     <!-- Right side column. Contains the navbar and content of the page -->
     <aside class="right-side">
@@ -197,8 +196,8 @@
                                     <th>ID</th>
                                     <th>用途</th>
                                     <th>属性</th>
-                                    <th>是否审核</th>
-                                    <th>删除</th>
+                                    <th>状态</th>
+                                    {{--<th>删除</th>--}}
                                 </tr>
                                 @foreach($settings as $key=>$setting)
                                 <tr>
@@ -206,6 +205,7 @@
                                     <td>{{$setting['name']}}</td>
                                     <td>{{$setting['key']}}</td>
                                     <td>
+                                        @if($setting['type'] ==1)
                                         <select name="setting"  opr="{{$setting['id']}}" class="setting">
                                             <option value="0"
                                             @if($setting['value'] == 0)
@@ -220,8 +220,14 @@
                                                 >需要审核
                                                 </option>
                                         </select>
+                                            @endif
+
+                                        @if($setting['type'] == 2)
+                                                <input type="text" opr="{{$setting['id']}}" class="yinhuang" value="{{$setting['value']}}">
+                                            @endif
+
                                     </td>
-                                    <td><a href="{{env('APP_URL')}}/admin/del-setting?setting_id={{$setting['id']}}">删除</a></td>
+                                    {{--<td><a href="{{env('APP_URL')}}/admin/del-setting?setting_id={{$setting['id']}}">删除</a></td>--}}
                                 </tr>
                                 @endforeach
 
@@ -234,8 +240,6 @@
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
-<!-- add new calendar event modal -->
-More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
 
 <!-- jQuery 2.0.2 -->
 <script src="/Js/jquery.min.js"></script>
@@ -270,7 +274,10 @@ More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板�
 
 </body>
 </html>
-
+<script src="Js/jquery.min.js"></script>
+<script src="Js/layer/layer.js"></script>
+<!-- Bootstrap -->
+<script src="Js/js/bootstrap.min.js" type="text/javascript"></script>
 
 <script>
     $('.setting').change(function () {
@@ -304,7 +311,37 @@ More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板�
         });
 
     })
+    $('.yinhuang').blur(function () {
 
+        id = $(this).attr('opr');
+        value = $(this).val();
+        $.ajax({
+
+            type: "GET",
+
+            url: "/admin/update-setting",
+
+            data: {id:id, value:value},
+
+            dataType: "json",
+
+            success: function(data){
+
+                if(data.error_code) {
+                    layer.msg(data.error_message)
+                    return false;
+
+                    window.location.href = '{{env("APP_URL")}}' + '/admin/index-setting'
+                }
+                layer.msg(data.data)
+
+            },
+            error:function(){
+
+            }
+        });
+
+    })
 
 
 
