@@ -33,37 +33,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="155" column="47" lean-forward="true" selection-start-line="155" selection-start-column="47" selection-end-line="155" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthTokenController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-470">
-              <caret line="112" column="63" lean-forward="true" selection-start-line="112" selection-start-column="63" selection-end-line="112" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Comment.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Comment.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/Comment.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="313">
@@ -75,14 +45,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventModel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/EventModel.php">
+      <file leaf-file-name="index-setting.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/setting/index-setting.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-              <folding>
-                <element signature="e#6#120#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="156">
+              <caret line="139" column="73" lean-forward="false" selection-start-line="139" selection-start-column="73" selection-end-line="139" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-member.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="299" column="48" lean-forward="false" selection-start-line="299" selection-start-column="48" selection-end-line="299" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,31 +75,51 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8532">
+              <caret line="323" column="20" lean-forward="false" selection-start-line="323" selection-start-column="20" selection-end-line="323" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Smtp.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/Smtp.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="339" column="74" lean-forward="false" selection-start-line="339" selection-start-column="74" selection-end-line="339" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="568">
+              <caret line="76" column="45" lean-forward="false" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/auth/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="101" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index-ace.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/ace/index-ace.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="294" column="117" lean-forward="false" selection-start-line="294" selection-start-column="117" selection-end-line="294" selection-end-column="117" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NewsModel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/NewsModel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -209,7 +207,6 @@
         <option value="$PROJECT_DIR$/resources/views/admin/chart/edit-jiaochapan.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/column/add-column.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/column/index-column.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/role/add-role.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/role/index-role.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/setting/index-setting.blade.php" />
@@ -220,7 +217,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Chart/ChartController.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/EconModel.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_comment_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
         <option value="$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/AceModel.php" />
@@ -232,6 +228,8 @@
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/NewsModel.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/ace/edit-ace.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/Comment.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
       </list>
     </option>
   </component>
@@ -621,7 +619,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="news&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/NewsModel.php&#10;env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;auto&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/ApiAuth/AuthTokenController.php&#10;Comment&#9;null&#9;null&#10;Auth&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/ApiAuth/AuthTokenController.php&#10;routes&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;create&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;index-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;index&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;index-ace&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;create_comm&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;ChartCo&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Chart/ChartController.php&#10;home&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;chart.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Chart.php&#10;index-se&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/setting/index-setting.blade.php&#10;terminal&#9;null&#9;null&#10;APi&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/ApiAuth/ApiAuthTrait.php&#10;see&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;admin&#9;null&#9;null&#10;se&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Setting.php&#10;seeder&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;about&#9;FILE&#9;file://E:/wamp64/www/stock/app/Repositories/ImplementsResp/AboutOur.php&#10;memberCo&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;index-me&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;sync&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/SyncData/SyncData.php&#10;commen&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Comment/CommentController.php&#10;com&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Comment.php&#10;login&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/login.blade.php&#10;About&#9;null&#9;null&#10;seed&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/ChartsSeeder.php&#10;veri&#9;null&#9;null&#10;qihuo&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/chart/edit-qihuo.blade.php&#10;.en&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;jinshu&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/chart/edit-jinshu.blade.php&#10;index-user&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/index-user.blade.php&#10;add-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;index-c&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/column/index-column.blade.php&#10;Charts&#9;null&#9;null&#10;add&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;index-m&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;member&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;mem&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;.env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;CommentController&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Comment/CommentController.php&#10;Member&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;ROLEA&#9;null&#9;null&#10;cre&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;ter&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/TerminalSettings.php&#10;User&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/UserController.php" />
+    <property name="SearchEverywhereHistoryKey" value="index-m&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;Member&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;syn&#9;FILE&#9;file://E:/wamp64/www/stock/app/Repositories/ImplementsResp/SyncData.php&#10;news&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/NewsModel.php&#10;env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;auto&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/ApiAuth/AuthTokenController.php&#10;Comment&#9;null&#9;null&#10;Auth&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/ApiAuth/AuthTokenController.php&#10;routes&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/routes.php&#10;create&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;index-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;index&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;index-ace&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/ace/index-ace.blade.php&#10;create_comm&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;ChartCo&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Chart/ChartController.php&#10;home&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/home.blade.php&#10;chart.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Chart.php&#10;index-se&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/setting/index-setting.blade.php&#10;terminal&#9;null&#9;null&#10;APi&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/ApiAuth/ApiAuthTrait.php&#10;see&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;admin&#9;null&#9;null&#10;se&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Setting.php&#10;seeder&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/AdminAuthRoleSeeder.php&#10;about&#9;FILE&#9;file://E:/wamp64/www/stock/app/Repositories/ImplementsResp/AboutOur.php&#10;memberCo&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/MemberController.php&#10;index-me&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/member/index-member.blade.php&#10;sync&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/SyncData/SyncData.php&#10;commen&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Comment/CommentController.php&#10;com&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Comment.php&#10;login&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/auth/login.blade.php&#10;About&#9;null&#9;null&#10;seed&#9;FILE&#9;file://E:/wamp64/www/stock/database/seeds/ChartsSeeder.php&#10;veri&#9;null&#9;null&#10;qihuo&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/chart/edit-qihuo.blade.php&#10;.en&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;jinshu&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/chart/edit-jinshu.blade.php&#10;index-user&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/index-user.blade.php&#10;add-&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;index-c&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/column/index-column.blade.php&#10;Charts&#9;null&#9;null&#10;add&#9;FILE&#9;file://E:/wamp64/www/stock/resources/views/admin/user/add-user.blade.php&#10;admin.php&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Backend/Admin.php&#10;member&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;mem&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_151953_create_member_table.php&#10;.env&#9;FILE&#9;file://E:/wamp64/www/stock/.env&#10;CommentController&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Controllers/Api/Comment/CommentController.php&#10;ROLEA&#9;null&#9;null&#10;cre&#9;FILE&#9;file://E:/wamp64/www/stock/database/migrations/2017_12_17_170509_create_comment_table.php&#10;ter&#9;FILE&#9;file://E:/wamp64/www/stock/app/Http/Models/Backend/TerminalSettings.php" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -731,15 +729,15 @@
       <workItem from="1515421956729" duration="716000" />
       <workItem from="1515423220316" duration="374000" />
       <workItem from="1515832742670" duration="2667000" />
-      <workItem from="1515908463023" duration="23735000" />
+      <workItem from="1515908463023" duration="24558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209645000" />
+    <option name="totallyTimeSpent" value="210468000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="72" y="0" width="1866" height="1098" extended-state="1" />
+    <frame x="72" y="0" width="1866" height="1098" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -799,13 +797,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/seeds/ChartsSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="811">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/errors/503.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="676">
@@ -977,14 +968,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="126" column="74" lean-forward="false" selection-start-line="126" selection-start-column="74" selection-end-line="126" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/role/add-role.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -997,14 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="137" column="85" lean-forward="false" selection-start-line="137" selection-start-column="85" selection-end-line="137" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/setting/index-setting.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="139" column="73" lean-forward="false" selection-start-line="139" selection-start-column="73" selection-end-line="139" selection-end-column="73" />
           <folding />
         </state>
       </provider>
@@ -1059,14 +1034,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Models/Backend/EconModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1085,14 +1052,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="408" column="39" lean-forward="false" selection-start-line="408" selection-start-column="39" selection-end-line="408" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/RepositoryInterfaces/SyncDataInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -1105,14 +1064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="347" column="22" lean-forward="false" selection-start-line="347" selection-start-column="14" selection-end-line="347" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1206,6 +1157,54 @@
           <folding>
             <element signature="e#137#173#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8532">
+          <caret line="323" column="20" lean-forward="false" selection-start-line="323" selection-start-column="20" selection-end-line="323" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/Smtp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="76" column="45" lean-forward="false" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/setting/index-setting.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="139" column="73" lean-forward="false" selection-start-line="139" selection-start-column="73" selection-end-line="139" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="299" column="48" lean-forward="false" selection-start-line="299" selection-start-column="48" selection-end-line="299" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="339" column="74" lean-forward="false" selection-start-line="339" selection-start-column="74" selection-end-line="339" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>

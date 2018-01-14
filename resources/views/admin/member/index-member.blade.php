@@ -297,7 +297,7 @@
     });
 
     $('.post_audit').change(function(){
-        var member_id  = $(this).attr('member_id');
+        var member_id  = $(this).attr('member-id');
         var is_post = $(this).val();
 
         $.ajax({
