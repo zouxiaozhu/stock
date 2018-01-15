@@ -56,7 +56,7 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
 
 
 // api校验token
-Route::group(['middleware' => 'api.auth'], function () {
+//Route::group(['middleware' => 'api.auth'], function () {
     /**
      * 直接展示给app端,不需要任何验证
      */
@@ -95,7 +95,7 @@ Route::group(['middleware' => 'api.auth'], function () {
     });
 
 
-});
+//});
 
 //获取融云token
 Route::group(['namespace'=> 'Api\Rongyun'], function(){
