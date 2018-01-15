@@ -399,7 +399,7 @@ class SyncData implements SyncDataInterface
      */
     public function analogCreate($data)
     {
-        $exist_result = DB::table('analog')->select('id')->where('member_id', $data['member_id'])->first();
+        $exist_result = DB::table('analog')->select('id')->where('phone', $data['phone'])->first();
         if (!empty($exist_result)) {
             return response()->error(9527, 'Account Exist');
         }
