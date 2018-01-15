@@ -207,28 +207,28 @@ class SyncData extends Controller
      */
     public function accountRegist(Request $request)
     {
-        $access_token = $request->get('access_token');
-        if (!$access_token) {
-            return $this->res_error('token不存在',1567);
-        }
-        $token_info = $this->decode_access_token($access_token);
-        if (!$token_info) {
-            return $this->res_error('token失效',8789);
-        }
-        $user_info = $token_info[0];
+//        $access_token = $request->get('access_token');
+//        if (!$access_token) {
+//            return $this->res_error('token不存在',1567);
+//        }
+//        $token_info = $this->decode_access_token($access_token);
+//        if (!$token_info) {
+//            return $this->res_error('token失效',8789);
+//        }
+//        $user_info = $token_info[0];
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
 //        货币类型1=>港币,2=>美元
         $data = [
-            'type' => $request->get('type', 2),
+            'type' => trim($request->get('type', '2')),
             'currency_type' => $request->get('currency_type', 2),
             'name_cn' => trim($request->get('name_cn')),
-            'name_en' => trim($request->get('name_en')),
+//            'name_en' => trim($request->get('name_en')),
             'phone' => trim($request->get('phone')),
             'email' => trim($request->get('email')),
             'qq' => intval($request->get('qq'), 0),
             'message' => $request->get('message', '无'),
-            'user_id' => $user_info['id'],
-            'user_name' =>  $user_info['name'],
+//            'user_id' => $user_info['id'],
+//            'user_name' =>  $user_info['name'],
         ];
         if (!$data['phone']) {
             return response()->error(1314, 'Phone Required');
@@ -236,9 +236,9 @@ class SyncData extends Controller
         if (!$data['name_cn']) {
             return response()->error(1413, 'CN Name Required');
         }
-        if (!$data['name_en']) {
-            return response()->error(3344, 'EN Name Required');
-        }
+//        if (!$data['name_en']) {
+//            return response()->error(3344, 'EN Name Required');
+//        }
         if (!$data['email']) {
             return response()->error(4131, 'Email Required');
         }
