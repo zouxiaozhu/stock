@@ -116,12 +116,14 @@ class SyncData implements SyncDataInterface
     {
         $data = DB::table('news')
             ->leftJoin('content', 'news.news_id', '=', 'content.content_id')
-            ->select('content.content', 'news.headline', 'news.publish_date_time')
+//            ->select('content.content', 'news.headline', 'news.publish_date_time')
+            ->select('content.content',  'news.publish_date_time')
             ->where('news.news_id', $id)
             ->where('content.type', 3)
             ->take(1)
             ->get();
         $data = isset($data[0]) ? $data[0] : [];
+        $data->content = strip_tags($data->content);
         return response()->success($data);
     }
 
