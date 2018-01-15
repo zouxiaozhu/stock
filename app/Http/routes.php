@@ -13,18 +13,8 @@
 
 
 
-Route::group(['middleware' => 'api.auth'], function () {
-    Route::get('/', function ()    {
-        // 使用 Auth 中间件
-        echo 1111;
-    });
-
-    Route::get('user/profile', function () {
-        // 使用 Auth 中间件
-    });
-});
-
 Route::get('/event_list', 'Api\SyncData\SyncData@eventData');
+
 
 
 /**
@@ -64,8 +54,45 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
     });
 });
 
+
 // api校验token
 Route::group(['middleware' => 'api.auth'], function () {
+    /**
+     * 直接展示给app端,不需要任何验证
+     */
+    Route::group(['namespace' => 'Api\SyncData'], function(){
+        Route::group(['prefix' => 'sync'], function(){
+            Route::get('event_list', 'SyncData@eventList');                             //财经日志展示
+            Route::get('event_detail/{id}', 'SyncData@eventDetail');                    //财经日志详情
+            Route::get('news_list', 'SyncData@newsList');                               //财经新闻列表
+            Route::get('news_detail/{id}', 'SyncData@newsDetail');                      //财经新闻详情
+            Route::get('notice_list', 'SyncData@noticeList');                           //公告列表
+            Route::get('notice_detail/{id}', 'SyncData@noticeDetail');                  //公告详情
+            Route::get('strong_weak_graph', 'SyncData@strongWeakGraph');                //app首页展示,汇海强弱指数图
+            Route::get('ref_bullion', 'SyncData@refBullion');                           //贵金属价位参考表(阻力支持)
+            Route::get('ref_forex', 'SyncData@refForex');                               //外汇价位参考表(阻力支持)
+            Route::get('econ_list', 'SyncData@econList');                               //经济数据列表
+            Route::post('account_regist', 'SyncData@accountRegist');                    //app端开户注册
+            Route::post('upload', 'SyncData@upload');                                    //app端上传接口
+            Route::post('file_upload', 'SyncData@fileUpload');                          //app上传文件
+            Route::post('apply_ace', 'SyncData@applyCreateAce');                        //申请ace发帖
+            Route::post('create_ace', 'SyncData@aceCreate');                            //谁是高手创建接口
+            Route::get('ace_list', 'SyncData@aceList');                                 //谁是高手列表
+            Route::get('ace_detail/{id}', 'SyncData@aceDetail');                        //谁是高手详情展示
+            Route::get('relate_ace/{id}', 'SyncData@relatedAce');                        //谁是高手相关阅读
+            Route::get('update_comment_num/{id}', 'SyncData@updateAceCommentNum');       //谁是高手更新评论数
+            Route::get('analy_list', 'SyncData@analyList');                              //每日分析列表
+            Route::get('analy_detail/{id}', 'SyncData@analyDetail');                     //每日分析详情
+            Route::post('analog_create','SyncData@analogCreate');                        //模拟账号创建
+            Route::post('send_mail','SyncData@sendMail');                                //模拟账号创建
+            Route::get('screen_price','SyncData@screenPrice');                           //全屏报价
+            Route::post('set_price_notice','SyncData@setPriceNotice');                    //设置到价提示
+            Route::post('update_price_notice/{id}','SyncData@updatePriceNotice');              //更新到价提示
+            Route::get('my_price_notice','SyncData@myPriceNotice');                    //我的到价提示
+            Route::get('del_price_notice/{id}','SyncData@delPriceNotice');                    //删除我的到价提示
+            Route::get('app_price_notice','SyncData@appPriceNotice');                    //app端巡通知价格提示
+        });
+    });
 
 
 });
@@ -105,8 +132,8 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('admin/index-member', 'Backend\MemberController@member');
     Route::get('admin/update-member', 'Backend\MemberController@updateMember');
 
-    Route::get('admin/index-post', 'Backend\Comment@ace');
-    Route::get('admin/detail-post', 'Backend\Comment@detailAce');
+    Route::get('admin/index-post', 'Backend\Comment@post');
+    Route::get('admin/detail-post', 'Backend\Comment@detailPost');
     Route::get('admin/audit-ace', 'Backend\Comment@auditAce');
     Route::get('admin/audit-comment', 'Backend\Comment@auditComment');
     Route::get('admin/edit-post', 'Backend\Comment@editComment');
@@ -135,6 +162,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('admin/index-setting', 'Backend\Setting@index');
     Route::get('admin/update-setting', 'Backend\Setting@update');
     Route::get('admin/del-setting', 'Backend\Setting@delete');
+    Route::get('admin/edit-setting', 'Backend\Setting@index');
 
 
     Route::get('admin/index-about', 'Backend\About@about');

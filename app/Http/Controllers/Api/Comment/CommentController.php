@@ -33,24 +33,25 @@ class CommentController extends Controller{
         $this->member_info = $member_info;
     }
 
-
     public function addComment(Request $request){
         $member_info =  $this->member_info;
-        $member_id = $member_info['member_id'];
+        $member_id = $member_info['id'];
 
         $fill_able = [
-            'ace_id' => 'required',
+            'type'=>'required',
+            'post_id' => 'required',
             'content'=>'required'
         ];
 
         $message = [
-            'ace_id.required' => 'article Required',
+            'post_id.required' => '必须评论有效帖子',
+            'type.required' => '类型必须传',
         ];
 
         $validator = Validator::make($request->all(), $fill_able, $message);
 
         if ($validator->fails()) {
-            return Response::false(1015,$validator->errors()->first());
+            return $this->res_error($validator->errors()->first());
         }
 
         $is_audit = TerminalSettings::where('key','comment')->get()->toArray()[0]['value'];//1需要审核  0 不用审核
@@ -66,13 +67,14 @@ class CommentController extends Controller{
         }
 
         $insert = [
-            'ace_id' => intval($request->get('ace_id')),
-            'ace_comment_fid'=>$request->get('ace_comment_fid',0),
+            'post_id' => intval($request->get('post_id')),
+            'post_comment_fid'=>$request->get('post_comment_fid',0),
             'reply_member_id'=>$request->get('reply_member_id',0),
             'reply_member_name'=>$request->get('reply_member_name',''),
             'member_id'=>$member_id?:0,
             'status'=>intval($status),
-            'content'=>trim($request->get('content'))
+            'content'=>trim($request->get('content')),
+            'type'=>$request->get('type',0)
         ];
         $ret = CommentModel::insert($insert);
         $auction = $request->get('reply_member_id',0) ? '回复':'评论';
@@ -85,7 +87,7 @@ class CommentController extends Controller{
         return $this->res_true($auction.$msg);
     }
 
-
+    //帖子类型 0-ace 1-event 财经日志 2 news_财经新闻财经公告 3经济数据 econ
     /**
      * 获取帖子下面的评论
      * @param Request $request
@@ -93,17 +95,22 @@ class CommentController extends Controller{
      */
     public function getComment(Request $request)
     {
-        $ace_id = $request->get('ace_id');
-        if(!$ace_id){
+        $post_id = $request->get('post_id');
+        $type = $request->get('type',0);
+        if(!in_array($type,[0,1,2,3])){
+            return $this->res_error('帖子类型不合法');
+        }
+        if(!$post_id){
             return $this->res_error('没有帖子信息');
         }
 
         $page = $request->get('page');
         $page_size = $request->get('page_size',10);
         $offset = (max($page,1)-1) * max($page_size,0);
-        $comment_f = CommentModel::where('ace_id',intval($ace_id))
-            ->where('ace_comment_fid',0)
+        $comment_f = CommentModel::where('post_id',intval($post_id))
+            ->where('post_comment_fid',0)
             ->where('status',1)
+            ->where('type',$type)
             ->take($page_size)
             ->skip($offset)
             ->get()->toArray();
@@ -112,20 +119,20 @@ class CommentController extends Controller{
         }
         $fids = array_column($comment_f,'id');
 
-        $comment_c = CommentModel::where('ace_id',intval($ace_id))
-            ->whereIn('ace_comment_fid',$fids)
+        $comment_c = CommentModel::where('post_id',intval($post_id))
+            ->whereIn('post_comment_fid',$fids)
             ->where('status',1)
             ->get()->toArray();
 
         $c_com = [];
         foreach ($comment_c as $com){
-            $c_com[$com['ace_comment_fid']][]= $com;
+            $c_com[$com['post_comment_fid']][]= $com;
         }
 
         $new_list = [];
         foreach ($comment_f as $f_com){
             $new_list[$f_com['id']]['comment'] = $f_com;
-            $new_list[$f_com['id']]['comment']['child_comment'] = $c_com[$f_com['id']]?:[];
+            $new_list[$f_com['id']]['comment']['child_comment'] = isset($c_com[$f_com['id']]) ? $c_com[$f_com['id']]:[];
         }
 
         return response()->success(array_values($new_list));
@@ -140,12 +147,14 @@ class CommentController extends Controller{
     {
         $member_info = $this->member_info;
         $member_id = $member_info['id'];
+//        var_export($member_id);die;
         $page = $request->get('page')?:1;
         $page_size = $request->get('page_size')?:10;
         $offset = ($page - 1 ) * $page_size;
         $status = $request->has('status') ? explode(',',$request->get('status')) : [1,2,3];
         $comment = CommentModel::where('member_id',$member_id)
                     ->whereIn('status',$status)
+                    ->where('type',0)
                     ->skip($offset)
                     ->take($page_size)
                     ->orderBy('created_at','desc')
@@ -154,17 +163,19 @@ class CommentController extends Controller{
         $new_comment = [];
 
         foreach ($comment as $com){
-            if($comment['ace_comment_fid']){
+
+            if($com['post_comment_fid']){
                 // 查找上级回复 如果没有找到帖子
-                $new_comment['comment']= $com;
-                $new_comment['comment']['father']=ColumnModel::find($comment['ace_comment_fid'])->toArray();
+                $new_comment['comment'][$com['id']]= $com;
+                $new_comment['comment'][$com['id']]['father']=AceModel::find($com['post_comment_fid'])->toArray();
             }else{
                 // 查找上级回复 如果没有找到帖子
-                $new_comment['comment']= $com;
-                $new_comment['comment']['ace_id']=AceModel::find($comment['ace_id'])->toArray();
+                $new_comment['comment'][$com['id']]= $com;
+                $new_comment['comment'][$com['id']]['father']=AceModel::find($com['post_id'])->toArray();
             }
         }
-        return response()->success($new_comment?:[]);
+        $new_comment['comment'] = array_values($new_comment['comment']);
+        return response()->success($new_comment ?:[]);
     }
 
 

@@ -32,6 +32,7 @@ class CreateChartTable extends Migration
         Schema::create('jinshu_chart', function (Blueprint $table) {
             $table->engine = 'Innodb';
             $table->increments('id')->comment('chart_id');
+            $table->string('year')->comment('')->default(0);
             $table->string('name')->comment('')->default(0);
             $table->string('key')->comment('')->default(0);
             $table->string('day')->comment('')->default(0);
@@ -46,6 +47,7 @@ class CreateChartTable extends Migration
 
         Schema::create('waihui_chart', function (Blueprint $table) {
             $table->engine = 'Innodb';
+            $table->string('year')->comment('')->default(0);
             $table->increments('id')->comment('chart_id');
             $table->string('name')->comment('')->default(0);
             $table->string('key')->comment('')->default(0);
@@ -61,6 +63,7 @@ class CreateChartTable extends Migration
 
         Schema::create('qihuo_chart', function (Blueprint $table) {
             $table->engine = 'Innodb';
+            $table->string('year')->comment('')->default(0);
             $table->increments('id')->comment('chart_id');
             $table->string('name')->comment('')->default(0);
             $table->string('day')->comment('')->default(0);
@@ -76,6 +79,7 @@ class CreateChartTable extends Migration
 
         Schema::create('jiaochapan_chart', function (Blueprint $table) {
             $table->engine = 'Innodb';
+            $table->string('year')->comment('')->default(0);
             $table->increments('id')->comment('chart_id');
             $table->string('key')->comment('')->default(0);
             $table->string('name')->comment('')->default(0);

@@ -27,12 +27,13 @@ class Chart extends \App\Http\Controllers\Controller{
 
     public function editJinshuChart(Request $request)
     {
-        $jinshu_chart = JinShuModel::where('id','>',0)->get()->toArray();
+        $year = $request->get('year',0);
+        $jinshu_chart = JinShuModel::where('id','>',0)->where('year',$year)->get()->toArray();
         $prms = json_decode(session()->get('prms_info'), true);
         $role = json_decode(session()->get('roles_info'), true);
-
+       
         if($request->isMethod('get')){
-            return view('admin.chart.edit-jinshu',['jinshu'=>array_column($jinshu_chart,null,'key')])
+            return view('admin.chart.edit-jinshu',['jinshu'=>array_column($jinshu_chart,null,'key'),'year'=>$year])
                 ->with(['prms' => $prms, 'roles_info' => $role]);
         }
 
@@ -53,17 +54,18 @@ class Chart extends \App\Http\Controllers\Controller{
                 'now_top'=>$request->get($item.'_now_top')?:0,
                 'now_bottom'=>$request->get($item.'_now_bottom')?:0,
                 'top'=>$request->get($item.'_top')?:0,
-                'bottom'=>$request->get($item.'_bottom')?:0
+                'bottom'=>$request->get($item.'_bottom')?:0,
+                'year'=>$year,
             ];
 //            var_export();die;
             $insert[] = $insert_tmp;
         }
-        DB::table('jinshu_chart')->truncate();
+        DB::table('jinshu_chart')->where('year',$year)->delete();
 
         DB::table('jinshu_chart')->insert($insert);
 //        var_export($insert);die;
-        $jinshu_chart = JinShuModel::where('id','>',0)->get()->toArray();
-        return view('admin.chart.edit-jinshu',['jinshu'=>array_column($jinshu_chart,null,'key')])
+        $jinshu_chart = JinShuModel::where('id','>',0)->where('year',$year)->get()->toArray();
+        return view('admin.chart.edit-jinshu',['jinshu'=>array_column($jinshu_chart,null,'key'),'year'=>$year])
             ->with(['prms' => $prms, 'roles_info' => $role]);
 
     }
@@ -72,12 +74,13 @@ class Chart extends \App\Http\Controllers\Controller{
     public function editWaihuiChart(Request $request)
     {
 
-        $waihui = WaihuiModel::where('id','>',0)->get()->toArray();
+        $year = $request->get('year',0);
+        $waihui = WaihuiModel::where('id','>',0)->where('year',$year)->get()->toArray();
         $prms = json_decode(session()->get('prms_info'), true);
         $role = json_decode(session()->get('roles_info'), true);
 //var_export(array_column($waihui,null,'key'));die;
         if($request->isMethod('get')){
-            return view('admin.chart.edit-waihui',['waihui'=>array_column($waihui,null,'key')])
+            return view('admin.chart.edit-waihui',['waihui'=>array_column($waihui,null,'key'),'year'=>$year])
                 ->with(['prms' => $prms, 'roles_info' => $role]);
         }
 
@@ -97,16 +100,17 @@ class Chart extends \App\Http\Controllers\Controller{
                 'now_top'=>$request->get($item.'_now_top')?:0,
                 'now_bottom'=>$request->get($item.'_now_bottom')?:0,
                 'top'=>$request->get($item.'_top')?:0,
-                'bottom'=>$request->get($item.'_bottom')?:0
+                'bottom'=>$request->get($item.'_bottom')?:0,
+                'year'=>$year
             ];
             $insert[] = $insert_tmp;
 
-            DB::table('waihui_chart')->truncate();
+            DB::table('waihui_chart')->where('year',$year)->delete();
             DB::table('waihui_chart')->insert($insert);
         }
 
-        $waihui = WaihuiModel::where('id','>',0)->get()->toArray();
-        return view('admin.chart.edit-waihui',['waihui'=>array_column($waihui,null,'key')])
+        $waihui = WaihuiModel::where('id','>',0)->where('year',$year)->get()->toArray();
+        return view('admin.chart.edit-waihui',['waihui'=>array_column($waihui,null,'key'),'year'=>$year])
             ->with(['prms' => $prms, 'roles_info' => $role]);
     }
 
@@ -115,15 +119,15 @@ class Chart extends \App\Http\Controllers\Controller{
     // 外汇
     public function editJiaoChaPanChart(Request $request)
     {
-
-        $jiaochapan = DB::table('jiaochapan_chart')->where('id','>',0)->get();
+        $year = $request->get('year',0);
+        $jiaochapan = DB::table('jiaochapan_chart')->where('id','>',0)->where('year',$year)->get();
         $jiaochapan = obj2Arr($jiaochapan);
 
         $prms = json_decode(session()->get('prms_info'), true);
         $role = json_decode(session()->get('roles_info'), true);
 //var_export(array_column($waihui,null,'key'));die;
         if($request->isMethod('get')){
-            return view('admin.chart.edit-jiaochapan',['jiaochapan'=>array_column($jiaochapan,null,'key')])
+            return view('admin.chart.edit-jiaochapan',['jiaochapan'=>array_column($jiaochapan,null,'key'),'year'=>$year])
                 ->with(['prms' => $prms, 'roles_info' => $role]);
         }
 
@@ -143,29 +147,31 @@ class Chart extends \App\Http\Controllers\Controller{
                 'now_top'=>$request->get($item.'_now_top')?:0,
                 'now_bottom'=>$request->get($item.'_now_bottom')?:0,
                 'top'=>$request->get($item.'_top')?:0,
-                'bottom'=>$request->get($item.'_bottom')?:0
+                'bottom'=>$request->get($item.'_bottom')?:0,
+                'year'=>$year
             ];
             $insert[] = $insert_tmp;
 
-            DB::table('jiaochapan_chart')->truncate();
+            DB::table('jiaochapan_chart')->where('year',$year)->delete();
             DB::table('jiaochapan_chart')->insert($insert);
         }
 
-        $jiaochapan = DB::table('jiaochapan_chart')->where('id','>',0)->get();
+        $jiaochapan = DB::table('jiaochapan_chart')->where('year',$year)->where('id','>',0)->get();
         $jiaochapan = obj2Arr($jiaochapan);
-        return view('admin.chart.edit-jiaochapan',['jiaochapan'=>array_column($jiaochapan,null,'key')])
+        return view('admin.chart.edit-jiaochapan',['jiaochapan'=>array_column($jiaochapan,null,'key'),'year'=>$year])
             ->with(['prms' => $prms, 'roles_info' => $role]);
     }
 
     public function editQiHuoChart(Request $request)
     {
-        $qihuo = DB::table('qihuo_chart')->where('id','>',0)->get();
+        $year = $request->get('year',0);
+        $qihuo = DB::table('qihuo_chart')->where('year',$year)->where('id','>',0)->get();
         $qihuo = obj2Arr($qihuo);
         $prms = json_decode(session()->get('prms_info'), true);
         $role = json_decode(session()->get('roles_info'), true);
 //var_export(array_column($waihui,null,'key'));die;
         if($request->isMethod('get')){
-            return view('admin.chart.edit-qihuo',['qihuo'=>array_column($qihuo,null,'key')])
+            return view('admin.chart.edit-qihuo',['qihuo'=>array_column($qihuo,null,'key'),'year'=>$year])
                 ->with(['prms' => $prms, 'roles_info' => $role]);
         }
 
@@ -185,17 +191,19 @@ class Chart extends \App\Http\Controllers\Controller{
                 'now_top'=>$request->get($item.'_now_top')?:0,
                 'now_bottom'=>$request->get($item.'_now_bottom')?:0,
                 'top'=>$request->get($item.'_top')?:0,
-                'bottom'=>$request->get($item.'_bottom')?:0
+                'bottom'=>$request->get($item.'_bottom')?:0,
+                'year'=>$year
+
             ];
             $insert[] = $insert_tmp;
 
-            DB::table('qihuo_chart')->truncate();
+            DB::table('qihuo_chart')->where('year',$year)->delete();
             DB::table('qihuo_chart')->insert($insert);
         }
 
-        $qihuo = DB::table('qihuo_chart')->where('id','>',0)->get();
+        $qihuo = DB::table('qihuo_chart')->where('year',$year)->where('id','>',0)->get();
         $qihuo = obj2Arr($qihuo);
-        return view('admin.chart.edit-qihuo',['qihuo'=>array_column($qihuo,null,'key')])
+        return view('admin.chart.edit-qihuo',['qihuo'=>array_column($qihuo,null,'key'),'year'=>$year])
             ->with(['prms' => $prms, 'roles_info' => $role]);
     }
 

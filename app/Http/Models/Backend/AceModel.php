@@ -13,9 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class AceModel extends Model
 {
     protected $table = 'ace';
-    public $timestamps = true;
+    public $timestamps = false;
     protected $guarded = [];
-
-
 
 }

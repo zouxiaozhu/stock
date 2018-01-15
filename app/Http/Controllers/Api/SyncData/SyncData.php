@@ -37,7 +37,7 @@ class SyncData extends Controller
     public function eventList(Request $request)
     {
         $per_num = $request->has('per_num') ? intval($request->get('per_num')) : 10;
-        $result = $this->syncData->eventList($per_num);
+        $result = $this->syncData->eventLaceist($per_num);
         return $result;
     }
 
@@ -328,7 +328,7 @@ class SyncData extends Controller
         }
 
         $this->member_info = $member_info;
-        $member_info['is_post'] = MembersModel::find($member_info['member_id'])->is_post;
+        $member_info['is_post'] = MembersModel::find($member_info['id'])->is_post;
         if($member_info['is_post'] ==0){
             return $this->res_error('没有登录或者没有发帖权限',4004);
         }
@@ -336,6 +336,8 @@ class SyncData extends Controller
             return $this->res_error('发帖权限正在申请中',4004);
         }
 
+        $post_setting = TerminalSettings::where('key','post')->get()->toArray();
+        $status = $post_setting &&  $post_setting['0']['value'] == 0 ? 1:  2;
         //走中间介判断是否有发布的权限
         $data = [
             'product_type' => intval($request->get('product_type', 1)),
@@ -347,8 +349,9 @@ class SyncData extends Controller
             'stop_loss' => intval($request->get('stop_loss', 99)),
             'target' => intval($request->get('target', 99)),
             'comment' => trim($request->get('comment')),
-            'create_user_id'=>$member_info['member_id'],
-            'create_user_name'=>$member_info['member_name']
+            'create_user_id'=>$member_info['id'],
+            'create_user_name'=>$member_info['name'],
+            'rule_result'=>$status
         ];
 
         if (!$data['date']) {

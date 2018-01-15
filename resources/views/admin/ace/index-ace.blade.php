@@ -105,7 +105,6 @@
                 }?>
                 @foreach($prms as $k=>$prm)
                     @if($prm['name'])
-
                         <li class="treeview {{$prm['prm']=='post'?'active':''}}">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
@@ -122,7 +121,7 @@
                                     <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增金属</a>
                                     </li>
 
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-waihui-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
                                     </li>
 
                                     <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增交叉盘{{$prm['name']}}</a>
@@ -150,10 +149,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
            <span>
-
-
-
-
+               <!--- //帖子类型 0-ace 1-event 财经日志 2 news_财经新闻财经公告 3经济数据 econ-->
+                <button><a href="{{env("APP_URL")}}/admin/index-post?type=0">谁是高手</a></button>
+                <button><a href="{{env("APP_URL")}}/admin/index-post?type=1">财经日志</a></button>
+                <button><a href="{{env("APP_URL")}}/admin/index-post?type=2">财经新闻公告</a></button>
+                <button><a href="{{env("APP_URL")}}/admin/index-post?type=3">经济数据</a></button>
            </span>
         </section>
         <section class="content-header">
@@ -161,12 +161,13 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Index Member Table</h3>
+                            <h3 class="box-title"></h3>
                             <div class="box-tools">
 
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
+                            @if($type == 0)
                             <table class="table table-hover">
                                 <tr>
                                     <th>编号</th>
@@ -186,7 +187,7 @@
                                     </th>
                                 </tr>
 
-                                @foreach($ace_list as $key=>$ace)
+                                @foreach($post_list as $key=>$ace)
                                     <tr>
                                         <td>{{$ace['id']}}</td>
                                         <td>
@@ -224,17 +225,154 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <a href="{{env('APP_URL')}}/admin/detail-post?id={{$ace['id']}}" >查看详情</a>
+                                            <a href="{{env('APP_URL')}}/admin/detail-post?id={{$ace['id']}}&type={{$type}}" >查看详情</a>
                                         </td>
                                     </tr>
                                 @endforeach
-
                             </table>
+                                @endif
+
+                                @if($type == 1)
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th>编号</th>
+                                            <th>活动日期</th>
+                                            <th>活动开始时间</th>
+                                            <th>活动结束时间</th>
+                                            <th>标题</th>
+                                            <th>创建时间</th>
+                                            <th>详情</th>
+                                        </tr>
+
+                                        @foreach($post_list as $key=>$event)
+                                            <tr>
+                                                <td>{{$event['event_id']}}</td>
+                                                <td>{{$event['event_date']}}</td>
+                                                <td>{{$event['display_start_time']}}</td>
+                                                <td>{{$event['display_end_time']}}</td>
+                                                <td>{{mb_substr($event['title'],0,20)}}...</td>
+                                                <td>{{date('Y-m-d H:i:s',$event['create_time'])}}</td>
+                                                <td>
+                                                    <a href="{{env('APP_URL')}}/admin/detail-post?id={{$event['event_id']}}&type={{$type}}" >查看详情</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                @endif
+
+                                @if($type == 2)
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th>编号</th>
+                                            <th>发布时间</th>
+                                            <th>分类</th>
+                                            <th>图片链接地址</th>
+                                            <th>标题</th>
+                                            <th>类型</th>
+                                            <th>创建时间</th>
+                                            <th>详情</th>
+                                        </tr>
+
+                                        @foreach($post_list as $key=>$news)
+                                            <tr>
+                                                <td>{{$news['news_id']}}</td>
+                                                <td>{{$news['publish_date_time']}}</td>
+                                                <td>{{$news['category']}}</td>
+                                                <td>{{unserialize($news['image']) ? unserialize($news['image'])[0] : '' }}</td>
+
+                                                <td><?php
+                                                    $a = unserialize($news['headline']);
+                                                    if(is_string($a)){
+                                                        echo $a;
+                                                    }
+                                                    if(is_array($a)){
+                                                        echo $a[0];
+                                                    }
+                                                    ?>...</td>
+                                                <td>{{$news['type'] == 1 ? "新闻" : "公告"}}</td>
+                                                <td>{{date('Y-m-d H:i:s',$news['create_time'])}}</td>
+                                                <td>
+                                                    <a href="{{env('APP_URL')}}/admin/detail-post?id={{$news['news_id']}}&type={{$type}}" >查看详情</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                @endif
+
+                                @if($type == 4)
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th>编号</th>
+                                            <th>发布时间</th>
+                                            <th>分类</th>
+                                            <th>图片链接地址</th>
+                                            <th>标题</th>
+                                            <th>创建时间</th>
+                                            <th>详情</th>
+                                        </tr>
+
+                                        @foreach($post_list as $key=>$news)
+                                            <tr>
+                                                <td>{{$news['news_id']}}</td>
+                                                <td>{{$news['publish_date_time']}}</td>
+                                                <td>{{$news['category']}}</td>
+                                                <td>{{unserialize($news['image_link'],true)}}</td>
+                                                <td>{{mb_substr(unserialize($news['headline'],0,20))}}...</td>
+                                                <td>{{date('Y-m-d H:i:s',$news['create_time'])}}</td>
+                                                <td>
+                                                    <a href="{{env('APP_URL')}}/admin/detail-post?id={{$news['id']}}&type={{$type}}" >查看详情</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                @endif
+
+
+                                @if($type == 3)
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th>编号</th>
+                                            <th>日期</th>
+                                            <th>香港时间</th>
+                                            <th>国家</th>
+                                            <th>经济数据名称</th>
+                                            <th>季度</th>
+                                            <th>月份</th>
+                                            <th>预测</th>
+                                            <th>上次结果</th>
+                                            <th>公布结果</th>
+                                            <th>详情</th>
+                                        </tr>
+
+                                        @foreach($post_list as $key=>$econ)
+                                            <tr>
+                                                <td>{{$econ['id']}}</td>
+                                                <td>{{date('Y-m-d H:i:s',$econ['date'])}}</td>
+                                                <td>{{$econ['hktime']}}</td>
+                                                <td>{{$econ['country']}}</td>
+                                                <td>{{$econ['fname'] OR ''}}...</td>
+                                                <td>{{$econ['quarter'] OR ''}}</td>
+                                                <td>{{$econ['month'] OR ''}}</td>
+                                                <td>{{$econ['forecast'] OR ''}}</td>
+                                                <td>{{$econ['lasttime'] OR ''}}</td>
+                                                <td>{{$econ['value'] OR ''}}</td>
+                                                <td>
+                                                    <a href="{{env('APP_URL')}}/admin/detail-post?id={{$econ['id']}}&type={{$type}}" >查看详情</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                @endif
+
+
+
+
+
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div>
             </div>
-            {{$ace_list->appends(request()->all())->render()}}
+            {{$post_list->appends(request()->all())->render()}}
         </section>
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
