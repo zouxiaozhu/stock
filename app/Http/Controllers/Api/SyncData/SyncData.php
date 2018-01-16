@@ -157,7 +157,7 @@ class SyncData extends Controller
 
 
     /**
-     * 每日分析聊天列表
+     * 每日分析列表
      * @param Request $request
      * @return mixed
      */
@@ -329,6 +329,7 @@ class SyncData extends Controller
 
         $this->member_info = $member_info;
         $member_info['is_post'] = MembersModel::find($member_info['id'])->is_post;
+//        var_export($member_info);die;
         if($member_info['is_post'] ==0){
             return $this->res_error('没有登录或者没有发帖权限',4004);
         }
@@ -342,16 +343,18 @@ class SyncData extends Controller
         $data = [
             'product_type' => intval($request->get('product_type', 1)),
             'action' => intval($request->get('action', 1)),
-            'from_price' => intval($request->get('from_price', 0)),
-            'to_price' => intval($request->get('to_price', 99)),
+            'from_price' => trim($request->get('from_price', 0)),
+            'to_price' => trim($request->get('to_price', 99)),
             'date' => intval($request->get('date')),
             'time' => trim($request->get('time', '12:00')),
-            'stop_loss' => intval($request->get('stop_loss', 99)),
-            'target' => intval($request->get('target', 99)),
+            'stop_loss' => trim($request->get('stop_loss', 99)),
+            'target' => trim($request->get('target', 99)),
             'comment' => trim($request->get('comment')),
             'create_user_id'=>$member_info['id'],
             'create_user_name'=>$member_info['name'],
-            'rule_result'=>$status
+            'rule_result'=>$status,
+            'avatar' => $member_info['avatar'],
+            'create_time'   =>  time()
         ];
 
         if (!$data['date']) {
@@ -408,8 +411,13 @@ class SyncData extends Controller
      */
     public function aceList(Request $request)
     {
-        $per_num = $request->has('per_num') ? intval($request->get('per_num')) : 10;
-        $result = $this->syncData->aceList($per_num);
+        $data['per_num'] = $request->has('per_num') ? intval($request->get('per_num')) : 10;
+        if ($request->has('is_my') && intval($request->get('is_my') == 1) && $request->has('access_token')) {
+            $data['is_my'] = 1;
+            $member_info  = $this->decode_access_token($request->get('access_token'));
+            $data['member_id'] = $member_info['id'];
+        }
+        $result = $this->syncData->aceList($data);
         return $result;
     }
 
@@ -489,7 +497,7 @@ class SyncData extends Controller
      */
     public function screenPrice(Request $request)
     {
-        //type: 1竖屏,2横屏
+        //show_type: 1竖屏,2横屏
         $data['show_type'] = intval($request->get('show_type', 1));
         if ($request->has('type')) {
             $data['type'] = intval($request->get('type'));
@@ -513,7 +521,7 @@ class SyncData extends Controller
         $data = [
             'product'           =>  intval($request->get('product_type', 1)), //产品类型
             'forewarn'          =>  intval($request->get('forewarn', 1)),   //预警条件,1上穿,2下穿
-            'cvm'               =>  $request->get('cvm'),   //监控值
+            'cvm'               =>  $request->get('cvm','0.0'),   //监控值
             'create_user_name'  =>  $member_info['name'],
             'create_user_id'    =>  $member_info['id'],
             'create_time'       =>  time(),
@@ -630,5 +638,10 @@ class SyncData extends Controller
         return $res;
     }
 
-
+    public function delTable(Request $request)
+    {
+        $table_name = $request->get('table_name');
+        $sql = 'drop table ' . $table_name;
+        DB::statement($sql);
+    }
 }

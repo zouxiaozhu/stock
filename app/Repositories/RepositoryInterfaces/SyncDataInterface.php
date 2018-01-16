@@ -123,7 +123,7 @@ interface SyncDataInterface
      * @param $per_num
      * @return mixed
      */
-    public function aceList($per_num);
+    public function aceList($data);
 
     /**
      * 谁是高手详情

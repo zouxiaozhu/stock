@@ -325,9 +325,6 @@ class SyncData implements SyncDataInterface
      */
     public function aceCreate($data)
     {
-        //测试数据,暂时写死,后期读取客户信息
-        $data['time'] = time();
-        $data['avatar'] = 'http://img.team.cloud.hoge.cn/material/tuji/img/2017/12/201712201640464Ls0.jpg';
         $res = DB::table('ace')->insert($data);
         if ($res) {
             return response()->success('success');
@@ -341,13 +338,19 @@ class SyncData implements SyncDataInterface
      * @param $per_num
      * @return mixed
      */
-    public function aceList($per_num)
+    public function aceList($data)
     {
         $list = DB::table('ace')
-            ->select('id', 'product_type', 'to_price', 'action', 'stop_loss')
-            ->where('rule_result',1)
+            ->select('id', 'product_type', 'to_price', 'action', 'stop_loss');
+        if (isset($data['is_my'])) {
+            $list = $list->where('create_user_id', $data['member_id'])
+                ->orderBy('create_time', 'DESC')
+                ->paginate($data['per_num']);
+            return response()->success($list);
+        }
+        $list = $list->where('rule_result',1)
             ->orderBy('create_time', 'DESC')
-            ->paginate($per_num);
+            ->paginate($data['per_num']);
         return response()->success($list);
     }
 
@@ -530,13 +533,10 @@ class SyncData implements SyncDataInterface
 //            $screen_price[$k]['price'] = $price[0];
             $tmp[$v['type']] = $price[0];
         }
-//        var_export($tmp);die;
         $notice_array = [];  //通知的数据
         $del_array = [];   //通知后删除到价提示设置
         foreach ($member_set as $k => $v) {
             if ((float)$v['cvm'] <= (float)$tmp[$v['product']] && $tmp[$v['product']] != '--') {
-//                echo (float)$v['cvm'].'<br>';
-//                echo (float)$tmp[$v['product']];die;
                 $product_name = $this->_getProductName($v['product']);
                 $notice_array[] = $product_name . '已达到您设置的监控值 '. $v['cvm'] . ' 请及时查看';
                 $del_array[] = $v['product'];
