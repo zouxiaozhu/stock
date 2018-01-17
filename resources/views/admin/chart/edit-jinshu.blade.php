@@ -214,28 +214,28 @@
                                 <div class="box-footer text-center">
                                     <button type="" class="btn btn-info">{{$jinshu_chinese_key[$j_k]}}</button>
                                 </div>
-                            <div class="form-inline">
-                                <label>
-                                   日（阳图 线图 , 隔开）
-                                </label>
-                                  <input type="text" class="form-control" name="{{$jishu}}_day" placeholder="Enter ... 阳图 线图 , 隔开 "
-                                       value="{{isset($jinshu[$jishu]['day']) ? $jinshu[$jishu]['day'] : '' }}" />
-                            </div>
-                            <div class="form-inline">
-                                <label>周（阳图 线图 , 隔开）</label>
-                                <input type="text" class="form-control" name="{{$jishu}}_week" placeholder="Enter ... 阳图 线图 , 隔开 "
+                            {{--<div class="form-inline">--}}
+                                {{--<label>--}}
+                                   {{--日（阳图 线图 , 隔开）--}}
+                                {{--</label>--}}
+                                  {{--<input type="text" class="form-control" name="{{$jishu}}_day" placeholder="Enter ... 阳图 线图 , 隔开 "--}}
+                                       {{--value="{{isset($jinshu[$jishu]['day']) ? $jinshu[$jishu]['day'] : '' }}" />--}}
+                            {{--</div>--}}
+                            {{--<div class="form-inline">--}}
+                                {{--<label>周（阳图 线图 , 隔开）</label>--}}
+                                {{--<input type="text" class="form-control" name="{{$jishu}}_week" placeholder="Enter ... 阳图 线图 , 隔开 "--}}
 
-                                       value="{{isset($jinshu[$jishu]['week']) ? $jinshu[$jishu]['week'] : ''}}"   />
+                                       {{--value="{{isset($jinshu[$jishu]['week']) ? $jinshu[$jishu]['week'] : ''}}"   />--}}
 
 
 
-                           </div>
-                           <!-- textarea -->
+                           {{--</div>--}}
+                           {{--<!-- textarea -->--}}
 
-                           <div class="form-inline">
-                               <label>月（阳图 线图 隔开）</label>
-                               <input type="text" class="form-control" placeholder="Enter ... 阳图 线图 , 隔开" name="{{$jishu}}_month"  value="{{ isset($jinshu[$jishu]['month']) ? $jinshu[$jishu]['month'] : '' }} " >
-                            </div>
+                           {{--<div class="form-inline">--}}
+                               {{--<label>月（阳图 线图 隔开）</label>--}}
+                               {{--<input type="text" class="form-control" placeholder="Enter ... 阳图 线图 , 隔开" name="{{$jishu}}_month"  value="{{ isset($jinshu[$jishu]['month']) ? $jinshu[$jishu]['month'] : '' }} " >--}}
+                            {{--</div>--}}
                             <div class="form-inline">
                                 <label>高位</label>
                                 <input type="text" class="form-control" placeholder="Enter ..." name="{{$jishu}}_now_top" value="{{isset($jinshu[$jishu]['now_top']) ? $jinshu[$jishu]['now_top'] : 0}}" >
@@ -306,6 +306,12 @@
 </html>
 
 <script>
+    $('.btn').click(function(){
+        if($('#year').val() == 0 ) {
+            alert('请先选择年份');
+            return false;
+        }
+    });
     $('#year').change(function(){
         var year = $(this).val();
         window.location.href = '{{env("APP_URL")}}'+'/admin/edit-jinshu-chart?year='+year

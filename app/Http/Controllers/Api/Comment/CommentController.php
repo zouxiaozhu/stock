@@ -46,6 +46,7 @@ class CommentController extends Controller{
         $message = [
             'post_id.required' => '必须评论有效帖子',
             'type.required' => '类型必须传',
+            'content.required'=>'内容不能为空 '
         ];
 
         $validator = Validator::make($request->all(), $fill_able, $message);
@@ -114,6 +115,7 @@ class CommentController extends Controller{
             ->take($page_size)
             ->skip($offset)
             ->get()->toArray();
+
         if(!$comment_f){
             return $this->res_true([]);
         }
@@ -165,19 +167,36 @@ class CommentController extends Controller{
         foreach ($comment as $com){
 
             if($com['post_comment_fid']){
-                // 查找上级回复 如果没有找到帖子
+                // 查找上级回复
                 $new_comment['comment'][$com['id']]= $com;
-                $new_comment['comment'][$com['id']]['father']=AceModel::find($com['post_comment_fid'])->toArray();
+                $new_comment['comment'][$com['id']]['father']=AceModel::find($com['post_comment_fid']) ? AceModel::find($com['post_comment_fid'])->toArray() : [] ;
             }else{
                 // 查找上级回复 如果没有找到帖子
                 $new_comment['comment'][$com['id']]= $com;
-                $new_comment['comment'][$com['id']]['father']=AceModel::find($com['post_id'])->toArray();
+                $new_comment['comment'][$com['id']]['father']=AceModel::find($com['post_id'])? AceModel::find($com['post_id'])->toArray() :[];
             }
         }
         $new_comment['comment'] = array_values($new_comment['comment']);
+
         return response()->success($new_comment ?:[]);
     }
 
+
+    public function getPost(Request $request){
+
+        $page = $request->get('page')?:1;
+        $page_size = $request->get('page_size')?:10;
+        $offset = ($page - 1 ) * $page_size;
+        $member_info = $this->member_info;
+        $member_id = $member_info['id'];
+        $my_post = AceModel::where('create_user_id',$member_id)
+            ->skip($offset)
+            ->take($page_size)
+            ->orderBy('create_time','desc')
+            ->get()
+            ->toArray();
+        $this->res_true($my_post);
+    }
 
     public function res_true($data = '')
     {

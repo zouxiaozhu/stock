@@ -55,14 +55,15 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
 });
 Route::post('api/login', 'ApiAuth\AuthTokenController@login');  //登录api
 Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
+
+
 // api校验token
 Route::group(['middleware' => 'api.auth'], function () {
     Route::post('api/update-member', 'ApiAuth\Member@updateMember');
     Route::post('api/add-comment', 'Api\Comment\CommentController@addComment');
     Route::get('api/get-comment', 'Api\Comment\CommentController@getComment');
     Route::get('api/get-my-comment', 'Api\Comment\CommentController@getMyComment');
-
-
+    Route::get('api/get-post', 'Api\Comment\CommentController@getPost');
 
 });
     /**
@@ -104,6 +105,7 @@ Route::group(['middleware' => 'api.auth'], function () {
     });
 
 Route::get('api/chart','Api\Chart\ChartController@getChart');// 获取技术图表
+Route::get('api/download','Api\Chart\ChartController@setting');// 获取pdf jpg 下载地址
 
 
 //获取融云token

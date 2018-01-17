@@ -212,24 +212,24 @@
                                 <div class="box-footer text-center">
                                     <button type="" class="btn btn-info">{{$chinese_key[$j_k]}}</button>
                                 </div>
-                                <div class="form-inline">
-                                    <label>
-                                        日（阳图 线图 , 隔开）
-                                    </label>
-                                    <input type="text" class="form-control" name="{{$item}}_day" placeholder="Enter ... 阳图 线图 , 隔开 "
-                                           value="{{isset($qihuo[$item]['day'])? $qihuo[$item]['day']  :'' }}" />
-                                </div>
-                                <div class="form-inline">
-                                    <label>周（阳图 线图 , 隔开）</label>
-                                    <input type="text" class="form-control" name="{{$item}}_week" placeholder="Enter ... 阳图 线图, 隔开 "
-                                           value="{{isset($qihuo[$item]['week']) ? $qihuo[$item]['week'] : '' }} "   />
-                                </div>
-                                <!-- textarea -->
+                                {{--<div class="form-inline">--}}
+                                    {{--<label>--}}
+                                        {{--日（阳图 线图 , 隔开）--}}
+                                    {{--</label>--}}
+                                    {{--<input type="text" class="form-control" name="{{$item}}_day" placeholder="Enter ... 阳图 线图 , 隔开 "--}}
+                                           {{--value="{{isset($qihuo[$item]['day'])? $qihuo[$item]['day']  :'' }}" />--}}
+                                {{--</div>--}}
+                                {{--<div class="form-inline">--}}
+                                    {{--<label>周（阳图 线图 , 隔开）</label>--}}
+                                    {{--<input type="text" class="form-control" name="{{$item}}_week" placeholder="Enter ... 阳图 线图, 隔开 "--}}
+                                           {{--value="{{isset($qihuo[$item]['week']) ? $qihuo[$item]['week'] : '' }} "   />--}}
+                                {{--</div>--}}
+                                {{--<!-- textarea -->--}}
 
-                                <div class="form-inline">
-                                    <label>月<span>阳图 线图 - <隔开></隔开>）</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter ...阳图 线图 , 隔开" name="{{$item}}_month" value="{{isset($qihuo[$item]['month']) ? $qihuo[$item]['month'] : ''}} " >
-                                </div>
+                                {{--<div class="form-inline">--}}
+                                    {{--<label>月<span>阳图 线图 - <隔开></隔开>）</span></label>--}}
+                                    {{--<input type="text" class="form-control" placeholder="Enter ...阳图 线图 , 隔开" name="{{$item}}_month" value="{{isset($qihuo[$item]['month']) ? $qihuo[$item]['month'] : ''}} " >--}}
+                                {{--</div>--}}
                                 <div class="form-inline">
                                     <label>高位</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_top" value="{{ isset($qihuo[$item]['now_top']) ? $qihuo[$item]['now_top'] : 0 }}" >
@@ -300,6 +300,12 @@
 </html>
 
 <script>
+    $('.btn').click(function(){
+        if($('#year').val() == 0 ) {
+            alert('请先选择年份');
+            return false;
+        }
+    });
     $('#year').change(function(){
         var year = $(this).val();
         window.location.href = '{{env("APP_URL")}}'+'/admin/edit-waihui-chart?year='+year

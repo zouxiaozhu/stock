@@ -208,27 +208,28 @@
                                 <div class="box-footer text-center">
                                     <button type="" class="btn btn-info">{{$chinese_key[$j_k]}}</button>
                                 </div>
-                                <div class="form-inline">
-                                    <label>
-                                        日（阳图 线图 , 隔开）
-                                    </label>
-                                    <input type="text" class="form-control" name="{{$item}}_day" placeholder="Enter ... 阳图 线图 , 隔开 "
-                                           value="{{isset($waihui[$item]['day']) ? $waihui[$item]['day'] : '' }}" />
-                                </div>
-                                <div class="form-inline">
-                                    <label>周（阳图 线图 , 隔开）</label>
-                                    <input type="text" class="form-control" name="{{$item}}_week" placeholder="Enter ... 阳图阴图 , 隔开 "
-                                           value="{{isset($waihui[$item]['week']) ? $waihui[$item]['week'] : ''}} "   />
-                                </div>
-                                <!-- textarea -->
+                                {{--<div class="form-inline">--}}
+                                    {{--<label>--}}
+                                        {{--日（阳图 线图 , 隔开）--}}
+                                    {{--</label>--}}
+                                    {{--<input type="text" class="form-control" name="{{$item}}_day" placeholder="Enter ... 阳图 线图 , 隔开 "--}}
+                                           {{--value="{{isset($waihui[$item]['day']) ? $waihui[$item]['day'] : '' }}" />--}}
+                                {{--</div>--}}
+                                {{--<div class="form-inline">--}}
+                                    {{--<label>周（阳图 线图 , 隔开）</label>--}}
+                                    {{--<input type="text" class="form-control" name="{{$item}}_week" placeholder="Enter ... 阳图阴图 , 隔开 "--}}
+                                           {{--value="{{isset($waihui[$item]['week']) ? $waihui[$item]['week'] : ''}} "   />--}}
+                                {{--</div>--}}
+                                {{--<!-- textarea -->--}}
+
+                                {{--<div class="form-inline">--}}
+                                    {{--<label>月（阳图 线图 隔开）</label>--}}
+                                    {{--<input type="text" class="form-control" placeholder="Enter ...阳图 线图 , 隔开" name="{{$item}}_month" value="{{isset($waihui[$item]['month']) ? : ''}} " >--}}
+                                {{--</div>--}}
 
                                 <div class="form-inline">
-                                    <label>月（阳图 线图 隔开）</label>
-                                    <input type="text" class="form-control" placeholder="Enter ...阳图 线图 , 隔开" name="{{$item}}_month" value="{{isset($waihui[$item]['month']) ? : ''}} " >
-                                </div>
-                                <div class="form-inline">
                                     <label>高位</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_top" value="{{ isset($waihui[$item]['now_top']) ? : 0  }}" >
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_top" value="{{ isset($waihui[$item]['now_top']) ?$waihui[$item]['now_top'] : 0  }}" >
                                 </div>
 
                                 <div class="form-inline">
@@ -296,6 +297,8 @@
 </html>
 
 <script>
+
+
     $('#year').change(function(){
         var year = $(this).val();
         window.location.href = '{{env("APP_URL")}}'+'/admin/edit-waihui-chart?year='+year

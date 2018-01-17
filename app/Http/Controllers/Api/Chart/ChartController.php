@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Chart;
 
 use App\Http\Controllers\ApiAuth\ApiAuthTrait;
 use App\Http\Controllers\Controller;
+use App\Http\Models\Backend\TerminalSettings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\DB;
@@ -55,6 +56,13 @@ class ChartController extends  Controller{
         return $this->res_true([$type=>$res]);
     }
 
+
+    public function setting()
+    {
+        $download = TerminalSettings::whereIn('key',['jpg','pdf'])->get()->toArray();
+        $download = array_column($download, null, 'key');
+        $this->res_true($download);
+    }
 
     public function res_true($data = '')
     {
