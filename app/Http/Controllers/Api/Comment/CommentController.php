@@ -163,7 +163,9 @@ class CommentController extends Controller{
                     ->get()
                     ->toArray();
         $new_comment = [];
-
+        if(!$comment){
+            $this->res_true([]);
+        }
         foreach ($comment as $com){
 
             if($com['post_comment_fid']){
