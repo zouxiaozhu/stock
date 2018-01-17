@@ -14,8 +14,6 @@ class ChartController extends  Controller{
     {
 
     }
-
-
     /**
      * 获取图表
      * @param Request $request

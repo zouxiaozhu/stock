@@ -53,10 +53,18 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('app_price_notice','SyncData@appPriceNotice');                    //app端巡通知价格提示
     });
 });
-
-
+Route::post('api/login', 'ApiAuth\AuthTokenController@login');  //登录api
+Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
 // api校验token
-//Route::group(['middleware' => 'api.auth'], function () {
+Route::group(['middleware' => 'api.auth'], function () {
+    Route::post('api/update-member', 'ApiAuth\Member@updateMember');
+    Route::post('api/add-comment', 'Api\Comment\CommentController@addComment');
+    Route::get('api/get-comment', 'Api\Comment\CommentController@getComment');
+    Route::get('api/get-my-comment', 'Api\Comment\CommentController@getMyComment');
+
+
+
+});
     /**
      * 直接展示给app端,不需要任何验证
      */
@@ -95,22 +103,15 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         });
     });
 
-
-//});
-
+Route::get('api/chart','Api\Chart\ChartController@getChart');// 获取技术图表
 
 
-Route::get('api/chart','Api\Chart\ChartController@getChart');
 //获取融云token
 Route::group(['namespace'=> 'Api\Rongyun'], function(){
    Route::post('get_rctoken', 'Rcloud@getToken');
 });
 
-Route::post('api/login', 'ApiAuth\AuthTokenController@login');
-Route::get('api/check-token', 'ApiAuth\AuthTokenController@checkToken');
-Route::post('api/add-comment', 'Api\Comment\CommentController@addComment');
-Route::get('api/get-comment', 'Api\Comment\CommentController@getComment');
-Route::get('api/get-my-comment', 'Api\Comment\CommentController@getMyComment');
+
 
 
 
