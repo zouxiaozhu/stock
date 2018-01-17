@@ -12,14 +12,9 @@ class ChartController extends  Controller{
     use ApiAuthTrait;
     public function __construct(Request $request)
     {
-        if(!$request->get('access_token')){
-           $this->res_error('缺少access_token');
-        }
-        $res = $this->decode_access_token($request->get('access_token'));
-        if(!$res){
-            $this->res_error('登录信息过期');
-        }
+
     }
+
 
     /**
      * 获取图表
@@ -27,7 +22,7 @@ class ChartController extends  Controller{
      */
     public function getChart(Request $request)
     {
-        $year = $this->get('year',0);
+        $year = $request->get('year',0);
         $pro_type = ['qihuo','guijinshu','jiaochapan','waihui'];
         $type = $request->get('type');
         if(!in_array($type,$pro_type)){

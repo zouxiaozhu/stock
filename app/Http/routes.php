@@ -100,7 +100,7 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
 
 
 
-
+Route::get('api/chart','Api\Chart\ChartController@getChart');
 //获取融云token
 Route::group(['namespace'=> 'Api\Rongyun'], function(){
    Route::post('get_rctoken', 'Rcloud@getToken');
@@ -112,7 +112,7 @@ Route::post('api/add-comment', 'Api\Comment\CommentController@addComment');
 Route::get('api/get-comment', 'Api\Comment\CommentController@getComment');
 Route::get('api/get-my-comment', 'Api\Comment\CommentController@getMyComment');
 
-Route::get('api/chart','Api\Chart\ChartController@getChart');
+
 
 // ADMIN
 Route::get('/', 'Backend\Admin@login');
@@ -168,7 +168,6 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('admin/del-setting', 'Backend\Setting@delete');
     Route::get('admin/edit-setting', 'Backend\Setting@index');
 
-
     Route::get('admin/index-about', 'Backend\About@about');
     Route::get('admin/del-setting', 'Backend\Setting@delete');
     Route::get('admin/del-setting', 'Backend\Setting@delete');
@@ -180,7 +179,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
      */
     Route::group(['namespace' => 'Backend'], function(){
         Route::group(['prefix' => 'backend'], function() {
-            Route::post('about_our/insert', 'AboutOur@insert');                         //关于我们
+            Route::post('about_our/insert', 'AboutOur@insert');                              //关于我们
             Route::put('about_our/update/{id}', 'AboutOur@update');                          //关于我们
             Route::delete('about_our/delete/{id}', 'AboutOur@delete');                       //关于我们
             Route::get('about_our/show', 'AboutOur@show');
