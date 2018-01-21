@@ -343,7 +343,7 @@ class SyncData extends Controller
         $status = $post_setting &&  $post_setting['0']['value'] == 0 ? 1:  2;
         //走中间介判断是否有发布的权限
         $data = [
-            'product_type' => intval($request->get('product_type', 1)),
+            'product_type' => trim($request->get('product_type')),
             'action' => intval($request->get('action', 1)),
             'from_price' => trim($request->get('from_price', 0)),
             'to_price' => trim($request->get('to_price', 99)),

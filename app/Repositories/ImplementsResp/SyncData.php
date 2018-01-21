@@ -110,9 +110,10 @@ class SyncData implements SyncDataInterface
     public function noticeList($per_num)
     {
         $data = DB::table('news')
-            ->select('news_id', 'headline')
-            ->where('type', 2)
-            ->orderBy('publish_date_time', 'desc')
+            ->leftJoin('content', 'news.news_id', '=', 'content.content_id')
+            ->select('content.content', 'news.headline', 'news.publish_date_time', 'news.news_id')
+            ->where('news.type', 2)
+            ->orderBy('news.publish_date_time', 'desc')
             ->paginate($per_num);
         $data_arr = obj2Arr($data);
         $data = $data_arr['data'];
@@ -121,6 +122,7 @@ class SyncData implements SyncDataInterface
         }
         foreach ($data as $k => &$v) {
             $v['headline'] = unserialize($v['headline']);
+            $v['content'] = strip_tags($v['content']);
         }
         $data_arr['data'] = $data;
         return response()->success($data_arr);
