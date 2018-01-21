@@ -419,6 +419,9 @@ class SyncData extends Controller
             $member_info  = $this->decode_access_token($request->get('access_token'));
             $data['member_id'] = $member_info['id'];
         }
+        if ($request->has('type')) {
+            $data['type'] = explode(',', $request->get('type'));
+        }
         $result = $this->syncData->aceList($data);
         return $result;
     }
