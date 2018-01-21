@@ -75,8 +75,9 @@ class SyncData implements SyncDataInterface
      */
     public function newsList($per_num)
     {
+        //分类 type 1:贵金属,2:外汇3:股票4:期货
         $data = DB::table('news')
-            ->select('news_id', 'title', 'publish_date_time')
+            ->select('news_id', 'title', 'publish_date_time', 'category')
             ->where('type', 1)
             ->orderBy('publish_date_time', 'desc')
             ->paginate($per_num);
