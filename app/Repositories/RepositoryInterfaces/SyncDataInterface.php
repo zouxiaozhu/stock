@@ -18,7 +18,7 @@ interface SyncDataInterface
      * @param $per_num 每页数量
      * @return mixed
      */
-    public function eventList($per_num);
+    public function eventList($per_num, $status);
 
 
     /**

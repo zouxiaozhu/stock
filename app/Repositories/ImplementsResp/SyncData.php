@@ -19,16 +19,35 @@ class SyncData implements SyncDataInterface
      * @params $per_num 每页数量
      * @return mixed
      */
-    public function eventList($per_num)
+    public function eventList($per_num, $status)
     {
         $current_time = time();
         $data = DB::table('event')
             ->leftJoin('content', 'event.event_id', '=', 'content.content_id')
             ->select('event.event_id', 'event.event_date', 'event.title', 'content.content')
-            ->where('event.display_start_time', '<', $current_time)
-            ->where('event.display_end_time', '>', $current_time)
-            ->orderBy('event.event_date', 'desc')
+            ->where('content.type', '=', 1);
+        //已发布
+        if ($status == 1) {
+            $data->where('event.display_start_time', '<', $current_time)
+                 ->where('event.display_end_time', '>', $current_time);
+        }
+        //即将发布
+        if ($status ==2) {
+            $data->where('event.display_start_time', '>', $current_time);
+        }
+        $data= $data->orderBy('event.event_date', 'desc')
             ->paginate($per_num);
+//        var_export($data);die;
+        $data = json_decode(json_encode($data), true);
+        $list_data = $data['data'];
+        if (empty($list_data)) {
+            return response()->success([]);
+        }
+//        var_export($data);die;
+        foreach ($list_data as $k => &$v) {
+            $v['content'] = strip_tags($v['content']);
+        }
+        $data['data'] = $list_data;
         return response()->success($data);
     }
 

@@ -37,7 +37,9 @@ class SyncData extends Controller
     public function eventList(Request $request)
     {
         $per_num = $request->has('per_num') ? intval($request->get('per_num')) : 10;
-        $result = $this->syncData->eventList($per_num);
+        //1已发布,2待发布
+        $publish_status = $request->has('status') ? intval($request->get('status')) : 1;
+        $result = $this->syncData->eventList($per_num, $publish_status);
         return $result;
     }
 
