@@ -23,10 +23,11 @@ class SyncData implements SyncDataInterface
     {
         $current_time = time();
         $data = DB::table('event')
-            ->select('event_id', 'event_date', 'title')
-            ->where('display_start_time', '<', $current_time)
-            ->where('display_end_time', '>', $current_time)
-            ->orderBy('event_date', 'desc')
+            ->leftJoin('content', 'event.event_id', '=', 'content.content_id')
+            ->select('event.event_id', 'event.event_date', 'event.title', 'content.content')
+            ->where('event.display_start_time', '<', $current_time)
+            ->where('event.display_end_time', '>', $current_time)
+            ->orderBy('event.event_date', 'desc')
             ->paginate($per_num);
         return response()->success($data);
     }
