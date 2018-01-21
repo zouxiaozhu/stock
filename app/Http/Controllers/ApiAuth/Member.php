@@ -49,9 +49,9 @@ class Member extends Controller{
             $time = Carbon::now()->timestamp;
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();
-            if (!in_array(strtolower($ext), $this->image_type)) {
-                return $this->res_error('文件格式不正确', 1203);
-            }
+//            if (!in_array(strtolower($ext), $this->image_type)) {
+//                return $this->res_error('文件格式不正确', 1203);
+//            }
             $upload_image_name = $time . mt_rand(0, 10000) .'.'. $ext;
             $res = $file->move(env('FILE_STORAGE_PATH',''), $upload_image_name);
             if (!$res) {
