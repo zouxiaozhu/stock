@@ -37,7 +37,6 @@ class SyncData implements SyncDataInterface
         }
         $data= $data->orderBy('event.event_date', 'desc')
             ->paginate($per_num);
-//        var_export($data);die;
         $data = json_decode(json_encode($data), true);
         $list_data = $data['data'];
         if (empty($list_data)) {

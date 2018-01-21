@@ -241,9 +241,9 @@ class SyncData extends Controller
 //        if (!$data['name_en']) {
 //            return response()->error(3344, 'EN Name Required');
 //        }
-        if (!$data['email']) {
-            return response()->error(4131, 'Email Required');
-        }
+//        if (!$data['email']) {
+//            return response()->error(4131, 'Email Required');
+//        }
         if ($email = $data['email']) {
             $check_result = strlen($email) > 6 && strlen($email) <= 128 && preg_match("/^([A-Za-z0-9\-_.+]+)@([A-Za-z0-9\-]+[.][A-Za-z0-9\-.]+)$/", $email);
             if (!$check_result) {
