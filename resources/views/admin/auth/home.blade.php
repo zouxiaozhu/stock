@@ -118,26 +118,44 @@
                 <?php if (!$prms) {
                     $prms = [];
                 }?>
-
                 @foreach($prms as $k=>$prm)
                     @if($prm['name'])
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-bar-chart-o"></i>
-                        <span>{{$prm['name']}}</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
 
-                    <ul class="treeview-menu">
-                        <li><a href="{{env('APP_URL')}}/admin/index-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> {{$prm['name']}}列表</a>
-                        <li><a href="{{env('APP_URL')}}/admin/add-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
+                        <li class="treeview {{$prm['prm']=='user'?'active':''}}">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>{{$prm['name']}}</span>
+                                @if($prm['prm'] != 'user')
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                @else
+                                    <i class="fa fa-angle-right pull-down"></i>
+                                @endif
+                            </a>
+
+                            <ul class="treeview-menu">
+                                @if($prm['prm']=='chart')
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增金属</a>
+                                    </li>
+
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-waihui-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
+                                    </li>
+
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增交叉盘{{$prm['name']}}</a>
+                                    </li>
+
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-qihuo-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增期货{{$prm['name']}}</a>
+                                    </li>
+                                @else
+                                    <li><a href="{{env('APP_URL')}}/admin/index-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> {{$prm['name']}}列表</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
+                                    </li>
+                                @endif
+                                {{--<li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 编辑{{$prm['name']}}</a></li>--}}
+                                {{--<li ><a href="{{env('APP_URL')}}/admin/del-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 删除{{$prm['name']}}</a></li>--}}
+                            </ul>
                         </li>
-                            {{--<li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 编辑{{$prm['name']}}</a></li>--}}
-                            {{--<li><a href="{{env('APP_URL')}}/admin/del-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 删除{{$prm['name']}}</a></li>--}}
-                    </ul>
-                </li>
                     @endif
-                    @endforeach
+                @endforeach
             </ul>
         </section>
         <!-- /.sidebar -->
