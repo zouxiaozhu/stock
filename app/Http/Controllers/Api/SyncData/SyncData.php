@@ -401,7 +401,7 @@ class SyncData extends Controller
             MembersModel::where('id',$member_info['id'])->update(['is_post'=>1]);
             return response()->success('提交申请成功');
         } else {
-            return response()->false('提交申请失败',9638);
+            return response()->false(9638, '提交申请失败');
         }
     }
 
@@ -648,5 +648,24 @@ class SyncData extends Controller
         $table_name = $request->get('table_name');
         $sql = 'drop table ' . $table_name;
         DB::statement($sql);
+    }
+
+    public function getMemberInfo(Request $request)
+    {
+        if (!$request->has('access_token')) {
+            return response()->false(4004, '用户未登录');
+        }
+        $member_id = $request->get('id');
+        if (!$member_id) {
+            return response()->false(1314, '无用户id');
+        }
+        $res = DB::table('members')
+            ->select('name', 'open_id', 'avatar', 'rc_token')
+            ->where('id', $member_id)
+            ->first();
+        if (empty($res)) {
+            return response()->false(9876, '用户不存在');
+        }
+        return response()->success($res);
     }
 }

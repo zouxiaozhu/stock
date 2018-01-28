@@ -27,8 +27,8 @@ class ResponseMacroServiceProvider extends ServiceProvider
             return Response::json(['error_code' => $error_code, 'error_message' => $error_message], $status);
         });
 
-        Response::macro('false', function ($error_code=400,$error_message = null,$status=false) {
-            return Response::json(['error_code' => $error_code, 'error_message' => $error_message,$status]);
+        Response::macro('false', function ($error_code=400,$error_message = null) {
+            return Response::json(['error_code' => $error_code, 'error_message' => $error_message]);
         });
 
     }

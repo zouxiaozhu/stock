@@ -51,6 +51,7 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('my_price_notice','SyncData@myPriceNotice');                    //我的到价提示
         Route::get('del_price_notice/{id}','SyncData@delPriceNotice');                    //删除我的到价提示
         Route::get('app_price_notice','SyncData@appPriceNotice');                    //app端巡通知价格提示
+        Route::post('get_member_info','SyncData@getMemberInfo');                    //app端巡通知价格提示
     });
 });
 Route::post('api/login', 'ApiAuth\AuthTokenController@login');  //登录api
