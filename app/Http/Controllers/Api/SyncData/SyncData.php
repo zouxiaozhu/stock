@@ -8,6 +8,7 @@ use App\Http\Models\Backend\MembersModel;
 use App\Http\Models\Backend\TerminalSettings;
 use App\Http\Models\Backend\Users;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 use Storage;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -399,12 +400,34 @@ class SyncData extends Controller
         $res = DB::table('apply_ace')->insert($data);
         if ($res) {
             MembersModel::where('id',$member_info['id'])->update(['is_post'=>1]);
+            $this->sendMailAce(env('PUSH_ADMIN_EAMIL','shengyulong@gmail.com'),'','用户'.$nick_name.'申请发帖');
             return response()->success('提交申请成功');
         } else {
             return response()->false(9638, '提交申请失败');
         }
     }
 
+    public function sendMailAce($to='',$subject='ace发帖申请',$content='')
+    {
+        $smtpemailto = $to;//发送给谁
+        $mailtitle = $subject;//邮件主题
+        $mailcontent = $content;//邮件内容
+        if(!$smtpemailto)return false;
+//        //************************ 配置信息 ****************************
+//        $smtp = new Smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);//这里面的一个true是表示使用身份验证,否则不使用身份验证.
+////        var_export($smtp);die;
+//        $smtp->debug = true;//是否显示发送的调试信息
+////        var_export($smtp);die;
+//        $state = $smtp->sendmail($smtpemailto, $smtpusermail, $mailtitle, $mailcontent, $mailtype);
+//
+//        var_export($state);die;
+
+        $return = Mail::raw($mailcontent, function ($message)use($smtpemailto, $mailtitle) {
+            $message->subject($mailtitle);
+            $message->to($smtpemailto);
+        });
+        return true;
+    }
 
     /**
      * 谁是高手列表展示
@@ -478,20 +501,27 @@ class SyncData extends Controller
         $smtpserver     = "smtp.126.com";//SMTP服务器
         $smtpserverport = 25;//SMTP服务器端口
         $smtpusermail   = "zouxiaozhu520@126.com";//SMTP服务器的用户邮箱
-        $smtpemailto = $request->get('toemail');//发送给谁
+            $smtpemailto = $request->get('toemail');//发送给谁
         $smtpuser = "zouxiaozhu520@126.com";//SMTP服务器的用户帐号，注：部分邮箱只需@前面的用户名
         $smtppass = "zl520025";//SMTP服务器的用户密码
         $mailtitle = $request->get('title');//邮件主题
-        $mailcontent = "<h1>".$request->get('content')."</h1>";//邮件内容
+        $mailcontent = $request->get('content');//邮件内容
+        if(!$smtpemailto)return false;
         $mailtype = "HTML";//邮件格式（HTML/TXT）,TXT为文本邮件
-        //************************ 配置信息 ****************************
-        $smtp = new Smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);//这里面的一个true是表示使用身份验证,否则不使用身份验证.
-//        var_export($smtp);die;
-        $smtp->debug = true;//是否显示发送的调试信息
-//        var_export($smtp);die;
-        $state = $smtp->sendmail($smtpemailto, $smtpusermail, $mailtitle, $mailcontent, $mailtype);
+//        //************************ 配置信息 ****************************
+//        $smtp = new Smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);//这里面的一个true是表示使用身份验证,否则不使用身份验证.
+////        var_export($smtp);die;
+//        $smtp->debug = true;//是否显示发送的调试信息
+////        var_export($smtp);die;
+//        $state = $smtp->sendmail($smtpemailto, $smtpusermail, $mailtitle, $mailcontent, $mailtype);
+//
+//        var_export($state);die;
 
-        var_export($state);die;
+        $return = Mail::raw($mailcontent, function ($message)use($smtpemailto, $mailtitle) {
+            $message->subject($mailtitle);
+            $message->to($smtpemailto);
+        });
+        return true;
 
     }
 
