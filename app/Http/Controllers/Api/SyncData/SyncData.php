@@ -668,6 +668,7 @@ class SyncData extends Controller
 //        var_export($res);die;
         $res->member_id = (string)$member_id;
         $res->phone = (string)$res->phone;
+        $res->member_name = $res->name;
         if (empty($res)) {
             return response()->false(9876, '用户不存在');
         }
