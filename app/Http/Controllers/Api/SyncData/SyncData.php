@@ -655,10 +655,12 @@ class SyncData extends Controller
         if (!$request->has('access_token')) {
             return response()->false(4004, '用户未登录');
         }
-        $member_id = $request->get('id');
-        if (!$member_id) {
-            return response()->false(1314, '无用户id');
+        $member_info = $this->decode_access_token($request->get('access_token'));
+        if (!$member_info) {
+            return $this->res_error('token失效',8789);
         }
+
+        $member_id = $member_info['id'];
         $res = DB::table('members')
             ->select('name', 'open_id', 'avatar', 'rc_token', 'avatar', 'email', 'phone')
             ->where('id', $member_id)
