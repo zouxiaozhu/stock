@@ -660,7 +660,7 @@ class SyncData extends Controller
             return response()->false(1314, '无用户id');
         }
         $res = DB::table('members')
-            ->select('name', 'open_id', 'avatar', 'rc_token')
+            ->select('name', 'open_id', 'avatar', 'rc_token', 'avatar', 'email', 'phone')
             ->where('id', $member_id)
             ->first();
         if (empty($res)) {
