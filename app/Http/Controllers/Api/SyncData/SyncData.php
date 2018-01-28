@@ -668,6 +668,9 @@ class SyncData extends Controller
 //        var_export($res);die;
         $res->member_id = (string)$member_id;
         $res->phone = (string)$res->phone;
+        if ($res->phone == '0') {
+            $res->phone = '';
+        }
         $res->member_name = $res->name;
         $res->access_token = $request->get('access_token');
         if (empty($res)) {
