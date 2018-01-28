@@ -272,7 +272,7 @@
                                             <th>创建时间</th>
                                             <th>详情</th>
                                         </tr>
-
+                                        @if(!empty($post_list))
                                         @foreach($post_list as $key=>$news)
                                             <tr>
                                                 <td>{{$news['news_id']}}</td>
@@ -288,6 +288,8 @@
                                                     if(is_array($a)){
                                                         echo $a[0];
                                                     }
+                                                    if(!$a){
+                                                        echo '';}
                                                     ?>...</td>
                                                 <td>{{$news['type'] == 1 ? "新闻" : "公告"}}</td>
                                                 <td>{{date('Y-m-d H:i:s',$news['create_time'])}}</td>
@@ -296,37 +298,9 @@
                                                 </td>
                                             </tr>
                                         @endforeach
+                                            @endif
                                     </table>
                                 @endif
-
-                                @if($type == 4)
-                                    <table class="table table-hover">
-                                        <tr>
-                                            <th>编号</th>
-                                            <th>发布时间</th>
-                                            <th>分类</th>
-                                            <th>图片链接地址</th>
-                                            <th>标题</th>
-                                            <th>创建时间</th>
-                                            <th>详情</th>
-                                        </tr>
-
-                                        @foreach($post_list as $key=>$news)
-                                            <tr>
-                                                <td>{{$news['news_id']}}</td>
-                                                <td>{{$news['publish_date_time']}}</td>
-                                                <td>{{$news['category']}}</td>
-                                                <td>{{unserialize($news['image_link'],true)}}</td>
-                                                <td>{{mb_substr(unserialize($news['headline'],0,20))}}...</td>
-                                                <td>{{date('Y-m-d H:i:s',$news['create_time'])}}</td>
-                                                <td>
-                                                    <a href="{{env('APP_URL')}}/admin/detail-post?id={{$news['id']}}&type={{$type}}" >查看详情</a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
-                                @endif
-
 
                                 @if($type == 3)
                                     <table class="table table-hover">
@@ -343,7 +317,7 @@
                                             <th>公布结果</th>
                                             <th>详情</th>
                                         </tr>
-
+                                                                
                                         @foreach($post_list as $key=>$econ)
                                             <tr>
                                                 <td>{{$econ['id']}}</td>
@@ -363,10 +337,6 @@
                                         @endforeach
                                     </table>
                                 @endif
-
-
-
-
 
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
