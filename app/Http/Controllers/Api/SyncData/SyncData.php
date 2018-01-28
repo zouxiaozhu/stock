@@ -669,6 +669,7 @@ class SyncData extends Controller
         $res->member_id = (string)$member_id;
         $res->phone = (string)$res->phone;
         $res->member_name = $res->name;
+        $res->access_token = $request->get('access_token');
         if (empty($res)) {
             return response()->false(9876, '用户不存在');
         }
