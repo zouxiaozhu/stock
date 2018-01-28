@@ -79,7 +79,7 @@ class Member extends Controller{
 
     public function res_true($data = '')
     {
-        echo json_encode(['error_code'=>'0','data'=>$data]);die;
+        echo json_encode(['error_code'=>0,'data'=>$data]);die;
     }
 
     public function res_error($msg='',$code=400,$status=false)
