@@ -172,12 +172,12 @@
                                     <input type="text" name="name" class="
                                      input-sm pull-left" style="width: 150px;" placeholder=" 名称模糊搜索"/>
                                       <select  class="pull-left input-sm" name="source">
-                                          <option >---请选择来源---</option>
+                                          <option value="0">---请选择来源---</option>
                                           <option value="1">wechat</option>
                                           <option value="2">facebook</option>
                                       </select>
 
-                                        <select  class="pull-left input-sm" name="is_post">                                                     <option>---请选择发帖状态---</option>
+                                        <select  class="pull-left input-sm" name="is_post">                                                            <option value="-1">---请选择发帖状态---</option>
                                           <option value="0">禁发帖</option>
                                           <option value="1">申请中</option>
                                           <option value="2">可发帖</option>

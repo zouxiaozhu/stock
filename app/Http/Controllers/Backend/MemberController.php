@@ -43,7 +43,7 @@ class MemberController extends \App\Http\Controllers\Controller{
                 }
                 $user_db = $user_db->where('source',$source);
             }
-            if(!is_null($request->get('is_post'))){
+            if(!is_null($request->get('is_post')) &&$request->get('is_post') > 0 ){
                 $is_post = $request->get('is_post');
                 $user_db = $user_db->where('is_post',intval($is_post));
             }

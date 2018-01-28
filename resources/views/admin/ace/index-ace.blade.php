@@ -317,7 +317,7 @@
                                             <th>公布结果</th>
                                             <th>详情</th>
                                         </tr>
-                                                                
+
                                         @foreach($post_list as $key=>$econ)
                                             <tr>
                                                 <td>{{$econ['id']}}</td>
