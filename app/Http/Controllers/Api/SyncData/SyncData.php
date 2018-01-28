@@ -420,7 +420,7 @@ class SyncData extends Controller
             $data['member_id'] = $member_info['id'];
         }
         if ($request->has('type')) {
-            $data['type'] = explode(',', $request->get('type'));
+            $data['type'] = trim($request->get('type'));
         }
         $result = $this->syncData->aceList($data);
         return $result;

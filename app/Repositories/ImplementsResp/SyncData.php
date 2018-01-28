@@ -362,6 +362,7 @@ class SyncData implements SyncDataInterface
      */
     public function aceList($data)
     {
+
         $list = DB::table('ace')
             ->select('id', 'product_type', 'to_price', 'action', 'stop_loss', 'avatar', 'create_user_name')
             ->where('product_type','like', '%'.$data['type'].'%' );
@@ -374,6 +375,7 @@ class SyncData implements SyncDataInterface
         $list = $list->where('rule_result',1)
             ->orderBy('create_time', 'DESC')
             ->paginate($data['per_num']);
+//        var_export($list);die;
         return response()->success($list);
     }
 
