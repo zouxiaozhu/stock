@@ -326,7 +326,7 @@ class SyncData extends Controller
         $member_info = $this->decode_access_token($access_token);
 
         if(!$member_info){
-            return $this->res_error('登录过期，重新登录',4003);
+            return $this->res_error('登录过期，重新登录',8789);
         }
 
         $this->member_info = $member_info;
@@ -665,9 +665,13 @@ class SyncData extends Controller
             ->select('name', 'open_id', 'avatar', 'rc_token', 'avatar', 'email', 'phone')
             ->where('id', $member_id)
             ->first();
+//        var_export($res);die;
+        $res->member_id = $member_id;
+        $res->phone = (string)$res->phone;
         if (empty($res)) {
             return response()->false(9876, '用户不存在');
         }
         return response()->success($res);
     }
 }
+
