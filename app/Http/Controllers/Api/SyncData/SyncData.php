@@ -536,7 +536,7 @@ class SyncData extends Controller
             return $this->res_error('token失效',8789);
         }
         $data = [
-            'product'           =>  intval($request->get('product_type', 1)), //产品类型
+            'product'           =>  intval($request->get('product', 1)), //产品类型
             'forewarn'          =>  intval($request->get('forewarn', 1)),   //预警条件,1上穿,2下穿
             'cvm'               =>  $request->get('cvm','0.0'),   //监控值
             'create_user_name'  =>  $member_info['name'],
@@ -578,6 +578,9 @@ class SyncData extends Controller
             ->select('*')
             ->where('type', $type)
             ->first();
+        $res->now = explode('/', $res->now)[0];
+        $res->highest = explode('/', $res->highest)[0];
+        $res->lowest = explode('/', $res->lowest)[0];
         return response()->success($res);
     }
 

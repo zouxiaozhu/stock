@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1570ff96-7af1-4f8a-acb5-b61807459e67" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php" afterPath="$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,8 +29,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="50" column="39" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="39" />
+            <state relative-caret-position="570">
+              <caret line="54" column="36" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -49,11 +49,11 @@
       <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="567" column="22" lean-forward="false" selection-start-line="567" selection-start-column="22" selection-end-line="567" selection-end-column="22" />
+            <state relative-caret-position="417">
+              <caret line="538" column="65" lean-forward="false" selection-start-line="538" selection-start-column="65" selection-end-line="538" selection-end-column="65" />
               <folding>
                 <element signature="e#53#99#0#PHP" expanded="true" />
-                <marker date="1517234213770" expanded="true" signature="21572:21583" ph="drop table $... " />
+                <marker date="1517236446782" expanded="true" signature="21725:21736" ph="drop table $... " />
               </folding>
             </state>
           </provider>
@@ -74,8 +74,8 @@
       <file leaf-file-name="SyncDataInterface.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Repositories/RepositoryInterfaces/SyncDataInterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="111" column="20" lean-forward="false" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+            <state relative-caret-position="635">
+              <caret line="195" column="20" lean-forward="false" selection-start-line="195" selection-start-column="20" selection-end-line="195" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -84,8 +84,8 @@
       <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="335" column="20" lean-forward="false" selection-start-line="335" selection-start-column="20" selection-end-line="335" selection-end-column="20" />
+            <state relative-caret-position="2541">
+              <caret line="568" column="47" lean-forward="false" selection-start-line="568" selection-start-column="34" selection-end-line="568" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -95,8 +95,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>auth</find>
-      <find>auditAce</find>
       <find>audit</find>
       <find>aud</find>
       <find>set</find>
@@ -123,8 +121,10 @@
       <find>n upload</find>
       <find>到价提示</find>
       <find>updata</find>
-      <find>update</find>
       <find>first();</find>
+      <find>预警</find>
+      <find>update</find>
+      <find>appPriceNotice</find>
     </findStrings>
     <replaceStrings>
       <replace>../../js/</replace>
@@ -174,7 +174,6 @@
         <option value="$PROJECT_DIR$/resources/views/admin/user/index-user.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/EconModel.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_12_17_170509_create_comment_table.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiAuth/AuthTokenController.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/AceModel.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/Backend/EventModel.php" />
@@ -195,6 +194,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/PriceNotice.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
       </list>
     </option>
@@ -560,12 +560,12 @@
       <workItem from="1516588841518" duration="100000" />
       <workItem from="1517140909912" duration="1506000" />
       <workItem from="1517227701602" duration="109000" />
-      <workItem from="1517230591381" duration="2183000" />
+      <workItem from="1517230591381" duration="4047000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225235000" />
+    <option name="totallyTimeSpent" value="227099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -923,22 +923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/RepositoryInterfaces/SyncDataInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="111" column="20" lean-forward="false" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="335" column="20" lean-forward="false" selection-start-line="335" selection-start-column="20" selection-end-line="335" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/PriceNotice.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -959,19 +943,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="50" column="39" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="39" />
+        <state relative-caret-position="570">
+          <caret line="54" column="36" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/RepositoryInterfaces/SyncDataInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="195" column="20" lean-forward="false" selection-start-line="195" selection-start-column="20" selection-end-line="195" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2541">
+          <caret line="568" column="47" lean-forward="false" selection-start-line="568" selection-start-column="34" selection-end-line="568" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="567" column="22" lean-forward="false" selection-start-line="567" selection-start-column="22" selection-end-line="567" selection-end-column="22" />
+        <state relative-caret-position="417">
+          <caret line="538" column="65" lean-forward="false" selection-start-line="538" selection-start-column="65" selection-end-line="538" selection-end-column="65" />
           <folding>
             <element signature="e#53#99#0#PHP" expanded="true" />
-            <marker date="1517234213770" expanded="true" signature="21572:21583" ph="drop table $... " />
+            <marker date="1517236446782" expanded="true" signature="21725:21736" ph="drop table $... " />
           </folding>
         </state>
       </provider>

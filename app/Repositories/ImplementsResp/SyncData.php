@@ -558,9 +558,12 @@ class SyncData implements SyncDataInterface
 //            $screen_price[$k]['price'] = $price[0];
             $tmp[$v['type']] = $price[0];
         }
+
         $notice_array = [];  //通知的数据
         $del_array = [];   //通知后删除到价提示设置
         foreach ($member_set as $k => $v) {
+//            echo $v['product'];die;
+//            var_export($tmp[$v['product']]);die;
             if ((float)$v['cvm'] <= (float)$tmp[$v['product']] && $tmp[$v['product']] != '--') {
                 $product_name = $this->_getProductName($v['product']);
                 $notice_array[] = $product_name . '已达到您设置的监控值 '. $v['cvm'] . ' 请及时查看';
