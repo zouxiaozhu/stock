@@ -15,7 +15,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\RepositoryInterfaces\SyncDataInterface;
 use DB;
 use App\Http\Controllers\Api\SyncData\Smtp;
-
+use Carbon\Carbon;
 
 class SyncData extends Controller
 {
@@ -296,12 +296,24 @@ class SyncData extends Controller
 
     public function fileUpload(Request $request)
     {
+        if ($request->hasFile('file')) {
+            $time = Carbon::now()->timestamp;
+            $file = $request->file('file');
+            $ext = $file->getClientOriginalExtension();
+            $upload_image_name = $time . mt_rand(0, 10000) .'.'. $ext;
+            $res = $file->move(env('FILE_STORAGE_PATH',''), $upload_image_name);
+            if (!$res) {
+                return $this->res_error('上传文件失败',1204);
+            }
+            $storage_path = env('FILE_STORAGE_PATH','').'/'.$upload_image_name;
+            $file_url = (env('APP_URL')).substr($storage_path,1);
+        }
         $data = [
             'nick_name' => trim($request->get('nick_name')),
             'phone' => trim($request->get('phone')),
             'email' => trim($request->get('email')),
             'description' => trim($request->get('description', '无')),
-            'file_url' => trim($request->get('file_url'))
+            'file_url' => $file_url
         ];
         //号码验证懒得写
         if ($email = $data['email']) {
