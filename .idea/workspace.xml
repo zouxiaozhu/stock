@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1570ff96-7af1-4f8a-acb5-b61807459e67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/stock.iml" afterPath="$PROJECT_DIR$/.idea/stock.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="32" />
+            <state relative-caret-position="478">
+              <caret line="50" column="39" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -50,12 +49,44 @@
       <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="299" column="45" lean-forward="true" selection-start-line="299" selection-start-column="45" selection-end-line="299" selection-end-column="45" />
+            <state relative-caret-position="429">
+              <caret line="567" column="22" lean-forward="false" selection-start-line="567" selection-start-column="22" selection-end-line="567" selection-end-column="22" />
               <folding>
                 <element signature="e#53#99#0#PHP" expanded="true" />
-                <marker date="1517232256285" expanded="true" signature="20676:20687" ph="drop table $... " />
+                <marker date="1517234213770" expanded="true" signature="21572:21583" ph="drop table $... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PriceNotice.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/PriceNotice.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="106" column="37" lean-forward="true" selection-start-line="106" selection-start-column="37" selection-end-line="106" selection-end-column="37" />
+              <folding>
+                <marker date="1517143210030" expanded="true" signature="4126:4224" ph="insert into stock_screen_price... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SyncDataInterface.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/RepositoryInterfaces/SyncDataInterface.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="111" column="20" lean-forward="false" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SyncData.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="335" column="20" lean-forward="false" selection-start-line="335" selection-start-column="20" selection-end-line="335" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,8 +95,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ace_list</find>
-      <find>decode_access_tokendecode_access_token</find>
       <find>auth</find>
       <find>auditAce</find>
       <find>audit</find>
@@ -91,9 +120,11 @@
       <find>fileUpload</find>
       <find>文件</find>
       <find>upload</find>
-      <find>update</find>
       <find>n upload</find>
+      <find>到价提示</find>
       <find>updata</find>
+      <find>update</find>
+      <find>first();</find>
     </findStrings>
     <replaceStrings>
       <replace>../../js/</replace>
@@ -158,12 +189,12 @@
         <option value="$PROJECT_DIR$/resources/views/admin/chart/edit-waihui.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Chart/ChartController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/Comment/CommentController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/auth/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/ace/index-ace.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/member/index-member.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/MemberController.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/PriceNotice.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php" />
       </list>
     </option>
@@ -351,6 +382,46 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Console" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Console" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Commands" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -489,12 +560,12 @@
       <workItem from="1516588841518" duration="100000" />
       <workItem from="1517140909912" duration="1506000" />
       <workItem from="1517227701602" duration="109000" />
-      <workItem from="1517230591381" duration="577000" />
+      <workItem from="1517230591381" duration="2183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223629000" />
+    <option name="totallyTimeSpent" value="225235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -649,13 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/RepositoryInterfaces/SyncDataInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="125" column="20" lean-forward="false" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/AuthTokenMiddleware.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -702,13 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14607">
           <caret line="541" column="36" lean-forward="false" selection-start-line="541" selection-start-column="36" selection-end-line="541" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8586">
-          <caret line="325" column="20" lean-forward="false" selection-start-line="325" selection-start-column="20" selection-end-line="325" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -811,6 +868,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1058">
           <caret line="47" column="45" lean-forward="false" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -849,25 +907,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/PriceNotice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Service/ImagesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="53" column="0" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/Member.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -880,21 +923,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/RepositoryInterfaces/SyncDataInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="111" column="20" lean-forward="false" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/ImplementsResp/SyncData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="335" column="20" lean-forward="false" selection-start-line="335" selection-start-column="20" selection-end-line="335" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/PriceNotice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="106" column="37" lean-forward="true" selection-start-line="106" selection-start-column="37" selection-end-line="106" selection-end-column="37" />
+          <folding>
+            <marker date="1517143210030" expanded="true" signature="4126:4224" ph="insert into stock_screen_price... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiAuth/Member.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="32" />
+        <state relative-caret-position="478">
+          <caret line="50" column="39" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SyncData/SyncData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="299" column="45" lean-forward="true" selection-start-line="299" selection-start-column="45" selection-end-line="299" selection-end-column="45" />
+        <state relative-caret-position="429">
+          <caret line="567" column="22" lean-forward="false" selection-start-line="567" selection-start-column="22" selection-end-line="567" selection-end-column="22" />
           <folding>
             <element signature="e#53#99#0#PHP" expanded="true" />
-            <marker date="1517232256285" expanded="true" signature="20676:20687" ph="drop table $... " />
+            <marker date="1517234213770" expanded="true" signature="21572:21583" ph="drop table $... " />
           </folding>
         </state>
       </provider>

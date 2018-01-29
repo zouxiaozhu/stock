@@ -550,6 +550,36 @@ class SyncData extends Controller
         return $res;
     }
 
+    public function priceNoticeDetail(Request $request, $id)
+    {
+        $access_token = $request->get('access_token');
+        $member_info = $this->decode_access_token($access_token);
+        if (!$member_info) {
+            return $this->res_error('token失效',8789);
+        }
+        $member_id = $member_info['id'];
+        $res = DB::table('set_price_notice')
+            ->select('*')
+            ->where('id', $id)
+            ->where('create_user_id', $member_id)
+            ->first();
+        if (empty($res))
+        {
+            $res = [];
+        }
+        return response()->success($res);
+    }
+
+
+    public function priceByProduct(Request $request)
+    {
+        $type = intval($request->get('type', 1));
+        $res = DB::table('screen_price')
+            ->select('*')
+            ->where('type', $type)
+            ->first();
+        return response()->success($res);
+    }
 
     /**
      * 更新到价提示
