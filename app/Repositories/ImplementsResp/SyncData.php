@@ -507,6 +507,14 @@ class SyncData implements SyncDataInterface
             ->where('create_user_id', $member_id)
             ->orderBy('update_time', 'DESC')
             ->get();
+//        var_export($result);die;
+        if (!empty($result)) {
+            foreach ($result as &$v) {
+                $v->id = (string)($v->id);
+                $v->product = (string)($v->product);
+                $v->forewarn = (string)($v->forewarn);
+            }
+        }
         return response()->success($result);
     }
 
