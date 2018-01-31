@@ -460,6 +460,13 @@ class SyncData implements SyncDataInterface
                     $now = explode('/', $v['now']);
                     $res[$k]['sale'] = $now[0];
                     $res[$k]['buy']  = $now[1];
+                    $today_sale = explode('/', $v['today'])[0];
+                    $today_buy  = explode('/', $v['today'])[1];
+//                    if ($res[$k]['sale'] >= $today_sale) {
+//                        $res[$k]['sign'] = 'up';
+//                    }
+                    $res[$k]['sale_sign'] = $res[$k]['sale'] >= $today_sale ? 'up' : 'down';
+                    $res[$k]['buy_sign']  = $res[$k]['buy']  >= $today_buy  ? 'up' : 'down';
                 }
             }
         }
