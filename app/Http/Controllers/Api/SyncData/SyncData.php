@@ -252,6 +252,7 @@ class SyncData extends Controller
             }
         }
         $result = $this->syncData->accountRegist($data);
+        $this->sendMailAce(env('PUSH_ADMIN_EAMIL','shengyulong@gmail.com'),'开户登记','有用户提交了开户登记,请前往后台查看');
         return $result;
     }
 
@@ -425,15 +426,6 @@ class SyncData extends Controller
         $mailtitle = $subject;//邮件主题
         $mailcontent = $content;//邮件内容
         if(!$smtpemailto)return false;
-//        //************************ 配置信息 ****************************
-//        $smtp = new Smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);//这里面的一个true是表示使用身份验证,否则不使用身份验证.
-////        var_export($smtp);die;
-//        $smtp->debug = true;//是否显示发送的调试信息
-////        var_export($smtp);die;
-//        $state = $smtp->sendmail($smtpemailto, $smtpusermail, $mailtitle, $mailcontent, $mailtype);
-//
-//        var_export($state);die;
-
         $return = Mail::raw($mailcontent, function ($message)use($smtpemailto, $mailtitle) {
             $message->subject($mailtitle);
             $message->to($smtpemailto);
@@ -715,6 +707,7 @@ class SyncData extends Controller
             'create_time'=>  time(),
         ];
         $res = $this->syncData->analogCreate($data);
+        $this->sendMailAce(env('PUSH_ADMIN_EAMIL','shengyulong@gmail.com'),'模拟账户','有用户提交了模拟账户,请前往后台查看');
         return $res;
     }
 

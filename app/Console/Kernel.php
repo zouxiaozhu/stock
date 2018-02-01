@@ -24,6 +24,7 @@ class Kernel extends ConsoleKernel
         Commands\GetAnalyseEnData::class,       //每日分析(英文版)
         Commands\GetAnalyseCnData::class,       //每日分析(中文版)
         Commands\PriceNotice::class,            //全屏报价,到价提示
+        Commands\commentCount::class,            //全屏报价,到价提示
     ];
 
     /**
@@ -45,6 +46,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('cron:get_econ_data')->everyFiveMinutes();
         $schedule->command('cron:get_analyse_en_data')->everyFiveMinutes();
         $schedule->command('cron:get_analyse_cn_data')->everyFiveMinutes();
-        $schedule->command('cron:price_notice')->everyFiveMinutes();
+        $schedule->command('cron:comment_count')->hourly();
     }
 }
