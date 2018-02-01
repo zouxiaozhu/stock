@@ -23,7 +23,7 @@ class ChartController extends  Controller{
     {
         $year = $request->get('year',0);
         $pro_type = ['qihuo','guijinshu','jiaochapan','waihui'];
-        $type = $request->get('type');
+        $type = $request->get('type', 'guijinshu');
         if(!in_array($type,$pro_type)){
             return $this->res_error('不合法的类型');
         }
