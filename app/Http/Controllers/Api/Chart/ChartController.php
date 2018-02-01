@@ -55,7 +55,7 @@ class ChartController extends  Controller{
 //            $value['month'] = explode(',',$value['month']);
 //            return $value;
 //        },$res);
-        return $this->res_true([$type=>$res]);
+        return $this->res_true($res);
     }
 
 
