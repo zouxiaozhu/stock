@@ -42,7 +42,9 @@ class ChartController extends  Controller{
                 break;
         }
 
-        $res = DB::table($table)->where('year',$year)->get();
+        $res = DB::table($table)
+            ->select('name', 'now_top', 'now_bottom', 'top', 'bottom')
+            ->where('year',$year)->get();
         $res = obj2Arr($res);
         if(!$res){
             return $this->res_true([$type=>[]]);
