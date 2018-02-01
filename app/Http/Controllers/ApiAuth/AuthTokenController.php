@@ -79,7 +79,8 @@ class AuthTokenController extends Controller
                     'last_login_time'=>date("Y-m-d H:i:s"),
                     'rc_token'=>'',
                     'avatar'=>$request->get('avatar')?:"",
-                    'open_id'=>$request->get('open_id')
+                    'open_id'=>$request->get('open_id'),
+                    'phone' =>  '',
                 ];
                 $user_info = $this->facebook_userinfo($insert_data);
             }
@@ -98,7 +99,8 @@ class AuthTokenController extends Controller
                     'last_login_time'=>date("Y-m-d H:i:s"),
                     'rc_token'=>'',
                     'avatar'=>$request->get('avatar')?:"",
-                    'open_id'=>$request->get('open_id')
+                    'open_id'=>$request->get('open_id'),
+                    'phone' =>  '',
                 ];
 
                 $user_info = $this->wechat_userinfo($insert_data);
@@ -133,6 +135,7 @@ class AuthTokenController extends Controller
             'avatar'=>$user_info['avatar'],
             'rc_token'=>($user_info['rc_token']),
             'is_post'=>$user_info['is_post'],
+            'phone' =>  $user_info['phone'],
         ]);
     }
 

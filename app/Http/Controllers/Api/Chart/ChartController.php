@@ -23,7 +23,7 @@ class ChartController extends  Controller{
     {
         $year = $request->get('year',0);
         $pro_type = ['qihuo','guijinshu','jiaochapan','waihui'];
-        $type = $request->get('type');
+        $type = $request->get('type', 'guijinshu');
         if(!in_array($type,$pro_type)){
             return $this->res_error('不合法的类型');
         }
@@ -42,18 +42,20 @@ class ChartController extends  Controller{
                 break;
         }
 
-        $res = DB::table($table)->where('year',$year)->get();
+        $res = DB::table($table)
+            ->select('name', 'now_top', 'now_bottom', 'top', 'bottom')
+            ->where('year',$year)->get();
         $res = obj2Arr($res);
         if(!$res){
             return $this->res_true([$type=>[]]);
         }
-        $res = array_map(function($value){
-            $value['day'] = explode(',',$value['day']);
-            $value['week'] = explode(',',$value['week']);
-            $value['month'] = explode(',',$value['month']);
-            return $value;
-        },$res);
-        return $this->res_true([$type=>$res]);
+//        $res = array_map(function($value){
+//            $value['day'] = explode(',',$value['day']);
+//            $value['week'] = explode(',',$value['week']);
+//            $value['month'] = explode(',',$value['month']);
+//            return $value;
+//        },$res);
+        return $this->res_true($res);
     }
 
 

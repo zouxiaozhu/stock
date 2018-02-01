@@ -460,6 +460,17 @@ class SyncData implements SyncDataInterface
                     $now = explode('/', $v['now']);
                     $res[$k]['sale'] = $now[0];
                     $res[$k]['buy']  = $now[1];
+                    $today_sale = explode('/', $v['today'])[0];
+                    $today_buy  = explode('/', $v['today'])[1];
+                    $res[$k]['sale_sign'] = $res[$k]['sale'] >= $today_sale ? 'up' : 'down';
+                    $res[$k]['buy_sign']  = $res[$k]['buy']  >= $today_buy  ? 'up' : 'down';
+                    $res[$k]['time'] = date('Y-m-d H:i:s', $res[$k]['time'] / 1000);
+                }
+            }
+        } else {
+            foreach ($res as $k => $v) {
+                if ($v['now'] != 'TT') {
+                    $res[$k]['time'] = date('Y-m-d H:i:s', $res[$k]['time'] / 1000);
                 }
             }
         }
@@ -507,6 +518,14 @@ class SyncData implements SyncDataInterface
             ->where('create_user_id', $member_id)
             ->orderBy('update_time', 'DESC')
             ->get();
+//        var_export($result);die;
+        if (!empty($result)) {
+            foreach ($result as &$v) {
+                $v->id = (string)($v->id);
+                $v->product = (string)($v->product);
+                $v->forewarn = (string)($v->forewarn);
+            }
+        }
         return response()->success($result);
     }
 
@@ -558,9 +577,12 @@ class SyncData implements SyncDataInterface
 //            $screen_price[$k]['price'] = $price[0];
             $tmp[$v['type']] = $price[0];
         }
+
         $notice_array = [];  //通知的数据
         $del_array = [];   //通知后删除到价提示设置
         foreach ($member_set as $k => $v) {
+//            echo $v['product'];die;
+//            var_export($tmp[$v['product']]);die;
             if ((float)$v['cvm'] <= (float)$tmp[$v['product']] && $tmp[$v['product']] != '--') {
                 $product_name = $this->_getProductName($v['product']);
                 $notice_array[] = $product_name . '已达到您设置的监控值 '. $v['cvm'] . ' 请及时查看';

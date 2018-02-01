@@ -26,6 +26,7 @@ trait ApiAuthTrait{
         $key = $access_token;
 
         $user_info = $this->_predis->get(trim($key));
+
         if(is_null($user_info)){
             return false;
         }

@@ -48,6 +48,8 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('screen_price','SyncData@screenPrice');                           //全屏报价
         Route::post('set_price_notice','SyncData@setPriceNotice');                    //设置到价提示
         Route::post('update_price_notice/{id}','SyncData@updatePriceNotice');              //更新到价提示
+        Route::get('price_notice_detail/{id}','SyncData@priceNoticeDetail');              //到价提示详情
+        Route::get('price_by_product','SyncData@priceByProduct');              //某一个产品的实时报价
         Route::get('my_price_notice','SyncData@myPriceNotice');                    //我的到价提示
         Route::get('del_price_notice/{id}','SyncData@delPriceNotice');                    //删除我的到价提示
         Route::get('app_price_notice','SyncData@appPriceNotice');                    //app端巡通知价格提示
