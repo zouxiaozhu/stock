@@ -49,12 +49,12 @@ class ChartController extends  Controller{
         if(!$res){
             return $this->res_true([$type=>[]]);
         }
-        $res = array_map(function($value){
-            $value['day'] = explode(',',$value['day']);
-            $value['week'] = explode(',',$value['week']);
-            $value['month'] = explode(',',$value['month']);
-            return $value;
-        },$res);
+//        $res = array_map(function($value){
+//            $value['day'] = explode(',',$value['day']);
+//            $value['week'] = explode(',',$value['week']);
+//            $value['month'] = explode(',',$value['month']);
+//            return $value;
+//        },$res);
         return $this->res_true([$type=>$res]);
     }
 
