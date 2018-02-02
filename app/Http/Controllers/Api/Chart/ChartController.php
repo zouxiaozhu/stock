@@ -22,40 +22,45 @@ class ChartController extends  Controller{
     public function getChart(Request $request)
     {
         $year = $request->get('year',0);
-        $pro_type = ['qihuo','guijinshu','jiaochapan','waihui'];
-        $type = $request->get('type', 'guijinshu');
-        if(!in_array($type,$pro_type)){
-            return $this->res_error('不合法的类型');
+        $pro_type = ['qihuo_chart','jinshu_chart','jiaochapan_chart','waihui_chart'];
+//        $type = $request->get('type', 'guijinshu');
+//        if(!in_array($type,$pro_type)){
+//            return $this->res_error('不合法的类型');
+//        }
+//        switch ($type){
+//            case 'qihuo':
+//                $table = 'qihuo_chart';
+//                break;
+//            case 'guijinshu':
+//                $table = 'jinshu_chart';
+//                break;
+//            case 'jiaochapan':
+//                $table = 'jiaochapan_chart';
+//                break;
+//            case 'waihui':
+//                $table = 'waihui_chart';
+//                break;
+//        }
+        $result = [];
+        foreach ($pro_type as $k => $v) {
+            $res = DB::table($v)
+                ->select('name', 'now_top', 'now_bottom', 'top', 'bottom')
+                ->where('year',$year)->get();
+            $res = obj2Arr($res);
+            $result[$v] = $res;
         }
-        switch ($type){
-            case 'qihuo':
-                $table = 'qihuo_chart';
-                break;
-            case 'guijinshu':
-                $table = 'jinshu_chart';
-                break;
-            case 'jiaochapan':
-                $table = 'jiaochapan_chart';
-                break;
-            case 'waihui':
-                $table = 'waihui_chart';
-                break;
-        }
-
-        $res = DB::table($table)
-            ->select('name', 'now_top', 'now_bottom', 'top', 'bottom')
-            ->where('year',$year)->get();
-        $res = obj2Arr($res);
-        if(!$res){
-            return $this->res_true([$type=>[]]);
-        }
-//        $res = array_map(function($value){
-//            $value['day'] = explode(',',$value['day']);
-//            $value['week'] = explode(',',$value['week']);
-//            $value['month'] = explode(',',$value['month']);
-//            return $value;
-//        },$res);
-        return $this->res_true($res);
+//
+//        if(!$res){
+//            return $this->res_true([$type=>[]]);
+//        }
+////        $res = array_map(function($value){
+////            $value['day'] = explode(',',$value['day']);
+////            $value['week'] = explode(',',$value['week']);
+////            $value['month'] = explode(',',$value['month']);
+////            return $value;
+////        },$res);
+//        return $this->res_true($res);
+        return $this->res_true($result);
     }
 
 
