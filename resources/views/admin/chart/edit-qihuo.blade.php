@@ -308,7 +308,7 @@
     });
     $('#year').change(function(){
         var year = $(this).val();
-        window.location.href = '{{env("APP_URL")}}'+'/admin/edit-waihui-chart?year='+year
+        window.location.href = '{{env("APP_URL")}}'+'/admin/edit-qihuo-chart?year='+year
 
     })
 </script>
