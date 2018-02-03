@@ -363,7 +363,7 @@ class SyncData implements SyncDataInterface
     public function aceList($data)
     {
         $list = DB::table('ace')
-            ->select('id', 'product_type', 'to_price', 'action', 'stop_loss', 'avatar', 'create_user_name','create_time', 'date');
+            ->select('id', 'product_type', 'to_price', 'action', 'stop_loss', 'avatar', 'create_user_name','create_time', 'date','time');
         if (isset($data['type'])) {
             $list = $list->where('product_type','like', '%'.$data['type'].'%' );
         }
