@@ -181,9 +181,9 @@ Route::group(['middleware' => 'admin.auth'], function () {
 
 
     Route::get('admin/index-download', 'Backend\Download@index');
-    Route::post('admin/edit-download', 'Backend\Download@edit');
-    Route::post('admin/add-download', 'Backend\Download@add');
-    Route::post('admin/delete-download', 'Backend\Download@delete');
+    Route::any('admin/edit-download', 'Backend\Download@edit');
+    Route::get('admin/detail-download', 'Backend\Download@detail');
+    Route::get('admin/delete-download', 'Backend\Download@delete');
 
 
 

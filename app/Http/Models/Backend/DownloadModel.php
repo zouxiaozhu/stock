@@ -10,7 +10,7 @@ class DownloadModel extends  \Illuminate\Database\Eloquent\Model{
 
     protected $table = 'file_download';
 
-    public $timestamps = true;
+    public $timestamps = false;
     protected $guarded = [];
 
     public function __construct()
