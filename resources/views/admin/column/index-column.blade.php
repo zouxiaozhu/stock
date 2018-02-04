@@ -200,7 +200,7 @@
                                         <td>
                                             {{$column['url_link']}}
                                         </td>
-                                      
+
                                         <td><a href="{{env('APP_URL')}}/admin/edit-column?column_id={{$column['id']}}">编辑</a></td>
                                         <td><a class='del-column' column_id="{{$column['id']}}" href="#">删除</a></td>
                                     </tr>

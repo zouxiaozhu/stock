@@ -52,7 +52,7 @@ class Column extends Controller{
             $data['storage_path'] = env('FILE_STORAGE_PATH', '') . '/' . $upload_image_name;
             $pic_url = (env('APP_URL')) . substr($data['storage_path'], 1);
         }
-
+echo
         $pic_url = isset($pic_url)?$pic_url :'';
         $url = $request->get('url','');
 
@@ -68,7 +68,7 @@ class Column extends Controller{
             ColumnModel::where('id',$column_id)->update($update_data);
         }else{
             if($pic_url){
-                $update_data['url'] = $pic_url;
+                $insert_data['url'] = $pic_url;
             }
 
             $column = ColumnModel::create($insert_data);
