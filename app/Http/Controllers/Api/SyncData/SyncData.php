@@ -786,5 +786,16 @@ class SyncData extends Controller
         $res = DB::table('bank')->where('type', $type)->select('*')->first();
         return response()->success($res);
     }
+
+    /**
+     * 联系我们
+     * @param Request $request
+     * @return mixed
+     */
+    public function contactOur(Request $request)
+    {
+        $res = DB::table('contact_our')->select('content')->first();
+        return response()->success($res);
+    }
 }
 

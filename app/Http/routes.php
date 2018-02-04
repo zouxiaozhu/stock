@@ -103,10 +103,11 @@ Route::group(['middleware' => 'api.auth'], function () {
             Route::get('my_price_notice','SyncData@myPriceNotice');                    //我的到价提示
             Route::get('del_price_notice/{id}','SyncData@delPriceNotice');                    //删除我的到价提示
             Route::get('app_price_notice','SyncData@appPriceNotice');                    //app端巡通知价格提示
-            Route::post('del_table','SyncData@delTable');                    //
-            Route::get('lunbo_index','SyncData@lunboIndex');                    //轮播图
-            Route::get('file_download','SyncData@downloadList');                    //下载列表
-            Route::get('bank_info','SyncData@bankInfo');                    //下载列表
+            Route::post('del_table','SyncData@delTable');                                   //
+            Route::get('lunbo_index','SyncData@lunboIndex');                                 //轮播图
+            Route::get('file_download','SyncData@downloadList');                            //下载列表
+            Route::get('bank_info','SyncData@bankInfo');                                    //银行资料
+            Route::get('contact_our','SyncData@contactOur');                                //联系我们
         });
     });
 
