@@ -179,6 +179,8 @@
                                     <th>栏目名</th>
                                     <th>栏目标识</th>
                                     <th>是否显示</th>
+                                    <th>图片</th>
+                                    <th>地址</th>
                                     <th>创建时间</th>
                                     <th>编辑</th>
                                     <th>删除</th>
@@ -194,7 +196,12 @@
                                         @else
                                             <td><span class="label label-warning">不显示</span></td>
                                         @endif
-
+                                        <td>
+                                            {{$column['url']}}
+                                        </td>
+                                        <td>
+                                            {{$column['url_link']}}
+                                        </td>
                                         <td>{{$column['created_at']}}</td>
                                         <td><a href="{{env('APP_URL')}}/admin/edit-column?column_id={{$column['id']}}">编辑</a></td>
                                         <td><a class='del-column' column_id="{{$column['id']}}" href="#">删除</a></td>

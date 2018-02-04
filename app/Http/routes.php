@@ -178,7 +178,14 @@ Route::group(['middleware' => 'admin.auth'], function () {
 
     Route::get('admin/index-about', 'Backend\About@about');
     Route::get('admin/del-setting', 'Backend\Setting@delete');
-    Route::get('admin/del-setting', 'Backend\Setting@delete');
+
+
+    Route::get('admin/index-download', 'Backend\Download@index');
+    Route::post('admin/edit-download', 'Backend\Download@edit');
+    Route::post('admin/add-download', 'Backend\Download@add');
+    Route::post('admin/delete-download', 'Backend\Download@delete');
+
+
 
 
 

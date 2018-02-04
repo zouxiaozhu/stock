@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Models\Backend\ColumnModel;
+use Carbon\Carbon;
+
 class Column extends Controller{
     public function __construct()
     {
@@ -39,16 +41,36 @@ class Column extends Controller{
         $key = $request->get('key','');
         $sort = $request->get('sort',1);
 
-        if($column_id){
-            $update_data = [
-                'name'=>$name,'is_show'=>$is_show,'key'=>$key
-            ];
 
+        $time = Carbon::now()->timestamp;
+
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $ext = $file->getClientOriginalExtension();
+
+            $upload_image_name = $time . mt_rand(0, 10000) . '.' . $ext;
+            $res = $file->move(env('FILE_STORAGE_PATH', ''), $upload_image_name);
+            $data['storage_path'] = env('FILE_STORAGE_PATH', '') . '/' . $upload_image_name;
+            $pic_url = (env('APP_URL')) . substr($data['storage_path'], 1);
+        }
+
+        $pic_url = isset($pic_url)?$pic_url :'';
+        $url = $request->get('url','');
+
+        $insert_data = $update_data = [
+            'name'=>$name,'is_show'=>$is_show,'key'=>$key,'url_link'=>$url
+        ];
+
+        if($column_id){
+
+            if($pic_url){
+                $update_data['url'] = $pic_url;
+            }
             ColumnModel::where('id',$column_id)->update($update_data);
         }else{
-            $insert_data = [
-                'name'=>$name,'is_show'=>$is_show,'key'=>$key
-            ];
+            if($pic_url){
+                $update_data['url'] = $pic_url;
+            }
 
             $column = ColumnModel::create($insert_data);
         }
@@ -81,5 +103,7 @@ class Column extends Controller{
 //        $column_list =ColumnModel::where('id','>',0)->orderBy('updated_at','desc')->get()->toArray();
 //        return Response::success($column_list);
     }
+
+
 
 }

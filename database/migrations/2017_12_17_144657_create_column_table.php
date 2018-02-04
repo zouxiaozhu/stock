@@ -18,6 +18,7 @@ class CreateColumnTable extends Migration
             $table->string('key')->commemt('关键字')->dafault('');
             $table->integer('sort')->comment('')->dafault(1);
             $table->string('pic')->comment('pic');
+            $table->string('url')->comment('url');
             $table->enum('is_show',['0','1'])->comment('是否显示')->dafault(1);
             $table->timestamps();
         });

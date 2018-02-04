@@ -60,7 +60,7 @@ class Member extends Controller{
             $data['storage_path'] = env('FILE_STORAGE_PATH','').'/'.$upload_image_name;
             $update['avatar'] = (env('APP_URL')).substr($data['storage_path'],1);
         }
-var_export($update);die;
+
         MembersModel::where('id',$member['id'])->update($update);
 
         $member_info = MembersModel::find($member['id'])->toArray();
