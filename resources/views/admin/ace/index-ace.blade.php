@@ -188,7 +188,7 @@
                                 </tr>
 <?php $a=['','HKG/港金','LLG/黄金','LLS/白银','EUR/欧元','JPY日元','GBP/英镑','CHF/瑞郎', 'AUD/澳元', 'NZD/纽元','CAD/加元'];
     $b = ['','恒生指数期货','A股指数期货','美元兑人民币（香港）期货','原油','无铅汽油','民用燃料油','天然气','铜','白金','钯','杜斯工业指数','玉米'] ;
-    $c= ['', '香港股票', '美國股票', '中國股票'];
+    $c= ['', '香港', '美國', '中國'];
 ?>
                                 @foreach($post_list as $key=>$ace)
                                     <tr>
@@ -197,11 +197,11 @@
                                         <span class="label label-success">
 
                                             @if($ace['product_type'][0] == 'a')
-                                            {{$a[$ace['product_type'][1]]}}
+                                            {{$a[$ace['product_type'][1]]}}（外汇）
                                                 @elseif($ace['product_type'][0] == 'b')
-                                                {{$b[$ace['product_type'][1]]}}
+                                                {{$b[$ace['product_type'][1]]}}（期货）
                                                 @elseif(($ace['product_type'][0] == 'c'))
-                                                {{$c[$ace['product_type'][1]]}}
+                                                {{$c[$ace['product_type'][1]]}}（股票）
                                                 @else
                                                 ''
                                             @endif
