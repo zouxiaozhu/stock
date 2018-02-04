@@ -747,10 +747,30 @@ class SyncData extends Controller
         return response()->success($res);
     }
 
-
+    /**
+     * 轮播图
+     * @param Request $request
+     * @return mixed
+     */
     public function lunboIndex(Request $request)
     {
         $res = DB::table('lunbo')->select('url', 'url_link')->where('is_show', 1)->take(5)->get();
+        return response()->success($res);
+    }
+
+    /**
+     * 文件下载
+     * @param Request $request
+     * @return mixed
+     */
+    public function downloadList(Request $request)
+    {
+        //下载类型:1=>英皇金业,2=>英皇证券,3=>英皇期货
+        $type = intval($request->get('type', 1));
+        $res = DB::table('file_download')
+            ->select('table_name', 'pdf_url', 'jpg_url')
+            ->where('type', $type)
+            ->get();
         return response()->success($res);
     }
 }

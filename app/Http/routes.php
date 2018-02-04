@@ -105,6 +105,7 @@ Route::group(['middleware' => 'api.auth'], function () {
             Route::get('app_price_notice','SyncData@appPriceNotice');                    //app端巡通知价格提示
             Route::post('del_table','SyncData@delTable');                    //
             Route::get('lunbo_index','SyncData@lunboIndex');                    //轮播图
+            Route::get('file_download','SyncData@downloadList');                    //下载列表
         });
     });
 
