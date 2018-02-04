@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Chart;
 
 use App\Http\Controllers\ApiAuth\ApiAuthTrait;
 use App\Http\Controllers\Controller;
+use App\Http\Models\Backend\DownloadModel;
 use App\Http\Models\Backend\TerminalSettings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
@@ -64,10 +65,15 @@ class ChartController extends  Controller{
     }
 
 
-    public function setting()
+    public function setting(Request $request)
     {
-        $download = TerminalSettings::whereIn('key',['jpg','pdf'])->get()->toArray();
-        $download = array_column($download, null, 'key');
+        $type = $request->get('type');
+        if(!$type )
+        {
+            $this->res_error('类型错误');
+        }
+
+        $download = DownloadModel::where('type',$type)->get()->toArray();
         $this->res_true($download);
     }
 
@@ -83,4 +89,6 @@ class ChartController extends  Controller{
         'error_message'=>$msg,
         ]);die;
     }
+
+
 }

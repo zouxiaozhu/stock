@@ -179,8 +179,7 @@
                                     <th>标题</th>
                                     <th>是否显示</th>
                                     <th>图片</th>
-                                    <th>地址</th>
-                                    <th>创建时间</th>
+                                    <th>跳转地址</th>
                                     <th>编辑</th>
                                     <th>删除</th>
                                 </tr>
@@ -189,7 +188,7 @@
                                         <td>{{$column['id']}}</td>
                                         <td><span class="label label-success">{{$column['name']}}</span>
                                         </td>
-                                        <td>{{$column['key']}}</td>
+                                        
                                         @if($column['is_show'] == 1)
                                         <td><span class="label label-success">显示</span></td>
                                         @else

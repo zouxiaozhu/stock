@@ -110,6 +110,7 @@ Route::group(['middleware' => 'api.auth'], function () {
     });
 
 Route::get('api/chart','Api\Chart\ChartController@getChart');// 获取技术图表
+Route::get('api/destory','Api\Chart\ChartController@destory');// 获取技术图表
 Route::get('api/download','Api\Chart\ChartController@setting');// 获取pdf jpg 下载地址
 
 

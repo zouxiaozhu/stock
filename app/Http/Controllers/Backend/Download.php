@@ -8,6 +8,7 @@
 namespace App\Http\Controllers\Backend;
 use App\Http\Models\Backend\DownloadModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Download extends \App\Http\Controllers\Controller{
 
@@ -51,7 +52,7 @@ class Download extends \App\Http\Controllers\Controller{
         ];
 
         if(!$down_id){
-            $download = DownloadModel::create($insert_data);
+            $download = DB::table('file_download')->insert($insert_data);
         }else{
             $insert_data = array_filter($insert_data);
             $download = DownloadModel::where('id',$down_id)->update($insert_data);

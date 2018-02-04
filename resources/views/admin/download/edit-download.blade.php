@@ -217,7 +217,7 @@
 
                             <div class="form-group">
                                 <label>pdf地址</label>
-                                <input type="text" class="form-control" name="jpg_url" placeholder="Enter ..."
+                                <input type="text" class="form-control" name="pdf_url" placeholder="Enter ..."
                                        value="{{$download['pdf_url'] or ''}}"  />
                             </div>
                             {{--<div class="form-group">--}}
