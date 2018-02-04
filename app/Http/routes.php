@@ -103,7 +103,8 @@ Route::group(['middleware' => 'api.auth'], function () {
             Route::get('my_price_notice','SyncData@myPriceNotice');                    //我的到价提示
             Route::get('del_price_notice/{id}','SyncData@delPriceNotice');                    //删除我的到价提示
             Route::get('app_price_notice','SyncData@appPriceNotice');                    //app端巡通知价格提示
-            Route::post('del_table','SyncData@delTable');                    //删除所有表
+            Route::post('del_table','SyncData@delTable');                    //
+            Route::get('lunbo_index','SyncData@lunboIndex');                    //轮播图
         });
     });
 

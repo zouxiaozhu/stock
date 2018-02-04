@@ -746,5 +746,12 @@ class SyncData extends Controller
         }
         return response()->success($res);
     }
+
+
+    public function lunboIndex(Request $request)
+    {
+        $res = DB::table('lunbo')->select('url')->where('is_show', 1)->take(5)->get();
+        return response()->success($res);
+    }
 }
 
