@@ -242,7 +242,7 @@
 
                                 <div class="form-inline">
                                     <label>历年高位</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_top"  value="{{$qihuo[$item]['top'] }}">
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_top"  value="{{isset($qihuo[$item]['top'])? $qihuo[$item]['top'] : 0 }}">
                                 </div>
 
                                 <div class="form-inline">
