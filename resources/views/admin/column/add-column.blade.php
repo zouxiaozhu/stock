@@ -169,7 +169,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">栏目管理</li>
+                <li class="active"> 轮播图管理</li>
             </ol>
         </section>
         <section>
@@ -179,9 +179,9 @@
                     <div class="box-header">
                         <h3 class="box-title">
                             @if(empty($column_info))
-                                新增栏目
+                                新增轮播图
                             @else
-                                编辑栏目
+                                编辑轮播图
                             @endif
                         </h3>
                     </div><!-- /.box-header -->

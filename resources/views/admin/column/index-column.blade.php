@@ -148,12 +148,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-               栏目列表
+               轮播图列表
                 <small>preview of column manage</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i>HOME</a></li>
-                <li><a href="#">栏目</a></li>
+                <li><a href="#"> 轮播图</a></li>
                 <li class="active">列表</li>
             </ol>
         </section>
