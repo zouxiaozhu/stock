@@ -403,7 +403,7 @@ class SyncData implements SyncDataInterface
     public function relatedAce($id)
     {
         $list = DB::table('ace')
-            ->select('id', 'product_type', 'to_price', 'action', 'stop_loss')
+            ->select('id', 'product_type', 'to_price', 'action', 'stop_loss','avatar','create_user_name')
             ->where('id', '>', $id)
             ->take(2)
             ->get();
