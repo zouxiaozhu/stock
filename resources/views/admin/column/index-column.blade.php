@@ -176,8 +176,7 @@
                             <table class="table table-hover">
                                 <tr>
                                     <th>ID</th>
-                                    <th>栏目名</th>
-                                    <th>栏目标识</th>
+                                    <th>标题</th>
                                     <th>是否显示</th>
                                     <th>图片</th>
                                     <th>地址</th>

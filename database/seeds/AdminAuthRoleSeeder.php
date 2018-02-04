@@ -157,7 +157,7 @@ class AdminAuthRoleSeeder extends Seeder
             [
                 'id'         => 1,
                 'prm'        => 'column',
-                'name'       => '栏目',
+                'name'       => '轮播图',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

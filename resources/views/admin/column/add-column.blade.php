@@ -190,15 +190,15 @@
                             <!-- text input -->
                             <input type="hidden" name="column_id" value="{{$column_info['id'] or 0}}">
                             <div class="form-group">
-                                <label>名称</label>
+                                <label>标题</label>
                                 <input type="text" class="form-control" name="name" placeholder="Enter ..."
                                        value="{{$column_info['name'] or ''}}" required/>
                             </div>
-                            <div class="form-group">
-                                <label>标识</label>
-                                <input type="text" class="form-control" name="key" placeholder="Enter ..."
-                                       value="{{$column_info['key'] or ''}}"  minlength="2" maxlength="20"/>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label>标识</label>--}}
+                                {{--<input type="text" class="form-control" name="key" placeholder="Enter ..."--}}
+                                       {{--value="{{$column_info['key'] or ''}}"  minlength="2" maxlength="20"/>--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 <label>图片</label>
                                 <input type="file" name="file" class="form-control" >
