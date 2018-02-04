@@ -255,7 +255,8 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="{{session()->get('user_info')['avatar']  OR ''}}" class="img-circle" alt="User Image"/>
+                            <img src="{{session()->get('user_info')['avatar']  OR ''}}" class="img-circle"
+                                 alt="User Image"/>
                             <p>
                                 {{session()->get('user_info')['name']}}
                                 <small>{{date("Y年m月d日 H:i:s")}}</small>
@@ -314,20 +315,26 @@
 
                             <ul class="treeview-menu">
                                 @if($prm['prm']=='chart')
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增金属</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i
+                                                    class="fa fa-angle-double-right"></i> 新增金属</a>
                                     </li>
 
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-waihui-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-waihui-{{$prm['prm']}}"><i
+                                                    class="fa fa-angle-double-right"></i> 新增外汇{{$prm['name']}}</a>
                                     </li>
 
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增交叉盘{{$prm['name']}}</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-jiaochapan-{{$prm['prm']}}"><i
+                                                    class="fa fa-angle-double-right"></i> 新增交叉盘{{$prm['name']}}</a>
                                     </li>
 
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-qihuo-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增期货{{$prm['name']}}</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-qihuo-{{$prm['prm']}}"><i
+                                                    class="fa fa-angle-double-right"></i> 新增期货{{$prm['name']}}</a>
                                     </li>
                                 @else
-                                    <li><a href="{{env('APP_URL')}}/admin/index-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> {{$prm['name']}}列表</a>
-                                    <li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/index-{{$prm['prm']}}"><i
+                                                    class="fa fa-angle-double-right"></i> {{$prm['name']}}列表</a>
+                                    <li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i
+                                                    class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
                                     </li>
                                 @endif
                             </ul>
@@ -373,111 +380,116 @@
                                     <li>活动结束时间：{{$detail['display_end_time']}}</li>
                                 </ul>
 
-                                @endif
+                            @endif
                             @if($type == 2)
-                                    <ul>
-                                        <li>标题：{{$detail['title']}}</li>
-                                        <li>发布时间：{{date('Y-m-d H:i:s',$detail['publish_date_time'])}}</li>
-                                        <li>分类：{{$detail['category']}}</li>
-                                        <li>图片地址：<?php
-                                            $image_link = unserialize($detail['image_link']);
-                                            echo  is_array($image_link) and $image_link ? $image_link[0] : '';
+                                <ul>
+                                    <li>标题：{{$detail['title']}}</li>
+                                    <li>发布时间：{{date('Y-m-d H:i:s',$detail['publish_date_time'])}}</li>
+                                    <li>分类：{{$detail['category']}}</li>
+                                    <li>图片地址：<?php
+                                        $image_link = unserialize($detail['image_link']);
+                                        echo is_array($image_link) and $image_link ? $image_link[0] : '';
 
-                                            ?></li>
+                                        ?></li>
 
-                                       <li>标题：<?php
-                                            $head = unserialize($detail['headline']);
-                                            echo  is_string($head) ? $head : $head[0]; ?></li>
-                                        <li>来源：{{$detail['type']}}</li>
-                                        <li>财经新闻标题：{{$detail['title']}}</li>
-                                    </ul>
-                                @endif
-                            @if($type == 3)
-                                    <ul>
-                                        <li>标题：{{$detail['title']}}</li>
-                                        <li>发布时间：{{date('Y-m-d H:i:s',$detail['publish_date_time'])}}</li>
-                                        <li>分类：{{$detail['category']}}</li>
-                                        <li>图片地址：<?php
-                                            $image_link = unserialize($detail['image_link']);
-                                            echo  is_array($image_link) and $image_link ? $image_link[0] : '';
+                                    <li>标题：<?php
+                                        $head = unserialize($detail['headline']);
+                                        echo is_string($head) ? $head : $head[0]; ?></li>
+                                    <li>来源：{{$detail['type']}}</li>
+                                    <li>财经新闻标题：{{$detail['title']}}</li>
+                                </ul>
+                            @endif
+                            @if($type == 3 && $detail)
+                                <ul>
+                                    <li>日期：{{date('Y-m-d H:i:s',$detail['date'])}}</li>
+                                    <li>香港时间：{{$detail['hktime']}}</li>
+                                    <li>国家：{{$detail['country']}}</li>
+                                    <li>经济数据名称：{{$detail['fname']}}</li>
+                                    <li>季度：{{$detail['quarter']}}</li>
+                                    <li>月份：{{$detail['month']}}</li>
+                                    <li>预测：{{$detail['forecast']}}</li>
+                                    <li>上次结果：{{$detail['lasttime']}}</li>
+                                    <li>公布结果公布结果：{{$detail['value']}}</li>
 
-                                            ?></li>
-
-                                        <li>标题：<?php
-                                            $head = unserialize($detail['headline']);
-                                            echo  is_string($head) ? $head : $head[0]; ?></li>
-                                        <li>来源：{{$detail['type']}}</li>
-                                        <li>财经新闻标题：{{$detail['title']}}</li>
-                                    </ul>
-                                @endif
+                                </ul>
+                            @endif
 
                         </div>
 
                     </div>
                 </div>
-             </div>
-{{--            {{$ace_list->appends(request()->all())->render()}}--}}
+            </div>
+            {{--            {{$ace_list->appends(request()->all())->render()}}--}}
         </section>
 
         <section>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
 
-                  @foreach($comment_page as $comment)
-                    <ul class="menu">
-                        <li ><!-- start message -->
-                            <a href="#">
-                                <h4>
-                                  {{$comment['content']}}
-                                    <small><i class="fa fa-clock-o"></i>
-                                        时间 : {{$comment['create_at']}} {{$comment['id']}}
-                                    </small>
-                                    <select class="small"  name="fa" com_id="{{$comment['id']}}">
-                                        <option value="1"
-                                        @if($comment['status'] == 1) selected @endif
-                                        >通过</option>
-                                        <option value="2"
-                                                @if($comment['status'] == 2) selected @endif
-                                        >待审核</option>
-                                        <option value="0"
-                                                @if($comment['status'] == 0) selected @endif
-                                        >删除</option>
-                                    </select>
-                                </h4>
-
-                            </a>
-                        </li>
-                          @if(isset($new_child_list[$comment['id']]))
-                        <ul>
-                            @foreach($new_child_list[$comment['id']] as $child_c)
-                                @if($child_c)
-                            <li ><!-- start message -->
+                    @foreach($comment_page as $comment)
+                        <ul class="menu">
+                            <li><!-- start message -->
                                 <a href="#">
                                     <h4>
-                                        {{$child_c['member_name']}} <small>回复</small> &nbsp;{{$child_c['reply_member_name']}}{{"   ：   "}} <span>{{$child_c['content']}}</span>
+                                        {{$comment['content']}}
                                         <small><i class="fa fa-clock-o"></i>
-                                            时间 :  {{$child_c['created_at'] or ''}}{{$child_c['id']}}
+                                            时间 : {{$comment['create_at']}} {{$comment['id']}}
                                         </small>
-                                        <select class="small"  name="fa" com_id="{{$child_c['id']}}">
+                                        <select class="small" name="fa" com_id="{{$comment['id']}}">
                                             <option value="1"
-                                                    @if($child_c['status'] == 1) selected @endif
-                                            >通过</option>
+                                                    @if($comment['status'] == 1) selected @endif
+                                            >通过
+                                            </option>
                                             <option value="2"
-                                                    @if($child_c['status'] == 2) selected @endif
-                                            >待审核</option>
+                                                    @if($comment['status'] == 2) selected @endif
+                                            >待审核
+                                            </option>
                                             <option value="0"
-                                                    @if($child_c['status'] == 0) selected @endif
-                                            >删除</option>
+                                                    @if($comment['status'] == 0) selected @endif
+                                            >删除
+                                            </option>
                                         </select>
                                     </h4>
+
                                 </a>
                             </li>
-                                @endif
-                            @endforeach
+                            @if(isset($new_child_list[$comment['id']]))
+                                <ul>
+                                    @foreach($new_child_list[$comment['id']] as $child_c)
+                                        @if($child_c)
+                                            <li><!-- start message -->
+                                                <a href="#">
+                                                    <h4>
+                                                        {{$child_c['member_name']}}
+                                                        <small>回复</small>
+                                                        &nbsp;{{$child_c['reply_member_name']}}{{"   ：   "}}
+                                                        <span>{{$child_c['content']}}</span>
+                                                        <small><i class="fa fa-clock-o"></i>
+                                                            时间 : {{$child_c['created_at'] or ''}}{{$child_c['id']}}
+                                                        </small>
+                                                        <select class="small" name="fa" com_id="{{$child_c['id']}}">
+                                                            <option value="1"
+                                                                    @if($child_c['status'] == 1) selected @endif
+                                                            >通过
+                                                            </option>
+                                                            <option value="2"
+                                                                    @if($child_c['status'] == 2) selected @endif
+                                                            >待审核
+                                                            </option>
+                                                            <option value="0"
+                                                                    @if($child_c['status'] == 0) selected @endif
+                                                            >删除
+                                                            </option>
+                                                        </select>
+                                                    </h4>
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            @endif
                         </ul>
-                         @endif
-                    </ul>
-                  @endforeach
+                    @endforeach
                 </table>
 
             </div>
@@ -522,27 +534,27 @@
     $('.small').change(function () {
         var com_id = $(this).attr('com_id');
         var status = $(this).val();
-      // layer.msg('取消删除', {icon: 1});
+        // layer.msg('取消删除', {icon: 1});
         $.ajax({
 
             type: "get",
 
             url: "audit-comment",
 
-            data: {com_id:com_id, status:status},
+            data: {com_id: com_id, status: status},
 
             dataType: "json",
 
-            success: function(data){
+            success: function (data) {
 //console.log(data)
-                if(data.error_code){
+                if (data.error_code) {
                     layer.msg('更改失败')
                     return false;
                 }
                 layer.msg(data.data)
-{{--                window.location.href = '{{env("APP_URL")}}'+'/admin/home'--}}
+                {{--                window.location.href = '{{env("APP_URL")}}'+'/admin/home'--}}
             },
-            error:function(){
+            error: function () {
 
             }
         });
