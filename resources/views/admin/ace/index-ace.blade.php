@@ -186,13 +186,18 @@
                                         详情
                                     </th>
                                 </tr>
+<?php $a=['','HKG/港金','LLG/黄金','LLS/白银','EUR/欧元','JPY日元','GBP/英镑','CHF/瑞郎', 'AUD/澳元', 'NZD/纽元','CAD/加元'];
+    $b = ['','恒生指数期货','A股指数期货','美元兑人民币（香港）期货','原油','无铅汽油','民用燃料油','天然气','铜','白金','钯','杜斯工业指数','玉米'] ;
 
+?>
                                 @foreach($post_list as $key=>$ace)
                                     <tr>
                                         <td>{{$ace['id']}}</td>
                                         <td>
                                         <span class="label label-success">
                                             {{$ace['product_type']}}
+                                            {{$a[$ace['product_type'][0]]}}
+                                            {{$b[$ace['product_type'][1]]}}
                                         </span>
                                         </td>
                                         @if($ace['action'] == 1)
@@ -204,7 +209,7 @@
                                         <td>{{$ace['to_price']}}</td>
                                         <td>{{$ace['stop_loss']}}</td>
                                         <td>{{($ace['create_user_name'])}}</td>
-                                        <td>{{$ace['create_time']}}</td>
+                                        <td>{{date('Y-m-d H:i:s', $ace['create_time'])}}</td>
                                         <td>
                                                 {{mb_substr($ace['comment'],0,20)}}...
                                            </td>
@@ -282,8 +287,7 @@
 
                                                 <td><?php
                                                     $a = unserialize($news['headline']);
-                                                    var_export($a);die;
-                                                    if(is_string($a)){
+                                                    if(is_string($a) && $a){
                                                         echo $a;
                                                     }
                                                     if(is_array($a)){
