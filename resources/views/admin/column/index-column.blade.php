@@ -188,7 +188,7 @@
                                         <td>{{$column['id']}}</td>
                                         <td><span class="label label-success">{{$column['name']}}</span>
                                         </td>
-                                        
+
                                         @if($column['is_show'] == 1)
                                         <td><span class="label label-success">显示</span></td>
                                         @else
