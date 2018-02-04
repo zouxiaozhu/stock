@@ -282,10 +282,13 @@
 
                                                 <td><?php
                                                     $a = unserialize($news['headline']);
+                                                    var_export($a);die;
                                                     if(is_string($a)){
                                                         echo $a;
                                                     }
                                                     if(is_array($a)){
+
+
                                                         echo $a[0];
                                                     }
                                                     if(!$a){
