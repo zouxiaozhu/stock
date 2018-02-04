@@ -773,5 +773,18 @@ class SyncData extends Controller
             ->get();
         return response()->success($res);
     }
+
+    /**
+     * 银行信息
+     * @param Request $request
+     * @return mixed
+     */
+    public function bankInfo(Request $request)
+    {
+        //1=>英皇金业-贵金属交易,2=>英皇金融-外汇交易,3=>英皇证券-股票交易,4=>英皇期货-期货-期权交易
+        $type = intval($request->get('type', 1));
+        $res = DB::table('bank')->where('type', $type)->select('*')->first();
+        return response()->success($res);
+    }
 }
 

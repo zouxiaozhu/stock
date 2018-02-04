@@ -106,6 +106,7 @@ Route::group(['middleware' => 'api.auth'], function () {
             Route::post('del_table','SyncData@delTable');                    //
             Route::get('lunbo_index','SyncData@lunboIndex');                    //轮播图
             Route::get('file_download','SyncData@downloadList');                    //下载列表
+            Route::get('bank_info','SyncData@bankInfo');                    //下载列表
         });
     });
 
