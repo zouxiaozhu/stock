@@ -40,10 +40,9 @@ class Column extends Controller{
         $is_show = $request->get('is_show',0);
         $key = $request->get('key','');
         $sort = $request->get('sort',1);
-
-
+        
         $time = Carbon::now()->timestamp;
-var_export($_FILES);die;
+
         if($request->hasFile('file')) {
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();
