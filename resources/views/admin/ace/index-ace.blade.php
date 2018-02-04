@@ -188,7 +188,7 @@
                                 </tr>
 <?php $a=['','HKG/港金','LLG/黄金','LLS/白银','EUR/欧元','JPY日元','GBP/英镑','CHF/瑞郎', 'AUD/澳元', 'NZD/纽元','CAD/加元'];
     $b = ['','恒生指数期货','A股指数期货','美元兑人民币（香港）期货','原油','无铅汽油','民用燃料油','天然气','铜','白金','钯','杜斯工业指数','玉米'] ;
-    $c= ['', '香港', '美國', '中國'];
+    $c= ['', '香港股票', '美國股票', '中國股票'];
 ?>
                                 @foreach($post_list as $key=>$ace)
                                     <tr>
@@ -294,12 +294,10 @@
 
                                                 <td><?php
                                                     $a = unserialize($news['headline']);
-                                                    if(is_string($a) && $a){
+                                                    if(is_string($a) ){
                                                         echo $a;
                                                     }
-                                                    if(is_array($a)){
-
-
+                                                    if(is_array($a) && $a){
                                                         echo $a[0];
                                                     }
                                                     if(!$a){
