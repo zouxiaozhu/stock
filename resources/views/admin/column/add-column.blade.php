@@ -186,7 +186,7 @@
                         </h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <form role="form" action="add-column" method="post">
+                        <form role="form" action="add-column" method="post" enctype="multipart/form-data">
                             <!-- text input -->
                             <input type="hidden" name="column_id" value="{{$column_info['id'] or 0}}">
                             <div class="form-group">

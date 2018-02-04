@@ -43,7 +43,7 @@ class Column extends Controller{
 
 
         $time = Carbon::now()->timestamp;
-
+var_export($_FILES);die;
         if($request->hasFile('file')) {
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();
