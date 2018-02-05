@@ -218,7 +218,7 @@ class SyncData extends Controller
         if (!$token_info) {
             return $this->res_error('token失效',8789);
         }
-        $user_info = $token_info[0];
+        $user_info = $token_info;
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
 //        货币类型1=>港币,2=>美元
         $data = [
