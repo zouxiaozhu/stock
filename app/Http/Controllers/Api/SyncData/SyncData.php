@@ -218,7 +218,7 @@ class SyncData extends Controller
         if (!$token_info) {
             return $this->res_error('token失效',8789);
         }
-        $user_info = $token_info[0];
+        $user_info = $token_info;
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
 //        货币类型1=>港币,2=>美元
         $data = [
@@ -870,6 +870,26 @@ class SyncData extends Controller
             'like_num'      =>  $like_num,
         ];
         return response()->success($data);
+    }
+
+    /**
+     * 判断发帖权限
+     * @param Request $request
+     */
+    public function acePermission(Request $request)
+    {
+        if (!$request->has('access_token')) {
+            return $this->res_error('用户未登录',4004);
+        }
+        $access_token = trim($request->get('access_token'));
+        $member_info  = $this->decode_access_token($access_token);
+        $member_id = $member_info['id'];
+        $res = DB::table('members')->select('is_post')->where('id', $member_id)->first();
+        if ($res->is_post == 2) {
+            return response()->success('true');
+        } else {
+            return response()->false(1234, 'false');
+        }
     }
 }
 

@@ -99,6 +99,16 @@ class SyncData implements SyncDataInterface
             ->take(1)
             ->get();
         $data = isset($data[0]) ? $data[0] : [];
+        $comment_num = DB::table('comments')
+            ->where('post_id', $id)
+            ->where('type', 1)
+            ->count();
+        $like_num = DB::table('like')
+            ->where('post_id', $id)
+            ->where('type', 1)
+            ->count();
+        $data->comment_num = $comment_num;
+        $data->like_num = $like_num;
         return response()->success($data);
     }
 
@@ -392,6 +402,18 @@ class SyncData implements SyncDataInterface
             ->select('*')
             ->where('id', $id)
             ->get();
+        $data = obj2Arr($data);
+        $data = $data[0];
+        $comment_num = DB::table('comments')
+            ->where('post_id', $id)
+            ->where('type', 0)
+            ->count();
+        $like_num = DB::table('like')
+            ->where('post_id', $id)
+            ->where('type', 0)
+            ->count();
+        $data['comment_num'] = $comment_num;
+        $data['like_num'] = $like_num;
         return response()->success($data);
     }
 
