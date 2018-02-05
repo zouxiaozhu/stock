@@ -460,7 +460,7 @@ class SyncData implements SyncDataInterface
                 if ($v['now'] != 'TT') {
                     $now = explode('/', $v['now']);
                     $res[$k]['sale'] = $now[0];
-                    $res[$k]['buy']  = $now[1];
+                    $res[$k]['buy']  = substr($now[0], 0,-2).$now[1];
                     $today_sale = explode('/', $v['today'])[0];
                     $today_buy  = explode('/', $v['today'])[1];
                     $res[$k]['sale_sign'] = $res[$k]['sale'] >= $today_sale ? 'up' : 'down';
