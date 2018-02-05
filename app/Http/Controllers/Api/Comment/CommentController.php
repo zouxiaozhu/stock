@@ -73,9 +73,12 @@ class CommentController extends Controller{
             'reply_member_id'=>$request->get('reply_member_id',0),
             'reply_member_name'=>$request->get('reply_member_name',''),
             'member_id'=>$member_id?:0,
+            'member_name'   =>  $member_info['name'],
             'status'=>intval($status),
             'content'=>trim($request->get('content')),
-            'type'=>$request->get('type',0)
+            'type'=>$request->get('type',0),
+            'created_at'    =>  date('Y-m-d H:i:s', time()),
+            'updated_at'    =>  date('Y-m-d H:i:s', time()),
         ];
         $ret = CommentModel::insert($insert);
         $auction = $request->get('reply_member_id',0) ? '回复':'评论';
