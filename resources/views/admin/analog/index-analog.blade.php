@@ -182,11 +182,11 @@
                                     <th>用户名</th>
                                     {{--<th>删除</th>--}}
                                 </tr>
-
+<?php $type = [1=>'英皇金业',2=>'英皇证券',3=>'英皇期货'];?>
                                 @foreach($analog_list as $key=>$analog)
                                     <tr>
                                         <td>{{$analog['id']}}</td>
-                                        <td><span class="label label-success">{{$analog['type']}}</span>
+                                        <td><span class="label label-success">{{$type[$analog['type']]}}</span>
                                         </td>
                                         <td><span class="label label-success">{{$analog['member_name']}}</span>
                                         </td>

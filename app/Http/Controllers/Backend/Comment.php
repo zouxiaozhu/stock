@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Models\Api\CommentModel;
 use App\Http\Models\Backend\AceModel;
 use App\Http\Models\Backend\AnalogModel;
+use App\Http\Models\Backend\FileModel;
 use App\Http\Models\Backend\RegisterModel;
 use Illuminate\Http\Request;
 use App\Http\Models\Backend\EventModel;
@@ -165,15 +166,15 @@ class Comment extends Controller
 
     public function file(Request $request)
     {
-        $register_db = RegisterModel::where('id','>',0);
+        $file_db = FileModel::where('id','>',0);
         $prms = json_decode(session()->get('prms_info'), true);
         $role = json_decode(session()->get('roles_info'), true);
 
         $page = max(1,$request->get('page')) ;
-        $register_list = $register_db->paginate(15);
+        $file_list = $file_db->paginate(15);
 
 
-        return view('admin.register.index-register', ['register_list' => $register_list])
+        return view('admin.file.index-file', ['file_list' => $file_list])
             ->with(['prms' => $prms, 'roles_info' => $role]);
     }
 

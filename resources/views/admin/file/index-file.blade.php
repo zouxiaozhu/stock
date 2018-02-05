@@ -168,12 +168,6 @@
                         </div><!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
-                                `nick_name` varchar(30) NOT NULL DEFAULT '' COMMENT '昵称',
-                                `phone` varchar(20) NOT NULL COMMENT '电话',
-                                `email` varchar(30) NOT NULL DEFAULT '' COMMENT '邮箱',
-                                `description` varchar(100) NOT NULL DEFAULT '' COMMENT '描述',
-                                `file_url` varchar(100) NOT NULL DEFAULT '' COMMENT '文件路径'
-
                                 <tr>
                                     <th>ID</th>
                                     <th>昵称</th>

@@ -182,13 +182,25 @@
                                     <th>用户名</th>
                                     {{--<th>删除</th>--}}
                                 </tr>
-
+<?php $current = [1=>'港币',2=>'美元'];
+        $c_type= [1=>'黄金/白银',2=>'外汇',3=>'股票',4=>'期货期权'];
+?>
                                 @foreach($register_list as $key=>$register)
                                     <tr>
                                         <td>{{$register['id']}}</td>
-                                        <td><span class="label label-success">{{$register['type']}}</span>
+                                        <td><span class="label label-success">
+                                                <?php
+                                                $type = explode(',', $register['type']);
+                                                $type = (array_unique($type));
+                                                $str = '';
+
+                                                foreach ($type as $t){
+                                                    $str.=','.$c_type[$t];
+                                                }
+                                                $str = ltrim($str, ',');
+                                    echo $str;                                                ?></span>
                                         </td>
-                                        <td><span class="label label-success">{{$register['currency_type']}}</span>
+                                        <td><span class="label label-success">{{$current[$register['currency_type']]}}</span>
                                         </td>
                                         <td><span >{{$register['name_cn']}}</span></td>
                                         <td><span class="">{{$register['phone']}}</span></td>
