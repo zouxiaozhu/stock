@@ -21,7 +21,7 @@ class AuthTokenMiddleware{
         if($this->authToken->checkToken($request)){
             return $next($request);
         }
-        return response()->error(1003, 'No Permission');
+        return response()->error(8789, '登录过期，重新登录');
 
     }
 }

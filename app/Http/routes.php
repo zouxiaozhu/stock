@@ -67,7 +67,9 @@ Route::group(['middleware' => 'api.auth'], function () {
     Route::get('api/get-comment', 'Api\Comment\CommentController@getComment');
     Route::get('api/get-my-comment', 'Api\Comment\CommentController@getMyComment');
     Route::get('api/get-post', 'Api\Comment\CommentController@getPost');
-
+    Route::get('api/analog-list', 'Api\Comment\CommentController@analogList');
+    Route::get('api/account-regist', 'Api\Comment\CommentController@accountRegistList');
+    Route::get('api/file-list', 'Api\Comment\CommentController@fileList');
 });
     /**
      * 直接展示给app端,不需要任何验证
@@ -103,9 +105,13 @@ Route::group(['middleware' => 'api.auth'], function () {
             Route::get('my_price_notice','SyncData@myPriceNotice');                    //我的到价提示
             Route::get('del_price_notice/{id}','SyncData@delPriceNotice');                    //删除我的到价提示
             Route::get('app_price_notice','SyncData@appPriceNotice');                    //app端巡通知价格提示
-            Route::post('del_table','SyncData@delTable');                    //
-            Route::get('lunbo_index','SyncData@lunboIndex');                    //轮播图
-            Route::get('file_download','SyncData@downloadList');                    //下载列表
+            Route::post('del_table','SyncData@delTable');                                   //
+            Route::get('lunbo_index','SyncData@lunboIndex');                                 //轮播图
+            Route::get('file_download','SyncData@downloadList');                            //下载列表
+            Route::get('bank_info','SyncData@bankInfo');                                    //银行资料
+            Route::get('contact_our','SyncData@contactOur');                                //联系我们
+            Route::post('add_like','SyncData@addLike');                                      //点赞
+            Route::get('comment_like_count','SyncData@countCommentLike');                    //评论数和点赞数统计
         });
     });
 

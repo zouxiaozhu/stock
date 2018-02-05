@@ -16,6 +16,7 @@ use App\Http\Models\Backend\TerminalSettings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class CommentController extends Controller{
     use ApiAuthTrait;
@@ -40,13 +41,13 @@ class CommentController extends Controller{
         $fill_able = [
             'type'=>'required',
             'post_id' => 'required',
-            'content'=>'required'
+            'content'=>'required',
         ];
 
         $message = [
             'post_id.required' => '必须评论有效帖子',
             'type.required' => '类型必须传',
-            'content.required'=>'内容不能为空 '
+            'content.required'=>'内容不能为空 ',
         ];
 
         $validator = Validator::make($request->all(), $fill_able, $message);
@@ -66,16 +67,22 @@ class CommentController extends Controller{
                 $msg = '成功';
                 break;
         }
-
+        if ($request->has('title')) {
+            $title = trim($request->get('title'));
+        }
         $insert = [
             'post_id' => intval($request->get('post_id')),
             'post_comment_fid'=>$request->get('post_comment_fid',0),
             'reply_member_id'=>$request->get('reply_member_id',0),
             'reply_member_name'=>$request->get('reply_member_name',''),
             'member_id'=>$member_id?:0,
+            'member_name'   =>  $member_info['name'],
             'status'=>intval($status),
             'content'=>trim($request->get('content')),
-            'type'=>$request->get('type',0)
+            'type'=>$request->get('type',0),
+            'created_at'    =>  date('Y-m-d H:i:s', time()),
+            'updated_at'    =>  date('Y-m-d H:i:s', time()),
+            'title'     =>  isset($title) ? $title : '',
         ];
         $ret = CommentModel::insert($insert);
         $auction = $request->get('reply_member_id',0) ? '回复':'评论';
@@ -156,7 +163,7 @@ class CommentController extends Controller{
         $status = $request->has('status') ? explode(',',$request->get('status')) : [1,2,3];
         $comment = CommentModel::where('member_id',$member_id)
                     ->whereIn('status',$status)
-                    ->where('type',0)
+//                    ->where('type',0)
                     ->skip($offset)
                     ->take($page_size)
                     ->orderBy('created_at','desc')
@@ -211,5 +218,47 @@ class CommentController extends Controller{
                           'status'=>$status,
                           'error_message'=>$msg,
         ]);die;
+    }
+
+    /**
+     * 模拟表单列表
+     * @param Request $request
+     */
+    public function analogList(Request $request)
+    {
+//        1=>英皇金业,2=>英皇证券,3=>英皇期货
+        $per_num = intval($request->get('per_num', 10));
+        $list = DB::table('analog')
+            ->select('*')
+            ->orderBy('create_time', 'desc')
+            ->paginate($per_num);
+        return response()->success($list);
+    }
+
+    /**
+     * 开户登记
+     * @param Request $request
+     * @return mixed
+     */
+    public function accountRegistList(Request $request)
+    {
+        $per_num = intval($request->get('per_num', 10));
+        $list = DB::table('account_regist')
+            ->select('*')
+            ->orderBy('create_time', 'desc')
+            ->get($per_num);
+        return response()->success($list);
+    }
+
+    /**
+     * 客户端文件上传列表
+     * @param Request $request
+     * @return mixed
+     */
+    public function fileList(Request $request)
+    {
+        $per_num = intval($request->get('per_num', 10));
+        $list = DB::table('file_upload')->select('*')->orderBy('id', 'desc')->get($per_num);
+        return response()->success($list);
     }
 }

@@ -210,15 +210,15 @@ class SyncData extends Controller
      */
     public function accountRegist(Request $request)
     {
-//        $access_token = $request->get('access_token');
-//        if (!$access_token) {
-//            return $this->res_error('token不存在',1567);
-//        }
-//        $token_info = $this->decode_access_token($access_token);
-//        if (!$token_info) {
-//            return $this->res_error('token失效',8789);
-//        }
-//        $user_info = $token_info[0];
+        $access_token = $request->get('access_token');
+        if (!$access_token) {
+            return $this->res_error('token不存在',1567);
+        }
+        $token_info = $this->decode_access_token($access_token);
+        if (!$token_info) {
+            return $this->res_error('token失效',8789);
+        }
+        $user_info = $token_info[0];
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
 //        货币类型1=>港币,2=>美元
         $data = [
@@ -230,8 +230,8 @@ class SyncData extends Controller
             'email' => trim($request->get('email')),
             'qq' => intval($request->get('qq'), 0),
             'message' => $request->get('message', '无'),
-//            'user_id' => $user_info['id'],
-//            'user_name' =>  $user_info['name'],
+            'user_id' => $user_info['id'],
+            'user_name' =>  $user_info['name'],
         ];
         if (!$data['phone']) {
             return response()->error(1314, 'Phone Required');
@@ -676,12 +676,15 @@ class SyncData extends Controller
      */
     public function analogCreate(Request $request)
     {
-//        //登录后才能申请资格
-//        if (!$request->has('access_token')) {
-//            return response()->false(4004, '用户未登录');
-//        }
-//        $access_token = trim($request->get('access_token'));
-//        $member_info  = $this->decode_access_token($access_token);
+        $access_token = $request->get('access_token');
+        if (!$access_token) {
+            return $this->res_error('token不存在',1567);
+        }
+        $token_info = $this->decode_access_token($access_token);
+        if (!$token_info) {
+            return $this->res_error('token失效',8789);
+        }
+        $user_info = $token_info;
 //        //1=>英皇金业,2=>英皇证券,3=>英皇期货
         $type = trim($request->get('type', '1'));
         if (!$request->has('phone')) {
@@ -705,6 +708,8 @@ class SyncData extends Controller
             'country'    =>  trim($request->get('country', '无')),
             'message'    =>  trim($request->get('message', '无')),
             'create_time'=>  time(),
+            'user_id'    => $user_info['id'],
+            'user_name'  => $user_info['name'],
         ];
         $res = $this->syncData->analogCreate($data);
         $this->sendMailAce(env('PUSH_ADMIN_EAMIL','shengyulong@gmail.com'),'模拟账户','有用户提交了模拟账户,请前往后台查看');
@@ -772,6 +777,99 @@ class SyncData extends Controller
             ->where('type', $type)
             ->get();
         return response()->success($res);
+    }
+
+    /**
+     * 银行信息
+     * @param Request $request
+     * @return mixed
+     */
+    public function bankInfo(Request $request)
+    {
+        //1=>英皇金业-贵金属交易,2=>英皇金融-外汇交易,3=>英皇证券-股票交易,4=>英皇期货-期货-期权交易
+        $type = intval($request->get('type', 1));
+        $res = DB::table('bank')->where('type', $type)->select('*')->first();
+        return response()->success($res);
+    }
+
+    /**
+     * 联系我们
+     * @param Request $request
+     * @return mixed
+     */
+    public function contactOur(Request $request)
+    {
+        $res = DB::table('contact_our')->select('content')->first();
+        return response()->success($res);
+    }
+
+    public function addLike(Request $request)
+    {
+        if (!$request->has('access_token')) {
+            return response()->false(4004, '登陆后才能点赞');
+        }
+        $member_info = $this->decode_access_token($request->get('access_token'));
+        if (!$member_info) {
+            return $this->res_error('token失效',8789);
+        }
+        $member_id = $member_info['id'];
+        $member_name = $member_info['name'];
+        if (!$request->has('post_id')) {
+            return response()->false(7896, '请选择要评论的文章');
+        }
+        $post_id = intval($request->get('post_id'));
+        if (!$request->has('type')) {
+            return response()->false(9854, '请选择文章类型');
+        }
+        //文章类型帖子类型 0-谁是高手  1-财经日志 ，2 财经新闻 3 财经公告 4 经济数据  5市场焦点 6港股分析 7伦敦白银
+        $type = intval($request->get('type'));
+        $check = DB::table('like')
+            ->select('id')
+            ->where('post_id', $post_id)
+            ->where('type', $type)
+            ->where('like_user_id', $member_id)
+            ->first();
+        if ($check) {
+            return response()->false(1567, '您已点赞过该文章');
+        }
+        $data = [
+            'post_id'           =>  $post_id,
+            'type'              =>  $type,
+            'like_user_id'      =>  $member_id,
+            'like_user_name'    =>  $member_name,
+            'like_time'         =>  time(),
+        ];
+        $insert = DB::table('like')->insert($data);
+        if (!$insert) {
+            return response()->false(1835, '点赞失败');
+        }
+        return response()->success('点赞成功');
+    }
+
+    public function countCommentLike(Request $request)
+    {
+        if (!$request->has('post_id')) {
+            return response()->false(7896, '请选择要评论的文章');
+        }
+        $post_id = intval($request->get('post_id'));
+        if (!$request->has('type')) {
+            return response()->false(9854, '请选择文章类型');
+        }
+        //文章类型帖子类型 0-谁是高手  1-财经日志 ，2 财经新闻 3 财经公告 4 经济数据  5市场焦点 6港股分析 7伦敦白银
+        $type = intval($request->get('type'));
+        $comment_num = DB::table('comments')
+            ->where('post_id', $post_id)
+            ->where('type', $type)
+            ->count();
+        $like_num = DB::table('like')
+            ->where('post_id', $post_id)
+            ->where('type', $type)
+            ->count();
+        $data = [
+            'comments_num'  =>  $comment_num,
+            'like_num'      =>  $like_num,
+        ];
+        return response()->success($data);
     }
 }
 
