@@ -108,6 +108,8 @@ Route::group(['middleware' => 'api.auth'], function () {
             Route::get('file_download','SyncData@downloadList');                            //下载列表
             Route::get('bank_info','SyncData@bankInfo');                                    //银行资料
             Route::get('contact_our','SyncData@contactOur');                                //联系我们
+            Route::post('add_like','SyncData@addLike');                                      //点赞
+            Route::get('comment_like_count','SyncData@countCommentLike');                    //评论数和点赞数统计
         });
     });
 

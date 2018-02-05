@@ -797,5 +797,74 @@ class SyncData extends Controller
         $res = DB::table('contact_our')->select('content')->first();
         return response()->success($res);
     }
+
+    public function addLike(Request $request)
+    {
+        if (!$request->has('access_token')) {
+            return response()->false(4004, '登陆后才能点赞');
+        }
+        $member_info = $this->decode_access_token($request->get('access_token'));
+        if (!$member_info) {
+            return $this->res_error('token失效',8789);
+        }
+        $member_id = $member_info['id'];
+        $member_name = $member_info['name'];
+        if (!$request->has('post_id')) {
+            return response()->false(7896, '请选择要评论的文章');
+        }
+        $post_id = intval($request->get('post_id'));
+        if (!$request->has('type')) {
+            return response()->false(9854, '请选择文章类型');
+        }
+        //文章类型帖子类型 0-谁是高手  1-财经日志 ，2 财经新闻 3 财经公告 4 经济数据  5市场焦点 6港股分析 7伦敦白银
+        $type = intval($request->get('type'));
+        $check = DB::table('like')
+            ->select('id')
+            ->where('post_id', $post_id)
+            ->where('type', $type)
+            ->where('like_user_id', $member_id)
+            ->first();
+        if ($check) {
+            return response()->false(1567, '您已点赞过该文章');
+        }
+        $data = [
+            'post_id'           =>  $post_id,
+            'type'              =>  $type,
+            'like_user_id'      =>  $member_id,
+            'like_user_name'    =>  $member_name,
+            'like_time'         =>  time(),
+        ];
+        $insert = DB::table('like')->insert($data);
+        if (!$insert) {
+            return response()->false(1835, '点赞失败');
+        }
+        return response()->success('点赞成功');
+    }
+
+    public function countCommentLike(Request $request)
+    {
+        if (!$request->has('post_id')) {
+            return response()->false(7896, '请选择要评论的文章');
+        }
+        $post_id = intval($request->get('post_id'));
+        if (!$request->has('type')) {
+            return response()->false(9854, '请选择文章类型');
+        }
+        //文章类型帖子类型 0-谁是高手  1-财经日志 ，2 财经新闻 3 财经公告 4 经济数据  5市场焦点 6港股分析 7伦敦白银
+        $type = intval($request->get('type'));
+        $comment_num = DB::table('comments')
+            ->where('post_id', $post_id)
+            ->where('type', $type)
+            ->count();
+        $like_num = DB::table('like')
+            ->where('post_id', $post_id)
+            ->where('type', $type)
+            ->count();
+        $data = [
+            'comments_num'  =>  $comment_num,
+            'like_num'      =>  $like_num,
+        ];
+        return response()->success($data);
+    }
 }
 

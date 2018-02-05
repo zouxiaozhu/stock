@@ -386,7 +386,7 @@
                                     <li>标题：{{$detail['title']}}</li>
                                     <li>发布时间：{{date('Y-m-d H:i:s',$detail['publish_date_time'])}}</li>
                                     <li>分类：{{$detail['category']}}</li>
-                                    
+
                                 </ul>
                             @endif
                             @if($type == 3 && $detail)

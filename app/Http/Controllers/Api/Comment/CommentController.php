@@ -159,7 +159,7 @@ class CommentController extends Controller{
         $status = $request->has('status') ? explode(',',$request->get('status')) : [1,2,3];
         $comment = CommentModel::where('member_id',$member_id)
                     ->whereIn('status',$status)
-                    ->where('type',0)
+//                    ->where('type',0)
                     ->skip($offset)
                     ->take($page_size)
                     ->orderBy('created_at','desc')
