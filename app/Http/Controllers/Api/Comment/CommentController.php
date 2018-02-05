@@ -226,6 +226,7 @@ class CommentController extends Controller{
      */
     public function analogList(Request $request)
     {
+//        1=>英皇金业,2=>英皇证券,3=>英皇期货
         $per_num = intval($request->get('per_num', 10));
         $list = DB::table('analog')
             ->select('*')
@@ -246,6 +247,18 @@ class CommentController extends Controller{
             ->select('*')
             ->orderBy('create_time', 'desc')
             ->get($per_num);
+        return response()->success($list);
+    }
+
+    /**
+     * 客户端文件上传列表
+     * @param Request $request
+     * @return mixed
+     */
+    public function fileList(Request $request)
+    {
+        $per_num = intval($request->get('per_num', 10));
+        $list = DB::table('file_upload')->select('*')->orderBy('id', 'desc')->get($per_num);
         return response()->success($list);
     }
 }

@@ -684,7 +684,7 @@ class SyncData extends Controller
         if (!$token_info) {
             return $this->res_error('token失效',8789);
         }
-        $user_info = $token_info[0];
+        $user_info = $token_info;
 //        //1=>英皇金业,2=>英皇证券,3=>英皇期货
         $type = trim($request->get('type', '1'));
         if (!$request->has('phone')) {

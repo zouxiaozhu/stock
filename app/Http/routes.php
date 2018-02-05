@@ -69,6 +69,7 @@ Route::group(['middleware' => 'api.auth'], function () {
     Route::get('api/get-post', 'Api\Comment\CommentController@getPost');
     Route::get('api/analog-list', 'Api\Comment\CommentController@analogList');
     Route::get('api/account-regist', 'Api\Comment\CommentController@accountRegistList');
+    Route::get('api/file-list', 'Api\Comment\CommentController@fileList');
 });
     /**
      * 直接展示给app端,不需要任何验证
