@@ -195,10 +195,14 @@
                                                 $str = '';
 
                                                 foreach ($type as $t){
-                                                    $str.=','.$c_type[$t];
+                                                    if(isset($c_type[$t])){
+                                                        $str.=','.$c_type[$t];
+                                                    }
                                                 }
-                                                $str = ltrim($str, ',');
-                                    echo $str;                                                ?></span>
+                                                if($str){
+                                                    $str = ltrim($str, ',');
+                                                }
+                                                echo $str;                                                ?></span>
                                         </td>
                                         <td><span class="label label-success">{{$current[$register['currency_type']]}}</span>
                                         </td>
