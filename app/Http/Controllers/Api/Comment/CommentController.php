@@ -185,7 +185,7 @@ class CommentController extends Controller{
                 $new_comment['comment'][$com['id']]['father']=AceModel::find($com['post_id'])? AceModel::find($com['post_id'])->toArray() :[];
             }
         }
-        $new_comment['comment'] = array_values($new_comment['comment']);
+        $new_comment = array_values($new_comment['comment']);
 
         return response()->success($new_comment ?:[]);
     }

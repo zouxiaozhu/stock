@@ -874,7 +874,13 @@ class SyncData extends Controller
 
     public function acePermission(Request $request)
     {
-
+        if (!$request->has('access_token')) {
+            return $this->res_error('用户未登录',4004);
+        }
+        $access_token = trim($request->get('access_token'));
+        $member_info  = $this->decode_access_token($access_token);
+        $member_id = $member_info['id'];
+//        $res = DB::table('members')->select()->where('')
     }
 }
 
