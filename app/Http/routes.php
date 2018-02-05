@@ -193,7 +193,12 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('admin/delete-download', 'Backend\Download@delete');
 
 
-
+    Route::get('admin/index-register', 'Backend\Comment@register');
+    Route::get('admin/edit-register', 'Backend\Comment@editRegister');
+    Route::get('admin/index-file', 'Backend\Comment@file');
+    Route::get('admin/edit-file', 'Backend\Comment@editRegister');
+    Route::get('admin/index-analog', 'Backend\Comment@analog');
+    Route::get('admin/edit-analog', 'Backend\Comment@editRegister');
 
 
     /**
