@@ -40,13 +40,13 @@ class CommentController extends Controller{
         $fill_able = [
             'type'=>'required',
             'post_id' => 'required',
-            'content'=>'required'
+            'content'=>'required',
         ];
 
         $message = [
             'post_id.required' => '必须评论有效帖子',
             'type.required' => '类型必须传',
-            'content.required'=>'内容不能为空 '
+            'content.required'=>'内容不能为空 ',
         ];
 
         $validator = Validator::make($request->all(), $fill_able, $message);
@@ -66,7 +66,9 @@ class CommentController extends Controller{
                 $msg = '成功';
                 break;
         }
-
+        if ($request->has('title')) {
+            $title = trim($request->get('title'));
+        }
         $insert = [
             'post_id' => intval($request->get('post_id')),
             'post_comment_fid'=>$request->get('post_comment_fid',0),
@@ -79,6 +81,7 @@ class CommentController extends Controller{
             'type'=>$request->get('type',0),
             'created_at'    =>  date('Y-m-d H:i:s', time()),
             'updated_at'    =>  date('Y-m-d H:i:s', time()),
+            'title'     =>  isset($title) ? $title : '',
         ];
         $ret = CommentModel::insert($insert);
         $auction = $request->get('reply_member_id',0) ? '回复':'评论';
