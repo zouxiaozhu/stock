@@ -386,17 +386,17 @@
                                     <li>标题：{{$detail['title']}}</li>
                                     <li>发布时间：{{date('Y-m-d H:i:s',$detail['publish_date_time'])}}</li>
                                     <li>分类：{{$detail['category']}}</li>
-                                    <li>图片地址：<?php
-                                        $image_link = unserialize($detail['image_link']);
-                                        echo is_array($image_link) and $image_link ? $image_link[0] : '';
+                                    {{--<li>图片地址：<?php--}}
+                                        {{--$image_link = unserialize($detail['image_link']);--}}
+                                        {{--echo is_array($image_link) and $image_link ? $image_link[0] : '';--}}
 
-                                        ?></li>
+                                        {{--?></li>--}}
 
-                                    <li>标题：<?php
-                                        $head = unserialize($detail['headline']);
-                                        echo is_string($head) ? $head : $head[0]; ?></li>
-                                    <li>来源：{{$detail['type']}}</li>
-                                    <li>财经新闻标题：{{$detail['title']}}</li>
+                                    {{--<li>标题：<?php--}}
+                                        {{--$head = unserialize($detail['headline']);--}}
+                                        {{--echo is_string($head) ? $head : $head[0]; ?></li>--}}
+                                    {{--<li>来源：{{$detail['type']}}</li>--}}
+                                    {{--<li>财经新闻标题：{{$detail['title']}}</li>--}}
                                 </ul>
                             @endif
                             @if($type == 3 && $detail)
