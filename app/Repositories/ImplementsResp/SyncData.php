@@ -402,6 +402,8 @@ class SyncData implements SyncDataInterface
             ->select('*')
             ->where('id', $id)
             ->get();
+        $data = obj2Arr($data);
+        $data = $data[0];
         $comment_num = DB::table('comments')
             ->where('post_id', $id)
             ->where('type', 0)
@@ -410,8 +412,8 @@ class SyncData implements SyncDataInterface
             ->where('post_id', $id)
             ->where('type', 0)
             ->count();
-        $data->comment_num = $comment_num;
-        $data->like_num = $like_num;
+        $data['comment_num'] = $comment_num;
+        $data['like_num'] = $like_num;
         return response()->success($data);
     }
 

@@ -871,5 +871,10 @@ class SyncData extends Controller
         ];
         return response()->success($data);
     }
+
+    public function acePermission(Request $request)
+    {
+
+    }
 }
 

@@ -112,6 +112,7 @@ Route::group(['middleware' => 'api.auth'], function () {
             Route::get('contact_our','SyncData@contactOur');                                //联系我们
             Route::post('add_like','SyncData@addLike');                                      //点赞
             Route::get('comment_like_count','SyncData@countCommentLike');                    //评论数和点赞数统计
+            Route::get('ace_permission','SyncData@acePermission');                          //判断发帖权限
         });
     });
 
