@@ -872,6 +872,10 @@ class SyncData extends Controller
         return response()->success($data);
     }
 
+    /**
+     * 判断发帖权限
+     * @param Request $request
+     */
     public function acePermission(Request $request)
     {
         if (!$request->has('access_token')) {
@@ -880,7 +884,12 @@ class SyncData extends Controller
         $access_token = trim($request->get('access_token'));
         $member_info  = $this->decode_access_token($access_token);
         $member_id = $member_info['id'];
-//        $res = DB::table('members')->select()->where('')
+        $res = DB::table('members')->select('is_post')->where('id', $member_id)->first();
+        if ($res->is_post == 2) {
+            return response()->success('true');
+        } else {
+            return response()->false(1234, 'false');
+        }
     }
 }
 
