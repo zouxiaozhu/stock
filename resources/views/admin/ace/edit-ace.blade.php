@@ -392,10 +392,10 @@
 
                                         ?></li>
 
-                                    <li>标题：<?php
-                                        $head = unserialize($detail['headline']);
-                                        echo is_string($head) ? $head : $head[0]; ?></li>
-                                    <li>来源：{{$detail['type']}}</li>
+                                    {{--<li>标题：<?php--}}
+                                        {{--$head = unserialize($detail['headline']);--}}
+                                        {{--echo is_string($head) ? $head : $head[0]; ?></li>--}}
+                                    {{--<li>来源：{{$detail['type']}}</li>--}}
                                     <li>财经新闻标题：{{$detail['title']}}</li>
                                 </ul>
                             @endif
