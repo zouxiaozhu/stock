@@ -210,15 +210,15 @@ class SyncData extends Controller
      */
     public function accountRegist(Request $request)
     {
-//        $access_token = $request->get('access_token');
-//        if (!$access_token) {
-//            return $this->res_error('token不存在',1567);
-//        }
-//        $token_info = $this->decode_access_token($access_token);
-//        if (!$token_info) {
-//            return $this->res_error('token失效',8789);
-//        }
-//        $user_info = $token_info[0];
+        $access_token = $request->get('access_token');
+        if (!$access_token) {
+            return $this->res_error('token不存在',1567);
+        }
+        $token_info = $this->decode_access_token($access_token);
+        if (!$token_info) {
+            return $this->res_error('token失效',8789);
+        }
+        $user_info = $token_info[0];
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
 //        货币类型1=>港币,2=>美元
         $data = [
@@ -230,8 +230,8 @@ class SyncData extends Controller
             'email' => trim($request->get('email')),
             'qq' => intval($request->get('qq'), 0),
             'message' => $request->get('message', '无'),
-//            'user_id' => $user_info['id'],
-//            'user_name' =>  $user_info['name'],
+            'user_id' => $user_info['id'],
+            'user_name' =>  $user_info['name'],
         ];
         if (!$data['phone']) {
             return response()->error(1314, 'Phone Required');
@@ -676,12 +676,15 @@ class SyncData extends Controller
      */
     public function analogCreate(Request $request)
     {
-//        //登录后才能申请资格
-//        if (!$request->has('access_token')) {
-//            return response()->false(4004, '用户未登录');
-//        }
-//        $access_token = trim($request->get('access_token'));
-//        $member_info  = $this->decode_access_token($access_token);
+        $access_token = $request->get('access_token');
+        if (!$access_token) {
+            return $this->res_error('token不存在',1567);
+        }
+        $token_info = $this->decode_access_token($access_token);
+        if (!$token_info) {
+            return $this->res_error('token失效',8789);
+        }
+        $user_info = $token_info[0];
 //        //1=>英皇金业,2=>英皇证券,3=>英皇期货
         $type = trim($request->get('type', '1'));
         if (!$request->has('phone')) {
@@ -705,6 +708,8 @@ class SyncData extends Controller
             'country'    =>  trim($request->get('country', '无')),
             'message'    =>  trim($request->get('message', '无')),
             'create_time'=>  time(),
+            'user_id'    => $user_info['id'],
+            'user_name'  => $user_info['name'],
         ];
         $res = $this->syncData->analogCreate($data);
         $this->sendMailAce(env('PUSH_ADMIN_EAMIL','shengyulong@gmail.com'),'模拟账户','有用户提交了模拟账户,请前往后台查看');

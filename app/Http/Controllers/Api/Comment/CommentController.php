@@ -16,6 +16,7 @@ use App\Http\Models\Backend\TerminalSettings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class CommentController extends Controller{
     use ApiAuthTrait;
@@ -217,5 +218,34 @@ class CommentController extends Controller{
                           'status'=>$status,
                           'error_message'=>$msg,
         ]);die;
+    }
+
+    /**
+     * 模拟表单列表
+     * @param Request $request
+     */
+    public function analogList(Request $request)
+    {
+        $per_num = intval($request->get('per_num', 10));
+        $list = DB::table('analog')
+            ->select('*')
+            ->orderBy('create_time', 'desc')
+            ->paginate($per_num);
+        return response()->success($list);
+    }
+
+    /**
+     * 开户登记
+     * @param Request $request
+     * @return mixed
+     */
+    public function accountRegistList(Request $request)
+    {
+        $per_num = intval($request->get('per_num', 10));
+        $list = DB::table('account_regist')
+            ->select('*')
+            ->orderBy('create_time', 'desc')
+            ->get($per_num);
+        return response()->success($list);
     }
 }
