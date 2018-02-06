@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>{{env('COMPANY')}}| {{ env('COMPANY_LANG') }}</title>
@@ -49,6 +48,8 @@
         </a>
         <div class="navbar-right">
             <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
@@ -96,19 +97,19 @@
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
-
             <ul class="sidebar-menu">
                 <?php if (!$prms) {
                     $prms = [];
-                }?>
+                }
+                ?>
                 @foreach($prms as $k=>$prm)
                     @if($prm['name'])
 
-                        <li class="treeview {{$prm['prm']=='column'?'active':''}}">
+                        <li class="treeview {{$prm['prm']=='member'?'active':''}}">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
                                 <span>{{$prm['name']}}</span>
-                                @if($prm['prm'] != 'user')
+                                @if($prm['prm'] != 'member')
                                     <i class="fa fa-angle-left pull-right"></i>
                                 @else
                                     <i class="fa fa-angle-right pull-down"></i>
@@ -127,13 +128,13 @@
                                     </li>
 
                                     <li><a href="{{env('APP_URL')}}/admin/edit-qihuo-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增期货{{$prm['name']}}</a>
-                                    </li>
-                                @elseif($prm['prm']=='form')
+                                    </li>@elseif($prm['prm']=='form')
                                     <li><a href="{{env('APP_URL')}}/admin/index-register"><i class="fa fa-angle-double-right"></i> 开户列表</a>
                                     </li>
                                     <li><a href="{{env('APP_URL')}}/admin/index-analog"><i class="fa fa-angle-double-right"></i> 模拟账户列表</a>
                                     </li>
-                                    <li><a href="{{env('APP_URL')}}/admin/index-file"><i class="fa fa-angle-double-right"></i>文件列表</a></li>@else
+                                    <li><a href="{{env('APP_URL')}}/admin/index-file"><i class="fa fa-angle-double-right"></i>文件列表</a></li>
+                                @else
                                     <li><a href="{{env('APP_URL')}}/admin/index-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> {{$prm['name']}}列表</a>
                                     <li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
                                     </li>
@@ -144,6 +145,7 @@
                 @endforeach
             </ul>
         </section>
+
         <!-- /.sidebar -->
     </aside>
 
@@ -153,13 +155,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-               轮播图列表
-                <small>preview of column manage</small>
+                表单列表
+                <small>preview of Form manage</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i>HOME</a></li>
-                <li><a href="#"> 轮播图</a></li>
-                <li class="active">列表</li>
+                <li class="active"><a href="#">表单</a></li>
+                <li >列表</li>
             </ol>
         </section>
         <section class="content-header">
@@ -167,47 +169,41 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Index Column Table</h3>
-                            <div class="box-tools">
-                                <div class="input-group">
-                                    {{--<input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>--}}
-                                    {{--<div class="input-group-btn">--}}
-                                        {{--<button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>--}}
-                                    {{--</div>--}}
-                                </div>
-                            </div>
+                            <h3 class="box-title">Index Member Table</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <tr>
+
                                     <th>ID</th>
-                                    <th>标题</th>
-                                    <th>是否显示</th>
-                                    <th>图片</th>
-                                    <th>跳转地址</th>
-                                    <th>编辑</th>
-                                    <th>删除</th>
+                                    <th>开户类型</th>
+                                    <th>用户名</th>
+                                    <th>电话</th>
+                                    <th>邮箱</th>
+                                    <th>地址</th>
+                                    <th>国家</th>
+                                    <th>备注</th>
+                                    <th>时间</th>
+                                    <th>用户名</th>
+                                    {{--<th>删除</th>--}}
                                 </tr>
-                                @foreach($column_list as $key=>$column)
+<?php $type = [1=>'英皇金业',2=>'英皇证券',3=>'英皇期货'];?>
+                                @foreach($analog_list as $key=>$analog)
                                     <tr>
-                                        <td>{{$column['id']}}</td>
-                                        <td><span class="label label-success">{{$column['name']}}</span>
+                                        <td>{{$analog['id']}}</td>
+                                        <td><span class="label label-success">{{$type[$analog['type']]}}</span>
+                                        </td>
+                                        <td><span class="label label-success">{{$analog['member_name']}}</span>
                                         </td>
 
-                                        @if($column['is_show'] == 1)
-                                        <td><span class="label label-success">显示</span></td>
-                                        @else
-                                            <td><span class="label label-warning">不显示</span></td>
-                                        @endif
-                                        <td>
-                                            {{$column['url']}}
-                                        </td>
-                                        <td>
-                                            {{$column['url_link']}}
-                                        </td>
-
-                                        <td><a href="{{env('APP_URL')}}/admin/edit-column?column_id={{$column['id']}}">编辑</a></td>
-                                        <td><a class='del-column' column_id="{{$column['id']}}" href="#">删除</a></td>
+                                        <td><span class="">{{$analog['phone']}}</span></td>
+                                        <td><span class="label label-info">{{$analog['email']}}</span></td>
+                                        <td><span class="label label-warning">{{$analog['address']}}</span></td>
+                                        <td><span class=" ">{{$analog['country']}}</span></td>
+                                        <td><span class=" ">{{$analog['message']}}</span></td>
+                                        <td><span class=" ">{{date('Y-m-d H:i:s',$analog['create_time'])}}</span></td>
+                                        <td><span class="label label-warning">{{$analog['user_name']}}</span></td>
+                                        {{--<td><a class='del-member' member_id="{{$member['id']}}" href="#">删除</a></td>--}}
                                     </tr>
                                 @endforeach
 
@@ -216,10 +212,10 @@
                     </div><!-- /.box -->
                 </div>
             </div>
+            {{$analog_list->appends(request()->all())->render()}}
         </section>
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
-
 
 <!-- jQuery 2.0.2 -->
 <script src="/Js/jquery.min.js"></script>
@@ -254,19 +250,48 @@
 <script src="/Js/AdminLTE/dashboard.js" type="text/javascript"></script>
 <script >
 
-    $('.del-column').click(function(){
-        var column_id = $(this).attr('column_id');
+
+
+
+    $('.del-member').click(function(){
+        var member_id = $(this).attr('member-id');
         layer.confirm('你确定要删除栏目吗？', {
             btn: ['取消删除','确定'] //按钮
         }, function(){
             layer.msg('取消删除', {icon: 1});
         }, function(){
-            window.location.href="{{env('APP_URL')}}"+'/admin/del-column?column_id='+column_id;
+            window.location.href="{{env('APP_URL')}}"+'/admin/del-member?member_id='+member_id;
         });
-
-
-
     });
+
+    $('.post_audit').change(function(){
+        var member_id  = $(this).attr('member-id');
+        var is_post = $(this).val();
+
+        $.ajax({
+
+            type: "GET",
+
+            url: "update-member",
+
+            data: {member_id:member_id,is_post:is_post},
+
+            dataType: "json",
+
+            success: function(data){
+                if(!data.code == 2000){
+                    layer.alert('更新失败')
+                }
+
+            },
+            error:function(){
+
+            }
+        });
+    })
+
+
+
 </script>
 </body>
 </html>

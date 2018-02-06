@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>{{env('COMPANY')}}| {{ env('COMPANY_LANG') }}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
-    <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
-    <link href="../../css/ionicons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Morris chart -->
-    <link href="../../css/morris/morris.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/morris/morris.css" rel="stylesheet" type="text/css" />
     <!-- jvectormap -->
-    <link href="../../css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
     <!-- fullCalendar -->
-    <link href="../../css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
     <!-- Daterange picker -->
-    <link href="../../css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
-    <link href="../../css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="../../css/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -84,46 +83,33 @@
 <div class="wrapper row-offcanvas row-offcanvas-left">
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="left-side sidebar-offcanvas">
+
+
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{session()->get('user_info')['avatar'] OR ''}}" class="img-circle" alt="User Image"/>
+                    <img src="{{session()->get('user_info')['avatar']}}" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
-                    <p>Hello,{{session()->get('user_info')['name']  OR ''}}</p>
+                    <p>Hello,{{session()->get('user_info')['name']}}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
-            <!-- search form -->
-        {{--<form action="#" method="get" class="sidebar-form">--}}
-        {{--<div class="input-group">--}}
-        {{--<input type="text" name="q" class="form-control" placeholder="Search..."/>--}}
-        {{--<span class="input-group-btn">--}}
-        {{--<button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>--}}
-        {{--</span>--}}
-        {{--</div>--}}
-        {{--</form>--}}
-        <!-- /.search form -->
-            <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                {{--<li class="active">--}}
-                {{--<a href="index.html">--}}
-                {{--<i class="fa fa-dashboard"></i> <span>权限管理</span>--}}
-                {{--</a>--}}
-                {{--</li>--}}
                 <?php if (!$prms) {
                     $prms = [];
-                }?>
+                }
+                ?>
                 @foreach($prms as $k=>$prm)
                     @if($prm['name'])
 
-                        <li class="treeview {{$prm['prm']=='chart'?'active':''}}">
+                        <li class="treeview {{$prm['prm']=='member'?'active':''}}">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
                                 <span>{{$prm['name']}}</span>
-                                @if($prm['prm'] != 'chart')
+                                @if($prm['prm'] != 'member')
                                     <i class="fa fa-angle-left pull-right"></i>
                                 @else
                                     <i class="fa fa-angle-right pull-down"></i>
@@ -131,7 +117,6 @@
                             </a>
 
                             <ul class="treeview-menu">
-
                                 @if($prm['prm']=='chart')
                                     <li><a href="{{env('APP_URL')}}/admin/edit-jinshu-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增金属</a>
                                     </li>
@@ -154,124 +139,77 @@
                                     <li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 新增{{$prm['name']}}</a>
                                     </li>
                                 @endif
-
-                                {{--<li><a href="{{env('APP_URL')}}/admin/edit-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 编辑{{$prm['name']}}</a></li>--}}
-                                {{--<li ><a href="{{env('APP_URL')}}/admin/del-{{$prm['prm']}}"><i class="fa fa-angle-double-right"></i> 删除{{$prm['name']}}</a></li>--}}
                             </ul>
                         </li>
                     @endif
                 @endforeach
             </ul>
         </section>
+
         <!-- /.sidebar -->
     </aside>
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
+
 
     <!-- Right side column. Contains the navbar and content of the page -->
     <aside class="right-side">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Dashboard
-                <small>Control panel</small>
+               文件
+                <small>preview of File manage</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">期货</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i>HOME</a></li>
+                <li class="active"><a href="#">文件</a></li>
+                <li >列表</li>
             </ol>
         </section>
+        <section class="content-header">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Index Member Table</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>昵称</th>
+                                    <th>电话</th>
+                                    <th>邮箱</th>
+                                    <th>描述</th>
+                                    <th>路径</th>
+                                    {{--<th>删除</th>--}}
+                                </tr>
 
-        <?php
-        $insert_key =['oil','copper','crb','hsi','sseci','dow','spx','ndx'];
-        $chinese_key = ['原油(OIL)','銅(COPPER)','商品期貨指數(CRB)','恒生指數(HSI)'
-            ,'上海綜合指數SSECI)','道瓊斯指數(DOW)','標準普爾(SPX)','納斯達克(NDX)'];
-        ?>
-        <section>
-            <div class="col-md-12">
-                <!-- general form elements disabled -->
-                <div class="box box-warning">
-                    <div class="box-header">
-                        <h3 class="box-title">
-                           期货
-                        </h3>
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                        <form role="form" action="edit-qihuo-chart" method="post">
-                            <div class="form-inline">
-                                <label>年份</label>
-                                <select name="year" id="year">
-                                    <option value="0" @if($year==0)
-                                    selected
-                                            @endif
-                                    >--请选择年份--</option>
-                                    @for($i=1990;$i<=2030;$i++)
-                                        <option value="{{$i}}"
-                                                @if($year==$i)
-                                                selected
-                                                @endif
-                                        >{{$i}}</option>
-                                    @endfor
-                                </select>
-                            </div>
-                            @foreach($insert_key as $j_k =>$item)
-                                <div class="box-footer text-center">
-                                    <button type="" class="btn btn-info">{{$chinese_key[$j_k]}}</button>
-                                </div>
-                                {{--<div class="form-inline">--}}
-                                    {{--<label>--}}
-                                        {{--日（阳图 线图 , 隔开）--}}
-                                    {{--</label>--}}
-                                    {{--<input type="text" class="form-control" name="{{$item}}_day" placeholder="Enter ... 阳图 线图 , 隔开 "--}}
-                                           {{--value="{{isset($qihuo[$item]['day'])? $qihuo[$item]['day']  :'' }}" />--}}
-                                {{--</div>--}}
-                                {{--<div class="form-inline">--}}
-                                    {{--<label>周（阳图 线图 , 隔开）</label>--}}
-                                    {{--<input type="text" class="form-control" name="{{$item}}_week" placeholder="Enter ... 阳图 线图, 隔开 "--}}
-                                           {{--value="{{isset($qihuo[$item]['week']) ? $qihuo[$item]['week'] : '' }} "   />--}}
-                                {{--</div>--}}
-                                {{--<!-- textarea -->--}}
+                                @foreach($file_list as $key=>$file)
+                                    <tr>
+                                        <td>{{$file['id']}}</td>
+                                        <td><span class="label label-success">{{$file['nick_name']}}</span>
+                                        </td>
+                                        <td><span class="label label-success">{{$file['phone']}}</span>
+                                        </td>
+                                        <td><span >{{$file['email']}}</span></td>
+                                        <td><span class="">{{$file['description']}}</span></td>
+                                        <td><span class="label label-info">{{$file['file_url']}}</span></td>
 
-                                {{--<div class="form-inline">--}}
-                                    {{--<label>月<span>阳图 线图 - <隔开></隔开>）</span></label>--}}
-                                    {{--<input type="text" class="form-control" placeholder="Enter ...阳图 线图 , 隔开" name="{{$item}}_month" value="{{isset($qihuo[$item]['month']) ? $qihuo[$item]['month'] : ''}} " >--}}
-                                {{--</div>--}}
-                                <div class="form-inline">
-                                    <label>高位</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_top" value="{{ isset($qihuo[$item]['now_top']) ? $qihuo[$item]['now_top'] : 0 }}" >
-                                </div>
+                                    </tr>
+                                @endforeach
 
-                                <div class="form-inline">
-                                    <label>低位</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_now_bottom"  value="{{ isset($qihuo[$item]['now_bottom']) ? $qihuo[$item]['now_bottom'] : 0 }}">
-                                </div>
-
-                                <div class="form-inline">
-                                    <label>历年高位</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_top"  value="{{isset($qihuo[$item]['top'])? $qihuo[$item]['top'] : 0 }}">
-                                </div>
-
-                                <div class="form-inline">
-                                    <label>历年低位</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="{{$item}}_bottom" value="{{ isset($qihuo[$item]['bottom']) ? : 0 }}">
-                                </div>
-                            @endforeach
-                            <div class="box-footer text-center">
-                                <button type="submit" class="btn btn-info">提交</button>
-                            </div>
-
-                        </form>
-                    </div><!-- /.box-body -->
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
                 </div>
-
-            </div><!--/.col (right) -->
-            <!-- /.row -->
-
-        </section><!-- /.content -->
+            </div>
+            {{$file_list->appends(request()->all())->render()}}
+        </section>
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
 <!-- jQuery 2.0.2 -->
 <script src="/Js/jquery.min.js"></script>
+<script src="/Js/layer/layer.js"></script>
 <!-- jQuery UI 1.10.3 -->
 <script src="/Js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 <!-- Bootstrap -->
@@ -300,20 +238,50 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/Js/AdminLTE/dashboard.js" type="text/javascript"></script>
+<script >
 
+
+
+
+    $('.del-member').click(function(){
+        var member_id = $(this).attr('member-id');
+        layer.confirm('你确定要删除栏目吗？', {
+            btn: ['取消删除','确定'] //按钮
+        }, function(){
+            layer.msg('取消删除', {icon: 1});
+        }, function(){
+            window.location.href="{{env('APP_URL')}}"+'/admin/del-member?member_id='+member_id;
+        });
+    });
+
+    $('.post_audit').change(function(){
+        var member_id  = $(this).attr('member-id');
+        var is_post = $(this).val();
+
+        $.ajax({
+
+            type: "GET",
+
+            url: "update-member",
+
+            data: {member_id:member_id,is_post:is_post},
+
+            dataType: "json",
+
+            success: function(data){
+                if(!data.code == 2000){
+                    layer.alert('更新失败')
+                }
+
+            },
+            error:function(){
+
+            }
+        });
+    })
+
+
+
+</script>
 </body>
 </html>
-
-<script>
-    $('.btn').click(function(){
-        if($('#year').val() == 0 ) {
-            alert('请先选择年份');
-            return false;
-        }
-    });
-    $('#year').change(function(){
-        var year = $(this).val();
-        window.location.href = '{{env("APP_URL")}}'+'/admin/edit-qihuo-chart?year='+year
-
-    })
-</script>

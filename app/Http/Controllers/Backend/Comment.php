@@ -11,6 +11,9 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Api\CommentModel;
 use App\Http\Models\Backend\AceModel;
+use App\Http\Models\Backend\AnalogModel;
+use App\Http\Models\Backend\FileModel;
+use App\Http\Models\Backend\RegisterModel;
 use Illuminate\Http\Request;
 use App\Http\Models\Backend\EventModel;
 use App\Http\Models\Backend\EconModel;
@@ -142,5 +145,52 @@ class Comment extends Controller
         ]);die;
     }
 
+    public function register(Request $request)
+    {
+        $register_db = RegisterModel::where('id','>',0);
+        $prms = json_decode(session()->get('prms_info'), true);
+        $role = json_decode(session()->get('roles_info'), true);
+
+        $page = max(1,$request->get('page')) ;
+        $register_list = $register_db->paginate(15);
+
+
+        return view('admin.register.index-register', ['register_list' => $register_list])
+            ->with(['prms' => $prms, 'roles_info' => $role]);
+    }
+
+    public function editRegister(){
+        return view('errors.503',['msg'=>'暂未开放']);
+    }
+
+
+    public function file(Request $request)
+    {
+        $file_db = FileModel::where('id','>',0);
+        $prms = json_decode(session()->get('prms_info'), true);
+        $role = json_decode(session()->get('roles_info'), true);
+
+        $page = max(1,$request->get('page')) ;
+        $file_list = $file_db->paginate(15);
+
+
+        return view('admin.file.index-file', ['file_list' => $file_list])
+            ->with(['prms' => $prms, 'roles_info' => $role]);
+    }
+
+
+    public function analog(Request $request)
+    {
+        $analog_db = AnalogModel::where('id','>',0);
+        $prms = json_decode(session()->get('prms_info'), true);
+        $role = json_decode(session()->get('roles_info'), true);
+
+
+        $analog_list = $analog_db->paginate(15);
+
+
+        return view('admin.analog.index-analog', ['analog_list' => $analog_list])
+            ->with(['prms' => $prms, 'roles_info' => $role]);
+    }
 }
 

@@ -213,6 +213,27 @@ class AdminAuthRoleSeeder extends Seeder
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
+            [
+                'id'         => 10,
+                'prm'        => 'register',
+                'name'       => '下载',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'         => 11,
+                'prm'        => 'analog',
+                'name'       => '模拟表单',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'         => 9,
+                'prm'        => 'file',
+                'name'       => '文件',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ];
         if (!\App\Http\Models\Backend\Auths::count()) {
             DB::table('auths')->truncate();
@@ -284,6 +305,28 @@ class AdminAuthRoleSeeder extends Seeder
                     'created_at' => date("Y-m-d H:i:s"),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
+                [
+                    'id'         => 5,
+                    'role_id'    => 1,
+                    'auth_id'    => 10,
+                    'created_at' => date("Y-m-d H:i:s"),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'id'         => 5,
+                    'role_id'    => 1,
+                    'auth_id'    => 11,
+                    'created_at' => date("Y-m-d H:i:s"),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'id'         => 5,
+                    'role_id'    => 1,
+                    'auth_id'    => 12,
+                    'created_at' => date("Y-m-d H:i:s"),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+
                 [
                     'id'         => 6,
                     'role_id'    => 2,
