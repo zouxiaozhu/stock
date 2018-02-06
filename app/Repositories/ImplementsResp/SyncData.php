@@ -169,9 +169,19 @@ class SyncData implements SyncDataInterface
         $data = DB::table('relative')
             ->select('*')
             ->orderBy('relative_id', 'desc')
-            ->take(1)
-            ->get();
-        return response()->success($data);
+            ->first();
+        $new_data = [
+            '倫敦黃金'  =>  (string)$data->xau,
+            '倫敦白銀'  =>  (string)$data->xag,
+            '歐元'     =>  (string)$data->eur,
+            '日元'     =>  (string)$data->jpy,
+            '英鎊'     =>  (string)$data->gbp,
+            '端郎'     =>  (string)$data->chf,
+            '澳元'     =>  (string)$data->aud,
+            '紐元'     =>  (string)$data->nzd,
+            '加元'     =>  (string)$data->cad,
+        ];
+        return response()->success($new_data);
     }
 
     /**
