@@ -23,7 +23,7 @@ class Hook extends Controller{
     public function pull(Request $request)
     {
         file_put_contents('/tmp/xx',var_export($request->all(),1),8);
-        
+        echo 111;
     }
 
 }
