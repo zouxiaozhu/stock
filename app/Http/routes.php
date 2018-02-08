@@ -119,15 +119,13 @@ Route::group(['middleware' => 'api.auth'], function () {
 Route::get('api/chart','Api\Chart\ChartController@getChart');// 获取技术图表
 Route::get('api/destory','Api\Chart\ChartController@destory');// 获取技术图表
 Route::get('api/download','Api\Chart\ChartController@setting');// 获取pdf jpg 下载地址
+Route::post('api/web-hook','Api\Hook@pull');//
 
 
 //获取融云token
 Route::group(['namespace'=> 'Api\Rongyun'], function(){
    Route::post('get_rctoken', 'Rcloud@getToken');
 });
-
-
-
 
 
 // ADMIN
