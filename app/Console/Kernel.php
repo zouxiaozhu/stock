@@ -47,5 +47,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('cron:get_analyse_en_data')->everyFiveMinutes();
         $schedule->command('cron:get_analyse_cn_data')->everyFiveMinutes();
         $schedule->command('cron:comment_count')->hourly();
+        $schedule->command('cron:price_notice')->everyMinute();
     }
 }
