@@ -80,7 +80,20 @@ class SyncData implements SyncDataInterface
             ->where('type', 1)
             ->orderBy('publish_date_time', 'desc')
             ->paginate($per_num);
-        return response()->success($data);
+        $data_arr = obj2Arr($data);
+        $list_data = $data_arr['data'];
+//        var_export($list_data);die;
+        if (!empty($list_data)) {
+            foreach ($list_data as $k => &$v) {
+                $comment_nums = DB::table('comments')
+                    ->where('post_id', $v['news_id'])
+                    ->where('type', 2)
+                    ->count();
+                $v['comment_num'] = $comment_nums;
+            }
+        }
+        $data_arr['data'] = $list_data;
+        return response()->success($data_arr);
     }
 
 
