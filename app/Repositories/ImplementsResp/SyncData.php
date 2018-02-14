@@ -101,11 +101,11 @@ class SyncData implements SyncDataInterface
         $data = isset($data[0]) ? $data[0] : [];
         $comment_num = DB::table('comments')
             ->where('post_id', $id)
-            ->where('type', 1)
+            ->where('type', 2)
             ->count();
         $like_num = DB::table('like')
             ->where('post_id', $id)
-            ->where('type', 1)
+            ->where('type', 2)
             ->count();
         $data->comment_num = $comment_num;
         $data->like_num = $like_num;
