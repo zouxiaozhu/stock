@@ -55,6 +55,7 @@ class GetAnalyseCnData extends Command
         //1.倫敦黃金
         $url = config('xmlurl.xau');
         $remote_data = xml2arr($url);
+//        var_export($remote_data);die;
         $xau_data = $remote_data['commentary'];
         array_walk($xau_data, function(&$val) {
             $val['type'] = 1;
@@ -172,7 +173,7 @@ class GetAnalyseCnData extends Command
             $update_data = [
                 $v['id'],
                 strtotime($v['date']),
-                serialize($v['title']),
+                empty($v['title']) ? serialize("每日分析") : serialize($v['title']),
                 $v['type'],
                 $v['content'],
                 time(),

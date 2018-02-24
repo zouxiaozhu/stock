@@ -143,7 +143,7 @@ class GetAnalyseEnData extends Command
             $update_data = [
                 $v['id'],
                 strtotime($v['date']),
-                serialize($v['title']),
+                empty($v['title']) ? serialize("analyse(English)") : serialize($v['title']),
                 $v['type'],
                 $v['content'],
                 time(),

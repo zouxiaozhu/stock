@@ -14,6 +14,7 @@
  */
 if (!function_exists('xml2arr')) {
     function xml2arr($url) {
+//        echo $url;die;
         //url不存在或为空返回空数组
         if (!isset($url) || empty($url)) return [];
         //获取xml数据并转换为数组返回
