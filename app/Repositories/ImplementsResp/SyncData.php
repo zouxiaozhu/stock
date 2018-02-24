@@ -294,7 +294,7 @@ class SyncData implements SyncDataInterface
         $result = obj2Arr($res);
         if (!empty($result)) {
             foreach ($result as $k => &$v) {
-                $v['title'] = unserialize($v['title']);
+                $v['title'] = empty(unserialize($v['title'])) ? '每日分析(Analyse EveryDay)' : unserialize($v['title']);
             }
         }
         return response()->success($result);

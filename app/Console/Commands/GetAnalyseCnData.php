@@ -161,6 +161,7 @@ class GetAnalyseCnData extends Command
         });
 
         $data = array_merge($xau_data, $xag_data, $eur_data, $jpy_data, $gbp_data, $chf_data, $aud_data, $nzd_data, $cad_data, $stock_data, $yes_data, $focus_data);
+//        $data = array_merge($xau_data, $xag_data, $eur_data, $jpy_data, $chf_data, $aud_data, $nzd_data, $cad_data, $stock_data, $yes_data, $focus_data);
         $this->_syncData($data);
         return true;
     }
@@ -173,7 +174,7 @@ class GetAnalyseCnData extends Command
             $update_data = [
                 $v['id'],
                 strtotime($v['date']),
-                empty($v['title']) ? serialize("每日分析") : serialize($v['title']),
+                serialize($v['title']),
                 $v['type'],
                 $v['content'],
                 time(),
