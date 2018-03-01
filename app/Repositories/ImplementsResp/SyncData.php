@@ -497,7 +497,7 @@ class SyncData implements SyncDataInterface
         $res = DB::table('screen_price')
             ->select('*');
         if (isset($data['type'])) {
-            $res = $res->where('type', $data['type']);
+            $res = $res->whereIn('type', explode(',', $data['type']));
         }
         $res = $res->get();
         $res = json_decode(json_encode($res), true);

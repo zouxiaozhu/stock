@@ -539,7 +539,7 @@ class SyncData extends Controller
         //show_type: 1竖屏,2横屏
         $data['show_type'] = intval($request->get('show_type', 1));
         if ($request->has('type')) {
-            $data['type'] = intval($request->get('type'));
+            $data['type'] = trim($request->get('type'));
         }
         $res = $this->syncData->screenPrice($data);
         return $res;
