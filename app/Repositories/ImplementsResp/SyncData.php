@@ -106,7 +106,7 @@ class SyncData implements SyncDataInterface
     {
         $data = DB::table('news')
             ->leftJoin('content', 'news.news_id', '=', 'content.content_id')
-            ->select('content.content', 'news.title', 'news.publish_date_time')
+            ->select('content.content', 'news.title', 'news.publish_date_time', 'news.image_link')
             ->where('news.news_id', $id)
             ->where('content.type', 2)
             ->take(1)
@@ -122,6 +122,7 @@ class SyncData implements SyncDataInterface
             ->count();
         $data->comment_num = $comment_num;
         $data->like_num = $like_num;
+        $data->image_link = unserialize($data->image_link);
         return response()->success($data);
     }
 
