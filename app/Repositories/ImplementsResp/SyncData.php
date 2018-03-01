@@ -72,13 +72,36 @@ class SyncData implements SyncDataInterface
      * @param \App\Repositories\RepositoryInterfaces\每页数量 $per_num
      * @return mixed
      */
-    public function newsList($per_num)
+    public function newsList($per_num, $category)
     {
-        //分类 type 1:贵金属,2:外汇3:股票4:期货
         $data = DB::table('news')
             ->select('news_id', 'title', 'publish_date_time', 'category')
-            ->where('type', 1)
-            ->orderBy('publish_date_time', 'desc')
+            ->where('type', 1);
+        //分类 $category 1:贵金属,2:外汇3:股票4:期货5:路透社
+        //贵金属
+        $gjs = ['貴金屬', '黄金', '白銀'];
+        $waihui = ['瑞郎', '歐元', '英鎊', '加元', '紐元', '澳元', '日圓', '美元'];
+        $gupiao = ['中國', '中國股市', '港股','美股'];
+        $qihuo = ['能源/石油期貨', '農產品期貨', ];
+        $lutoushe = array_merge($gjs, $waihui, $gupiao, $qihuo);
+        switch ($category) {
+            case 1:
+                $data = $data->whereIn('category', $gjs);
+                break;
+            case 2:
+                $data = $data->whereIn('category', $waihui);
+                break;
+            case 3 :
+                $data = $data->whereIn('category', $gupiao);
+                break;
+            case 4:
+                $data = $data->whereIn('category', $qihuo);
+                break;
+            default :
+                $data = $data->whereNotIn('category', $lutoushe);
+                break;
+        }
+        $data = $data->orderBy('publish_date_time', 'desc')
             ->paginate($per_num);
         $data_arr = obj2Arr($data);
         $list_data = $data_arr['data'];

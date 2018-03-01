@@ -64,7 +64,9 @@ class SyncData extends Controller
     public function newsList(Request $request)
     {
         $per_num = $request->has('per_num') ? intval($request->get('per_num')) : 10;
-        $result = $this->syncData->newsList($per_num);
+        //分类 $category 1:贵金属,2:外汇3:股票4:期货
+        $category = intval($request->get('category', 1));
+        $result = $this->syncData->newsList($per_num, $category);
         return $result;
     }
 
