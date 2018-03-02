@@ -274,7 +274,7 @@ class SyncData implements SyncDataInterface
     public function econList($params)
     {
         $data = DB::table('econ')
-            ->select('date', 'hktime', 'country', 'fname', 'quarter', 'forecast', 'lasttime')
+            ->select('*')
             ->orderBy('date', 'desc');
         if (isset($params['start_time'])) {
             $data->where('date', '>', $params['start_time']);
