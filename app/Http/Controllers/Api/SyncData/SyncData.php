@@ -145,7 +145,7 @@ class SyncData extends Controller
     public function econList(Request $request)
     {
         $data = [
-            'per_num' => $request->has('per_num') ? intval($request->get('per_num')) : 10
+            'per_num' => $request->has('per_num') ? intval($request->get('per_num')) : 20
         ];
         if ($request->has('start_time')) {
             $data['start_time'] = $request->get('start_time');
