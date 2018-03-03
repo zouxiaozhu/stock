@@ -75,7 +75,7 @@ class SyncData implements SyncDataInterface
     public function newsList($per_num, $category)
     {
         $data = DB::table('news')
-            ->select('news_id', 'title', 'publish_date_time', 'category')
+            ->select('news_id', 'title', 'publish_date_time', 'category', 'image_link')
             ->where('type', 1);
         //分类 $category 1:贵金属,2:外汇3:股票4:期货5:路透社
         //贵金属
@@ -113,6 +113,7 @@ class SyncData implements SyncDataInterface
                     ->where('type', 2)
                     ->count();
                 $v['comment_num'] = $comment_nums;
+                $v['image_link'] = empty(unserialize($v['image_link'])) ? '' : unserialize($v['image_link']);
             }
         }
         $data_arr['data'] = $list_data;
@@ -208,14 +209,14 @@ class SyncData implements SyncDataInterface
             ->orderBy('relative_id', 'desc')
             ->first();
         $new_data = [
-            '倫敦黃金'  =>  (string)$data->xau,
-            '倫敦白銀'  =>  (string)$data->xag,
-            '歐元'     =>  (string)$data->eur,
+            '伦敦黃金'  =>  (string)$data->xau,
+            '伦敦白銀'  =>  (string)$data->xag,
+            '欧元'     =>  (string)$data->eur,
             '日元'     =>  (string)$data->jpy,
-            '英鎊'     =>  (string)$data->gbp,
-            '端郎'     =>  (string)$data->chf,
+            '英镑'     =>  (string)$data->gbp,
+            '瑞郎'     =>  (string)$data->chf,
             '澳元'     =>  (string)$data->aud,
-            '紐元'     =>  (string)$data->nzd,
+            '纽元'     =>  (string)$data->nzd,
             '加元'     =>  (string)$data->cad,
         ];
         return response()->success($new_data);
@@ -358,14 +359,14 @@ class SyncData implements SyncDataInterface
      */
     public function accountRegist($data)
     {
-        $verify_params = [
-            'email' =>  $data['email'],
-            'phone' =>  $data['phone'],
-        ];
-        $verify_res = $this->_verifyExist($verify_params);
-        if (!$verify_res) {
-            return response()->error(9527, 'Account Exist');
-        }
+//        $verify_params = [
+//            'email' =>  $data['email'],
+//            'phone' =>  $data['phone'],
+//        ];
+//        $verify_res = $this->_verifyExist($verify_params);
+//        if (!$verify_res) {
+//            return response()->error(9527, 'Account Exist');
+//        }
         $res = DB::table('account_regist')->insert($data);
         return response()->success('success');
     }
@@ -535,12 +536,16 @@ class SyncData implements SyncDataInterface
                     $res[$k]['sale_sign'] = $res[$k]['sale'] >= $today_sale ? 'up' : 'down';
                     $res[$k]['buy_sign']  = $res[$k]['buy']  >= $today_buy  ? 'up' : 'down';
                     $res[$k]['time'] = date('Y-m-d H:i:s', $res[$k]['time'] / 1000);
+                } else {
+                    $res[$k]['tmp_name'] = 'TT';
                 }
             }
         } else {
             foreach ($res as $k => $v) {
                 if ($v['now'] != 'TT') {
                     $res[$k]['time'] = date('Y-m-d H:i:s', $res[$k]['time'] / 1000);
+                } else {
+                    $res[$k]['tmp_name'] = 'TT';
                 }
             }
         }

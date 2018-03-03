@@ -223,6 +223,20 @@ class SyncData extends Controller
         $user_info = $token_info;
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
 //        货币类型1=>港币,2=>美元
+
+        if ($request->hasFile('file')) {
+            $time = Carbon::now()->timestamp;
+            $file = $request->file('file');
+            $ext = $file->getClientOriginalExtension();
+            $upload_image_name = $time . mt_rand(0, 10000) .'.'. $ext;
+            $res = $file->move(env('FILE_STORAGE_PATH',''), $upload_image_name);
+            if (!$res) {
+                return $this->res_error('上传文件失败',1204);
+            }
+            $storage_path = env('FILE_STORAGE_PATH','').'/'.$upload_image_name;
+            $file_url = (env('APP_URL')).substr($storage_path,1);
+        }
+//        var_export($file_url);die;
         $data = [
             'type' => trim($request->get('type', '2')),
             'currency_type' => $request->get('currency_type', 2),
@@ -234,6 +248,7 @@ class SyncData extends Controller
             'message' => $request->get('message', '无'),
             'user_id' => $user_info['id'],
             'user_name' =>  $user_info['name'],
+            'file_url' => $file_url
         ];
         if (!$data['phone']) {
             return response()->error(1314, 'Phone Required');
