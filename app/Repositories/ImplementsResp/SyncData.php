@@ -209,8 +209,8 @@ class SyncData implements SyncDataInterface
             ->orderBy('relative_id', 'desc')
             ->first();
         $new_data = [
-            '伦敦黃金'  =>  (string)$data->xau,
-            '伦敦白銀'  =>  (string)$data->xag,
+            '伦敦黄金'  =>  (string)$data->xau,
+            '伦敦白银'  =>  (string)$data->xag,
             '欧元'     =>  (string)$data->eur,
             '日元'     =>  (string)$data->jpy,
             '英镑'     =>  (string)$data->gbp,
