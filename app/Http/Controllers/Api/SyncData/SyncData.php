@@ -222,8 +222,7 @@ class SyncData extends Controller
         }
         $user_info = $token_info;
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
-//        货币类型1=>港币,2=>美元
-
+        $file_url = '';
         if ($request->hasFile('file')) {
             $time = Carbon::now()->timestamp;
             $file = $request->file('file');
