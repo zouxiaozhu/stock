@@ -28,12 +28,11 @@ class SyncData implements SyncDataInterface
             ->where('content.type', '=', 1);
         //已发布
         if ($status == 1) {
-            $data->where('event.display_start_time', '<', $current_time)
-                 ->where('event.display_end_time', '>', $current_time);
+            $data->where('event.event_date', '<', $current_time);
         }
         //即将发布
         if ($status ==2) {
-            $data->where('event.display_start_time', '>', $current_time);
+            $data->where('event.event_date', '>', $current_time);
         }
         $data= $data->orderBy('event.event_date', 'desc')
             ->paginate($per_num);
