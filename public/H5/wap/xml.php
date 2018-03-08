@@ -1,0 +1,16 @@
+<?php
+	$a=array(
+array("°®","Û"),
+array("°­","µK"),
+array("±¦","Œš")
+);
+
+$cars = array
+  (
+  array("°®","Û"),
+  array("BMW",15,13),
+  array("Saab",5,2),
+  array("Land Rover",17,15)
+  );
+	print_r($cars);
+?>

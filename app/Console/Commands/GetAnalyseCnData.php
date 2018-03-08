@@ -89,13 +89,13 @@ class GetAnalyseCnData extends Command
             $val['lang'] = 1;   //1=>中文,2=>英文
         });
         //5.英鎊
-        $url = config('xmlurl.gbp');
-        $remote_data = xml2arr($url);
-        $gbp_data = $remote_data['commentary'];
-        array_walk($gbp_data, function(&$val) {
-            $val['type'] = 5;
-            $val['lang'] = 1;   //1=>中文,2=>英文
-        });
+//        $url = config('xmlurl.gbp');
+//        $remote_data = xml2arr($url);
+//        $gbp_data = $remote_data['commentary'];
+//        array_walk($gbp_data, function(&$val) {
+//            $val['type'] = 5;
+//            $val['lang'] = 1;   //1=>中文,2=>英文
+//        });
 
         //6.端郎
         $url = config('xmlurl.chf');
@@ -160,8 +160,8 @@ class GetAnalyseCnData extends Command
             $val['lang'] = 1;   //1=>中文,2=>英文
         });
 
-        $data = array_merge($xau_data, $xag_data, $eur_data, $jpy_data, $gbp_data, $chf_data, $aud_data, $nzd_data, $cad_data, $stock_data, $yes_data, $focus_data);
-//        $data = array_merge($xau_data, $xag_data, $eur_data, $jpy_data, $chf_data, $aud_data, $nzd_data, $cad_data, $stock_data, $yes_data, $focus_data);
+//        $data = array_merge($xau_data, $xag_data, $eur_data, $jpy_data, $gbp_data, $chf_data, $aud_data, $nzd_data, $cad_data, $stock_data, $yes_data, $focus_data);
+        $data = array_merge($xau_data, $xag_data, $eur_data, $jpy_data, $chf_data, $aud_data, $nzd_data, $cad_data, $stock_data, $yes_data, $focus_data);
         $this->_syncData($data);
         return true;
     }
