@@ -33,7 +33,7 @@ interface SyncDataInterface
      * @param $per_num  每页数量
      * @return mixed
      */
-    public function newsList($per_num);
+    public function newsList($per_num, $category);
 
     /**
      * 财经新闻详情

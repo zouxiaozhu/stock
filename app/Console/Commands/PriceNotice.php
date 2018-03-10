@@ -40,7 +40,7 @@ class PriceNotice extends Command
     {
         $url = 'http://www3.mw801.com/gen_quote/flat.txt';
         set_time_limit(0);
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= 15; $i++) {
             sleep(3);
             $remote_data = file_get_contents($url);
 //        var_export($remote_data);die;

@@ -1,0 +1,410 @@
+  <!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>在线留言</title>
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,target-densitydpi=medium"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="email=no" name="format-detection" />
+<link type="text/css" rel="stylesheet" href="../css/index.css??ver1" >
+<link type="text/css" rel="stylesheet" href="../css/base.css" />
+<script type="text/javascript">
+	    var user_name = "muying05";
+    var aGlobalBannerHeight = {};
+</script>
+<script type="text/javascript" src="../include/cookies.js"></script>
+<script src="../include/jquery-1.7.1.min.js" language="JavaScript" ></script>
+<script type="text/javascript" src="../js/wap/nav.js?ver1"></script>
+<script type="text/javascript" src="../js/wap/swipe.js?ver1"></script>
+<script type="text/javascript" src="../js/wap/ajax_info.js?ver1"></script>
+<script type="text/javascript" src="../js/wap/public.js?ver1"></script>
+<link type="text/css" rel="stylesheet" href="../css/web_frame.css??ver1" />
+<link type="text/css" rel="stylesheet" href="../css/wap/change_module.css?ver1" />
+<link id="webSkinCss" type="text/css" rel="stylesheet" href="../templates/wapother14/css/webskin.css?ver1" />
+<link id="webSkinCss" type="text/css" rel="stylesheet" href="../templates/wapother14/skin_14/style.css?ver1" />
+<link type="text/css" rel="stylesheet" href="../css/wap/icomoon_style.css?ver1" />
+
+   <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/wap/spectrum.css">
+  <!-- 图标文字 -->
+  <link rel="stylesheet" href="../css/tubiao/gwcFont.css">
+  <link rel="stylesheet" href="../css/tubiao/indexFont.css">
+  <link rel="stylesheet" href="../css/tubiao/qqFont.css">
+  <link rel="stylesheet" href="../css/tubiao/helpFont.css">
+  <link rel="stylesheet" href="../css/tubiao/telFont.css">
+  <link rel="stylesheet" href="../css/tubiao/shopsFont.css">
+  <link rel="stylesheet" href="../css/tubiao/classifyFont.css">
+  <link rel="stylesheet" href="../css/tubiao/fxFont.css">
+  <link rel="stylesheet" href="../css/tubiao/hbqFont.css">
+  <link rel="stylesheet" href="../css/tubiao/memberFont.css">
+  <link rel="stylesheet" href="../css/tubiao/hykFont.css">
+  <link rel="stylesheet" href="../css/tubiao/kfFont.css">
+  <link rel="stylesheet" href="../css/tubiao/lyFont.css">
+  <link rel="stylesheet" href="../css/tubiao/forumFont.css">
+  <link rel="stylesheet" href="../css/tubiao/freeFont.css">
+  <link rel="stylesheet" href="../css/tubiao/tryoutFont.css">
+  <link rel="stylesheet" href="../css/tubiao/tgFont.css">
+  <link rel="stylesheet" href="../css/tubiao/positionFont.css">
+  <link rel="stylesheet" href="../css/tubiao/wdFont.css">
+  <link rel="stylesheet" href="../css/tubiao/xsgFont.css">
+  <link rel="stylesheet" href="../css/tubiao/yyFont.css">
+  <!-- end -->
+  <link rel="stylesheet" href="../css/iconSet.css">
+    <link type="text/css" rel="stylesheet" href="../images/wap/web_style/module_style/Module_style.css?ver1" />
+<link type="text/css" rel="stylesheet" href="../images/wap/web_style/hmo_style/HMo_style.css?ver1" />
+    <link type="text/css" rel="stylesheet" href="book.css" />
+<script src="../js/tj/model_banner.js?ver1" type="text/javascript"></script>
+<script src="../../admin.dlszywz.com/ueditor/ueditor.parse.js"></script>
+<style type="text/css">
+  .ev_list_data_input input{ width:100%; border:0;}
+  .ev_list_data_textfield textarea{ width:100%; border:0;}
+  .commentListItem dd > .pics span{height:28px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; width:100px;}
+</style>
+<script>
+  $(function(){
+    $(".ev_list_data_ddxk").click(function(){
+     $(this).addClass("ev_list_data_ddxkcur").siblings().removeClass("ev_list_data_ddxkcur");
+     $(this).find("input").attr("checked", true);
+    });
+    $(".ev_list_data_dfxk").click(function(){
+      if($(this).hasClass("ev_list_data_ddfkcur")){
+      $(this).removeClass("ev_list_data_ddfkcur");
+      $(this).find("input").attr("checked", false);
+    }else{
+      $(this).addClass("ev_list_data_ddfkcur");
+      $(this).find("input").attr("checked","checked");
+    }
+    });
+    $(".divSelect").each(function(){
+      var divSelect = $(this);
+      $(this).find(".selectObj").on("change",function(){
+        var v = $(this).find("option:selected").text();
+        divSelect.find("span").html(v);
+      })
+    });
+
+  })
+
+</script>
+</head>
+<body >
+<div class="wrapper" id="wrapper">
+    <div class="mainContainer">
+    <div class="onMessage showProInfo">
+      <div class="tit"><strong>在线留言</strong></div>
+      <div class="con">
+        <!--提交留言表单 start-->
+          <div class="MessageList">
+            <div class="leftLine"></div>
+                <h3 id="guestBook"><span>点击留言</span></h3>
+                <dl class="commentListItem" id="contents">
+                                  </dl>
+                      </div>
+        <!--提交留言表单 end-->
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="myMeArea showProInfo" id="addGuestBook">
+  <div class="myMe">
+  <div class="myMeTit"><em class="back">返回</em><h3>发布留言</h3><em class="enter" id="queryMySubmit">确定</em></div>
+  <div class="myMeCon">
+    <form action="/action/wap_guest_book.php?username=muying05&channel_id=14669353" method="post" name="myform" id="myform">
+    <ul class="inputMyMe">
+          <li>
+        <input type="text" class="tInputObj" name="title" maxlength="60" id="title" placeholder="留言标题" />
+        <p class="hint" id="titleError"></p>
+      </li>
+      <li>
+        <input type="text" class="tInputObj" name="name" maxlength="20" id="name" placeholder="您的姓名" />
+        <p class="hint" id="nameError"></p>
+      </li>
+      <li>
+        <input type="text" class="tInputObj" name="tel" maxlength="20" id="tel" placeholder="电话或手机" />
+        <p class="hint" id="telError"></p>
+      </li>
+      <li>
+        <textarea class="tInputObj" name="content" maxlength="250"  id="con" placeholder="留言内容"></textarea>
+        <p class="hint" id="conError"></p>
+      </li>
+            <li class="li-yzm q">
+        <input type="text" class="tInputObj" name="yzm" maxlength="4" id="yzm" placeholder="验证码" />
+        <span class="yzm"><img name="vcodesrc" id="vcodesrc" src="../include/captcha/captcha.php"></span>
+        <p class="hint" id="yzmError"></p>
+      </li>
+      <li class="li-b">
+        <input type="hidden" name="add_tag" id="add_tag" value="0" />
+        <input class="eButObj" type="button" id="mySubmit" value="提交" />
+      </li>
+    </ul>
+    </form>
+  </div>
+  </div>
+</div>
+<div class="myMeArea showProInfo" id="reGuestBook">
+  <div class="myMe">
+  <div class="myMeTit"><em class="back">返回</em><h3>回复留言</h3><em class="enter" id="queryReSubmit">确定</em></div>
+  <div class="myMeCon">
+    <form action="/action/wap_guest_book.php?username=muying05&channel_id=14669353" method="post" name="myReForm" id="myReForm">
+    <ul class="inputMyMe">
+      <li>
+        <textarea class="tInputObj" name="re_con" maxlength="250"  id="re_con" placeholder="留言内容"></textarea>
+        <p class="hint" id="reConError"></p>
+      </li>
+      <li class="li-yzm q">
+        <input type="text" class="tInputObj" name="re_yzm" maxlength="4" id="re_yzm" placeholder="验证码" />
+        <span class="yzm"><img name="re_vcodesrc" id="reVcodesrc" src="../include/captcha/captcha.php"></span>
+        <p class="hint" id="reYzmError"></p>
+      </li>
+      <li class="li-b">
+        <input type="hidden" name="re_tag" id="re_tag" value="0" />
+        <input type="hidden" name="re_id" id="re_id" value="0" />
+        <input class="eButObj" type="button" id="myReSubmit" value="回复" />
+      </li>
+      <li class="li-b" style="display:none;">
+        <input type="text">
+      </li>
+    </ul>
+    </form>
+  </div>
+  </div>
+</div>
+ <center></center>
+<script type="text/javascript" src="../js/wap/self_edit.js?ver1"></script>
+
+
+      <!--文章详细页不显示底部-->
+        <div class="toolMenuBg" id="tool_menu_bg" ></div>
+    <div class="toolMenu" id="tool_menu" >
+      <menu class="toolBut q">
+                      <li id="toolHome" sorts="13" style=" width:20%;">
+                        <a id="index_link" href="../wap_muying05.html?showWelcome=1"  >
+              <b class="icon" id="icon_1273065">
+                                <img src="../images/wap/toolHome_icon.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_12730651">
+                <img src="/images/wap/toolHome_icon.png" />
+              </b> -->
+              <strong>首页</strong>
+                          </a>
+          </li>
+                <li id="toolTel" sorts="12" style=" width:20%;">
+                        <a  href="tel_3A"  >
+              <b class="icon" id="icon_1273062">
+                                <img src="../images/wap/toolTel_icon.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_12730621">
+                <img src="/images/wap/toolTel_icon.png" />
+              </b> -->
+              <strong>电话</strong>
+                          </a>
+          </li>
+                <li id="toolTelMessage" sorts="11" style="display: none; width:20%;">
+                        <a  href="sms_3A"  >
+              <b class="icon" id="icon_1273063">
+                                <img src="../images/wap/toolMessage_icon.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_12730631">
+                <img src="/images/wap/toolMessage_icon.png" />
+              </b> -->
+              <strong>信息</strong>
+                          </a>
+          </li>
+                <li id="toolQQ" sorts="10" style="display: none; width:20%;">
+                        <a  href="../../wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes"  >
+              <b class="icon" id="icon_1273069">
+                                <img src="../images/wap/toolQQ_icon.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_12730691">
+                <img src="/images/wap/toolQQ_icon.png" />
+              </b> -->
+              <strong>QQ</strong>
+                          </a>
+          </li>
+                <li id="tootMessage" sorts="9" style=" width:20%;">
+                        <a  href="guest_book.php?username=muying05&channel_id=14669353"  >
+              <b class="icon" id="icon_1273067">
+                                <img src="../images/wap/toolGuestbook_icon.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_12730671">
+                <img src="/images/wap/toolGuestbook_icon.png" />
+              </b> -->
+              <strong>留言</strong>
+                          </a>
+          </li>
+                <li id="toolMap" sorts="8" style=" width:20%;">
+                        <a  href="map.php?username=muying05"  >
+              <b class="icon" id="icon_1273064">
+                                <img src="../images/wap/toolMap_icon.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_12730641">
+                <img src="/images/wap/toolMap_icon.png" />
+              </b> -->
+              <strong>位置</strong>
+                          </a>
+          </li>
+                <li id="toolShoppingCar" sorts="7" style="display: none; width:20%;">
+                        <a  href="../dom/sc_shopcar_add.php?username=muying05&wap=1"  >
+              <b class="icon" id="icon_1273068">
+                                <img src="../images/wap/toolShoppingCar_icon.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_12730681">
+                <img src="/images/wap/toolShoppingCar_icon.png" />
+              </b> -->
+              <strong>购物</strong>
+                          </a>
+          </li>
+                <li id="toolMember" sorts="6" style=" width:20%;">
+                        <a  href="../dom/denglu.php?username=muying05&wap=1"  >
+              <b class="icon" id="icon_1273066">
+                                <img src="../images/wap/toolMember_icon.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_12730661">
+                <img src="/images/wap/toolMember_icon.png" />
+              </b> -->
+              <strong>会员</strong>
+                          </a>
+          </li>
+                <li id="tooltoolDistributionXiaoD" sorts="5" style="display: none; width:20%;">
+                        <a  href="distribution_shop/check_distribution_status.php?username=muying05&wap=1"  >
+              <b class="icon" id="icon_2290976">
+                                <img src="../images/wap/tooltoolDistributionXiaoD.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_22909761">
+                <img src="/images/wap/tooltoolDistributionXiaoD.png" />
+              </b> -->
+              <strong>分销小店</strong>
+                          </a>
+          </li>
+                <li id="toolVoiceSearch" sorts="4" style="display: none; width:20%;">
+                        <a  href="voicesearch.php?username=muying05&wap=1"   style = "display: none;" >
+              <b class="icon" id="icon_2290975">
+                                <img src="../images/wap/toolVoiceSearch.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_22909751">
+                <img src="/images/wap/toolVoiceSearch.png" />
+              </b> -->
+              <strong>语音</strong>
+                          </a>
+          </li>
+                <li id="toolProClass" sorts="3" style="display: none; width:20%;">
+                        <a  href="proclass.php?username=muying05&wap=1"  >
+              <b class="icon" id="icon_2290974">
+                                <img src="../images/wap/toolProductClass.png" />
+                              </b>
+              <!-- <b class="icon" id="icon_22909741">
+                <img src="/images/wap/toolProductClass.png" />
+              </b> -->
+              <strong>分类</strong>
+                          </a>
+          </li>
+                  </menu>
+    </div>
+        <span class="backTop" id="back_top"><em></em></span>
+  <!--微名片详细页不显示导航-->
+    <div class="fixedNavBut" id="fixed_nav_but" style="display:block;">
+    <div class="navMoreBut_2">
+      <i class="i-1"></i>
+      <i class="i-2"></i>
+      <i class="i-3"></i>
+      <b class="b-1"></b>
+      <b class="b-2"></b>
+      <b class="b-3"></b>
+    </div>
+  </div>
+
+
+    <div id="NMore" class="NMore_1002" state="close">
+      <em class="NMTip"></em>
+      <ul>
+          <li >
+          <a id="foot_index_link"  href="../wap_muying05.html?showWelcome=1"><span>&#39318;&#39029;</span></a></li>
+                                                <li ><a   href="../muying05/wap_doc/14669351_0_0_0.html"><span>公司新闻</span></a></li>
+                          <li ><a   href="../muying05/wap_pro/14669350_0_0_0.html"><span>公司产品</span></a></li>
+                                                         <li ><a   href="../muying05/wap_item/list_14669349_0.html"><span>关于我们</span></a></li>
+                                  </ul>
+    </div>
+         <div class="Nzz" id="Nzz"></div>
+  <script type="text/javascript">
+$(function(){
+  if (!$('.ev_t_top').length && !$('.ev_t_product_pj_tit').length) {
+    $('#wxAndAppShowHtml').removeClass('content_margin');
+  }
+  });
+$(".baiduEditorTxtModule img").each(function(){
+  var w = $(this).width();
+  if(w > 320){
+    $(this).css({'width':'100%','height':'auto'});
+}
+});
+//判断是否为微信
+function is_weixn(){
+  var ua = navigator.userAgent.toLowerCase();
+  if(ua.match(/MicroMessenger/i)=="micromessenger") {
+    $('#wxAndAppShowHtml').show();
+     return false;
+  } else {
+    $('#wxAndAppShowHtml').hide();
+    return true;
+  }
+}
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r   = window.location.search.substr(1).match(reg);
+     if(r!=null){
+       return  unescape(r[2]);
+     }
+    return '';
+}
+var is_weixn = is_weixn();
+if (is_weixn){
+  writeCookie('openid','',168);
+  var shareModule = $('#shareModule li');
+  if (shareModule.length > 0 ){
+    shareModule.find('.weixin').parent().remove();
+  }
+}else {
+  var openid = GetQueryString('openid');
+  if (!readCookie('openid')){
+    writeCookie('openid',openid);
+  }
+}
+
+</script>
+<script language="javascript">
+  var windowW = $(window).width(),windowH = $(window).height();
+  $(window).resize(function(){
+      })
+$(function(){
+  });
+  
+uParse('.ev_t_product_xq_con', {
+  rootPath: '../../admin.ev123.com/ueditor/default.htm'
+});
+uParse('.ev_t_product_xq_new_div', {
+  rootPath: '../../admin.ev123.com/ueditor/default.htm'
+});
+uParse('.articleC', {
+  rootPath: '../../admin.ev123.com/ueditor/default.htm'
+});
+uParse('.baiduEditorTxtModule', {
+  rootPath: '../../admin.ev123.com/ueditor/default.htm'
+});
+</script>
+</div>
+   
+<!--
+-->
+ <script language="javascript">
+    var iUserUserId = 0;
+    var iGuestBook = 1
+    var iReGuestBook = 1
+    var form_str = 1;
+ </script>
+ <script type="text/javascript" src="../js/wap/guest_book.js"></script>
+</body>
+</html>

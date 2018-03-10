@@ -28,12 +28,11 @@ class SyncData implements SyncDataInterface
             ->where('content.type', '=', 1);
         //已发布
         if ($status == 1) {
-            $data->where('event.display_start_time', '<', $current_time)
-                 ->where('event.display_end_time', '>', $current_time);
+            $data->where('event.event_date', '<', $current_time);
         }
         //即将发布
         if ($status ==2) {
-            $data->where('event.display_start_time', '>', $current_time);
+            $data->where('event.event_date', '>', $current_time);
         }
         $data= $data->orderBy('event.event_date', 'desc')
             ->paginate($per_num);
@@ -72,15 +71,52 @@ class SyncData implements SyncDataInterface
      * @param \App\Repositories\RepositoryInterfaces\每页数量 $per_num
      * @return mixed
      */
-    public function newsList($per_num)
+    public function newsList($per_num, $category)
     {
-        //分类 type 1:贵金属,2:外汇3:股票4:期货
         $data = DB::table('news')
-            ->select('news_id', 'title', 'publish_date_time', 'category')
-            ->where('type', 1)
-            ->orderBy('publish_date_time', 'desc')
+            ->select('news_id', 'title', 'publish_date_time', 'category', 'image_link')
+            ->where('type', 1);
+        //分类 $category 1:贵金属,2:外汇3:股票4:期货5:路透社
+        //贵金属
+        $gjs = ['貴金屬', '黄金', '白銀'];
+        $waihui = ['瑞郎', '歐元', '英鎊', '加元', '紐元', '澳元', '日圓', '美元'];
+        $gupiao = ['中國', '中國股市', '港股','美股'];
+        $qihuo = ['能源/石油期貨', '農產品期貨', ];
+        $lutoushe = array_merge($gjs, $waihui, $gupiao, $qihuo);
+        switch ($category) {
+            case 1:
+                $data = $data->whereIn('category', $gjs);
+                break;
+            case 2:
+                $data = $data->whereIn('category', $waihui);
+                break;
+            case 3 :
+                $data = $data->whereIn('category', $gupiao);
+                break;
+            case 4:
+                $data = $data->whereIn('category', $qihuo);
+                break;
+            default :
+                $data = $data->whereNotIn('category', $lutoushe);
+                break;
+        }
+        $data = $data->orderBy('publish_date_time', 'desc')
             ->paginate($per_num);
-        return response()->success($data);
+        $data_arr = obj2Arr($data);
+        $list_data = $data_arr['data'];
+//        var_export($list_data);die;
+        if (!empty($list_data)) {
+            foreach ($list_data as $k => &$v) {
+                $comment_nums = DB::table('comments')
+                    ->where('post_id', $v['news_id'])
+                    ->where('type', 2)
+                    ->count();
+                $v['comment_num'] = $comment_nums;
+                $v['image_link'] = empty(unserialize($v['image_link'])) ? '' : unserialize($v['image_link']);
+            }
+        }
+        $data_arr['data'] = $list_data;
+        return response()->success($data_arr);
     }
 
 
@@ -93,7 +129,7 @@ class SyncData implements SyncDataInterface
     {
         $data = DB::table('news')
             ->leftJoin('content', 'news.news_id', '=', 'content.content_id')
-            ->select('content.content', 'news.title', 'news.publish_date_time')
+            ->select('content.content', 'news.title', 'news.publish_date_time', 'news.image_link')
             ->where('news.news_id', $id)
             ->where('content.type', 2)
             ->take(1)
@@ -101,14 +137,15 @@ class SyncData implements SyncDataInterface
         $data = isset($data[0]) ? $data[0] : [];
         $comment_num = DB::table('comments')
             ->where('post_id', $id)
-            ->where('type', 1)
+            ->where('type', 2)
             ->count();
         $like_num = DB::table('like')
             ->where('post_id', $id)
-            ->where('type', 1)
+            ->where('type', 2)
             ->count();
         $data->comment_num = $comment_num;
         $data->like_num = $like_num;
+        $data->image_link = unserialize($data->image_link);
         return response()->success($data);
     }
 
@@ -171,14 +208,14 @@ class SyncData implements SyncDataInterface
             ->orderBy('relative_id', 'desc')
             ->first();
         $new_data = [
-            '倫敦黃金'  =>  (string)$data->xau,
-            '倫敦白銀'  =>  (string)$data->xag,
-            '歐元'     =>  (string)$data->eur,
+            '伦敦黄金'  =>  (string)$data->xau,
+            '伦敦白银'  =>  (string)$data->xag,
+            '欧元'     =>  (string)$data->eur,
             '日元'     =>  (string)$data->jpy,
-            '英鎊'     =>  (string)$data->gbp,
-            '端郎'     =>  (string)$data->chf,
+            '英镑'     =>  (string)$data->gbp,
+            '瑞郎'     =>  (string)$data->chf,
             '澳元'     =>  (string)$data->aud,
-            '紐元'     =>  (string)$data->nzd,
+            '纽元'     =>  (string)$data->nzd,
             '加元'     =>  (string)$data->cad,
         ];
         return response()->success($new_data);
@@ -237,7 +274,7 @@ class SyncData implements SyncDataInterface
     public function econList($params)
     {
         $data = DB::table('econ')
-            ->select('date', 'hktime', 'country', 'fname', 'quarter', 'forecast', 'lasttime')
+            ->select('*')
             ->orderBy('date', 'desc');
         if (isset($params['start_time'])) {
             $data->where('date', '>', $params['start_time']);
@@ -281,7 +318,7 @@ class SyncData implements SyncDataInterface
         $result = obj2Arr($res);
         if (!empty($result)) {
             foreach ($result as $k => &$v) {
-                $v['title'] = unserialize($v['title']);
+                $v['title'] = empty(unserialize($v['title'])) ? '每日分析(Analyse EveryDay)' : unserialize($v['title']);
             }
         }
         return response()->success($result);
@@ -321,14 +358,14 @@ class SyncData implements SyncDataInterface
      */
     public function accountRegist($data)
     {
-        $verify_params = [
-            'email' =>  $data['email'],
-            'phone' =>  $data['phone'],
-        ];
-        $verify_res = $this->_verifyExist($verify_params);
-        if (!$verify_res) {
-            return response()->error(9527, 'Account Exist');
-        }
+//        $verify_params = [
+//            'email' =>  $data['email'],
+//            'phone' =>  $data['phone'],
+//        ];
+//        $verify_res = $this->_verifyExist($verify_params);
+//        if (!$verify_res) {
+//            return response()->error(9527, 'Account Exist');
+//        }
         $res = DB::table('account_regist')->insert($data);
         return response()->success('success');
     }
@@ -483,7 +520,7 @@ class SyncData implements SyncDataInterface
         $res = DB::table('screen_price')
             ->select('*');
         if (isset($data['type'])) {
-            $res = $res->where('type', $data['type']);
+            $res = $res->whereIn('type', explode(',', $data['type']));
         }
         $res = $res->get();
         $res = json_decode(json_encode($res), true);
@@ -498,12 +535,16 @@ class SyncData implements SyncDataInterface
                     $res[$k]['sale_sign'] = $res[$k]['sale'] >= $today_sale ? 'up' : 'down';
                     $res[$k]['buy_sign']  = $res[$k]['buy']  >= $today_buy  ? 'up' : 'down';
                     $res[$k]['time'] = date('Y-m-d H:i:s', $res[$k]['time'] / 1000);
+                } else {
+                    $res[$k]['tmp_name'] = 'TT';
                 }
             }
         } else {
             foreach ($res as $k => $v) {
                 if ($v['now'] != 'TT') {
                     $res[$k]['time'] = date('Y-m-d H:i:s', $res[$k]['time'] / 1000);
+                } else {
+                    $res[$k]['tmp_name'] = 'TT';
                 }
             }
         }

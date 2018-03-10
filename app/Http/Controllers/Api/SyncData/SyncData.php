@@ -64,7 +64,9 @@ class SyncData extends Controller
     public function newsList(Request $request)
     {
         $per_num = $request->has('per_num') ? intval($request->get('per_num')) : 10;
-        $result = $this->syncData->newsList($per_num);
+        //分类 $category 1:贵金属,2:外汇3:股票4:期货
+        $category = intval($request->get('category', 1));
+        $result = $this->syncData->newsList($per_num, $category);
         return $result;
     }
 
@@ -143,7 +145,7 @@ class SyncData extends Controller
     public function econList(Request $request)
     {
         $data = [
-            'per_num' => $request->has('per_num') ? intval($request->get('per_num')) : 10
+            'per_num' => $request->has('per_num') ? intval($request->get('per_num')) : 20
         ];
         if ($request->has('start_time')) {
             $data['start_time'] = $request->get('start_time');
@@ -220,7 +222,20 @@ class SyncData extends Controller
         }
         $user_info = $token_info;
 //        开户类型1=>黄金/白银，2=>外汇，3=>股票,4=>期货期权
-//        货币类型1=>港币,2=>美元
+        $file_url = '';
+        if ($request->hasFile('file')) {
+            $time = Carbon::now()->timestamp;
+            $file = $request->file('file');
+            $ext = $file->getClientOriginalExtension();
+            $upload_image_name = $time . mt_rand(0, 10000) .'.'. $ext;
+            $res = $file->move(env('FILE_STORAGE_PATH',''), $upload_image_name);
+            if (!$res) {
+                return $this->res_error('上传文件失败',1204);
+            }
+            $storage_path = env('FILE_STORAGE_PATH','').'/'.$upload_image_name;
+            $file_url = (env('APP_URL')).substr($storage_path,1);
+        }
+//        var_export($file_url);die;
         $data = [
             'type' => trim($request->get('type', '2')),
             'currency_type' => $request->get('currency_type', 2),
@@ -232,6 +247,7 @@ class SyncData extends Controller
             'message' => $request->get('message', '无'),
             'user_id' => $user_info['id'],
             'user_name' =>  $user_info['name'],
+            'file_url' => $file_url
         ];
         if (!$data['phone']) {
             return response()->error(1314, 'Phone Required');
@@ -539,7 +555,7 @@ class SyncData extends Controller
         //show_type: 1竖屏,2横屏
         $data['show_type'] = intval($request->get('show_type', 1));
         if ($request->has('type')) {
-            $data['type'] = intval($request->get('type'));
+            $data['type'] = trim($request->get('type'));
         }
         $res = $this->syncData->screenPrice($data);
         return $res;
