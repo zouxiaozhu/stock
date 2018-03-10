@@ -191,7 +191,8 @@
                                 @foreach($analog_list as $key=>$analog)
                                     <tr>
                                         <td>{{$analog['id']}}</td>
-                                        <td><span class="label label-success">{{$type[$analog['type']]}}</span>
+                                        <?php $index = explode(',',$analog['type']);?>
+                                        <td><span class="label label-success">{{$type[$index['0']] or ''}}</span>
                                         </td>
                                         <td><span class="label label-success">{{$analog['member_name']}}</span>
                                         </td>
