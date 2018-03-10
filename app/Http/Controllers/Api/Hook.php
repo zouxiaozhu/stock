@@ -32,8 +32,8 @@ class Hook extends Controller{
 
     public function test()
     {
-        $a = file_get_contents('/home/wwwroot/shell/GitSign.php');
-        var_export($a);
+
+        var_export(date('Y-m-d H:i:s'));
         var_export(1111);
     }
 
