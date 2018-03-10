@@ -18,7 +18,7 @@ class Hook extends Controller{
     {
         $this->token =  Config::get('hook.hook_token');
         $token = $request->get('token','');
-        if(!$token) echo 'pull failed';die;
+        if(!$token) {echo 'pull failed';die;}
     }
 
 
