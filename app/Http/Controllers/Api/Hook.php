@@ -25,8 +25,8 @@ class Hook extends Controller{
     public function pull()
     {
 
-        file_put_contents('/home/wwwroot/shell/GitSign.php',1);
-        file_put_contents('/home/wwwroot/shell/GitSign_log.php',"ok".PHP_EOL);
+        file_put_contents('/etc/GitSign.php',1);
+        file_put_contents('/etc/GitSign_log.php',"ok".PHP_EOL);
         echo 111;
     }
 
