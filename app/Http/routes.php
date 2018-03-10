@@ -170,6 +170,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('admin/edit-column', 'Backend\Column@addColumn');
     Route::get('admin/del-column', 'Backend\Column@delColumn');
     Route::get('admin/index-column', 'Backend\Column@column');
+    Route::get('admin/post_infos', 'Backend\Column@post_infos');
 
     Route::post('admin/add-role', 'Backend\RoleController@updateRole');
     Route::get('admin/add-role', 'Backend\RoleController@addRole');
@@ -220,3 +221,5 @@ Route::group(['middleware' => 'admin.auth'], function () {
 });
 
 Route::post('service/upload', 'Service\ImagesController@image');
+Route::get('api/pull', 'Api\Hook@pull');
+Route::get('api/test', 'Api\Hook@test');

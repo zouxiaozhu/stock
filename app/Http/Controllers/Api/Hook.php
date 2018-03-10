@@ -14,16 +14,26 @@ use Illuminate\Support\Facades\Config;
 class Hook extends Controller{
     protected  $token ;
 
-    public function __construct()
+    public function __construct(Request $request)
     {
         $this->token =  Config::get('hook.hook_token');
+        $token = $request->get('token','');
+        if(!$token) echo 'pull failed';die;
     }
 
 
-    public function pull(Request $request)
+    public function pull()
     {
-        file_put_contents('/tmp/xx',var_export($request->all(),1),8);
+
+        file_put_contents('/home/wwwroot/shell/GitSign.php',1);
+        file_put_contents('/home/wwwroot/shell/GitSign_log.php',"ok".PHP_EOL);
         echo 111;
+    }
+
+    public function test()
+    {
+        $a = file_get_contents('/home/wwwroot/shell/GitSign.php');
+        var_export($a);
     }
 
 }
