@@ -221,5 +221,5 @@ Route::group(['middleware' => 'admin.auth'], function () {
 });
 
 Route::post('service/upload', 'Service\ImagesController@image');
-Route::get('api/pull', 'Api\Hook@pull');
-Route::get('api/test', 'Api\Hook@test');
+Route::any('api/pull', 'Api\Hook@pull');
+Route::any('api/test', 'Api\Hook@test');
