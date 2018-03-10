@@ -213,11 +213,34 @@
                                 <input type="text" name="url" class="form-control" value="{{$column_info['url_link'] or ''}}">
                             </div>
 
-                            {{--<div class="form-group">--}}
-                                {{--<label>排序</label>--}}
-                                {{--<input type="number" min="1" class="form-control" placeholder="Enter ..." name="sort" value="{{$column_info['sort'] or ''}}" >--}}
-                            {{--</div>--}}
+                            <div class="form-group">
+                                <label>板块</label>
+                                <select name="column" id="column">
+                                    @foreach($all_column as $k_c=>$c)
+                                    <option value="{{$k_c}}"
+                                        @if(isset($column_info['column']) and $column_info['column'] == $k_c)
+                                            selected
+                                            @endif
+                                    >{{$c}}</option>
+                                    @endforeach
 
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>内容</label>
+                                <select name="content" id="content" >
+
+                                    @foreach($post_infos  as $p=>$post)
+                                        <option value="{{$post['id']}}"
+                                                @if(                                            $post['id'] ==$column_info['content_id'])
+                                                selected
+                                                @endif
+                                        >{{$post['content']}}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
                             <div class="radio">
                                 <label>
                                     显示: <input type="radio" name="is_show" id="optionsRadios3" value='1'
@@ -280,4 +303,42 @@
 </html>
 
 <script>
+    $("#column").change(function(){
+
+        $.ajax({
+
+            type: "get",
+
+            url: "post_infos",
+
+            data: {column:$("#column").val()},
+
+            dataType: "json",
+
+            success: function(data){
+                console.log(data);
+                var str = '';
+                for (post in data){
+                    str += "<option value="
+                    + post +">"+ data[post]['content'] +"</option>";
+                }
+
+                $('#content').find("option").remove();
+                $('#content').append(str)
+
+                {{--window.location.href = '{{env("APP_URL")}}'+'/admin/home'--}}
+            },
+            error:function(){
+
+            }
+        });
+
+
+
+    })
+
+
+
+
+
 </script>

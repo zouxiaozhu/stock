@@ -775,7 +775,19 @@ class SyncData extends Controller
      */
     public function lunboIndex(Request $request)
     {
-        $res = DB::table('column')->select('url', 'url_link')->where('is_show', 1)->take(5)->get();
+        $proctrols = 'appLink';
+        $res = DB::table('column')->select('url', 'url_link', 'content_id', 'column')->where('is_show', 1)->take(5)->get();
+        $res = obj2Arr($res);
+
+        foreach ($res as $k=>$v){
+            if(strtolower($v['url_link']) == strtolower($proctrols = 'appLink')){
+                $tmp = array_filter([$proctrols, $v['column'], $v['content_id']]);
+
+                $res[$k]['url_link'] = join('_',$tmp);
+            }
+            unset($tmp, $res[$k]['content_id'], $res[$k]['column']);
+
+        }
         return response()->success($res);
     }
 

@@ -20,6 +20,8 @@ class CreateColumnTable extends Migration
             $table->string('pic')->comment('pic');
             $table->string('url')->comment('url');
             $table->enum('is_show',['0','1'])->comment('是否显示')->dafault(1);
+            $table->string('column')->comment('跳转板块名称')->dafault('');
+            $table->string('content_id')->comment('跳转内容地址id')->dafault(0);
             $table->timestamps();
         });
     }
