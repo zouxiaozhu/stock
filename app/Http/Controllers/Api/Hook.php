@@ -32,7 +32,7 @@ class Hook extends Controller{
 
     public function test()
     {
-
+        echo 222;
         var_export(date('Y-m-d H:i:s'));
         var_export(1111);
     }
