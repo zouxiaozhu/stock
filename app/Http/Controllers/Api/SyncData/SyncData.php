@@ -781,11 +781,20 @@ class SyncData extends Controller
 
         foreach ($res as $k=>$v){
             if(strtolower($v['url_link']) == strtolower($proctrols = 'appLink')){
-                $tmp = array_filter([$proctrols, $v['column'], $v['content_id']]);
+//                $tmp = array_filter([$proctrols, $v['column'], $v['content_id']]);
+                $tmp_url_link = $proctrols;
 
-                $res[$k]['url_link'] = join('_',$tmp);
+                if($v['column']){
+                    $tmp_url_link .= "_{$tmp_url_link}_";
+                }
+                if($v['content_id'])
+                {
+                    $tmp_url_link .= "{$v['content_id']}";
+                }
+
+                $res[$k]['url_link'] = $proctrols;
             }
-            unset($tmp, $res[$k]['content_id'], $res[$k]['column']);
+//            unset($tmp, $res[$k]['content_id'], $res[$k]['column']);
 
         }
         return response()->success($res);

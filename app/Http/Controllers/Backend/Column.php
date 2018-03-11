@@ -177,6 +177,14 @@ class Column extends Controller{
             default:
                 $post_infos = [];
         }
-        return $post_infos;
+
+        if($column_info['column'] == 'EveryDayAnalysis' && $column_info['column'] == 'News' )
+        {
+            foreach ($post_infos as  $k => $info){
+                    $post_infos[$k]['content'] = $info['content'] ? current(unserialize($info['content'])) : '每日分析'.$info['id'] ;
+            }
+        }
+
+            return $post_infos;
     }
 }
