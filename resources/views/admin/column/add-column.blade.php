@@ -321,7 +321,8 @@
 
             success: function(data){
                 console.log(data);
-                var str = '';
+                var str = "<option value="
+                    + '' +">"+ '------- ' +"</option>" ;
                 for (post in data){
                     str += "<option value="
                     + post +">"+ data[post]['content'] +"</option>";
