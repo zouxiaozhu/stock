@@ -32,7 +32,7 @@ class Column extends Controller{
         if (!$column_id) {
             $column_info = [];
         } else {
-            $column_info = ColumnModel::find($column_id)->toArray();
+            $column_info = ColumnModel::find($column_id)->get()->toArray();
         }
 
 
