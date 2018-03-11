@@ -160,6 +160,7 @@ class Column extends Controller{
         switch ($column_info['column']){
             case "EveryDayAnalysis":
                 $post_infos = AnalyModel::where('id','>','0')->where('lang', 1)->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
+
                 break;
             case "FinancialLog":
                 $post_infos = EventModel::where('event_id','>','0')->orderBy('event_id','desc')->take(20)->skip(0)->select('event_id as id','title as content')->get()->toArray();
