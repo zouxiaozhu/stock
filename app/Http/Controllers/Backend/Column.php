@@ -159,7 +159,7 @@ class Column extends Controller{
         $column_info['column'] = $column;
         switch ($column_info['column']){
             case "EveryDayAnalysis":
-                $post_infos = AnalyModel::where('id','>','0')->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
+                $post_infos = AnalyModel::where('id','>','0')->where('lang', 1)->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
 
                 break;
             case "FinancialLog":
@@ -170,6 +170,9 @@ class Column extends Controller{
             case "News":
             case "NewsDetail":
                 $post_infos = NewsModel::where('news_id','>','0')->orderBy('news_id','desc')->take(20)->skip(0)->select('news_id as id','title as content')->get()->toArray();
+                foreach ($post_infos as $k => &$v) {
+                    $v['title'] = unserialize($v['title']);
+                }
                 break;
             case "WhoIsGSDetail":
                 $post_infos = AceModel::where('id','>','0')->orderBy('id','desc')->take(20)->skip(0)->select('id','comment as content')->get()->toArray();

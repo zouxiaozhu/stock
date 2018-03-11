@@ -17,7 +17,7 @@ class Hook extends Controller{
     public function __construct(Request $request)
     {
         $this->token =  Config::get('hook.hook_token');
-        $token = $request->get('token','');
+        $token =$request->get('token','');
         if(!$token) {echo 'pull failed';die;}
     }
 
@@ -32,7 +32,7 @@ class Hook extends Controller{
 
     public function test()
     {
-        echo 222;
+        echo 1111;
         var_export(date('Y-m-d H:i:s'));
         var_export(1111);
     }
