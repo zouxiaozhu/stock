@@ -785,16 +785,18 @@ class SyncData extends Controller
                 $tmp_url_link = $proctrols;
 
                 if($v['column']){
-                    $tmp_url_link .= "_{$tmp_url_link}_";
+                    $tmp_url_link = $proctrols. "_{$tmp_url_link}_";
+
                 }
                 if($v['content_id'])
                 {
                     $tmp_url_link .= "{$v['content_id']}";
                 }
 
-                $res[$k]['url_link'] = $proctrols;
+                $res[$k]['url_link'] = $tmp_url_link;
+
             }
-//            unset($tmp, $res[$k]['content_id'], $res[$k]['column']);
+            unset($tmp, $res[$k]['content_id'], $res[$k]['column']);
 
         }
         return response()->success($res);
