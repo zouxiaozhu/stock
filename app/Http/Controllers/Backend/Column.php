@@ -32,8 +32,7 @@ class Column extends Controller{
         if (!$column_id) {
             $column_info = [];
         } else {
-            $column_info = ColumnModel::find($column_id) ?
-                ColumnModel::find($column_id)->toArray() : [];
+            $column_info = ColumnModel::find($column_id)->toArray();
         }
 
 
@@ -157,17 +156,14 @@ class Column extends Controller{
     public function get_posts( $column = '')
     {
         if(!$column ) return [];
-
         $column_info['column'] = $column;
         switch ($column_info['column']){
             case "EveryDayAnalysis":
-
                 $post_infos = AnalyModel::where('id','>','0')->where('lang', 1)->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
 
                 break;
             case "FinancialLog":
                 $post_infos = EventModel::where('event_id','>','0')->orderBy('event_id','desc')->take(20)->skip(0)->select('event_id as id','title as content')->get()->toArray();
-
                 break;
             case "Announcement":
             case "News":
@@ -181,7 +177,7 @@ class Column extends Controller{
                 $post_infos = [];
         }
 
-        if($column_info['column'] == 'EveryDayAnalysis' || $column_info['column'] == 'News' )
+        if($column_info['column'] == 'EveryDayAnalysis' && $column_info['column'] == 'News' )
         {
             foreach ($post_infos as  $k => $info){
                 if($content = unserialize($info['content'])){
@@ -189,11 +185,13 @@ class Column extends Controller{
                         $content = $content[0];
                     }
 
-                }else{
-                    $content = $info['id'];
                 }
-                    $post_infos[$k]['content'] = $content;
+                    $post_infos[$k]['content'] = () ?
+                        : '每日分析'.$info['id'] ;
+
             }
+
+
         }
 
             return $post_infos;
