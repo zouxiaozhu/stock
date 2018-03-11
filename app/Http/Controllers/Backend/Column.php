@@ -157,9 +157,11 @@ class Column extends Controller{
     public function get_posts( $column = '')
     {
         if(!$column ) return [];
+
         $column_info['column'] = $column;
         switch ($column_info['column']){
             case "EveryDayAnalysis":
+
                 $post_infos = AnalyModel::where('id','>','0')->where('lang', 1)->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
 
                 break;
@@ -182,7 +184,7 @@ class Column extends Controller{
                 $post_infos = [];
         }
 
-        if($column_info['column'] == 'EveryDayAnalysis' && $column_info['column'] == 'News' )
+        if($column_info['column'] == 'EveryDayAnalysis' || $column_info['column'] == 'News' )
         {
             foreach ($post_infos as  $k => $info){
                 if($content = unserialize($info['content'])){
