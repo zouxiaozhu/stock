@@ -309,7 +309,7 @@ class SyncData implements SyncDataInterface
     public function analyList($data)
     {
         $res = DB::table('analy')
-            ->select('id', 'title', 'date')
+            ->select('id', 'title', 'date', 'lang')
             ->where('type', $data['type'])
             ->where('lang', $data['lang'])
             ->orderBy('date', 'desc')
