@@ -46,7 +46,7 @@ class Column extends Controller{
              "NewsDetail"=>" 新闻详情", //news
       ];
 
-        $column_info['column'] = isset($column_info['column']) ? : "";
+        $column_info['column'] = isset($column_info['column'])  ?  $column_info['column']  : "";
 
         $post_infos = $this->get_posts($column_info['column']) ? : [];
 

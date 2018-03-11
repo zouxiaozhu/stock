@@ -217,6 +217,8 @@
                                 <label>板块</label>
                                 <select name="column" id="column">
                                     @foreach($all_column as $k_c=>$c)
+
+
                                     <option value="{{$k_c}}"
                                         @if(isset($column_info['column']) and $column_info['column'] == $k_c)
                                             selected
@@ -230,10 +232,12 @@
                             <div class="form-group">
                                 <label>内容</label>
                                 <select name="content" id="content" >
-                                    <option value=""> -------  </option>
+
+
+
+
                                         @foreach($post_infos  as $p=>$post)
                                         <option value="{{$post['id']}}"
-
                                                 @if(                                            $post['id'] ==$column_info['content_id'])
                                                 selected
                                                 @endif
