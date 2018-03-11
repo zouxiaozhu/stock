@@ -160,7 +160,6 @@ class Column extends Controller{
         switch ($column_info['column']){
             case "EveryDayAnalysis":
                 $post_infos = AnalyModel::where('id','>','0')->where('lang', 1)->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
-
                 break;
             case "FinancialLog":
                 $post_infos = EventModel::where('event_id','>','0')->orderBy('event_id','desc')->take(20)->skip(0)->select('event_id as id','title as content')->get()->toArray();
@@ -180,7 +179,7 @@ class Column extends Controller{
                 $post_infos = [];
         }
 
-        if($column_info['column'] == 'EveryDayAnalysis' && $column_info['column'] == 'News' )
+        if($column_info['column'] == 'EveryDayAnalysis' || $column_info['column'] == 'News' )
         {
             foreach ($post_infos as  $k => $info){
                 if($content = unserialize($info['content'])){
@@ -189,7 +188,7 @@ class Column extends Controller{
                     }
 
                 }
-                    $post_infos[$k]['content'] = () ?
+                    $post_infos[$k]['content'] = ($content) ?
                         : '每日分析'.$info['id'] ;
 
             }
