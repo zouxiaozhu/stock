@@ -184,7 +184,15 @@ class Column extends Controller{
         if($column_info['column'] == 'EveryDayAnalysis' && $column_info['column'] == 'News' )
         {
             foreach ($post_infos as  $k => $info){
-                    $post_infos[$k]['content'] = $info['content'] ? (unserialize($info['content'][0] )) : '每日分析'.$info['id'] ;
+                if($content = unserialize($info['content'])){
+                    if(is_array($content)) {
+                        $content = $content[0];
+                    }
+
+                }else{
+                    $content = $info['id'];
+                }
+                    $post_infos[$k]['content'] = $content;
             }
         }
 
