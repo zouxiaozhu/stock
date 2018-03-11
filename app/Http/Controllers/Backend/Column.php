@@ -159,7 +159,7 @@ class Column extends Controller{
         $column_info['column'] = $column;
         switch ($column_info['column']){
             case "EveryDayAnalysis":
-                $post_infos = AnalyModel::where('id','>','0')->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
+                $post_infos = AnalyModel::where('id','>','0')->where('lang', 1)->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
 
                 break;
             case "FinancialLog":
