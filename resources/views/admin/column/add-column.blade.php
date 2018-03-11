@@ -232,7 +232,7 @@
                                 <select name="content" id="content" >
                                     <option value=""> -------  </option>
                                         @foreach($post_infos  as $p=>$post)
-
+                                        <option value="{{$post['id']}}"
 
                                                 @if(                                            $post['id'] ==$column_info['content_id'])
                                                 selected
