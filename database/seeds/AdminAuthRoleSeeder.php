@@ -227,13 +227,13 @@ class AdminAuthRoleSeeder extends Seeder
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
-            [
-                'id'         => 12,
-                'prm'        => 'file',
-                'name'       => '文件',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
+//            [
+//                'id'         => 12,
+//                'prm'        => 'file',
+//                'name'       => '文件',
+//                'created_at' => date("Y-m-d H:i:s"),
+//                'updated_at' => date('Y-m-d H:i:s'),
+//            ],
         ];
         if (!\App\Http\Models\Backend\Auths::count()) {
             DB::table('auths')->truncate();
