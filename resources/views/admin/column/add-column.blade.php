@@ -231,12 +231,9 @@
                                 <label>内容</label>
                                 <select name="content" id="content" >
 
-
-
-
-
                                         @foreach($post_infos  as $p=>$post)
-                                        <option value="{{$post['id']}}"
+                                        <option value="">'------- ' </option>
+                                    
                                                 @if(                                            $post['id'] ==$column_info['content_id'])
                                                 selected
                                                 @endif
