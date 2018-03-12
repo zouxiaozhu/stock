@@ -187,6 +187,7 @@
                                     <th>qq</th>
                                     <th>留言</th>
                                     <th>用户名</th>
+                                    <th>文件地址</th>
                                     {{--<th>删除</th>--}}
                                 </tr>
 <?php $current = [1=>'港币',2=>'美元'];
@@ -213,12 +214,14 @@
                                         </td>
                                         <td><span class="label label-success">{{$current[$register['currency_type']]}}</span>
                                         </td>
+
                                         <td><span >{{$register['name_cn']}}</span></td>
                                         <td><span class="">{{$register['phone']}}</span></td>
                                         <td><span class="label label-info">{{$register['email']}}</span></td>
                                         <td><span class="label label-warning">{{$register['qq']}}</span></td>
                                         <td><span class=" ">{{$register['message']}}</span></td>
                                         <td><span class="label label-warning">{{$register['user_name']}}</span></td>
+                                        <td><span class="label label-warning"><a href="{{$register['file_url']}}">{{$register['file_url']}}</a></span></td>
                                         {{--<td><a class='del-member' member_id="{{$member['id']}}" href="#">删除</a></td>--}}
                                     </tr>
                                 @endforeach
