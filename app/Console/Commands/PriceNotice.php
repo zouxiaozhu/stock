@@ -112,7 +112,7 @@ class PriceNotice extends Command
             $data['HLG'][5] = $data_arr[43];
             $data['HLG'][6] = 16;
             //TT type=17
-            $data['TT'] = array_slice($data_arr, 86, 5);
+            $data['TT'] = array_slice($data_arr, 87, 5);
             $data['TT'][5] = $data_arr[43];
             $data['TT'][6] = 17;
 //        var_export($data);die;
