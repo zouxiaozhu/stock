@@ -785,7 +785,7 @@ class SyncData extends Controller
                 $tmp_url_link = $proctrols;
 
                 if($v['column']){
-                    $tmp_url_link = $proctrols. "_{$tmp_url_link}_";
+                    $tmp_url_link = $proctrols. "_{$v['column']}_";
 
                 }
                 if($v['content_id'])
