@@ -524,9 +524,10 @@ class SyncData implements SyncDataInterface
         }
         $res = $res->get();
         $res = json_decode(json_encode($res), true);
+//        var_export($res);die;
         if ($data['show_type'] == 1) {
             foreach ($res as $k => $v) {
-                if ($v['now'] != 'TT') {
+                if ($v['id'] != 17) {
                     $now = explode('/', $v['now']);
                     $res[$k]['sale'] = $now[0];
                     $res[$k]['buy']  = substr($now[0], 0,-2).$now[1];
@@ -541,7 +542,7 @@ class SyncData implements SyncDataInterface
             }
         } else {
             foreach ($res as $k => $v) {
-                if ($v['now'] != 'TT') {
+                if ($v['now'] != 17) {
                     $res[$k]['time'] = date('Y-m-d H:i:s', $res[$k]['time'] / 1000);
                 } else {
                     $res[$k]['tmp_name'] = 'TT';
