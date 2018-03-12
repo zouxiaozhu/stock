@@ -81,7 +81,7 @@ class SyncData implements SyncDataInterface
         $gjs = ['貴金屬', '黄金', '白銀'];
         $waihui = ['瑞郎', '歐元', '英鎊', '加元', '紐元', '澳元', '日圓', '美元'];
         $gupiao = ['中國', '中國股市', '港股','美股'];
-        $qihuo = ['能源/石油期貨', '農產品期貨', ];
+        $qihuo = ['能源/石油期貨', '農產品期貨', '金屬期貨'];
         $lutoushe = array_merge($gjs, $waihui, $gupiao, $qihuo);
         switch ($category) {
             case 1:
@@ -98,6 +98,7 @@ class SyncData implements SyncDataInterface
                 break;
             case 5:
                 $data = $data->whereIn('category', $qihuo);
+                break;
             default :
                 $data = $data->whereNotIn('category', $lutoushe);
                 break;
@@ -539,6 +540,9 @@ class SyncData implements SyncDataInterface
                     $res[$k]['buy_sign']  = $res[$k]['buy']  >= $today_buy  ? 'up' : 'down';
                     $res[$k]['time'] = date('Y-m-d H:i:s', $res[$k]['time'] / 1000);
                 } else {
+                    $res[$k]['sale'] = $res[$k]['buy'] = $v['now'];
+                    $res[$k]['sale_sign'] = $res[$k]['sale'] >= $v['today'] ? 'up' : 'down';
+                    $res[$k]['buy_sign']  = $res[$k]['buy']  >= $v['today']  ? 'up' : 'down';
                     $res[$k]['tmp_name'] = 'TT';
                 }
             }
