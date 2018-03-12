@@ -221,6 +221,8 @@
                                         <td><span class="label label-warning">{{$register['qq']}}</span></td>
                                         <td><span class=" ">{{$register['message']}}</span></td>
                                         <td><span class="label label-warning">{{$register['user_name']}}</span></td>
+
+                                        <?php $register['file_url'] = str_replace('ttp:', 'ttp://', $register['file_url'])?>
                                         <td><span class="label label-warning"><a href="{{$register['file_url']}}">{{$register['file_url']}}</a></span></td>
                                         {{--<td><a class='del-member' member_id="{{$member['id']}}" href="#">删除</a></td>--}}
                                     </tr>
