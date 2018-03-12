@@ -76,7 +76,7 @@ class SyncData implements SyncDataInterface
         $data = DB::table('news')
             ->select('news_id', 'title', 'publish_date_time', 'category', 'image_link')
             ->where('type', 1);
-        //分类 $category 1:贵金属,2:外汇3:股票4:期货5:路透社
+        //分类 $category 1:路透社,2:贵金属3:外汇4:股票5:期货
         //贵金属
         $gjs = ['貴金屬', '黄金', '白銀'];
         $waihui = ['瑞郎', '歐元', '英鎊', '加元', '紐元', '澳元', '日圓', '美元'];
@@ -85,17 +85,19 @@ class SyncData implements SyncDataInterface
         $lutoushe = array_merge($gjs, $waihui, $gupiao, $qihuo);
         switch ($category) {
             case 1:
-                $data = $data->whereIn('category', $gjs);
+                $data = $data->whereNotIn('category', $lutoushe);
                 break;
             case 2:
-                $data = $data->whereIn('category', $waihui);
+                $data = $data->whereIn('category', $gjs);
                 break;
             case 3 :
-                $data = $data->whereIn('category', $gupiao);
+                $data = $data->whereIn('category', $waihui);
                 break;
             case 4:
-                $data = $data->whereIn('category', $qihuo);
+                $data = $data->whereIn('category', $gupiao);
                 break;
+            case 5:
+                $data = $data->whereIn('category', $qihuo);
             default :
                 $data = $data->whereNotIn('category', $lutoushe);
                 break;
