@@ -458,7 +458,7 @@ class SyncData extends Controller
     public function aceList(Request $request)
     {
         $data['per_num'] = $request->has('per_num') ? intval($request->get('per_num')) : 10;
-        if ($request->has('is_my') && intval($request->get('is_my') == 1) && $request->has('access_token')) {
+        if ($request->has('is_my') && intval($request->get('is_my') == 1) && $request->has('access_token'))     {
             $data['is_my'] = 1;
             $member_info  = $this->decode_access_token($request->get('access_token'));
             $data['member_id'] = $member_info['id'];
