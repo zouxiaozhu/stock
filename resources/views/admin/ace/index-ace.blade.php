@@ -185,6 +185,7 @@
                                     <th>结束价格</th>
                                     <th>止损</th>
                                     <th>创建人</th>
+                                    <th>目标</th>
                                     <th>创建时间</th>
                                     <th>评论</th>
                                     <th>状态</th>
@@ -222,6 +223,7 @@
                                         <td>{{$ace['to_price']}}</td>
                                         <td>{{$ace['stop_loss']}}</td>
                                         <td>{{($ace['create_user_name'])}}</td>
+                                        <td>{{($ace['target'])}}</td>
                                         <td>{{date('Y-m-d H:i:s', $ace['create_time'])}}</td>
                                         <td>
                                                 {{mb_substr($ace['comment'],0,20)}}...
