@@ -268,7 +268,8 @@ class SyncData extends Controller
             }
         }
         $result = $this->syncData->accountRegist($data);
-        $this->sendMailAce(env('PUSH_ADMIN_EAMIL','shengyulong@gmail.com'),'开户登记','有用户提交了开户登记,请前往后台查看');
+        $this->sendMailAce(env('PUSH_ADMIN_EAMIL_1','shengyulong@gmail.com'),'开户登记','有用户提交了开户登记,附件地址' . $file_url);
+        $this->sendMailAce(env('PUSH_ADMIN_EAMIL_2','shengyulong@gmail.com'),'开户登记','有用户提交了开户登记,附件地址' . $file_url);
         return $result;
     }
 
@@ -429,7 +430,7 @@ class SyncData extends Controller
         $res = DB::table('apply_ace')->insert($data);
         if ($res) {
             MembersModel::where('id',$member_info['id'])->update(['is_post'=>1]);
-            $this->sendMailAce(env('PUSH_ADMIN_EAMIL','shengyulong@gmail.com'),'','用户'.$nick_name.'申请发帖');
+            $this->sendMailAce(env('PUSH_ADMIN_EAMIL_1','shengyulong@gmail.com'),'','用户'.$nick_name.'申请发帖');
             return response()->success('提交申请成功');
         } else {
             return response()->false(9638, '提交申请失败');
@@ -728,7 +729,8 @@ class SyncData extends Controller
             'user_name'  => $user_info['name'],
         ];
         $res = $this->syncData->analogCreate($data);
-        $this->sendMailAce(env('PUSH_ADMIN_EAMIL','shengyulong@gmail.com'),'模拟账户','有用户提交了模拟账户,请前往后台查看');
+        $this->sendMailAce(env('PUSH_ADMIN_EAMIL_1','shengyulong@gmail.com'),'模拟账户','有用户提交了模拟账户表单,请前往后台查看');
+        $this->sendMailAce(env('PUSH_ADMIN_EAMIL_2','shengyulong@gmail.com'),'模拟账户','有用户提交了模拟账户表单,请前往后台查看');
         return $res;
     }
 
