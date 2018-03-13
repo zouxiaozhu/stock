@@ -430,7 +430,7 @@ class SyncData extends Controller
         $res = DB::table('apply_ace')->insert($data);
         if ($res) {
             MembersModel::where('id',$member_info['id'])->update(['is_post'=>1]);
-            $this->sendMailAce(env('PUSH_ADMIN_EAMIL_1','shengyulong@gmail.com'),'','用户'.$nick_name.'申请发帖');
+            $this->sendMailAce(env('PUSH_ADMIN_EMAIL_AUDITOR','shengyulong@gmail.com'),'','用户'.$nick_name.'申请发帖');
             return response()->success('提交申请成功');
         } else {
             return response()->false(9638, '提交申请失败');
