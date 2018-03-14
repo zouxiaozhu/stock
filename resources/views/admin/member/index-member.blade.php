@@ -176,28 +176,31 @@
               <form method="get" action="index-member">
                                     <input type="text" name="name" class="
                                      input-sm pull-left" style="width: 150px;" placeholder=" 名称模糊搜索"/>
-                  <?php $request = request()->all();?>
+                                        <?php $request = request()->all();
+                                        ?>
                                       <select  class="pull-left input-sm" name="source">
-                                          <option value="0" @if(!$request['source']) selected @endif>---请选择来源---</option>
-                                          <option value="1" @if($request['source']==1)selected @endif >wechat</option>
-                                          <option value="2" @if($request['source'] ==2 )selected @endif>facebook</option>
+                                          <option value="0" @if(
+                                          !isset($request['source']) || !$request['source'])
+                                          selected
+                                                  @endif>---请选择来源---</option>
+                                          <option value="1" @if(isset($request['source']) && $request['source']==1 )selected @endif >wechat</option>
+                                          <option value="2" @if(isset($request['source']) && $request['source'] ==2 )selected @endif>facebook</option>
                                       </select>
 
                                         <select  class="pull-left input-sm" name="is_post">
 
                                             <option value="-1"
-                                                    @if($request['is_post']==-1 || is_null($request['is_post']))
+                                            @if(!isset($request['is_post']) || $request['is_post']==-1)
                                                     selected
                                                     @endif
                                             >---请选择发帖状态---</option>
                                           <option value="0"
-                                          @if($request['is_post']==0)selected@endif
-                                          >禁发帖</option>
+                                          @if(isset($request['is_post']) && $request['is_post']==0)selected @endif >禁发帖</option>
                                           <option value="1"
-                                                  @if($request['is_post']==1)selected@endif
+                                                  @if(isset($request['is_post'])&& $request['is_post']==1) selected @endif
                                           >申请中</option>
-                                          <option value="2" @if($request['is_post']==1)selected@endif
-                                          >可发帖</option>
+                                          {{--<option value="2" @if($request['is_post']==1)selected@endif--}}
+                                          {{-->可发帖</option>--}}
                                       </select>
 
                                     <div class="input-group-btn">
