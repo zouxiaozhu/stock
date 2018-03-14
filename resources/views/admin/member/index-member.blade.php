@@ -199,8 +199,11 @@
                                           <option value="1"
                                                   @if(isset($request['is_post'])&& $request['is_post']==1) selected @endif
                                           >申请中</option>
-                                          {{--<option value="2" @if($request['is_post']==1)selected@endif--}}
-                                          {{-->可发帖</option>--}}
+                                          <option value="2"
+                                                  @if(isset($request['is_post']) && $request['is_post']==1)
+                                                  selected
+                                                  @endif
+                                          >可发帖</option>
                                       </select>
 
                                     <div class="input-group-btn">
@@ -306,12 +309,14 @@
 
 
     $('.del-member').click(function(){
-        var member_id = $(this).attr('member-id');
-        layer.confirm('你确定要删除栏目吗？', {
+        var member_id = $('.del-member').attr('member_id');
+
+        layer.confirm('你确定要删除会员吗？', {
             btn: ['取消删除','确定'] //按钮
         }, function(){
             layer.msg('取消删除', {icon: 1});
         }, function(){
+            alert(member_id)
             window.location.href="{{env('APP_URL')}}"+'/admin/del-member?member_id='+member_id;
         });
     });
