@@ -269,8 +269,8 @@ class SyncData extends Controller
         }
         $result = $this->syncData->accountRegist($data);
         $to_mail = [
-            env('PUSH_ADMIN_EAMIL_1','shengyulong@gmail.com'),
-            env('PUSH_ADMIN_EAMIL_2','shengyulong@gmail.com'),
+            env('PUSH_ADMIN_EAMIL_1','qf@ntjoy.com'),
+            env('PUSH_ADMIN_EAMIL_2','434445090@qq.com'),
         ];
         $this->eMail($to_mail, '开户登记', "有用户提交了开户登记  <a href = '{$file_url}'>点击下载附件</a>");
         return $result;
@@ -435,7 +435,7 @@ class SyncData extends Controller
             MembersModel::where('id',$member_info['id'])->update(['is_post'=>1]);
 //            $this->sendMailAce(env('PUSH_ADMIN_EMAIL_AUDITOR','shengyulong@gmail.com'),'','用户'.$nick_name.'申请发帖');
             $to_mail = [
-                env('PUSH_ADMIN_EMAIL_AUDITOR','shengyulong@gmail.com'),
+                env('PUSH_ADMIN_EMAIL_AUDITOR','qf@ntjoy.com'),
             ];
             $this->eMail($to_mail, '谁是高手发帖申请', '有用户申请发表 谁是高手 ');
             return response()->success('提交申请成功');
@@ -740,8 +740,8 @@ class SyncData extends Controller
 //        $this->sendMailAce(env('PUSH_ADMIN_EAMIL_2','shengyulong@gmail.com'),'模拟账户','有用户提交了模拟账户表单,请前往后台查看');
 
         $to_mail = [
-            env('PUSH_ADMIN_EAMIL_1','shengyulong@gmail.com'),
-            env('PUSH_ADMIN_EAMIL_2','shengyulong@gmail.com'),
+            env('PUSH_ADMIN_EAMIL_1','qf@ntjoy.com'),
+            env('PUSH_ADMIN_EAMIL_2','434445090@qq.com'),
         ];
         $this->eMail($to_mail, '模拟账户', '有用户提交模拟账户表单请前往后台查看');
         return $res;
