@@ -636,7 +636,7 @@ class SyncData implements SyncDataInterface
     {
         //1.查询用户的到价提示
         $member_set = DB::table('set_price_notice')
-            ->select('cvm', 'product')
+            ->select('cvm', 'product', 'forewarn')
             ->where('create_user_id', $member_id)
             ->get();
         if (empty($member_set)) {
@@ -658,13 +658,18 @@ class SyncData implements SyncDataInterface
 //            $screen_price[$k]['price'] = $price[0];
             $tmp[$v['type']] = $price[0];
         }
-
+//var_export($tmp);die;
         $notice_array = [];  //通知的数据
         $del_array = [];   //通知后删除到价提示设置
         foreach ($member_set as $k => $v) {
 //            echo $v['product'];die;
 //            var_export($tmp[$v['product']]);die;
-            if ((float)$v['cvm'] <= (float)$tmp[$v['product']] && $tmp[$v['product']] != '--') {
+            if ($v['forewarn'] == 2 && (float)$v['cvm'] >= (float)$tmp[$v['product']] && $tmp[$v['product']] != '--') {
+                $product_name = $this->_getProductName($v['product']);
+                $notice_array[] = $product_name . '已达到您设置的监控值 '. $v['cvm'] . ' 请及时查看';
+                $del_array[] = $v['product'];
+            }
+            if ($v['forewarn'] == 1 && (float)$v['cvm'] <= (float)$tmp[$v['product']] && $tmp[$v['product']] != '--') {
                 $product_name = $this->_getProductName($v['product']);
                 $notice_array[] = $product_name . '已达到您设置的监控值 '. $v['cvm'] . ' 请及时查看';
                 $del_array[] = $v['product'];
