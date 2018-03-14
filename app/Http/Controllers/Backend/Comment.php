@@ -147,7 +147,7 @@ class Comment extends Controller
 
     public function register(Request $request)
     {
-        $register_db = RegisterModel::where('id','>',0);
+        $register_db = RegisterModel::where('id','>',0)->orderBy('id', 'desc');
         $prms = json_decode(session()->get('prms_info'), true);
         $role = json_decode(session()->get('roles_info'), true);
 
