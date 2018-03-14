@@ -316,7 +316,7 @@
         }, function(){
             layer.msg('取消删除', {icon: 1});
         }, function(){
-            alert(member_id)
+            console.log(member_id)
             window.location.href="{{env('APP_URL')}}"+'/admin/del-member?member_id='+member_id;
         });
     });
