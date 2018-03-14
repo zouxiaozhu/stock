@@ -272,7 +272,7 @@ class SyncData extends Controller
             env('PUSH_ADMIN_EAMIL_1','shengyulong@gmail.com'),
             env('PUSH_ADMIN_EAMIL_2','shengyulong@gmail.com'),
         ];
-        $this->eMail($to_mail, '开户登记', '有用户提交了开户登记', $file_url);
+        $this->eMail($to_mail, '开户登记', "有用户提交了开户登记  <a href = '{$file_url}'>点击下载附件</a>");
         return $result;
     }
 
