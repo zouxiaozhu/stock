@@ -147,7 +147,7 @@ class Comment extends Controller
 
     public function register(Request $request)
     {
-        $register_db = RegisterModel::where('id','>',0);
+        $register_db = RegisterModel::where('id','>',0)->orderBy('id', 'desc');
         $prms = json_decode(session()->get('prms_info'), true);
         $role = json_decode(session()->get('roles_info'), true);
 
@@ -166,7 +166,7 @@ class Comment extends Controller
 
     public function file(Request $request)
     {
-        $file_db = FileModel::where('id','>',0);
+        $file_db = FileModel::where('id','>',0)->orderBy('id', 'desc');
         $prms = json_decode(session()->get('prms_info'), true);
         $role = json_decode(session()->get('roles_info'), true);
 
@@ -181,7 +181,7 @@ class Comment extends Controller
 
     public function analog(Request $request)
     {
-        $analog_db = AnalogModel::where('id','>',0);
+        $analog_db = AnalogModel::where('id','>',0)->orderBy('id', 'desc');
         $prms = json_decode(session()->get('prms_info'), true);
         $role = json_decode(session()->get('roles_info'), true);
 
