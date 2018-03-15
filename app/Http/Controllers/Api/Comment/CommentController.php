@@ -27,11 +27,11 @@ class CommentController extends Controller{
         $this->access_token = trim($request->get('access_token'));
         $member_info= $this->decode_access_token($this->access_token);
 
-        if(!$member_info){
-          echo json_encode(['error_code'=>4004,'data'=>'登录过期，重新登录']);die;
-        }
+//        if(!$member_info){
+//          echo json_encode(['error_code'=>4004,'data'=>'登录过期，重新登录']);die;
+//        }
 
-        $this->member_info = $member_info;
+        $this->member_info = $member_info ? : [];
     }
 
     public function addComment(Request $request){

@@ -278,7 +278,7 @@ class AdminAuthRoleSeeder extends Seeder
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
                 [
-                    'id'         => 5,
+                    'id'         => 19,
                     'role_id'    => 1,
                     'auth_id'    => 6,
                     'created_at' => date("Y-m-d H:i:s"),
