@@ -157,12 +157,29 @@ class Column extends Controller{
         $column_info['column'] = $column;
         switch ($column_info['column']){
             case "EveryDayAnalysis":
-//                $post_infos = AnalyModel::where('id','>','0')->where('lang', 1)->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
-                $post_infos = [];
-                break;
+//              $post_infos = AnalyModel::where('id','>','0')->where('lang', 1)->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
+                $post_infos = [
+                    ['id'=>1, 'content'=>'倫敦黃金'],
+                    ['id'=>2, 'content'=>'倫敦白銀'],
+                    ['id'=>3, 'content'=>'歐元'],
+                    ['id'=>4, 'content'=>'日元'],
+                    ['id'=>5, 'content'=>'英鎊'],
+                    ['id'=>6, 'content'=>'瑞郎'],
+                    ['id'=>7, 'content'=>'澳元'],
+                    ['id'=>8, 'content'=>'紐元'],
+                    ['id'=>9, 'content'=>'加元'],
+                    ['id'=>10, 'content'=>'港股分析'],
+                    ['id'=>11, 'content'=>'昨日市場總結'],
+                    ['id'=>12, 'content'=>'市場焦距']
+                ];
+            break;
+
             case "FinancialLog":
-//                $post_infos = EventModel::where('event_id','>','0')->orderBy('event_id','desc')->take(20)->skip(0)->select('event_id as id','title as content')->get()->toArray();
-                $post_infos = [];
+//              $post_infos = EventModel::where('event_id','>','0')->orderBy('event_id','desc')->take(20)->skip(0)->select('event_id as id','title as content')->get()->toArray();
+              $post_infos = [
+                    ['id'=>1, 'content'=>'以公布'],
+                    ['id'=>0, 'content'=>'未公布']
+                ];
                 break;
             case "Announcement":
                 $post_infos = [];
