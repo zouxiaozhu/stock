@@ -196,8 +196,8 @@ class Column extends Controller{
             default:
                 $post_infos = [];
         }
-
-        if($column_info['column'] == 'EveryDayAnalysis' || $column_info['column'] == 'News' )
+        if($column_info['column'] == 'News' )
+//        if($column_info['column'] == 'EveryDayAnalysis' || $column_info['column'] == 'News' )
         {
             foreach ($post_infos as  $k => $info){
                 if($content = unserialize($info['content'])){
