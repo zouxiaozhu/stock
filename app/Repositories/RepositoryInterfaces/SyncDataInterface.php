@@ -63,6 +63,12 @@ interface SyncDataInterface
     public function strongWeakGraph();
 
     /**
+     * app首页展示,汇海强弱指数图(安卓)
+     * @return mixed
+     */
+    public function strongWeakGraphEn();
+
+    /**
      * 贵金属价位参考
      * @return mixed
      */

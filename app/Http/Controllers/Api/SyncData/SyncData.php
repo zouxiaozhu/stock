@@ -116,6 +116,12 @@ class SyncData extends Controller
         return $result;
     }
 
+    public function strongWeakGraphEn()
+    {
+        $result = $this->syncData->strongWeakGraphEn();
+        return $result;
+    }
+
 
     /**
      * 贵金属价位参考(阻力支持)

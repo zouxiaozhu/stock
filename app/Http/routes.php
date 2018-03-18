@@ -29,6 +29,7 @@ Route::group(['namespace' => 'Api\SyncData'], function(){
         Route::get('notice_list', 'SyncData@noticeList');                           //公告列表
         Route::get('notice_detail/{id}', 'SyncData@noticeDetail');                  //公告详情
         Route::get('strong_weak_graph', 'SyncData@strongWeakGraph');                //app首页展示,汇海强弱指数图
+        Route::get('strong_weak_graph_en', 'SyncData@strongWeakGraphEn');                //app首页展示,汇海强弱指数图
         Route::get('ref_bullion', 'SyncData@refBullion');                           //贵金属价位参考表(阻力支持)
         Route::get('ref_forex', 'SyncData@refForex');                               //外汇价位参考表(阻力支持)
         Route::get('econ_list', 'SyncData@econList');                               //经济数据列表
