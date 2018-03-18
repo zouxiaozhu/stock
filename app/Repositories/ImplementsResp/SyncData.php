@@ -220,6 +220,15 @@ class SyncData implements SyncDataInterface
             '澳元'     =>  (string)$data->aud,
             '纽元'     =>  (string)$data->nzd,
             '加元'     =>  (string)$data->cad,
+            'xau'     =>  (string)$data->xau,
+            'xag'     =>  (string)$data->xag,
+            'eur'     =>  (string)$data->eur,
+            'jpy'     =>  (string)$data->jpy,
+            'gbp'     =>  (string)$data->gbp,
+            'chf'     =>  (string)$data->chf,
+            'aud'     =>  (string)$data->aud,
+            'nzd'     =>  (string)$data->nzd,
+            'cad'     =>  (string)$data->cad,
         ];
         return response()->success($new_data);
     }
