@@ -49,8 +49,6 @@ class Column extends Controller{
         $column_info['column'] = isset($column_info['column'])  ?  $column_info['column']  : "";
 
         $post_infos = $this->get_posts($column_info['column']) ? : [];
-
-
         return view('admin.column.add-column',
             ['column_info'=>$column_info, 'all_column'=>$all_column
              ,'post_infos'=>$post_infos
@@ -159,13 +157,19 @@ class Column extends Controller{
         $column_info['column'] = $column;
         switch ($column_info['column']){
             case "EveryDayAnalysis":
-                $post_infos = AnalyModel::where('id','>','0')->where('lang', 1)->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
+//                $post_infos = AnalyModel::where('id','>','0')->where('lang', 1)->orderBy('id','desc')->take(20)->skip(0)->select('id','title as content')->get()->toArray();
+                $post_infos = [];
                 break;
             case "FinancialLog":
-                $post_infos = EventModel::where('event_id','>','0')->orderBy('event_id','desc')->take(20)->skip(0)->select('event_id as id','title as content')->get()->toArray();
+//                $post_infos = EventModel::where('event_id','>','0')->orderBy('event_id','desc')->take(20)->skip(0)->select('event_id as id','title as content')->get()->toArray();
+                $post_infos = [];
                 break;
             case "Announcement":
+                $post_infos = [];
+                break;
             case "News":
+                $post_infos = [];
+                break;
             case "NewsDetail":
                 $post_infos = NewsModel::where('news_id','>','0')->where('type', 1)->orderBy('news_id','desc')->take(20)->skip(0)->select('news_id as id','title as content')->get()->toArray();
                 break;
