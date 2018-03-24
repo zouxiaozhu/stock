@@ -204,11 +204,11 @@
                                         <span class="label label-success">
 
                                             @if($ace['product_type'][0] == 'a')
-                                            {{$a[$ace['product_type'][1]]}}（外汇）
+                                                {{isset($a[$ace['product_type'][1]]) ? $ace['product_type'][1] : ''}}（外汇）
                                                 @elseif($ace['product_type'][0] == 'b')
-                                                {{$b[$ace['product_type'][1]]}}（期货）
+                                                {{isset($ace['product_type'][1]) ? $b[$ace['product_type'][1]] : ''}}（期货）
                                                 @elseif(($ace['product_type'][0] == 'c'))
-                                                {{$c[$ace['product_type'][1]]}}（股票）
+                                                {{isset($ace['product_type'][1])?$c[$ace['product_type'][1]]:''}}（股票）
                                                 @else
                                                 ''
                                             @endif
